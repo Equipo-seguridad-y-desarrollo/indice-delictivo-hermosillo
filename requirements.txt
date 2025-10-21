@@ -1,0 +1,5 @@
+mkdocs
+pip
+python-dotenv
+ruff
+-e .
