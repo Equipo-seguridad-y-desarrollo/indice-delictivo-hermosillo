@@ -488,15 +488,15 @@ MAPA_DE_INCIDENTES = {
     "VIOLENCIA FÍSICA CONTRA LAS MUJERES": "VIOLENCIA CONTRA LA MUJER",
     "ÁRBOL CAÍDO O POR CAER": "ARBOL CAÍDO O POR CAER"
 }
-
-CATEGORIAS_INCIDENTES
+```
+## CATEGORIAS_INCIDENTES
 Diccionario para agrupar los incidentes (ya estandarizados) en categorías de alto nivel.
 
-Clave: INCIDENTE_LIMPIO (El valor estandarizado del diccionario anterior).
+* **Clave:** INCIDENTE_LIMPIO (El valor estandarizado del diccionario anterior).
 
-Valor: CATEGORIA (El nombre de la categoría principal).
+* **Valor:** CATEGORIA (El nombre de la categoría principal).
 
-Python
+```python
 
 CATEGORIAS_INCIDENTES = {
     # VIOLENCIA - Agresiones, conflictos interpersonales, crimen violento
@@ -739,15 +739,15 @@ CATEGORIAS_INCIDENTES = {
     'LLAMADA DE PRUEBA': 'OTROS ACTOS LEGALES',
     'OTROS ACTOS RELACIONADOS CON OTROS BIENES JURÍDICOS': 'OTROS ACTOS LEGALES'
 }
-
+```
 NIVEL_SEVERIDAD
 Diccionario para asignar un nivel de severidad (ALTA, MEDIA, BAJA) a cada incidente estandarizado.
 
-Clave: INCIDENTE_LIMPIO (El valor estandarizado del primer diccionario).
+* **Clave:** INCIDENTE_LIMPIO (El valor estandarizado del primer diccionario).
 
-Valor: SEVERIDAD ('ALTA', 'MEDIA', 'BAJA').
+* **Valor:** SEVERIDAD ('ALTA', 'MEDIA', 'BAJA').
 
-Python
+```python
 
 NIVEL_SEVERIDAD = {
     "ABANDONO DE ANIMAL": "MEDIA",
@@ -954,3 +954,4 @@ NIVEL_SEVERIDAD = {
     "VIOLENCIA DE PAREJA": "ALTA",
     "VIOLENCIA FAMILIAR": "ALTA"
 }
+```
