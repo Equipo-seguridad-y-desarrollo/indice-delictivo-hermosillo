@@ -740,7 +740,7 @@ CATEGORIAS_INCIDENTES = {
     'OTROS ACTOS RELACIONADOS CON OTROS BIENES JURÍDICOS': 'OTROS ACTOS LEGALES'
 }
 ```
-NIVEL_SEVERIDAD
+## NIVEL_SEVERIDAD
 Diccionario para asignar un nivel de severidad (ALTA, MEDIA, BAJA) a cada incidente estandarizado.
 
 * **Clave:** INCIDENTE_LIMPIO (El valor estandarizado del primer diccionario).
