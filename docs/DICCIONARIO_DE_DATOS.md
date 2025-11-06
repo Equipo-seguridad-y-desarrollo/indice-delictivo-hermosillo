@@ -26,7 +26,7 @@ Registro de incidentes reportados al sistema de emergencias 911 en Hermosillo, S
 - **Encoding**: UTF-8
 - **Separador**: Coma (`,`)
 - **Total de registros**: 349,131
-- **Período temporal**: 2018-2024 (estimado)
+- **Período temporal**: 2018-2025 (estimado)
 
 ### Columnas
 
