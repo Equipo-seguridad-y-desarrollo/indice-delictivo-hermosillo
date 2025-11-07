@@ -60,7 +60,8 @@ def obtener_coordenadas_google(colonia, ciudad="Hermosillo", estado="Sonora", pa
 
 def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     """
-    Procesa el archivo de colonias únicas y obtiene coordenadas para cada una
+    Procesa el archivo de colonias únicas y obtiene coordenadas para cada una.
+    Si el archivo de salida existe, solo procesa colonias nuevas (modo incremental).
     
     Args:
         archivo_colonias: Ruta al CSV con colonias únicas
@@ -77,7 +78,30 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     df_colonias = pd.read_csv(archivo_colonias)
     
     total_colonias = len(df_colonias)
-    print(f"✓ Total de colonias a procesar: {total_colonias:,}")
+    print(f"✓ Total de colonias en archivo: {total_colonias:,}")
+    
+    # Verificar si existe archivo de salida con geocodificaciones previas
+    colonias_ya_geocodificadas = set()
+    df_previas = None
+    
+    if os.path.exists(archivo_salida):
+        print(f"\n[i] Archivo de salida ya existe: {archivo_salida}")
+        df_previas = pd.read_csv(archivo_salida)
+        colonias_ya_geocodificadas = set(df_previas['COLONIA'].unique())
+        print(f"[i] Colonias ya geocodificadas: {len(colonias_ya_geocodificadas):,}")
+        
+        # Filtrar solo colonias nuevas
+        df_colonias = df_colonias[~df_colonias['COLONIA'].isin(colonias_ya_geocodificadas)]
+        
+        if len(df_colonias) == 0:
+            print(f"\n[OK] Todas las colonias ya están geocodificadas. No hay nada que procesar.")
+            return df_previas, pd.DataFrame()  # Retornar DataFrame vacío como df_nuevas
+        
+        print(f"[i] Colonias nuevas a geocodificar: {len(df_colonias):,}")
+    else:
+        print(f"\n[i] No existe archivo previo. Geocodificando todas las colonias.")
+    
+    print(f"✓ Total de colonias a procesar ahora: {len(df_colonias):,}")
     
     if limite:
         df_colonias = df_colonias.head(limite)
@@ -156,10 +180,17 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     
     tiempo_total = time.time() - inicio
     
-    # Crear DataFrame con resultados
-    df_resultados = pd.DataFrame(resultados)
+    # Crear DataFrame con resultados nuevos
+    df_resultados_nuevos = pd.DataFrame(resultados)
     
-    # Guardar resultados
+    # Si había geocodificaciones previas, combinar con las nuevas
+    if df_previas is not None:
+        print(f"\n[i] Combinando {len(df_previas):,} geocodificaciones previas con {len(df_resultados_nuevos):,} nuevas")
+        df_resultados = pd.concat([df_previas, df_resultados_nuevos], ignore_index=True)
+    else:
+        df_resultados = df_resultados_nuevos
+    
+    # Guardar resultados combinados
     print(f"\n💾 Guardando resultados en: {archivo_salida}")
     df_resultados.to_csv(archivo_salida, index=False, encoding='utf-8-sig')
     
@@ -167,22 +198,25 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     print("\n" + "="*70)
     print("RESUMEN DE GEOCODIFICACIÓN")
     print("="*70)
-    print(f"Total procesadas:     {len(df_colonias):,}")
-    print(f"✓ Exitosas:           {exitosas:,} ({exitosas/len(df_colonias)*100:.1f}%)")
-    print(f"⚠️  No encontradas:    {no_encontradas:,} ({no_encontradas/len(df_colonias)*100:.1f}%)")
-    print(f"❌ Errores:           {errores:,}")
-    print(f"⏱️  Tiempo total:      {tiempo_total:.1f} segundos")
-    print(f"⚡ Promedio:          {tiempo_total/len(df_colonias):.2f} seg/colonia")
+    print(f"Colonias procesadas ahora: {len(df_colonias):,}")
+    print(f"✓ Exitosas:                {exitosas:,} ({exitosas/len(df_colonias)*100 if len(df_colonias) > 0 else 0:.1f}%)")
+    print(f"⚠️  No encontradas:         {no_encontradas:,} ({no_encontradas/len(df_colonias)*100 if len(df_colonias) > 0 else 0:.1f}%)")
+    print(f"❌ Errores:                {errores:,}")
+    if len(df_colonias) > 0:
+        print(f"⏱️  Tiempo total:           {tiempo_total:.1f} segundos")
+        print(f"⚡ Promedio:               {tiempo_total/len(df_colonias):.2f} seg/colonia")
+    print("-"*70)
+    print(f"Total en archivo final:    {len(df_resultados):,} colonias")
     print("="*70)
     
     # Mostrar colonias no encontradas si hay pocas
     if no_encontradas > 0 and no_encontradas <= 20:
-        print("\n🔍 Colonias no encontradas:")
-        colonias_no_encontradas = df_resultados[df_resultados['LATITUD'].isna()]['COLONIA'].tolist()
+        print("\n🔍 Colonias no encontradas en esta ejecución:")
+        colonias_no_encontradas = df_resultados_nuevos[df_resultados_nuevos['LATITUD'].isna()]['COLONIA'].tolist()
         for col in colonias_no_encontradas:
             print(f"  - {col}")
     
-    return df_resultados
+    return df_resultados, df_resultados_nuevos
 
 
 def main():
@@ -190,28 +224,34 @@ def main():
     archivo_colonias = '../data/processed/colonias_unicas_reportes_911.csv'
     archivo_salida = '../data/processed/colonias_reportes_911_con_coordenadas.csv'
     
-    # Procesar todas las colonias
-    print("\n🌍 GEOCODIFICACIÓN COMPLETA: Procesando todas las colonias")
-    print("   Tiempo estimado: ~8-10 minutos\n")
+    # Procesar colonias (modo incremental automático)
+    print("\n🌍 GEOCODIFICACIÓN INCREMENTAL")
+    print("   El script detectará automáticamente colonias ya geocodificadas")
+    print("   y solo procesará las nuevas para ahorrar costos de API\n")
     
-    df_resultados = procesar_colonias(
+    df_resultados, df_nuevas = procesar_colonias(
         archivo_colonias=archivo_colonias,
         archivo_salida=archivo_salida,
-        limite=None,  # None = procesar todas las colonias
+        limite=None,  # None = procesar todas las colonias nuevas
         delay=0.2     # 0.2 segundos entre peticiones (más seguro)
     )
     
-    # Mostrar ejemplos de resultados exitosos
-    print("\n📍 EJEMPLOS DE COORDENADAS OBTENIDAS:")
-    print("-"*70)
-    exitosos = df_resultados[df_resultados['LATITUD'].notna()].head(10)
-    for _, row in exitosos.iterrows():
-        print(f"\n{row['COLONIA']}")
-        print(f"  Lat: {row['LATITUD']:.6f}, Lng: {row['LONGITUD']:.6f}")
-        print(f"  {row['DIRECCION_FORMATEADA']}")
+    # Mostrar ejemplos de resultados exitosos (solo de nuevas geocodificaciones)
+    if len(df_nuevas) > 0:
+        exitosos_nuevos = df_nuevas[df_nuevas['LATITUD'].notna()].head(10)
+        
+        if len(exitosos_nuevos) > 0:
+            print("\n📍 EJEMPLOS DE COORDENADAS OBTENIDAS (nuevas):")
+            print("-"*70)
+            for _, row in exitosos_nuevos.iterrows():
+                print(f"\n{row['COLONIA']}")
+                print(f"  Lat: {row['LATITUD']:.6f}, Lng: {row['LONGITUD']:.6f}")
+                print(f"  {row['DIRECCION_FORMATEADA']}")
     
     print("\n✅ Proceso completado!")
     print(f"📂 Archivo guardado: {archivo_salida}")
+    print(f"📊 Total de colonias geocodificadas en archivo: {len(df_resultados):,}")
+
 
 
 if __name__ == "__main__":
