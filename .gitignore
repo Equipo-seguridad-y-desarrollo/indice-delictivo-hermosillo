@@ -1,5 +1,24 @@
-# Data
-#/data/
+# Data - Best Practices para Data Science
+# Excluir archivos grandes de datos procesados y temporales
+/data/raw/*.csv
+/data/interim/*.csv
+/data/processed/**/*.csv
+/data/processed/**/*.geojson
+/data/processed/unificado/*.csv
+/data/processed/unificado/*.geojson
+
+# Permitir archivos pequeños de configuración y metadatos
+!/data/raw/.gitkeep
+!/data/interim/.gitkeep
+!/data/processed/.gitkeep
+!/data/external/.gitkeep
+
+# Excluir mapas HTML (suelen ser muy grandes)
+*.html
+!docs/**/*.html
+
+# Excluir archivos de caché de geocodificación
+*_geocache.json
 
 # Mac OS-specific storage files
 .DS_Store
