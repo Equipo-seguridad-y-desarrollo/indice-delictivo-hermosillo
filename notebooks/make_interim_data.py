@@ -976,8 +976,8 @@ dias_quincena = [1, 14, 15, 16, 28, 29, 30, 31]
 
 def process_raw_to_interim(input_dir: Path, output_dir: Path):
     """
-    Carga el archivo raw, lo divide por año, y aplica
-    toda la limpieza y feature engineering.
+    Carga el archivo raw, aplica limpieza y feature engineering,
+    y genera un solo archivo consolidado con todos los años.
     """
     print(f"Cargados {len(MAPA_DE_INCIDENTES)} reglas de estandarización.")
     print(f"Cargados {len(CATEGORIAS_INCIDENTES)} reglas de categorización.")
@@ -993,83 +993,93 @@ def process_raw_to_interim(input_dir: Path, output_dir: Path):
         print(f"Cargando datos raw desde: {input_path}")
         df = pd.read_csv(input_path, low_memory=False)
 
-        # 2. Iterar, limpiar y guardar cada año
-        unique_years = df['Año_Reporte'].unique()
-        print(f"Años encontrados: {unique_years}")
+        print(f"\n--- Procesando todos los datos ({len(df)} registros) ---")
+        
+        # --- a. Crear Timestamp (pero mantener FECHA y HORA originales) ---
+        print("  a. Creando 'Timestamp'...")
+        df['Timestamp'] = pd.to_datetime(
+            df['FECHA'], errors='coerce'
+        ) + pd.to_timedelta(
+            df['HORA'], unit='h', errors='coerce'
+        )
+        # NO eliminamos FECHA ni HORA
+
+        # --- b. Estandarizar 'TIPO DE INCIDENTE' ---
+        print("  b. Estandarizando 'TIPO DE INCIDENTE'...")
+        original_uniques = df['TIPO DE INCIDENTE'].nunique()
+        df['TIPO DE INCIDENTE'] = df['TIPO DE INCIDENTE'].astype(str).map(MAPA_DE_INCIDENTES)
+        cleaned_uniques = df['TIPO DE INCIDENTE'].nunique()
+        print(f"    Incidentes únicos: {original_uniques} -> {cleaned_uniques}")
+
+        nulls_after = df['TIPO DE INCIDENTE'].isnull().sum()
+        if nulls_after > 0:
+            print(f"    ¡Advertencia! {nulls_after} filas quedaron con incidentes Nulos.")
+
+        # --- c. APLICAR INGENIERÍA DE CARACTERÍSTICAS ---
+        print("  c. Creando nuevas características...")
+
+        # 1. ParteDelDia
+        bins = [-1, 5, 11, 17, 23]
+        labels = ['Madrugada', 'Mañana', 'Tarde', 'Noche']
+        df['ParteDelDia'] = pd.cut(
+            df['Timestamp'].dt.hour, bins=bins, labels=labels, right=True
+        )
+
+        # 2. DiaDeLaSemana
+        df['DiaDeLaSemana'] = df['Timestamp'].dt.weekday.map(dia_map)
+
+        # 3. EsFinDeSemana (Viernes, Sábado o Domingo)
+        df['EsFinDeSemana'] = df['Timestamp'].dt.weekday.isin([4, 5, 6])
+
+        # 4. Mes
+        df['Mes'] = df['Timestamp'].dt.month.map(mes_map)
+
+        # 5. EsQuincena
+        df['EsQuincena'] = df['Timestamp'].dt.day.isin(dias_quincena)
+
+        # 6. Categoria_Incidente (basado en el TIPO DE INCIDENTE ya limpio)
+        df['Categoria_Incidente'] = df['TIPO DE INCIDENTE'].map(CATEGORIAS_INCIDENTES)
+
+        # 7. Nivel_Severidad (basado en el TIPO DE INCIDENTE ya limpio)
+        df['Nivel_Severidad'] = df['TIPO DE INCIDENTE'].map(NIVEL_SEVERIDAD)
+
+        # Reportar nulos de los nuevos mapas
+        nulls_cat = df['Categoria_Incidente'].isnull().sum()
+        nulls_sev = df['Nivel_Severidad'].isnull().sum()
+        if nulls_cat > 0:
+            print(f"    ¡Advertencia! {nulls_cat} filas no encontraron 'Categoria_Incidente'.")
+        if nulls_sev > 0:
+            print(f"    ¡Advertencia! {nulls_sev} filas no encontraron 'Nivel_Severidad'.")
+
+        # --- d. Seleccionar solo columnas esenciales (eliminando redundancias) ---
+        print("  d. Seleccionando columnas esenciales...")
+        # Columnas finales: originales básicas + features útiles
+        # Eliminamos FECHA, HORA, Año_Reporte porque son redundantes con Timestamp
+        final_cols = ['COLONIA', 'TIPO DE INCIDENTE', 'Timestamp', 
+                      'ParteDelDia', 'DiaDeLaSemana', 'EsFinDeSemana', 
+                      'Mes', 'EsQuincena', 'Categoria_Incidente', 'Nivel_Severidad']
+        
+        # Asegurar que solo incluimos columnas que existen
+        cols_to_keep = [c for c in final_cols if c in df.columns]
+        
+        df = df[cols_to_keep]
+
+        # --- e. Guardar archivo consolidado único ---
         output_dir.mkdir(parents=True, exist_ok=True)
+        output_name = "reportes_de_incidentes_procesados_2018_2025.csv"
+        output_path = output_dir / output_name
 
-        for year in unique_years:
-            print(f"\n--- Procesando Año: {year} ---")
-            df_year = df[df['Año_Reporte'] == year].copy()
+        df.to_csv(output_path, index=False, encoding='utf-8-sig')
+        print(f"\n✅ Éxito: Archivo consolidado guardado en: {output_path}")
+        print(f"   Total de registros: {len(df):,}")
+        print(f"   Columnas: {list(df.columns)}")
 
-            # --- a. Crear Timestamp ---
-            print("  a. Creando 'Timestamp'...")
-            df_year['Timestamp'] = pd.to_datetime(
-                df_year['FECHA'], errors='coerce'
-            ) + pd.to_timedelta(
-                df_year['HORA'], unit='h', errors='coerce'
-            )
-            df_year = df_year.drop(columns=['FECHA', 'HORA'], errors='ignore')
-
-            # --- b. Estandarizar 'TIPO DE INCIDENTE' ---
-            print("  b. Estandarizando 'TIPO DE INCIDENTE'...")
-            original_uniques = df_year['TIPO DE INCIDENTE'].nunique()
-            df_year['TIPO DE INCIDENTE'] = df_year['TIPO DE INCIDENTE'].astype(str).map(MAPA_DE_INCIDENTES)
-            cleaned_uniques = df_year['TIPO DE INCIDENTE'].nunique()
-            print(f"    Incidentes únicos: {original_uniques} -> {cleaned_uniques}")
-
-            nulls_after = df_year['TIPO DE INCIDENTE'].isnull().sum()
-            if nulls_after > 0:
-                print(f"    ¡Advertencia! {nulls_after} filas quedaron con incidentes Nulos.")
-
-            # --- c. APLICAR INGENIERÍA DE CARACTERÍSTICAS ---
-            print("  c. Creando nuevas características...")
-
-            # 1. ParteDelDia
-            bins = [-1, 5, 11, 17, 23]
-            labels = ['Madrugada', 'Mañana', 'Tarde', 'Noche']
-            df_year['ParteDelDia'] = pd.cut(
-                df_year['Timestamp'].dt.hour, bins=bins, labels=labels, right=True
-            )
-
-            # 2. DiaDeLaSemana
-            df_year['DiaDeLaSemana'] = df_year['Timestamp'].dt.weekday.map(dia_map)
-
-            # 3. EsFinDeSemana (Viernes, Sábado o Domingo)
-            df_year['EsFinDeSemana'] = df_year['Timestamp'].dt.weekday.isin([4, 5, 6])
-
-            # 4. Mes
-            df_year['Mes'] = df_year['Timestamp'].dt.month.map(mes_map)
-
-            # 5. EsQuincena
-            df_year['EsQuincena'] = df_year['Timestamp'].dt.day.isin(dias_quincena)
-
-            # 6. Categoria_Incidente (basado en el TIPO DE INCIDENTE ya limpio)
-            df_year['Categoria_Incidente'] = df_year['TIPO DE INCIDENTE'].map(CATEGORIAS_INCIDENTES)
-
-            # 7. Nivel_Severidad (basado en el TIPO DE INCIDENTE ya limpio)
-            df_year['Nivel_Severidad'] = df_year['TIPO DE INCIDENTE'].map(NIVEL_SEVERIDAD)
-
-            # Reportar nulos de los nuevos mapas
-            nulls_cat = df_year['Categoria_Incidente'].isnull().sum()
-            nulls_sev = df_year['Nivel_Severidad'].isnull().sum()
-            if nulls_cat > 0:
-                print(f"    ¡Advertencia! {nulls_cat} filas no encontraron 'Categoria_Incidente'.")
-            if nulls_sev > 0:
-                print(f"    ¡Advertencia! {nulls_sev} filas no encontraron 'Nivel_Severidad'.")
-
-            # d. Guardar el archivo 'interim'
-            output_name = f"reportes_de_incidentes_con_feature_{year}.csv"
-            output_path = output_dir / output_name
-
-            df_year.to_csv(output_path, index=False, encoding='utf-8-sig')
-            print(f"  -> Guardado archivo 'interim' enriquecido en: {output_path.name}")
-
-        print(f"\nExito: Datos 'interim' guardados en: {output_dir}")
         return True
 
     except Exception as e:
         print(f"Error durante el procesamiento 'interim': {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
         return False
 
 # --- Bloque de ejecución para pruebas ---
