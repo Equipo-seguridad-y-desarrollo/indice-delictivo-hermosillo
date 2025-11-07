@@ -1,11 +1,21 @@
 # 📋 Documentación del Proceso de Limpieza de Datos
 ## Proyecto: Índice Delictivo Hermosillo
 
+**Última actualización**: 6 de noviembre de 2025
+
 ---
 
 ## 📊 Resumen del Proyecto
 
-Este documento describe el proceso completo de limpieza, normalización y enriquecimiento de datos geográficos para el análisis del índice delictivo en Hermosillo, Sonora.
+Este documento describe el proceso completo de descarga, limpieza, normalización, estandarización y enriquecimiento de datos geográficos para el análisis del índice delictivo en Hermosillo, Sonora (2018-2025).
+
+**Cambios importantes en v2.0**:
+- ✅ Migración de Google Drive a Hugging Face para descarga de datos
+- ✅ Pipeline consolidado para procesamiento multi-año (2.3M registros)
+- ✅ Estandarización de 475 tipos de incidentes a 198 categorías
+- ✅ Feature engineering: 7 columnas derivadas (temporal, categórica, severidad)
+- ✅ Geocodificación incremental para optimizar costos de API
+- ✅ Optimización de esquema (10 columnas esenciales)
 
 ---
 
@@ -14,39 +24,227 @@ Este documento describe el proceso completo de limpieza, normalización y enriqu
 ### Archivos de Entrada (Raw Data)
 ```
 data/raw/
-├── 213.csv                      # Datos de incidentes policiales
-├── delitos.csv                  # Catálogo de tipos de delitos
-├── demografia_hermosillo.csv    # Datos demográficos por colonia
-├── diccionario_colonias.csv     # Diccionario de colonias
-└── poligonos_hermosillo.csv     # Polígonos geográficos
+├── 213.xlsx                         # Datos de incidentes 911 (8 hojas: 2018-2025)
+├── reportes_de_incidentes_2018_2025.csv  # Consolidado de Excel
+├── delitos.csv                      # Catálogo de tipos de delitos
+├── demografia_hermosillo.csv        # Datos demográficos por colonia
+└── poligonos_hermosillo.csv         # Polígonos geográficos
+```
+
+### Archivos Intermedios (Interim Data)
+```
+data/interim/
+└── reportes_de_incidentes_procesados_2018_2025.csv  # 2.3M registros procesados (~310MB)
 ```
 
 ### Archivos Generados (Processed Data)
 ```
 data/processed/
-├── colonias_unicas_reportes_911.csv                # Colonias únicas del archivo policial
-├── colonias_reportes_911_agrupadas_reporte.csv    # Reporte de variantes detectadas
-├── mapeo_colonias_reportes_911.csv                # Mapeo original → normalizada
-├── colonias_reportes_911_con_coordenadas.csv      # Colonias con lat/lng de Google Maps
+├── colonias_unicas_reportes_911.csv                # 2,047 colonias únicas
+├── colonias_reportes_911_agrupadas_reporte.csv    # Reporte de 220 grupos con variantes
+├── mapeo_colonias_reportes_911.csv                # Mapeo de 2,296 variantes → 2,047 únicas
+├── colonias_reportes_911_con_coordenadas.csv      # Colonias con lat/lng (geocodificadas)
 ├── demografia_limpio.csv                          # Demografía con espacios normalizados
-└── colonias_unicas_demografia.csv                 # Colonias únicas de demografía
+└── colonias_unicas_demografia.csv                 # 659 colonias únicas de demografía
 ```
 
 ---
 
 ## 🔄 Flujo del Proceso
 
-### **Fase 1: Limpieza de Datos Policiales (213.csv)**
+### **Fase 0: Descarga y Consolidación de Datos**
 
-#### 1.1 Análisis Inicial
-- **Archivo**: `213.csv`
-- **Registros totales**: 349,131
-- **Colonias originales**: 1,407
+#### 0.1 Script: `download_raw_data.py`
+
+**Objetivo**: Descargar datos desde Hugging Face y consolidar Excel multi-hoja en CSV único
+
+**Migración realizada**:
+- **Antes**: Google Drive API con autenticación OAuth2
+- **Después**: Descarga directa HTTP desde Hugging Face
+- **Beneficio**: Sin autenticación, más simple, más confiable
+
+**Proceso**:
+```python
+# 1. Descarga desde Hugging Face
+url = "https://huggingface.co/datasets/Marcelinux/llamadas911_colonias_hermosillo_2018_2025/resolve/main/213.xlsx"
+response = requests.get(url, stream=True)
+
+# 2. Lectura multi-hoja
+all_sheets = pd.read_excel(BytesIO(response.content), sheet_name=None)
+
+# 3. Extracción de año desde nombre de hoja
+for sheet_name, df_sheet in all_sheets.items():
+    year = int(sheet_name)  # "2018" → 2018
+    df_sheet['Año_Reporte'] = year
+
+# 4. Consolidación
+df_consolidated = pd.concat(list_dfs, ignore_index=True)
+```
+
+**Resultados**:
+- **Hojas procesadas**: 8 (2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025)
+- **Registros totales**: 2,297,081
+- **Columnas originales**: COLONIA, TIPO DE INCIDENTE, FECHA, HORA
+- **Columna añadida**: Año_Reporte
+- **Archivo generado**: `data/raw/reportes_de_incidentes_2018_2025.csv`
+
+---
+
+### **Fase 1: Procesamiento Interim - Estandarización y Feature Engineering**
+
+#### 1.1 Script: `make_interim_data.py`
+
+**Objetivo**: Estandarizar tipos de incidentes, categorizar, generar features temporales y optimizar esquema
+
+**Componentes del procesamiento**:
+
+##### A. Estandarización de Tipos de Incidentes
+```python
+MAPA_DE_INCIDENTES = {
+    # 475 reglas de mapeo
+    "PORTACION DE ARMAS O CARTUCHOS": "PORTACIÓN DE ARMAS O CARTUCHOS",
+    "PERSONA AGRESIVA": "PERSONA AGRESIVA",
+    "APOYO A LA CIUDADANIA": "APOYO A LA CIUDADANÍA",
+    # ... 472 reglas más
+}
+
+# Aplicar normalización
+df['TIPO DE INCIDENTE'] = df['TIPO DE INCIDENTE'].map(MAPA_DE_INCIDENTES)
+```
+
+**Resultados estandarización**:
+- **Tipos originales**: 475 variantes
+- **Tipos únicos post-mapeo**: 198
+- **Registros sin mapeo**: 7 (mantienen valor original)
+- **Reducción**: 58% en variabilidad
+
+##### B. Categorización de Incidentes
+```python
+CATEGORIAS_INCIDENTES = {
+    # 216 reglas de categorización en 12 grupos
+    "PORTACIÓN DE ARMAS O CARTUCHOS": "Armas y Objetos Peligrosos",
+    "PERSONA AGRESIVA": "Violencia y Agresión",
+    "APOYO A LA CIUDADANÍA": "Apoyo Ciudadano",
+    # ... 213 reglas más
+}
+
+df['Categoria_Incidente'] = df['TIPO DE INCIDENTE'].map(CATEGORIAS_INCIDENTES).fillna('Otros')
+```
+
+**12 Categorías principales**:
+1. Violencia y Agresión
+2. Tránsito y Vehículos
+3. Apoyo Ciudadano
+4. Delitos Patrimoniales
+5. Alteración del Orden
+6. Sospechosos y Vigilancia
+7. Menores y Familia
+8. Armas y Objetos Peligrosos
+9. Emergencias Médicas
+10. Fenómenos Naturales
+11. Espacios Públicos
+12. Otros
+
+##### C. Clasificación de Severidad
+```python
+NIVEL_SEVERIDAD = {
+    # 200 reglas de clasificación
+    "PORTACIÓN DE ARMAS O CARTUCHOS": "ALTA",
+    "PERSONA AGRESIVA": "MEDIA",
+    "APOYO A LA CIUDADANÍA": "BAJA",
+    # ... 197 reglas más
+}
+
+df['Nivel_Severidad'] = df['TIPO DE INCIDENTE'].map(NIVEL_SEVERIDAD).fillna('MEDIA')
+```
+
+**3 Niveles de severidad**:
+- **ALTA**: Incidentes graves (armas, agresión violenta, allanamiento)
+- **MEDIA**: Incidentes moderados (persona agresiva, vehículo sospechoso)
+- **BAJA**: Incidentes leves (apoyo ciudadano, animales en vía pública)
+
+##### D. Feature Engineering Temporal
+```python
+# 1. Timestamp consolidado
+df['Timestamp'] = pd.to_datetime(df['FECHA'] + ' ' + df['HORA'].astype(str) + ':00:00')
+
+# 2. Parte del día (binning de horas)
+df['ParteDelDia'] = pd.cut(
+    df['Timestamp'].dt.hour, 
+    bins=[-1, 5, 11, 17, 23], 
+    labels=['Madrugada', 'Mañana', 'Tarde', 'Noche']
+)
+
+# 3. Día de la semana
+dias_map = {0:'Lunes', 1:'Martes', 2:'Miércoles', 3:'Jueves', 
+            4:'Viernes', 5:'Sábado', 6:'Domingo'}
+df['DiaDeLaSemana'] = df['Timestamp'].dt.dayofweek.map(dias_map)
+
+# 4. Fin de semana
+df['EsFinDeSemana'] = df['Timestamp'].dt.dayofweek.isin([5, 6]).map({True: 'Sí', False: 'No'})
+
+# 5. Mes
+df['Mes'] = df['Timestamp'].dt.month
+
+# 6. Quincena (días de pago típicos)
+dias_quincena = [1, 14, 15, 16, 28, 29, 30, 31]
+df['EsQuincena'] = df['Timestamp'].dt.day.isin(dias_quincena).map({True: 'Sí', False: 'No'})
+```
+
+##### E. Optimización de Esquema
+```python
+# Columnas redundantes eliminadas: FECHA, HORA, Año_Reporte
+# Solo se mantiene Timestamp como referencia temporal única
+
+final_cols = [
+    'COLONIA',
+    'TIPO DE INCIDENTE',
+    'Timestamp',
+    'ParteDelDia',
+    'DiaDeLaSemana',
+    'EsFinDeSemana',
+    'Mes',
+    'EsQuincena',
+    'Categoria_Incidente',
+    'Nivel_Severidad'
+]
+
+df_final = df[final_cols]
+```
+
+**Optimización lograda**:
+- **Antes**: 13 columnas (COLONIA, TIPO, FECHA, HORA, Año, Timestamp, + 7 derivadas)
+- **Después**: 10 columnas (eliminadas FECHA, HORA, Año_Reporte redundantes)
+- **Beneficio**: -23% tamaño, menos confusión temporal
+
+**Archivo generado**:
+- **Ruta**: `data/interim/reportes_de_incidentes_procesados_2018_2025.csv`
+- **Tamaño**: ~310 MB
+- **Registros**: 2,297,081
+- **Periodo**: 2018-01-01 00:00:00 a 2025-09-30 23:00:00
+- **Encoding**: UTF-8 con BOM (utf-8-sig)
+
+---
+
+### **Fase 2: Limpieza de Datos Policiales - Extracción de Colonias**
+
+#### 2.1 Migración del Script
+
+**Cambio importante**: `extraer_colonias_unicas_reportes_911.py` migrado para usar datos procesados del interim
+
+- **Antes**: Usaba `data/raw/213.csv` (obsoleto)
+- **Después**: Usa `data/interim/reportes_de_incidentes_procesados_2018_2025.csv`
+- **Beneficio**: Opera sobre datos ya estandarizados y enriquecidos
+
+#### 2.2 Análisis Inicial
+- **Archivo**: `reportes_de_incidentes_procesados_2018_2025.csv`
+- **Registros totales**: 2,297,081
+- **Colonias originales**: 2,296
 - **Problema identificado**: Múltiples errores ortográficos y variantes del mismo nombre
 
-#### 1.2 Script: `extraer_colonias_unicas_reportes_911.py`
+#### 2.3 Algoritmo de Normalización
 
-**Objetivo**: Identificar y agrupar colonias con errores ortográficos
+**Objetivo**: Identificar y agrupar colonias con errores ortográficos usando fuzzy matching
 
 **Algoritmo implementado**:
 
@@ -83,31 +281,68 @@ def son_variantes_validas():
    - Nombres distintivos: `PINOS` ≠ `ENCINOS`
 
 **Resultados**:
-- **Colonias únicas finales**: 1,267
-- **Grupos con variantes**: 124
+- **Colonias únicas finales**: 2,047
+- **Grupos con variantes**: 220
+- **Registros mapeados**: 2,296
 - **Variante representativa**: La más frecuente (asume que la mayoría escribe correctamente)
 
 **Ejemplo de agrupación exitosa**:
 ```
-'QUINTA ESMERALDA' (32 registros)
+'QUINTA ESMERALDA' (1,511 registros)
   - QUINTA ESMELRALDA (1)    ← Error tipográfico
   - QUINTA ESMERAL (1)       ← Nombre incompleto
-  - QUINTA ESMERALDA (29)    ← ✓ Forma correcta (más frecuente)
+  - QUINTA ESMERALDA (1,508) ← ✓ Forma correcta (más frecuente)
   - QUINTA ESMERALDA| (1)    ← Carácter extra
 ```
 
 **Archivos generados**:
-- `colonias_unicas_reportes_911.csv`: Lista de 1,267 colonias limpias
-- `colonias_reportes_911_agrupadas_reporte.csv`: Reporte detallado de variantes
-- `mapeo_colonias_reportes_911.csv`: Mapeo de cada colonia original a su versión normalizada
+- `colonias_unicas_reportes_911.csv`: Lista de 2,047 colonias limpias
+- `colonias_reportes_911_agrupadas_reporte.csv`: Reporte detallado de 220 grupos con variantes
+- `mapeo_colonias_reportes_911.csv`: Mapeo de cada una de las 2,296 colonias originales a su versión normalizada
 
 ---
 
-### **Fase 2: Geocodificación con Google Maps API**
+###**Fase 3: Geocodificación con Google Maps API**
 
-#### 2.1 Script: `geocodificar_colonias_reportes_911.py`
+#### 3.1 Script: `geocodificar_colonias_reportes_911.py`
 
-**Objetivo**: Obtener coordenadas geográficas (latitud/longitud) para cada colonia
+**Objetivo**: Obtener coordenadas geográficas (latitud/longitud) para cada colonia con sistema incremental
+
+**Mejora implementada**: **Geocodificación Incremental**
+
+**Antes (v1.0)**:
+- Geocodificaba todas las colonias en cada ejecución
+- Costo: ~$6 USD por ejecución completa
+- Tiempo: ~8-10 minutos
+- Problema: Re-procesar colonias ya geocodificadas desperdicia tiempo y dinero
+
+**Después (v2.0)**:
+- Detecta automáticamente colonias ya geocodificadas
+- Solo procesa colonias nuevas
+- **1era ejecución**: Geocodifica 2,047 colonias (~8-10 min, ~$6 USD)
+- **Ejecuciones posteriores**: Solo colonias nuevas (segundos, $0.00)
+- Combina geocodificaciones previas con nuevas en archivo único
+
+**Lógica incremental**:
+```python
+# 1. Verificar si existe archivo de salida
+if os.path.exists(archivo_salida):
+    df_previas = pd.read_csv(archivo_salida)
+    colonias_ya_geocodificadas = set(df_previas['COLONIA'].unique())
+    
+    # 2. Filtrar solo colonias nuevas
+    df_colonias = df_colonias[~df_colonias['COLONIA'].isin(colonias_ya_geocodificadas)]
+    
+    if len(df_colonias) == 0:
+        print("[OK] Todas las colonias ya están geocodificadas")
+        return df_previas
+
+# 3. Geocodificar solo las nuevas
+# ... proceso de geocodificación ...
+
+# 4. Combinar previas + nuevas
+df_resultados = pd.concat([df_previas, df_nuevas], ignore_index=True)
+```
 
 **Configuración de seguridad**:
 ```python
@@ -125,27 +360,28 @@ delay = 0.2  # segundos entre peticiones (evitar límites de API)
 ```
 
 **Resultados**:
-- **Colonias procesadas**: 1,267
-- **Tiempo aproximado**: 8-10 minutos
+- **Colonias procesadas**: 2,047
+- **Tiempo aproximado**: 8-10 minutos (primera ejecución)
 - **Tasa de éxito**: ~100% (todas encontradas)
-- **Costo estimado**: ~$6.34 USD (incluido en crédito gratuito de $200/mes)
+- **Costo estimado inicial**: ~$6.34 USD (incluido en crédito gratuito de $200/mes)
+- **Ejecuciones posteriores**: Solo colonias nuevas (ahorro significativo)
 
 **Información obtenida por colonia**:
 ```csv
-COLONIA, LATITUD, LONGITUD, DIRECCION_FORMATEADA, TIPO_UBICACION, PLACE_ID, TIPOS
+COLONIA, LATITUD, LONGITUD, DIRECCION_FORMATEADA, TIPO_UBICACION, PLACE_ID, TIPOS, TIMESTAMP
 ```
 
 **Ejemplo**:
 ```csv
-QUINTA ESMERALDA,29.075595,-110.957462,"Quinta Esmeralda, 83000 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ...,political|sublocality
+QUINTA ESMERALDA,29.075595,-110.957462,"Quinta Esmeralda, 83000 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ...,political|sublocality,2025-11-06T15:30:45
 ```
 
 **Archivo generado**:
-- `colonias_reportes_911_con_coordenadas.csv`: 1,267 colonias con coordenadas
+- `colonias_reportes_911_con_coordenadas.csv`: 2,047 colonias con coordenadas y metadata
 
 ---
 
-### **Fase 3: Limpieza de Datos Demográficos**
+### **Fase 4: Limpieza de Datos Demográficos**
 
 #### 3.1 Análisis: `analizar_calidad_datos_demografia.py`
 
@@ -184,12 +420,35 @@ def normalizar_espacios(texto):
 
 ## 📈 Métricas del Proceso
 
-### Datos Policiales (213.csv)
+### Pipeline Completo
+
+| Fase | Input | Output | Tiempo | Costo |
+|------|-------|--------|--------|-------|
+| 0. Descarga | Hugging Face | 2.3M registros CSV | ~2 min | $0 |
+| 1. Procesamiento Interim | Raw CSV | Procesado con 10 cols | ~5 min | $0 |
+| 2. Extracción Colonias | Procesado | 2,047 colonias únicas | ~30 seg | $0 |
+| 3. Geocodificación (1era) | Colonias únicas | Con coordenadas | ~8-10 min | ~$6 |
+| 3. Geocodificación (subsec.) | Solo nuevas | Incremental | segundos | ~$0 |
+
+### Datos Policiales (2018-2025)
 | Métrica | Antes | Después | Mejora |
 |---------|-------|---------|--------|
-| Colonias únicas | 1,407 | 1,267 | -10% (140 duplicados eliminados) |
-| Errores detectados | 225 grupos | 124 grupos | Agrupación más precisa |
-| Variantes por grupo | Hasta 6 | Hasta 4 | Mejor calidad |
+| Registros totales | 2,297,081 | 2,297,081 | - |
+| Colonias únicas | 2,296 | 2,047 | -249 (-10.8%) |
+| Tipos de incidentes | 475 | 198 | -277 (-58.3%) |
+| Columnas | 4→13 | 10 | Optimizado |
+| Errores detectados | 220 grupos | 0 | 100% normalizado |
+| Variantes por grupo | Hasta 4 | - | Consolidadas |
+
+### Estandarización y Enriquecimiento
+| Métrica | Valor |
+|---------|-------|
+| Tipos estandarizados | 475 → 198 |
+| Categorías creadas | 12 |
+| Niveles de severidad | 3 (BAJA, MEDIA, ALTA) |
+| Features temporales añadidas | 5 |
+| Features categóricas añadidas | 2 |
+| Periodo de datos | 2018-01-01 a 2025-09-30 |
 
 ### Datos Demográficos
 | Métrica | Antes | Después | Mejora |
@@ -200,40 +459,57 @@ def normalizar_espacios(texto):
 ### Geocodificación
 | Métrica | Valor |
 |---------|-------|
-| Colonias geocodificadas | 1,267 |
-| Tasa de éxito | 100% |
-| Tiempo total | ~8-10 min |
-| Costo | ~$6.34 USD |
+| Colonias geocodificadas | 2,047 |
+| Tasa de éxito | ~100% |
+| Tiempo (1era ejecución) | ~8-10 min |
+| Costo (1era ejecución) | ~$6.34 USD |
+| Tiempo (ejecuciones posteriores) | segundos |
+| Costo (ejecuciones posteriores) | $0.00 USD |
 
 ---
 
 ## 🔧 Scripts Desarrollados
 
-### Scripts de Análisis
-1. **`extraer_colonias_unicas.py`**
-   - Análisis y agrupación de colonias con errores ortográficos
-   - Algoritmo de fuzzy matching con validaciones
+### Scripts de Pipeline Principal
 
-2. **`analizar_colonias_demografia.py`**
-   - Análisis de calidad de datos demográficos
-   - Detección de variantes
+1. **`indice_delictivo_hermosillo_main.py`**
+   - Orquestador del pipeline completo
+   - Ejecuta descarga → procesamiento interim
+   - Manejo de errores y logging
 
-### Scripts de Procesamiento
+2. **`download_raw_data.py`**
+   - Descarga desde Hugging Face
+   - Consolidación de Excel multi-hoja
+   - Extracción de años desde nombres de hojas
 
-1. **`extraer_colonias_unicas_reportes_911.py`**
+3. **`make_interim_data.py`**
+   - Estandarización de 475 tipos de incidentes
+   - Categorización en 12 grupos principales
+   - Clasificación de severidad (3 niveles)
+   - Feature engineering temporal (5 features)
+   - Optimización de esquema (10 columnas)
+
+### Scripts de Procesamiento de Colonias
+
+4. **`extraer_colonias_unicas_reportes_911.py`**
    - Limpieza y normalización de nombres de colonias
    - Algoritmo de fuzzy matching (90% umbral)
    - Validación inteligente de variantes
+   - Migrado para usar datos del interim
 
-2. **`geocodificar_colonias_reportes_911.py`**
+5. **`geocodificar_colonias_reportes_911.py`**
    - Geocodificación con Google Maps API
+   - **Sistema incremental anti-duplicados** (v2.0)
    - Manejo seguro de credenciales
+   - Delay entre peticiones (0.2s)
 
-3. **`normalizar_espacios_demografia.py`**
+### Scripts de Análisis
+
+6. **`normalizar_espacios_demografia.py`**
    - Normalización de espacios en datos demográficos
    - Proceso minimalista (solo errores obvios)
 
-4. **`analizar_calidad_datos_demografia.py`**
+7. **`analizar_calidad_datos_demografia.py`**
    - Análisis de calidad de datos demográficos
    - Detección de posibles duplicados
 
@@ -296,20 +572,39 @@ demografia_limpio.csv
 ## 🎯 Próximos Pasos Sugeridos
 
 1. **Validación Cruzada**
-   - Comparar colonias entre `213.csv` y `demografia_hermosillo.csv`
+   - Comparar colonias entre reportes procesados y demografía
    - Identificar colonias faltantes en cada dataset
+   - Análisis de cobertura geográfica
 
 2. **Enriquecimiento de Datos**
-   - Unir coordenadas geográficas con datos demográficos
-   - Crear dataset maestro de colonias
+   - Crear dataset maestro unificado con:
+     * Reportes procesados (2.3M registros)
+     * Coordenadas geográficas (2,047 colonias)
+     * Datos demográficos (659 colonias)
+     * Polígonos geográficos
+   - Calcular métricas agregadas por colonia
 
-3. **Análisis Geoespacial**
+3. **Análisis Temporal**
+   - Explotar features temporales (ParteDelDia, DiaDeLaSemana, EsQuincena)
+   - Identificar patrones estacionales
+   - Análisis de tendencias 2018-2025
+
+4. **Análisis por Categoría y Severidad**
+   - Mapas de calor por nivel de severidad
+   - Distribución de categorías por colonia
+   - Identificación de zonas críticas
+
+5. **Análisis Geoespacial**
    - Mapear incidentes delictivos por colonia
    - Análisis de densidad delictiva
+   - Clusters espaciales (hotspots)
+   - Correlación espacial con índice de marginación
 
-4. **Visualización**
-   - Crear mapas interactivos
+6. **Visualización**
+   - Crear mapas interactivos (Folium, Plotly)
    - Dashboards con métricas por colonia
+   - Timeline de incidentes
+   - Heatmaps por categoría y hora del día
 
 ---
 
@@ -317,12 +612,15 @@ demografia_limpio.csv
 
 ```bash
 # Python packages
-pandas>=2.0.0
-googlemaps>=4.10.0
-python-dotenv>=1.0.0
+pandas>=2.0.0          # Manipulación de datos
+googlemaps>=4.10.0     # Geocodificación
+python-dotenv>=1.0.0   # Variables de entorno
+requests>=2.31.0       # Descarga HTTP
+openpyxl>=3.1.0        # Lectura de Excel
 
 # API Services
 Google Maps Geocoding API
+Hugging Face Datasets
 ```
 
 ---
@@ -331,8 +629,8 @@ Google Maps Geocoding API
 
 **Equipo-seguridad-y-desarrollo**  
 **Proyecto**: indice-delictivo-hermosillo  
-**Rama actual**: correccionColoniasPoblacion
+**Rama actual**: colonias_geolocalizadas_unificadas
 
 ---
 
-*Última actualización: 5 de noviembre de 2025*
+*Última actualización: 6 de noviembre de 2025*

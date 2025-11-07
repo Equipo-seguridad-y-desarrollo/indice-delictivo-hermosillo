@@ -22,8 +22,12 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 
 ### ✅ Completado
 
-- **Limpieza de datos policiales**: 1,267 colonias únicas identificadas
-- **Geocodificación**: Coordenadas obtenidas para todas las colonias vía Google Maps API
+- **Descarga de datos**: Migrado de Google Drive a Hugging Face para descarga directa
+- **Procesamiento multi-año**: Pipeline consolidado para procesar datos 2018-2025 (2.3M registros)
+- **Estandarización de incidentes**: 475 tipos de incidentes mapeados a 198 categorías únicas
+- **Feature engineering**: 7 columnas derivadas (temporal, categórica, severidad)
+- **Limpieza de colonias**: 2,047 colonias únicas identificadas (220 grupos con variantes)
+- **Geocodificación incremental**: Coordenadas obtenidas vía Google Maps API con sistema anti-duplicados
 - **Limpieza de datos demográficos**: 659 colonias con información poblacional
 - **Documentación completa** del proceso de limpieza y normalización
 
@@ -41,18 +45,24 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 
 | Archivo | Registros | Descripción |
 |---------|-----------|-------------|
-| `213.csv` | 349,131 | Incidentes reportados a servicios de emergencia |
+| `213.xlsx` | 2,297,081 | Incidentes reportados a servicios de emergencia 911 (2018-2025) |
 | `demografia_hermosillo.csv` | 660 | Datos demográficos por colonia (INEGI 2020) |
 | `delitos.csv` | - | Catálogo de tipos de delitos |
 | `poligonos_hermosillo.csv` | - | Polígonos geográficos de colonias |
+
+### Datos Intermedios (`data/interim/`)
+
+| Archivo | Descripción |
+|---------|-------------|
+| `reportes_de_incidentes_procesados_2018_2025.csv` | Datos consolidados 2018-2025 con estandarización y feature engineering (~310MB, 2.3M registros) |
 
 ### Datos Procesados (`data/processed/`)
 
 | Archivo | Descripción |
 |---------|-------------|
-| `colonias_unicas_reportes_911.csv` | 1,267 colonias limpias del dataset policial |
+| `colonias_unicas_reportes_911.csv` | 2,047 colonias limpias del dataset policial |
 | `colonias_reportes_911_con_coordenadas.csv` | Colonias con coordenadas geográficas (lat/lng) |
-| `colonias_reportes_911_agrupadas_reporte.csv` | Reporte de variantes ortográficas detectadas |
+| `colonias_reportes_911_agrupadas_reporte.csv` | Reporte de 220 grupos con variantes ortográficas detectadas |
 | `mapeo_colonias_reportes_911.csv` | Mapeo de colonias originales a normalizadas |
 | `demografia_limpio.csv` | Datos demográficos normalizados |
 | `colonias_unicas_demografia.csv` | Lista de colonias únicas de demografía |
@@ -61,16 +71,31 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 
 ## 🛠️ Scripts Principales
 
-### Limpieza de Datos
+### Pipeline Principal
 
 ```bash
-# 1. Extraer y normalizar colonias del dataset policial (reportes 911)
+# Pipeline completo: descarga y procesamiento de datos
+python indice_delictivo_hermosillo_main.py
+```
+
+Este script orquesta:
+1. **Descarga de datos** desde Hugging Face (`download_raw_data.py`)
+2. **Procesamiento interim** con estandarización y feature engineering (`make_interim_data.py`)
+
+### Procesamiento de Colonias
+
+```bash
+# 1. Extraer y normalizar colonias del dataset procesado
 python notebooks/extraer_colonias_unicas_reportes_911.py
 
-# 2. Obtener coordenadas geográficas (requiere API key)
+# 2. Geocodificación incremental (solo colonias nuevas)
 python notebooks/geocodificar_colonias_reportes_911.py
+```
 
-# 3. Normalizar espacios en datos demográficos
+### Limpieza de Demografía
+
+```bash
+# Normalizar espacios en datos demográficos
 python notebooks/normalizar_espacios_demografia.py
 ```
 
@@ -148,9 +173,31 @@ Ver [`SECURITY.md`](SECURITY.md) para más detalles de seguridad.
 
 ## 🔬 Metodología de Limpieza
 
+### Pipeline de Datos
+
+**Flujo**: Hugging Face → Raw → Interim → Processed
+
+1. **Descarga** (`download_raw_data.py`):
+   - Fuente: Hugging Face dataset `Marcelinux/llamadas911_colonias_hermosillo_2018_2025`
+   - Formato: Excel multi-hoja (8 hojas: 2018-2025)
+   - Output: `data/raw/reportes_de_incidentes_2018_2025.csv`
+
+2. **Procesamiento Interim** (`make_interim_data.py`):
+   - **Estandarización**: 475 tipos de incidentes → 198 únicos (mapa de normalización)
+   - **Categorización**: 12 categorías principales de incidentes
+   - **Niveles de severidad**: BAJA, MEDIA, ALTA (200 reglas)
+   - **Feature Engineering**:
+     * `ParteDelDia`: Madrugada/Mañana/Tarde/Noche
+     * `DiaDeLaSemana`: Lunes-Domingo
+     * `EsFinDeSemana`: Boolean
+     * `Mes`: 1-12
+     * `EsQuincena`: Boolean (días 1, 14-16, 28-31)
+   - **Optimización**: Columnas temporales redundantes eliminadas (FECHA, HORA, Año_Reporte)
+   - Output: `data/interim/reportes_de_incidentes_procesados_2018_2025.csv` (~310MB)
+
 ### Normalización de Colonias
 
-**Problema**: 1,407 nombres de colonias con múltiples errores ortográficos
+**Problema**: 2,296 nombres de colonias con múltiples errores ortográficos
 
 **Solución**: Algoritmo de fuzzy matching que:
 1. Normaliza texto (acentos, mayúsculas, espacios)
@@ -158,30 +205,42 @@ Ver [`SECURITY.md`](SECURITY.md) para más detalles de seguridad.
 3. Valida que sean variantes reales (no colonias diferentes)
 4. Selecciona el nombre más frecuente como representativo
 
-**Resultado**: 1,267 colonias únicas consolidadas
+**Resultado**: 2,047 colonias únicas consolidadas (220 grupos con variantes)
 
-### Geocodificación
+### Geocodificación Incremental
 
-**Proceso**: Google Maps Geocoding API
+**Proceso**: Google Maps Geocoding API con sistema anti-duplicados
+- Detección automática de colonias ya geocodificadas
+- Solo procesa colonias nuevas (ahorro de costos)
 - Formato: `"{colonia}, Hermosillo, Sonora, México"`
 - Delay: 0.2s entre peticiones
-- Tasa de éxito: 100%
+- Tasa de éxito: ~100%
 
 ---
 
 ## 📈 Métricas de Calidad
 
-| Dataset | Registros | Colonias Únicas | Duplicados Eliminados | Calidad |
+| Dataset | Registros | Colonias Únicas | Variantes Detectadas | Calidad |
 |---------|-----------|-----------------|----------------------|---------|
-| Datos Policiales | 349,131 | 1,267 | 140 (-10%) | ⭐⭐⭐ |
+| Datos Policiales (2018-2025) | 2,297,081 | 2,047 | 220 grupos (-9.8%) | ⭐⭐⭐⭐ |
 | Datos Demográficos | 660 | 659 | 1 (-0.15%) | ⭐⭐⭐⭐⭐ |
+
+### Estandarización de Incidentes
+
+| Métrica | Valor |
+|---------|-------|
+| Tipos originales | 475 |
+| Tipos estandarizados | 198 |
+| Categorías principales | 12 |
+| Niveles de severidad | 3 (BAJA, MEDIA, ALTA) |
+| Periodo de datos | 2018-01-01 a 2025-09-30 |
 
 ---
 
 ## 👥 Equipo
 
 **Organización**: Equipo-seguridad-y-desarrollo  
-**Rama actual**: `correccionColoniasPoblacion`
+**Rama actual**: `colonias_geolocalizadas_unificadas`
 
 ---
 
@@ -201,7 +260,7 @@ Para contribuir al proyecto:
 
 ---
 
-*Última actualización: 5 de noviembre de 2025*
+*Última actualización: 6 de noviembre de 2025*
 
 ## Project Organization
 
