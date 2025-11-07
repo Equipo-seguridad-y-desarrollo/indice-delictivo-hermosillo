@@ -9,6 +9,7 @@ import time
 import os
 from datetime import datetime
 from dotenv import load_dotenv
+from pathlib import Path
 
 
 # Cargar variables de entorno desde archivo .env
@@ -119,12 +120,12 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     
     inicio = time.time()
     
-    for idx, row in df_colonias.iterrows():
+    for contador, (idx, row) in enumerate(df_colonias.iterrows(), start=1):
         colonia = row['COLONIA']
         
         # Mostrar progreso cada 10 colonias
-        if (idx + 1) % 10 == 0:
-            print(f"Procesando: {idx + 1}/{len(df_colonias)} ({(idx+1)/len(df_colonias)*100:.1f}%)")
+        if contador % 10 == 0:
+            print(f"Procesando: {contador}/{len(df_colonias)} ({contador/len(df_colonias)*100:.1f}%)")
         
         # Obtener coordenadas
         info, tipo_resultado = obtener_coordenadas_google(colonia)
@@ -220,9 +221,10 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
 
 
 def main():
-    # Rutas de archivos
-    archivo_colonias = '../data/processed/colonias_unicas_reportes_911.csv'
-    archivo_salida = '../data/processed/colonias_reportes_911_con_coordenadas.csv'
+    # Rutas de archivos usando Path para resolver rutas absolutas
+    project_root = Path(__file__).parent.parent
+    archivo_colonias = project_root / 'data' / 'processed' / 'colonias_unicas_reportes_911.csv'
+    archivo_salida = project_root / 'data' / 'processed' / 'colonias_reportes_911_con_coordenadas.csv'
     
     # Procesar colonias (modo incremental automático)
     print("\n🌍 GEOCODIFICACIÓN INCREMENTAL")
@@ -230,8 +232,8 @@ def main():
     print("   y solo procesará las nuevas para ahorrar costos de API\n")
     
     df_resultados, df_nuevas = procesar_colonias(
-        archivo_colonias=archivo_colonias,
-        archivo_salida=archivo_salida,
+        archivo_colonias=str(archivo_colonias),
+        archivo_salida=str(archivo_salida),
         limite=None,  # None = procesar todas las colonias nuevas
         delay=0.2     # 0.2 segundos entre peticiones (más seguro)
     )
