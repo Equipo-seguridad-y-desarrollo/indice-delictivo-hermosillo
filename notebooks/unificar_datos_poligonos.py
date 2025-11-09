@@ -23,13 +23,34 @@ def cargar_datos_base():
     poligonos_path = project_root / 'data' / 'raw' / 'poligonos_hermosillo.csv'
     poligonos = pd.read_csv(poligonos_path)
     
+    # Detectar columna WKT y convertir a geometría (acepta 'POLIGONO_WKT' o 'geometry')
+    if 'POLIGONO_WKT' in poligonos.columns:
+        wkt_col = 'POLIGONO_WKT'
+    elif 'geometry' in poligonos.columns:
+        wkt_col = 'geometry'
+    else:
+        raise KeyError("No WKT column found in poligonos_hermosillo.csv (expected 'POLIGONO_WKT' or 'geometry')")
+
     # Convertir WKT a geometría
     gdf_poligonos = gpd.GeoDataFrame(
         poligonos,
-        geometry=poligonos['POLIGONO_WKT'].apply(wkt.loads),
+        geometry=poligonos[wkt_col].apply(wkt.loads),
         crs='EPSG:4326'
     )
     print(f"   Polígonos cargados: {len(gdf_poligonos):,}")
+
+    # Normalizar nombres de columnas para compatibilidad con el resto del script
+    # Algunas fuentes usan minúsculas ('cve_col', 'nom_col', 'cp')
+    col_map = {}
+    if 'cve_col' in gdf_poligonos.columns and 'CVE_COL' not in gdf_poligonos.columns:
+        col_map['cve_col'] = 'CVE_COL'
+    if 'nom_col' in gdf_poligonos.columns and 'COLONIA' not in gdf_poligonos.columns:
+        col_map['nom_col'] = 'COLONIA'
+    if 'cp' in gdf_poligonos.columns and 'CP' not in gdf_poligonos.columns:
+        col_map['cp'] = 'CP'
+
+    if col_map:
+        gdf_poligonos = gdf_poligonos.rename(columns=col_map)
     
     # 2. Demografía (datos)
     print("\n[2/6] Cargando demografía...")
@@ -423,8 +444,12 @@ def calcular_indices(df_poligonos_completo):
     
     # ÍNDICE DE RIESGO COMPUESTO (0-100)
     print("Calculando índice de riesgo compuesto...")
-    completos = con_poblacion & df_poligonos_completo['IM_2020'].notna()
-    
+    # Algunos datasets pueden no tener la columna 'IM_2020' (índice de marginación).
+    if 'IM_2020' in df_poligonos_completo.columns:
+        completos = con_poblacion & df_poligonos_completo['IM_2020'].notna()
+    else:
+        completos = pd.Series(False, index=df_poligonos_completo.index)
+
     if completos.sum() > 0:
         try:
             from sklearn.preprocessing import MinMaxScaler

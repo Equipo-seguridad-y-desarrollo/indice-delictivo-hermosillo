@@ -204,7 +204,7 @@ def main():
     frecuencias = df['COLONIA'].value_counts()
     
     print("\nAgrupando colonias similares...")
-    grupos_temp = agrupar_colonias_similares(colonias_originales, umbral_similitud=0.90)
+    grupos_temp = agrupar_colonias_similares(colonias_originales, umbral_similitud=0.93)
     
     # Elegir la variante más frecuente como representativa de cada grupo
     grupos = {}
@@ -213,15 +213,17 @@ def main():
         variantes_con_freq.sort(key=lambda x: -x[1])
         representativa = variantes_con_freq[0][0]
         grupos[representativa] = variantes
-    
+
     print(f"\nColonias unicas (despues de agrupar similares): {len(grupos):,}")
-    
-    # Crear lista de colonias únicas finales
-    colonias_unicas = sorted(grupos.keys())
-    
+
+    # Crear lista de colonias únicas finales, filtrando por frecuencia mínima
+    frecuencia_minima = 10
+    colonias_unicas = [col for col in grupos.keys() if frecuencias.get(col, 0) >= frecuencia_minima]
+    colonias_unicas = sorted(colonias_unicas)
+
     # Guardar resultados
     print("\nGuardando resultados...")
-    
+
     # 1. Guardar lista simple de colonias únicas
     output_file_1 = output_dir / 'colonias_unicas_reportes_911.csv'
     df_colonias_unicas = pd.DataFrame({'COLONIA': colonias_unicas})

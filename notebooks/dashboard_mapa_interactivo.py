@@ -1,9 +1,3 @@
-"""
-Dashboard Interactivo - Índice Delictivo Hermosillo
-Mapa con control temporal para explorar incidentes por hora/día/mes
-Incluye demografía y métricas por colonia
-"""
-
 import dash
 from dash import dcc, html, Input, Output, callback
 import plotly.graph_objects as go
@@ -351,26 +345,41 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
             colorbar_title = "Score Severidad"
             colorscale = "Inferno"
         
-        # Convertir a GeoJSON
-        geojson = json.loads(gdf_temp.to_json())
-        
-        # Agregar choropleth
-        fig_mapa.add_trace(go.Choroplethmapbox(
-            geojson=geojson,
-            locations=gdf_temp.index,
-            z=gdf_temp['valor'],
-            colorscale=colorscale,
-            marker_opacity=0.6,
-            marker_line_width=1,
-            marker_line_color='white',
-            colorbar=dict(title=colorbar_title),
-            hovertemplate='<b>%{customdata[0]}</b><br>' +
-                         f'{colorbar_title}: ' + '%{z:.2f}<br>' +
-                         'Población: %{customdata[1]:,}<br>' +
-                         'Incidentes (filtrados): %{customdata[2]:,}<br>' +
-                         '<extra></extra>',
-            customdata=gdf_temp[['COLONIA', 'poblacion_total', 'total_filtrado']].values
-        ))
+    # Convertir a GeoJSON
+    # Hacemos una copia para no modificar el gdf_temp original
+    gdf_for_json = gdf_temp.copy()
+    
+    # Normalizar columnas datetime/obj a strings para serializar a GeoJSON
+    for col in gdf_for_json.columns:
+        # columnas datetime
+        if pd.api.types.is_datetime64_any_dtype(gdf_for_json[col]):
+            gdf_for_json[col] = gdf_for_json[col].astype(str)
+        # columnas object que pueden contener datetimes u objetos con isoformat()
+        elif pd.api.types.is_object_dtype(gdf_for_json[col]):
+            gdf_for_json[col] = gdf_for_json[col].apply(
+                lambda x: x.isoformat() if (hasattr(x, 'isoformat') and not isinstance(x, str)) else x
+            )
+    
+    # Convertir GeoDataFrame a GeoJSON (string -> dict)
+    geojson = json.loads(gdf_for_json.to_json())
+    
+    # Agregar choropleth
+    fig_mapa.add_trace(go.Choroplethmapbox(
+        geojson=geojson,
+        locations=gdf_temp.index,
+        z=gdf_temp['valor'],
+        colorscale=colorscale,
+        marker_opacity=0.6,
+        marker_line_width=1,
+        marker_line_color='white',
+        colorbar=dict(title=colorbar_title),
+        hovertemplate='<b>%{customdata[0]}</b><br>' +
+                     f'{colorbar_title}: ' + '%{z:.2f}<br>' +
+                     'Población: %{customdata[1]:,}<br>' +
+                     'Incidentes (filtrados): %{customdata[2]:,}<br>' +
+                     '<extra></extra>',
+        customdata=gdf_temp[['COLONIA', 'poblacion_total', 'total_filtrado']].values
+    ))
     
     # Layout del mapa
     fig_mapa.update_layout(

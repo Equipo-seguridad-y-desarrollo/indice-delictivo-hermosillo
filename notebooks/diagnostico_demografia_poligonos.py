@@ -25,7 +25,7 @@ def cargar_datos():
     poligonos = pd.read_csv(project_root / 'data' / 'raw' / 'poligonos_hermosillo.csv')
     gdf_poligonos = gpd.GeoDataFrame(
         poligonos,
-        geometry=poligonos['POLIGONO_WKT'].apply(wkt.loads),
+        geometry=poligonos['geometry'].apply(wkt.loads),
         crs='EPSG:4326'
     )
     print(f"   {len(gdf_poligonos):,} polígonos")
@@ -66,15 +66,15 @@ def spatial_join_con_diagnostico(gdf_poligonos, demografia, demografia_coords):
     # Spatial join
     print("\nRealizando spatial join...")
     demo_en_poli = gpd.sjoin(
-        gdf_demografia,
-        gdf_poligonos[['CVE_COL', 'COLONIA', 'geometry']],
+        gdf_demografia.rename(columns={'nom_col': 'nom_col_demo'}),
+        gdf_poligonos[['cve_col', 'nom_col', 'geometry']].rename(columns={'nom_col': 'nom_col_poli'}),
         how='left',
         predicate='within'
     )
     
     # Separar exitosos vs fallidos
-    con_poligono = demo_en_poli[demo_en_poli['CVE_COL'].notna()].copy()
-    sin_poligono = demo_en_poli[demo_en_poli['CVE_COL'].isna()].copy()
+    con_poligono = demo_en_poli[demo_en_poli['index_right'].notna()].copy()
+    sin_poligono = demo_en_poli[demo_en_poli['index_right'].isna()].copy()
     
     print(f"\n✓ Con polígono: {len(con_poligono):,} ({len(con_poligono)/len(demo_en_poli)*100:.1f}%)")
     print(f"✗ Sin polígono: {len(sin_poligono):,} ({len(sin_poligono)/len(demo_en_poli)*100:.1f}%)")
@@ -100,15 +100,15 @@ def analizar_sin_poligono(sin_poligono, gdf_poligonos):
     
     for idx, row in sin_poligono.iterrows():
         punto = row.geometry
-        nombre = row['nom_col']
+        nombre = row['nom_col_demo']
         
         # Calcular distancia a TODOS los polígonos
         distancias = gdf_poligonos.geometry.distance(punto)
         idx_cercano = distancias.idxmin()
         distancia_min = distancias.min()
         
-        poligono_cercano = gdf_poligonos.loc[idx_cercano, 'COLONIA']
-        cve_cercano = gdf_poligonos.loc[idx_cercano, 'CVE_COL']
+        poligono_cercano = gdf_poligonos.loc[idx_cercano, 'nom_col']
+        cve_cercano = gdf_poligonos.loc[idx_cercano, 'cve_col']
         
         # Convertir distancia a metros (aprox)
         distancia_metros = distancia_min * 111000  # 1 grado ≈ 111 km
@@ -161,10 +161,10 @@ def comparar_con_merge_por_nombre(gdf_poligonos, demografia, con_poligono):
     demografia_norm['nom_col_upper'] = demografia_norm['nom_col'].str.upper().str.strip()
     
     poligonos_norm = gdf_poligonos.copy()
-    poligonos_norm['COLONIA_upper'] = poligonos_norm['COLONIA'].str.upper().str.strip()
+    poligonos_norm['COLONIA_upper'] = poligonos_norm['nom_col'].str.upper().str.strip()
     
     merge_nombre = demografia_norm.merge(
-        poligonos_norm[['CVE_COL', 'COLONIA', 'COLONIA_upper']],
+        poligonos_norm[['cve_col', 'COLONIA_upper']],
         left_on='nom_col_upper',
         right_on='COLONIA_upper',
         how='left',
@@ -195,25 +195,29 @@ def comparar_con_merge_por_nombre(gdf_poligonos, demografia, con_poligono):
         print(f"   Ambos métodos encuentran el mismo número de matches")
     
     # ¿Hay colonias que matchean por nombre pero NO por coordenadas?
-    nombres_match = set(match_nombre['nom_col'].values)
-    nombres_spatial = set(con_poligono['nom_col'].values)
+    nombres_match = set(match_nombre['nom_col_upper'].values)  # Usamos 'nom_col_upper' que existe en demografia_norm
+    nombres_spatial = set(con_poligono['nom_col_demo'].str.upper().str.strip().values)  # Normalizamos para comparar
     
     solo_nombre = nombres_match - nombres_spatial
     solo_spatial = nombres_spatial - nombres_match
     
     if solo_nombre:
         print(f"\n⚠️  Colonias que matchean por NOMBRE pero NO por COORDENADAS ({len(solo_nombre)}):")
-        for col in list(solo_nombre)[:10]:  # Mostrar primeras 10
+        # Convertir back a nombres originales
+        solo_nombre_orig = demografia_norm[demografia_norm['nom_col_upper'].isin(solo_nombre)]['nom_col'].values
+        for col in list(solo_nombre_orig)[:10]:  # Mostrar primeras 10
             print(f"   - {col}")
-        if len(solo_nombre) > 10:
-            print(f"   ... y {len(solo_nombre)-10} más")
+        if len(solo_nombre_orig) > 10:
+            print(f"   ... y {len(solo_nombre_orig)-10} más")
     
     if solo_spatial:
         print(f"\n✓ Colonias que matchean por COORDENADAS pero NO por NOMBRE ({len(solo_spatial)}):")
-        for col in list(solo_spatial)[:10]:
+        # Convertir back a nombres originales
+        cols_spatial_orig = con_poligono[con_poligono['nom_col_demo'].str.upper().str.strip().isin(solo_spatial)]['nom_col_demo'].values
+        for col in list(cols_spatial_orig)[:10]:
             print(f"   - {col}")
-        if len(solo_spatial) > 10:
-            print(f"   ... y {len(solo_spatial)-10} más")
+        if len(cols_spatial_orig) > 10:
+            print(f"   ... y {len(cols_spatial_orig)-10} más")
     
     return merge_nombre, match_nombre, sin_match_nombre
 

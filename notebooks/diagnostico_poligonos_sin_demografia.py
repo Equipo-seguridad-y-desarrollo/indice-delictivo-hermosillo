@@ -27,11 +27,33 @@ def cargar_datos():
     # Polígonos originales
     print("\n[2/4] Polígonos originales...")
     poligonos = pd.read_csv(project_root / 'data' / 'raw' / 'poligonos_hermosillo.csv')
+
+    # Detectar columna WKT y convertir a geometría (acepta 'POLIGONO_WKT' o 'geometry')
+    if 'POLIGONO_WKT' in poligonos.columns:
+        wkt_col = 'POLIGONO_WKT'
+    elif 'geometry' in poligonos.columns:
+        wkt_col = 'geometry'
+    else:
+        raise KeyError("No WKT column found in poligonos_hermosillo.csv (expected 'POLIGONO_WKT' or 'geometry')")
+
     gdf_poligonos = gpd.GeoDataFrame(
         poligonos,
-        geometry=poligonos['POLIGONO_WKT'].apply(wkt.loads),
+        geometry=poligonos[wkt_col].apply(wkt.loads),
         crs='EPSG:4326'
     )
+
+    # Normalizar nombres de columnas para compatibilidad con el resto del script
+    col_map = {}
+    if 'cve_col' in gdf_poligonos.columns and 'CVE_COL' not in gdf_poligonos.columns:
+        col_map['cve_col'] = 'CVE_COL'
+    if 'nom_col' in gdf_poligonos.columns and 'COLONIA' not in gdf_poligonos.columns:
+        col_map['nom_col'] = 'COLONIA'
+    if 'cp' in gdf_poligonos.columns and 'CP' not in gdf_poligonos.columns:
+        col_map['cp'] = 'CP'
+
+    if col_map:
+        gdf_poligonos = gdf_poligonos.rename(columns=col_map)
+
     print(f"   {len(gdf_poligonos):,} polígonos")
     
     # Demografía
@@ -136,11 +158,27 @@ def analizar_tipos_poligonos(sin_demo, gdf_poligonos):
     print("="*70)
     
     # Unir con datos originales para ver clasificación
-    sin_demo_completo = sin_demo.merge(
-        gdf_poligonos[['CVE_COL', 'CLASIF', 'NOM_SUN', 'POBTOT']],
-        on='CVE_COL',
-        how='left'
-    )
+    # Seleccionar solo las columnas disponibles para evitar KeyError
+    cols_a_buscar = ['CVE_COL', 'CLASIF', 'NOM_SUN', 'POBTOT']
+    cols_presentes = [c for c in cols_a_buscar if c in gdf_poligonos.columns]
+    if 'CVE_COL' not in cols_presentes:
+        # Si no tenemos la clave CVE_COL en los polígonos originales, intentar usar 'cve_col' si existe
+        if 'cve_col' in gdf_poligonos.columns:
+            gdf_poligonos = gdf_poligonos.rename(columns={'cve_col': 'CVE_COL'})
+        cols_presentes = [c for c in cols_a_buscar if c in gdf_poligonos.columns]
+
+    if len(cols_presentes) == 0:
+        # No hay columnas para unir; devolver sin cambios
+        sin_demo_completo = sin_demo.copy()
+        sin_demo_completo['CLASIF'] = np.nan
+        sin_demo_completo['NOM_SUN'] = np.nan
+        sin_demo_completo['POBTOT'] = np.nan
+    else:
+        sin_demo_completo = sin_demo.merge(
+            gdf_poligonos[cols_presentes],
+            on='CVE_COL',
+            how='left'
+        )
     
     # Clasificación
     if 'CLASIF' in sin_demo_completo.columns:
