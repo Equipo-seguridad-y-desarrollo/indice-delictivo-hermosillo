@@ -126,7 +126,8 @@ def son_variantes_validas(texto1, texto2, texto1_norm, texto2_norm):
     return True
 
 
-def agrupar_colonias_similares(colonias, umbral_similitud=0.90):
+
+def agrupar_colonias_similares(colonias, umbral_similitud=0.96):
     """
     Agrupa colonias que son muy similares (posibles errores ortográficos)
     """
