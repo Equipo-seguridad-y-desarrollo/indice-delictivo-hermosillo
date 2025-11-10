@@ -18,24 +18,27 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 
 ---
 
-## 🚀 Estado Actual
+## 🚀 Estado Actual - v4.0
 
 ### ✅ Completado
 
 - **Descarga de datos**: Migrado de Google Drive a Hugging Face para descarga directa
 - **Procesamiento multi-año**: Pipeline consolidado para procesar datos 2018-2025 (2.3M registros)
 - **Estandarización de incidentes**: 475 tipos de incidentes mapeados a 198 categorías únicas
-- **Feature engineering**: 7 columnas derivadas (temporal, categórica, severidad)
+- **Feature engineering**: 10 columnas derivadas (temporal, categórica, severidad)
 - **Limpieza de colonias**: 2,047 colonias únicas identificadas (220 grupos con variantes)
 - **Geocodificación incremental**: Coordenadas obtenidas vía Google Maps API con sistema anti-duplicados
 - **Limpieza de datos demográficos**: 659 colonias con información poblacional
-- **Documentación completa** del proceso de limpieza y normalización
+- **Unificación completa**: Pipeline de 3 pasos (spatial + buffer + nombre) - 100% demografía asignada
+- **Dashboard interactivo**: Mapa con 5 capas de visualización, popups y filtros
+- **Documentación completa**: Proceso de limpieza, unificación y mejores prácticas Git
 
-### 🔄 En Proceso
+### 📊 Cobertura de Datos (v4.0)
 
-- Validación cruzada entre datasets
-- Análisis geoespacial de incidentes
-- Visualización de datos en mapas interactivos
+- ✅ **658/658 (100%)** colonias demográficas asignadas a polígonos
+- ✅ **2,227,287/2,297,081 (97%)** incidentes georreferenciados
+- ✅ **444/693 (64.1%)** polígonos con demografía completa
+- ✅ **435/693 (62.8%)** polígonos con índice de riesgo calculado
 
 ---
 
@@ -69,34 +72,126 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 
 ---
 
-## 🛠️ Scripts Principales
+## 🛠️ Ejecución del Dashboard
 
-### Pipeline Principal
+### 🚀 Opción 1: Pipeline Completo (Primera vez)
 
-```bash
-# Pipeline completo: descarga y procesamiento de datos
-python indice_delictivo_hermosillo_main.py
+```powershell
+# Ejecuta todo el pipeline desde cero (20-30 minutos)
+.\run_pipeline.ps1
 ```
 
-Este script orquesta:
-1. **Descarga de datos** desde Hugging Face (`download_raw_data.py`)
-2. **Procesamiento interim** con estandarización y feature engineering (`make_interim_data.py`)
+Este script automatiza:
+1. Descarga de datos desde Hugging Face
+2. Procesamiento y limpieza (feature engineering)
+3. Geocodificación de colonias
+4. Unificación de datos (spatial join 3 pasos)
+5. Generación de mapa interactivo
 
-### Procesamiento de Colonias
+### ⚡ Opción 2: Regenerar Solo el Mapa (Rápido)
+
+```powershell
+# Si ya tienes datos procesados (2-3 minutos)
+.\regenerar_mapa.ps1
+```
+
+### 🔧 Opción 3: Manual por Pasos
 
 ```bash
-# 1. Extraer y normalizar colonias del dataset procesado
-python notebooks/extraer_colonias_unicas_reportes_911.py
+# 1. Descargar datos raw
+python notebooks/download_raw_data.py
 
-# 2. Geocodificación incremental (solo colonias nuevas)
+# 2. Procesar datos (limpieza + feature engineering)
+python notebooks/make_interim_data.py
+
+# 3. Geocodificar reportes 911
 python notebooks/geocodificar_colonias_reportes_911.py
+
+# 4. Geocodificar demografía
+python notebooks/geocodificar_colonias_demografia.py
+
+# 5. Unificar datos (CORE)
+python notebooks/unificar_datos_poligonos.py
+
+# 6. Generar dashboard
+python notebooks/mapa_interactivo_folium_avanzado.py
+
+# 7. Abrir mapa
+Invoke-Item mapa_interactivo_hermosillo.html
 ```
 
-### Limpieza de Demografía
+### 📋 Documentación Detallada
+
+Ver [`docs/PIPELINE_DASHBOARD.md`](docs/PIPELINE_DASHBOARD.md) para:
+- Pipeline completo paso a paso
+- Dependencias entre scripts
+- Troubleshooting
+- Personalización del dashboard
+
+---
+
+## 🗺️ Dashboard Interactivo
+
+El dashboard generado (`mapa_interactivo_hermosillo.html`) incluye:
+
+### 5 Capas de Visualización
+1. 🚨 **Total Incidentes** - Gradiente rojo/amarillo por volumen
+2. 📊 **Tasa per 1k habitantes** - Normalizado por población
+3. ⚠️ **Índice de Riesgo** (0-100) - Score compuesto de múltiples factores
+4. 🔥 **Score Severidad** (1-3) - Ponderación ALTA/MEDIA/BAJA
+5. 👥 **Población** - Distribución demográfica
+
+### Características
+- ✅ 693 polígonos con métricas detalladas
+- ✅ Popups con demografía completa e incidentes
+- ✅ Panel de filtros (año, trimestre, categoría, severidad)
+- ✅ Herramientas de navegación (zoom, búsqueda, medición)
+- ✅ Mini mapa y control de capas
+- ✅ Archivo HTML auto-contenido (11.7 MB)
+
+---
+
+## 🛠️ Scripts de Procesamiento
+
+### Pipeline de Datos
+
+### Pipeline de Datos
+
+#### 1. Descarga y Procesamiento Base
+```bash
+# Descarga desde Hugging Face
+python notebooks/download_raw_data.py
+
+# Procesamiento con feature engineering
+python notebooks/make_interim_data.py
+```
+
+#### 2. Geocodificación
+```bash
+# Geocodificar colonias de reportes 911 (incremental)
+python notebooks/geocodificar_colonias_reportes_911.py
+
+# Geocodificar colonias de demografía
+python notebooks/geocodificar_colonias_demografia.py
+```
+
+#### 3. Unificación y Dashboard
+```bash
+# Unificar datos con spatial join (3 pasos)
+python notebooks/unificar_datos_poligonos.py
+
+# Generar mapa interactivo
+python notebooks/mapa_interactivo_folium_avanzado.py
+```
+
+### Scripts de Análisis
 
 ```bash
-# Normalizar espacios en datos demográficos
-python notebooks/normalizar_espacios_demografia.py
+# Diagnóstico de polígonos sin demografía
+python notebooks/diagnostico_poligonos_sin_demografia.py
+
+# Análisis de calidad de datos demográficos
+python notebooks/analizar_calidad_datos_demografia.py
 ```
 
 ### Análisis
