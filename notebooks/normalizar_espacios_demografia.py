@@ -15,39 +15,46 @@ Ejemplos que deben permanecer distintos:
 import pandas as pd
 import unicodedata
 import re
+from typing import Dict
 
 
-def limpiar_colonia(texto: str) -> str:
-    """Limpia una etiqueta de colonia SIN alterar su sentido.
+def reparar_mojibake(s: str) -> str:
+    """Intenta reparar texto con mojibake típico (UTF-8 leído como Latin-1).
 
-    Acciones:
-    - Convertir a str y recortar espacios al inicio/fin
-    - Reemplazar espacios no separables (\u00A0) por espacios normales
-    - Colapsar múltiples espacios a uno solo
-    - Quitar comillas de borde y puntuación residual al inicio/fin
-    - Mantener mayúsculas/minúsculas y acentos TAL CUAL (no se eliminan)
+    Si el round-trip latin1->utf-8 falla, retorna el original.
+    """
+    if not s:
+        return s
+    try:
+        return s.encode('latin1').decode('utf-8')
+    except Exception:
+        return s
+
+
+def limpiar_colonia(texto: str, alias_map: Dict[str, str]) -> str:
+    """Limpia etiqueta de colonia y aplica alias controlados para homogeneizar joins.
+
+    Pasos:
+    1. Normalización unicode NFC.
+    2. Reparar mojibake simple.
+    3. Espacios (NBSP -> espacio, colapso, trim, retirar puntuación periférica).
+    4. Aplicar alias EXACTOS (en mayúsculas) definidos en alias_map.
+    5. NO eliminar stopwords (EL, LA, DE, etc.).
     """
     if pd.isna(texto):
         return ""
-
     s = str(texto)
-
-    # Normaliza forma Unicode (no elimina acentos)
     s = unicodedata.normalize("NFC", s)
-
-    # Reemplaza NBSP y otros espacios raros por espacio normal
+    s = reparar_mojibake(s)
     s = s.replace("\u00A0", " ")
-
-    # Recorta y colapsa espacios
     s = s.strip()
     s = re.sub(r"\s+", " ", s)
-
-    # Quita comillas de borde y puntuación suelta al inicio/fin
     s = s.strip("'\"“”‘’.;,|/\\- ")
-
-    # Recolapsa por si quedaron dobles espacios tras recortes
     s = re.sub(r"\s+", " ", s)
-
+    # Alias: trabajamos en mayúsculas para la clave, pero retornamos en la forma destino del alias
+    upper = s.upper()
+    if upper in alias_map:
+        return alias_map[upper]
     return s
 
 
@@ -71,25 +78,44 @@ def main():
     
     # Aplicar limpieza ortográfica mínima (sin agrupar nombres distintos)
     print("\n🔧 Limpiando etiquetas (espacios, NBSP, bordes/puntuación)...")
-    df['nom_col_limpio'] = df['nom_col'].apply(limpiar_colonia)
+    # Construir alias controlados únicamente para casos detectados que impiden join.
+    # Mantenerlos mínimos y documentados.
+    alias_map = {
+        # Correcciones de truncación / falta de tilde / letras perdidas
+        'AMPLIACIN 4 DE MARZO': 'AMPLIACION 4 DE MARZO',
+        'ARGANGEL RESIDENCIAL': 'ARCANGEL RESIDENCIAL',
+        'BUROCRATA MUNICIPAL': 'BURÓCRATA MUNICIPAL',  # si en polígono aparece con acento
+        'CASA ALTA RDCIAL': 'CASA ALTA RESIDENCIAL',
+        'CARDENO RESIDENCIAL': 'CARDENO RESIDENCIAL',  # placeholder (permite consistencia si ya existe así en polígonos)
+        'CARDENO ENTORNO': 'CARDENO ENTORNO',  # sin cambio aún; revisar si existe homónimo
+        'CAÑAÑA DE LOS NEGROS': 'CAÑADA DE LOS NEGROS',  # mojibake doble
+        'LA CORUÑA SECCION PRIVADA ORZAN': 'LA CORUÑA SECCION PRIVADA ORZAN',
+        'LA CORUÑA SECCION  PRIVADA ALMAR': 'LA CORUÑA SECCION PRIVADA ALMAR',
+        'LAS LOMAS SECC CASTAÑOS': 'LAS LOMAS SECCION CASTAÑOS',
+        'LAS PLASITAS PRIMERAS': 'LAS PLAZITAS PRIMERAS',
+        'NUEVA ESPAÑA': 'NUEVA ESPAÑA',  # identidad
+        'PARAISO PITIC': 'PARAISO PITIC',
+        # Casos de mojibake comunes sin alias específico se corrigen en reparar_mojibake
+    }
+
+    df['nom_col_norm'] = df['nom_col'].apply(lambda x: limpiar_colonia(x, alias_map))
     
     # Contar cambios
-    cambios = (df['nom_col'] != df['nom_col_limpio']).sum()
+    cambios = (df['nom_col'] != df['nom_col_norm']).sum()
     print(f"✓ Registros con corrección aplicada: {cambios}")
     
     # Mostrar ejemplos de cambios
     if cambios > 0:
         print("\n📝 Ejemplos de correcciones:")
-        ejemplos = df[df['nom_col'] != df['nom_col_limpio']][['nom_col', 'nom_col_limpio']].drop_duplicates()
+        ejemplos = df[df['nom_col'] != df['nom_col_norm']][['nom_col', 'nom_col_norm']].drop_duplicates()
         for _, row in ejemplos.head(10).iterrows():
-            print(f"  '{row['nom_col']}' → '{row['nom_col_limpio']}'")
+            print(f"  '{row['nom_col']}' → '{row['nom_col_norm']}'")
     
-    # Reemplazar la columna original
-    df['nom_col'] = df['nom_col_limpio']
-    df = df.drop('nom_col_limpio', axis=1)
+    # Mantener ambas columnas: nom_col (original) y nom_col_norm (normalizada)
+    # Esto evita romper joins existentes basados en el nombre original y permite usar la normalizada como fallback.
     
     # Contar colonias únicas después
-    colonias_despues = df['nom_col'].nunique()
+    colonias_despues = df['nom_col_norm'].nunique()
     print(f"\n📊 Colonias únicas (después de limpiar): {colonias_despues:,}")
     print(f"✓ Colonias consolidadas: {colonias_antes - colonias_despues}")
     
@@ -99,8 +125,8 @@ def main():
     print(f"\n💾 Guardado: {archivo_salida}")
     
     # Guardar lista de colonias únicas
-    colonias_unicas = sorted(df['nom_col'].unique())
-    df_colonias = pd.DataFrame({'nom_col': colonias_unicas})
+    colonias_unicas = sorted(df['nom_col_norm'].unique())
+    df_colonias = pd.DataFrame({'nom_col_norm': colonias_unicas})
     archivo_colonias = project_root / 'data' / 'processed' / 'colonias_unicas_demografia.csv'
     df_colonias.to_csv(archivo_colonias, index=False, encoding='utf-8-sig')
     print(f"💾 Guardado: {archivo_colonias}")
