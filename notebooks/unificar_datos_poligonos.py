@@ -282,9 +282,11 @@ def spatial_join_demografia_poligonos(demografia, demografia_coords, gdf_poligon
                     mask = demografia_en_poligonos[ref_col] == row[ref_col]
                     demografia_en_poligonos.loc[mask, 'CVE_COL'] = row['CVE_COL']
                     demografia_en_poligonos.loc[mask, 'COLONIA'] = row['COLONIA']
-        
-    con_buffer = nuevos_match['CVE_COL'].notna().sum()
-    print(f"   Capturadas con buffer: {con_buffer:,}")
+            con_buffer = nuevos_match['CVE_COL'].notna().sum()
+            print(f"   Capturadas con buffer: {con_buffer:,}")
+        else:
+            con_buffer = 0
+            print(f"   Capturadas con buffer: 0")
     
     # PASO 3: Para los que aún no matchearon, intentar merge por NOMBRE
     sin_poligono_despues_buffer = demografia_en_poligonos['CVE_COL'].isna().sum()
@@ -346,15 +348,81 @@ def spatial_join_demografia_poligonos(demografia, demografia_coords, gdf_poligon
                     continue
                 demografia_en_poligonos.loc[mask, 'CVE_COL'] = row['CVE_COL_poli']
                 demografia_en_poligonos.loc[mask, 'COLONIA'] = row['COLONIA_poli']
+            con_nombre = len(nuevos_match_nombre)
+            print(f"   Capturadas por nombre: {con_nombre:,}")
+        else:
+            con_nombre = 0
+            print(f"   Capturadas por nombre: 0")
+    else:
+        con_nombre = 0
+    
+    # PASO 4: Validar y corregir asignaciones incorrectas por nombre
+    # (Para colonias que obtuvieron CVE_COL en pasos 1-2 pero el nombre no coincide)
+    con_cve = demografia_en_poligonos['CVE_COL'].notna().sum()
+    if con_cve > 0:
+        print(f"\n[Paso 4/4] Validando asignaciones por nombre...")
+        # Preparar columnas normalizadas si no existen
+        if 'nom_col_norm_match' not in demografia_en_poligonos.columns:
+            if 'nom_col_norm' in demografia_en_poligonos.columns:
+                demografia_en_poligonos['nom_col_norm_match'] = (
+                    demografia_en_poligonos['nom_col_norm']
+                    .str.upper().str.strip().str.replace(r'\s+', ' ', regex=True)
+                )
+            else:
+                demografia_en_poligonos['nom_col_norm_match'] = (
+                    demografia_en_poligonos['nom_col']
+                    .str.upper().str.strip().str.replace(r'\s+', ' ', regex=True)
+                )
         
-    con_nombre = len(nuevos_match_nombre)
-    print(f"   Capturadas por nombre: {con_nombre:,}")
+        if 'COLONIA_norm' not in gdf_poligonos.columns:
+            gdf_poligonos_norm = gdf_poligonos.copy()
+            gdf_poligonos_norm['COLONIA_norm'] = (
+                gdf_poligonos_norm['COLONIA']
+                .str.upper().str.strip().str.replace(r'\s+', ' ', regex=True)
+            )
+        else:
+            gdf_poligonos_norm = gdf_poligonos
+        
+        # Comparar nombre asignado con nombre de demografia
+        con_cve_rows = demografia_en_poligonos[demografia_en_poligonos['CVE_COL'].notna()].copy()
+        # Merge con poligonos para obtener el COLONIA_norm del CVE_COL asignado
+        con_cve_rows = con_cve_rows.merge(
+            gdf_poligonos_norm[['CVE_COL','COLONIA_norm']],
+            on='CVE_COL', how='left', suffixes=('','_asignado')
+        )
+        
+        # Identificar discordancias
+        discordantes = con_cve_rows[
+            con_cve_rows['nom_col_norm_match'] != con_cve_rows['COLONIA_norm']
+        ].copy()
+        
+        if len(discordantes) > 0:
+            print(f"   Encontradas {len(discordantes):,} asignaciones con nombre discordante")
+            # Intentar corregir por nombre exacto
+            corregidas = 0
+            for idx, row in discordantes.iterrows():
+                # Buscar polígono con nombre coincidente
+                match_nombre_correcto = gdf_poligonos_norm[
+                    gdf_poligonos_norm['COLONIA_norm'] == row['nom_col_norm_match']
+                ]
+                if len(match_nombre_correcto) > 0:
+                    cve_correcto = match_nombre_correcto.iloc[0]['CVE_COL']
+                    colonia_correcto = match_nombre_correcto.iloc[0]['COLONIA']
+                    # Actualizar en demografia_en_poligonos
+                    mask = (demografia_en_poligonos['CVE_COL'] == row['CVE_COL']) & \
+                           (demografia_en_poligonos['nom_col_norm_match'] == row['nom_col_norm_match'])
+                    demografia_en_poligonos.loc[mask, 'CVE_COL'] = cve_correcto
+                    demografia_en_poligonos.loc[mask, 'COLONIA'] = colonia_correcto
+                    corregidas += 1
+            print(f"   Corregidas: {corregidas:,}")
+        else:
+            print(f"   Todas las asignaciones son correctas (nombre coincide)")
     
     # Estadísticas finales
     con_poligono_final = demografia_en_poligonos['CVE_COL'].notna().sum()
     sin_poligono_final = demografia_en_poligonos['CVE_COL'].isna().sum()
     
-    print(f"\nRESULTADO FINAL (3 pasos):")
+    print(f"\nRESULTADO FINAL (4 pasos):")
     print(f"   Demografia con poligono: {con_poligono_final:,} ({con_poligono_final/len(demografia_en_poligonos)*100:.1f}%)")
     print(f"   Demografia sin poligono: {sin_poligono_final:,} ({sin_poligono_final/len(demografia_en_poligonos)*100:.1f}%)")
     print(f"\n   Desglose:")
