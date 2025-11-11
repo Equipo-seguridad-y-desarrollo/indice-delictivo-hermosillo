@@ -48,7 +48,7 @@ def preparar_metricas_base(gdf_poligonos):
         'total_incidentes': gdf_poligonos['total_incidentes'].fillna(0),
         'tasa_incidentes_per_1k': gdf_poligonos['tasa_incidentes_per_1k'].fillna(0),
         'score_severidad': gdf_poligonos['score_severidad'].fillna(0),
-        'indice_riesgo': gdf_poligonos['indice_riesgo'].fillna(0),
+        'indice_riesgo': gdf_poligonos.get('indice_riesgo', gdf_poligonos['score_severidad']).fillna(0),  # Fallback a score_severidad
         'poblacion_total': gdf_poligonos['poblacion_total'].fillna(0),
         'densidad_poblacional': gdf_poligonos['densidad_poblacional'].fillna(0),
         'incidentes_alta': gdf_poligonos['incidentes_alta'].fillna(0),
@@ -78,7 +78,7 @@ def crear_popup_html(row, df_incidentes_poligono):
     # Índices
     tasa = f"{row['tasa_incidentes_per_1k']:.1f}" if pd.notna(row['tasa_incidentes_per_1k']) else 'N/D'
     score_sev = f"{row['score_severidad']:.2f}" if pd.notna(row['score_severidad']) else 'N/D'
-    indice = f"{row['indice_riesgo']:.1f}" if pd.notna(row['indice_riesgo']) else 'N/D'
+    indice = f"{row.get('indice_riesgo', row['score_severidad']):.1f}" if pd.notna(row.get('indice_riesgo', row['score_severidad'])) else 'N/D'
     
     # Categorías top 3 si existen
     categorias_html = ""
@@ -242,26 +242,26 @@ def crear_mapa_interactivo(gdf_poligonos, df_incidentes):
         
         fg_tasa.add_to(m)
     
-    # === CAPA 3: Índice de Riesgo ===
-    print("  Generando capa: Índice de Riesgo...")
+    # === CAPA 3: Índice de Riesgo (o Severidad si no hay índice) ===
+    print("  Generando capa: Índice de Riesgo/Severidad...")
     
-    gdf_con_riesgo = gdf_poligonos[gdf_poligonos['indice_riesgo'].notna()].copy()
+    gdf_con_riesgo = gdf_poligonos[gdf_poligonos['score_severidad'].notna()].copy()
     
     if len(gdf_con_riesgo) > 0:
         colormap_riesgo = cm.LinearColormap(
             colors=['#1a9850', '#91cf60', '#d9ef8b', '#fee08b', '#fc8d59', '#e63c31', '#d73027'],
             vmin=0,
-            vmax=100,
-            caption='Índice de Riesgo (0-100)'
+            vmax=100 if 'indice_riesgo' in gdf_poligonos.columns and gdf_poligonos['indice_riesgo'].notna().any() else 3,
+            caption='Índice de Riesgo (0-100)' if 'indice_riesgo' in gdf_poligonos.columns else 'Score Severidad (1-3)'
         )
         
-        fg_riesgo = folium.FeatureGroup(name='⚠️ Índice de Riesgo', show=False)
+        fg_riesgo = folium.FeatureGroup(name='⚠️ Índice de Riesgo' if 'indice_riesgo' in gdf_poligonos.columns else '⚠️ Severidad (Score)', show=False)
         
         for idx, row in gdf_con_riesgo.iterrows():
             df_inc_pol = df_incidentes[df_incidentes['CVE_COL'] == row['CVE_COL']]
             popup_html = crear_popup_html(row, df_inc_pol)
             
-            valor = row['indice_riesgo']
+            valor = metrics['indice_riesgo'].iloc[idx]
             color = colormap_riesgo(valor)
             
             folium.GeoJson(
@@ -273,7 +273,7 @@ def crear_mapa_interactivo(gdf_poligonos, df_incidentes):
                     'fillOpacity': 0.6
                 },
                 popup=folium.Popup(popup_html, max_width=400),
-                tooltip=f"{row['COLONIA']}: Riesgo {valor:.1f}"
+                tooltip=f"{row['COLONIA']}: {valor:.1f}" + (" (riesgo)" if 'indice_riesgo' in gdf_poligonos.columns else " (severidad)")
             ).add_to(fg_riesgo)
         
         fg_riesgo.add_to(m)
