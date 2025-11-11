@@ -98,7 +98,8 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     
     # Procesar cada colonia
     for idx, row in df_colonias.iterrows():
-        colonia = row['nom_col']
+        # Buscar la columna de nombre (puede ser 'nom_col' o 'nom_col_norm')
+        colonia = row['nom_col_norm'] if 'nom_col_norm' in row else row['nom_col']
         
         # Mostrar progreso cada 10 colonias
         if (idx + 1) % 10 == 0:
@@ -112,7 +113,7 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
             location = info['geometry']['location']
             
             resultado = {
-                'nom_col': colonia,
+                'nom_col_norm': colonia,
                 'LATITUD': location['lat'],
                 'LONGITUD': location['lng'],
                 'DIRECCION_FORMATEADA': info['formatted_address'],
@@ -180,7 +181,9 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
     # Mostrar colonias no encontradas si hay pocas
     if no_encontradas > 0 and no_encontradas <= 20:
         print("\n🔍 Colonias no encontradas:")
-        colonias_no_encontradas = df_resultados[df_resultados['LATITUD'].isna()]['nom_col'].tolist()
+        # Adaptar el nombre de la columna según esté disponible
+        col_name = 'nom_col_norm' if 'nom_col_norm' in df_resultados.columns else 'nom_col'
+        colonias_no_encontradas = df_resultados[df_resultados['LATITUD'].isna()][col_name].tolist()
         for col in colonias_no_encontradas:
             print(f"  - {col}")
     
@@ -188,17 +191,21 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
 
 
 def main():
-    # Rutas de archivos
-    archivo_colonias = '../data/processed/colonias_unicas_demografia.csv'
-    archivo_salida = '../data/processed/colonias_demografia_con_coordenadas.csv'
+    # Rutas de archivos (usar rutas absolutas basadas en directorio del script)
+    from pathlib import Path
+    script_dir = Path(__file__).parent
+    project_root = script_dir.parent
+    
+    archivo_colonias = project_root / 'data' / 'processed' / 'colonias_unicas_demografia.csv'
+    archivo_salida = project_root / 'data' / 'processed' / 'colonias_demografia_con_coordenadas.csv'
     
     # Procesar todas las colonias
     print("\n🌍 GEOCODIFICACIÓN COMPLETA: Procesando todas las colonias")
     print("   Tiempo estimado: ~3-4 minutos (659 colonias)\n")
     
     df_resultados = procesar_colonias(
-        archivo_colonias=archivo_colonias,
-        archivo_salida=archivo_salida,
+        archivo_colonias=str(archivo_colonias),
+        archivo_salida=str(archivo_salida),
         limite=None,  # None = procesar todas las colonias
         delay=0.2     # 0.2 segundos entre peticiones (más seguro)
     )
@@ -207,8 +214,9 @@ def main():
     print("\n📍 EJEMPLOS DE COORDENADAS OBTENIDAS:")
     print("-"*70)
     exitosos = df_resultados[df_resultados['LATITUD'].notna()].head(10)
+    col_name = 'nom_col_norm' if 'nom_col_norm' in df_resultados.columns else 'nom_col'
     for _, row in exitosos.iterrows():
-        print(f"\n{row['nom_col']}")
+        print(f"\n{row[col_name]}")
         print(f"  Lat: {row['LATITUD']:.6f}, Lng: {row['LONGITUD']:.6f}")
         print(f"  {row['DIRECCION_FORMATEADA']}")
     

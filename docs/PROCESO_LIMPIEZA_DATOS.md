@@ -1,13 +1,19 @@
 # 📋 Documentación del Proceso de Limpieza de Datos
 ## Proyecto: Índice Delictivo Hermosillo
 
-**Última actualización**: 6 de noviembre de 2025
+**Última actualización**: 10 de noviembre de 2025
 
 ---
 
 ## 📊 Resumen del Proyecto
 
 Este documento describe el proceso completo de descarga, limpieza, normalización, estandarización y enriquecimiento de datos geográficos para el análisis del índice delictivo en Hermosillo, Sonora (2018-2025).
+
+**Cambios importantes en v3.0**:
+- ✅ Nueva Fase 0: Descarga y procesamiento de shapefile INE_Limpio
+- ✅ Script colonias_poligonos.py para obtener polígonos desde fuente pública
+- ✅ Trazabilidad completa de la fuente de datos geográficos
+- ✅ Pipeline automatizado incluye descarga de shapefiles
 
 **Cambios importantes en v2.0**:
 - ✅ Migración de Google Drive a Hugging Face para descarga de datos
@@ -27,8 +33,9 @@ data/raw/
 ├── 213.xlsx                         # Datos de incidentes 911 (8 hojas: 2018-2025)
 ├── reportes_de_incidentes_2018_2025.csv  # Consolidado de Excel
 ├── delitos.csv                      # Catálogo de tipos de delitos
+├── INE_Limpio.shp (+ .dbf, .shx, .prj)  # Shapefile de colonias (descargado)
 ├── demografia_hermosillo.csv        # Datos demográficos por colonia
-└── poligonos_hermosillo.csv         # Polígonos geográficos
+└── poligonos_hermosillo.csv         # Polígonos geográficos (generado desde shapefile)
 ```
 
 ### Archivos Intermedios (Interim Data)
@@ -52,9 +59,64 @@ data/processed/
 
 ## 🔄 Flujo del Proceso
 
-### **Fase 0: Descarga y Consolidación de Datos**
+### **Fase 0: Preparación de Polígonos Geográficos**
 
-#### 0.1 Script: `download_raw_data.py`
+#### 0.1 Script: `colonias_poligonos.py`
+
+**Objetivo**: Descargar y procesar el shapefile oficial de colonias de Sonora para extraer los polígonos de Hermosillo
+
+**Nueva fuente de datos**:
+- **Repositorio**: [ColoniasSonora](https://github.com/Sonora-en-Datos/ColoniasSonora) de Luis Moreno
+- **Archivo**: `INE_Limpio.shp` (Marco Geoestadístico Nacional del INE)
+- **Alcance**: Todo el estado de Sonora
+- **Calidad**: Datos oficiales verificados por el INE
+
+**Proceso**:
+```python
+# 1. Descarga automática de archivos del shapefile
+repo_url = "https://github.com/Sonora-en-Datos/ColoniasSonora/raw/main/shapes/INE_Limpio/"
+files = ["INE_Limpio.shp", "INE_Limpio.dbf", "INE_Limpio.shx", "INE_Limpio.prj"]
+
+# 2. Cargar shapefile completo
+gdf_completo = gpd.read_file("INE_Limpio.shp")
+
+# 3. Filtrar geometrías válidas (Polygon + MultiPolygon)
+gdf_poligonos = gdf_completo[gdf_completo.geometry.type.isin(['Polygon', 'MultiPolygon'])]
+
+# 4. Filtrar solo Hermosillo
+gdf_hermosillo = gdf_poligonos[gdf_poligonos['nom_loc'] == 'Hermosillo']
+
+# 5. Exportar a CSV
+gdf_hermosillo.to_csv('data/raw/poligonos_hermosillo.csv', index=False)
+```
+
+**Resultados**:
+- **Registros totales del shapefile**: Varios miles (todo Sonora)
+- **Colonias de Hermosillo extraídas**: ~700
+- **Tipos de geometría incluidos**: 
+  - Polygon: Colonias con área continua
+  - MultiPolygon: Colonias con áreas discontinuas (no son errores)
+- **Archivo generado**: `data/raw/poligonos_hermosillo.csv`
+
+**Por qué MultiPolygon no es un error**:
+Algunas colonias tienen áreas geográficas separadas por infraestructura (avenidas, vías de tren, etc.) pero mantienen el mismo nombre administrativo. Ejemplos comunes:
+- Colonias divididas por avenidas principales
+- Fraccionamientos con secciones separadas
+- Colonias con parques o áreas públicas intermedias
+
+**Información obtenida**:
+- Geometrías (polígonos en formato WKT)
+- Claves geográficas (CVE_COL, CVE_ENT, CVE_MUN)
+- Nombres oficiales de colonias
+- Códigos postales
+- Datos del Índice de Marginación 2020 (CONAPO)
+- Indicadores de carencias sociales
+
+---
+
+### **Fase 1: Descarga y Consolidación de Datos**
+
+#### 1.1 Script: `download_raw_data.py`
 
 **Objetivo**: Descargar datos desde Hugging Face y consolidar Excel multi-hoja en CSV único
 
@@ -90,9 +152,9 @@ df_consolidated = pd.concat(list_dfs, ignore_index=True)
 
 ---
 
-### **Fase 1: Procesamiento Interim - Estandarización y Feature Engineering**
+### **Fase 2: Procesamiento Interim - Estandarización y Feature Engineering**
 
-#### 1.1 Script: `make_interim_data.py`
+#### 2.1 Script: `make_interim_data.py`
 
 **Objetivo**: Estandarizar tipos de incidentes, categorizar, generar features temporales y optimizar esquema
 
@@ -226,9 +288,9 @@ df_final = df[final_cols]
 
 ---
 
-### **Fase 2: Limpieza de Datos Policiales - Extracción de Colonias**
+### **Fase 3: Limpieza de Datos Policiales - Extracción de Colonias**
 
-#### 2.1 Migración del Script
+#### 3.1 Migración del Script
 
 **Cambio importante**: `extraer_colonias_unicas_reportes_911.py` migrado para usar datos procesados del interim
 
@@ -236,13 +298,13 @@ df_final = df[final_cols]
 - **Después**: Usa `data/interim/reportes_de_incidentes_procesados_2018_2025.csv`
 - **Beneficio**: Opera sobre datos ya estandarizados y enriquecidos
 
-#### 2.2 Análisis Inicial
+#### 3.2 Análisis Inicial
 - **Archivo**: `reportes_de_incidentes_procesados_2018_2025.csv`
 - **Registros totales**: 2,297,081
 - **Colonias originales**: 2,296
 - **Problema identificado**: Múltiples errores ortográficos y variantes del mismo nombre
 
-#### 2.3 Algoritmo de Normalización
+#### 3.3 Algoritmo de Normalización
 
 **Objetivo**: Identificar y agrupar colonias con errores ortográficos usando fuzzy matching
 
@@ -302,9 +364,9 @@ def son_variantes_validas():
 
 ---
 
-###**Fase 3: Geocodificación con Google Maps API**
+###**Fase 4: Geocodificación con Google Maps API**
 
-#### 3.1 Script: `geocodificar_colonias_reportes_911.py`
+#### 4.1 Script: `geocodificar_colonias_reportes_911.py`
 
 **Objetivo**: Obtener coordenadas geográficas (latitud/longitud) para cada colonia con sistema incremental
 
@@ -381,9 +443,9 @@ QUINTA ESMERALDA,29.075595,-110.957462,"Quinta Esmeralda, 83000 Hermosillo, Son.
 
 ---
 
-### **Fase 4: Limpieza de Datos Demográficos**
+### **Fase 5: Limpieza de Datos Demográficos**
 
-#### 3.1 Análisis: `analizar_calidad_datos_demografia.py`
+#### 5.1 Análisis: `analizar_calidad_datos_demografia.py`
 
 **Objetivo**: Verificar calidad de datos demográficos
 
@@ -396,7 +458,7 @@ QUINTA ESMERALDA,29.075595,-110.957462,"Quinta Esmeralda, 83000 Hermosillo, Son.
 - Mayoría eran colonias genuinamente diferentes
 - Solo 1 error real detectado: `PRIMERO  HERMOSILLO` (doble espacio)
 
-#### 3.2 Script: `normalizar_espacios_demografia.py`
+#### 5.2 Script: `normalizar_espacios_demografia.py`
 
 **Objetivo**: Normalizar solo errores obvios (espacios dobles)
 
@@ -424,11 +486,12 @@ def normalizar_espacios(texto):
 
 | Fase | Input | Output | Tiempo | Costo |
 |------|-------|--------|--------|-------|
-| 0. Descarga | Hugging Face | 2.3M registros CSV | ~2 min | $0 |
-| 1. Procesamiento Interim | Raw CSV | Procesado con 10 cols | ~5 min | $0 |
-| 2. Extracción Colonias | Procesado | 2,047 colonias únicas | ~30 seg | $0 |
-| 3. Geocodificación (1era) | Colonias únicas | Con coordenadas | ~8-10 min | ~$6 |
-| 3. Geocodificación (subsec.) | Solo nuevas | Incremental | segundos | ~$0 |
+| 0. Polígonos | GitHub shapefile | 700 polígonos CSV | ~1 min | $0 |
+| 1. Descarga | Hugging Face | 2.3M registros CSV | ~2 min | $0 |
+| 2. Procesamiento Interim | Raw CSV | Procesado con 10 cols | ~5 min | $0 |
+| 3. Extracción Colonias | Procesado | 2,047 colonias únicas | ~30 seg | $0 |
+| 4. Geocodificación (1era) | Colonias únicas | Con coordenadas | ~8-10 min | ~$6 |
+| 4. Geocodificación (subsec.) | Solo nuevas | Incremental | segundos | ~$0 |
 
 ### Datos Policiales (2018-2025)
 | Métrica | Antes | Después | Mejora |
@@ -472,6 +535,12 @@ def normalizar_espacios(texto):
 
 ### Scripts de Pipeline Principal
 
+0. **`colonias_poligonos.py`**
+   - Descarga automática del shapefile INE_Limpio desde GitHub
+   - Filtrado de geometrías válidas (Polygon + MultiPolygon)
+   - Extracción de colonias de Hermosillo (~700 registros)
+   - Exportación a CSV para integración con pipeline
+
 1. **`indice_delictivo_hermosillo_main.py`**
    - Orquestador del pipeline completo
    - Ejecuta descarga → procesamiento interim
@@ -491,7 +560,7 @@ def normalizar_espacios(texto):
 
 ### Scripts de Procesamiento de Colonias
 
-4. **`extraer_colonias_unicas_reportes_911.py`**
+5. **`extraer_colonias_unicas_reportes_911.py`**
    - Limpieza y normalización de nombres de colonias
    - Algoritmo de fuzzy matching (90% umbral)
    - Validación inteligente de variantes
@@ -633,4 +702,4 @@ Hugging Face Datasets
 
 ---
 
-*Última actualización: 6 de noviembre de 2025*
+*Última actualización: 10 de noviembre de 2025*

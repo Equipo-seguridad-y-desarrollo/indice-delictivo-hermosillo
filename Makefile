@@ -56,7 +56,25 @@ create_environment:
 # PROJECT RULES                                                                 #
 #################################################################################
 
+## Download and process geographic polygons from INE shapefile
+.PHONY: poligonos
+poligonos:
+	$(PYTHON_INTERPRETER) notebooks/colonias_poligonos.py
 
+## Download raw data from Hugging Face
+.PHONY: download
+download:
+	$(PYTHON_INTERPRETER) notebooks/download_raw_data.py
+
+## Process interim data (feature engineering)
+.PHONY: process
+process:
+	$(PYTHON_INTERPRETER) notebooks/make_interim_data.py
+
+## Run complete data pipeline
+.PHONY: pipeline
+pipeline: poligonos download process
+	@echo "Data pipeline completed successfully"
 
 #################################################################################
 # Self Documenting Commands                                                     #

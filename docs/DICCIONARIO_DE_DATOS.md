@@ -1,8 +1,8 @@
 # 📖 Diccionario de Datos
 ## Proyecto: Índice Delictivo Hermosillo
 
-**Fecha de actualización**: 6 de noviembre de 2025  
-**Versión**: 2.0  
+**Fecha de actualización**: 10 de noviembre de 2025  
+**Versión**: 3.0  
 
 ---
 
@@ -13,7 +13,7 @@
 | Reportes 911 (Raw) | `213.xlsx` | 2,297,081 | 8 hojas (2018-2025) | Sistema de Emergencias 911 |
 | Reportes 911 (Procesado) | `reportes_de_incidentes_procesados_2018_2025.csv` | 2,297,081 | 10 | Pipeline de procesamiento |
 | Demografía | `demografia_hermosillo.csv` | 660 | 11 | INEGI Censo 2020 |
-| Polígonos | `poligonos_hermosillo.csv` | - | 32 | INEGI Marco Geoestadístico |
+| Polígonos | `poligonos_hermosillo.csv` | ~700 | 32 | Shapefile INE_Limpio (Sonora-en-Datos) |
 | Colonias Geocodificadas | `colonias_reportes_911_con_coordenadas.csv` | 2,047 | 8 | Google Maps API |
 
 ---
@@ -538,8 +538,21 @@ Información geoespacial de las colonias de Hermosillo, incluyendo coordenadas d
 - **Formato**: CSV (Comma-Separated Values)
 - **Encoding**: UTF-8
 - **Separador**: Coma (`,`)
-- **Total de registros**: Variable (una fila por colonia)
-- **Fuente**: INEGI + CONAPO
+- **Total de registros**: ~700 colonias de Hermosillo (Polygon + MultiPolygon)
+- **Fuente Primaria**: Shapefile INE_Limpio.shp del repositorio [ColoniasSonora](https://github.com/Sonora-en-Datos/ColoniasSonora) de Luis Moreno
+- **Fuente Secundaria**: INEGI Marco Geoestadístico + CONAPO Índice de Marginación 2020
+- **Proceso de Generación**: Script `notebooks/colonias_poligonos.py`
+
+### Origen de los Datos
+
+Este archivo es generado por el script `colonias_poligonos.py` que:
+
+1. **Descarga** el shapefile `INE_Limpio.shp` desde GitHub (Sonora-en-Datos/ColoniasSonora)
+2. **Filtra** geometrías válidas (Polygon y MultiPolygon)
+3. **Extrae** solo las colonias de Hermosillo (nom_loc == 'Hermosillo')
+4. **Exporta** a CSV para facilitar integración con el pipeline
+
+**Nota importante**: Los MultiPolygon representan colonias con áreas discontinuas (ej: colonias divididas por avenidas o infraestructura), no son errores de datos.
 
 ### Columnas Principales
 
@@ -1011,9 +1024,10 @@ print((quincena_stats.loc['Sí'] - quincena_stats.loc['No']) / quincena_stats.lo
 |---------|-------|---------|
 | 1.0 | 2025-11-05 | Creación inicial del diccionario de datos |
 | 2.0 | 2025-11-06 | Actualización mayor con datos procesados 2018-2025, feature engineering, geocodificación incremental |
+| 3.0 | 2025-11-10 | Documentación de nueva fuente de polígonos (shapefile INE_Limpio), proceso automatizado |
 
 ---
 
-**Última actualización**: 6 de noviembre de 2025  
+**Última actualización**: 10 de noviembre de 2025  
 **Responsable**: Equipo de Seguridad y Desarrollo  
 **Contacto**: [Repositorio GitHub](https://github.com/Equipo-seguridad-y-desarrollo/indice-delictivo-hermosillo)
