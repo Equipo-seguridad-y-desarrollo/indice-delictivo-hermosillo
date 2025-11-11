@@ -120,10 +120,30 @@ def preparar_incidentes_con_geometria(reportes, mapeo, coords):
     # Filtrar solo los que tienen coordenadas
     antes = len(reportes_geo)
     reportes_geo = reportes_geo.dropna(subset=['LATITUD', 'LONGITUD'])
-    despues = len(reportes_geo)
+    con_coords = len(reportes_geo)
     
-    print(f"   Incidentes con coordenadas: {despues:,} ({despues/antes*100:.1f}%)")
-    print(f"   Incidentes sin coordenadas: {antes - despues:,} ({(antes-despues)/antes*100:.1f}%)")
+    print(f"   Incidentes con coordenadas: {con_coords:,} ({con_coords/antes*100:.1f}%)")
+    print(f"   Incidentes sin coordenadas: {antes - con_coords:,} ({(antes-con_coords)/antes*100:.1f}%)")
+    
+    # FILTRO GEOGRÁFICO: Eliminar outliers fuera de Hermosillo
+    print("\nAplicando filtro geográfico (bounds de Hermosillo)...")
+    hermosillo_bounds = {
+        'min_lon': -111.1, 'max_lon': -110.85,
+        'min_lat': 28.95, 'max_lat': 29.2
+    }
+    
+    dentro_bounds = (
+        (reportes_geo['LONGITUD'] >= hermosillo_bounds['min_lon']) &
+        (reportes_geo['LONGITUD'] <= hermosillo_bounds['max_lon']) &
+        (reportes_geo['LATITUD'] >= hermosillo_bounds['min_lat']) &
+        (reportes_geo['LATITUD'] <= hermosillo_bounds['max_lat'])
+    )
+    
+    fuera_bounds = (~dentro_bounds).sum()
+    reportes_geo = reportes_geo[dentro_bounds]
+    
+    print(f"   Incidentes dentro de Hermosillo: {len(reportes_geo):,} ({len(reportes_geo)/con_coords*100:.1f}%)")
+    print(f"   Incidentes fuera (outliers): {fuera_bounds:,} ({fuera_bounds/con_coords*100:.1f}%)")
     
     # Crear geometría de puntos
     print("Creando geometría de puntos...")

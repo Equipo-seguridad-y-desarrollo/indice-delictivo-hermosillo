@@ -217,9 +217,9 @@ def main():
 
     print(f"\nColonias unicas (despues de agrupar similares): {len(grupos):,}")
 
-    # Crear lista de colonias únicas finales, filtrando por frecuencia mínima
-    frecuencia_minima = 10
-    colonias_unicas = [col for col in grupos.keys() if frecuencias.get(col, 0) >= frecuencia_minima]
+    # Crear lista de colonias únicas finales (TODAS, sin filtro de frecuencia)
+    # Anteriormente se filtraba por frecuencia_minima=10, pero esto descartaba incidentes válidos
+    colonias_unicas = list(grupos.keys())
     colonias_unicas = sorted(colonias_unicas)
 
     # Guardar resultados

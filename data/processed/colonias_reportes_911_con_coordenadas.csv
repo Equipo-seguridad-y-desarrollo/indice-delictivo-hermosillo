@@ -1266,3 +1266,895 @@ ZASAFRAS RESIDENCIAL,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROX
 ZONA INDUSTRIAL,29.1479066,-111.0050577,"Zona Industrial, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ65HMj9aAzoYRMRNGKz6ollo,"political, sublocality, sublocality_level_1",2025-11-05T17:44:26.809131
 ZONA MILITAR CUARTEL XV,29.1193521,-110.9461929,"Zona Militar, Hermosillo, Son., Mexico",APPROXIMATE,ChIJcc9bjnyGzoYRh2UUibl3CoU,"political, sublocality, sublocality_level_1",2025-11-05T17:44:27.197498
 ÁLVARO OBREGÓN,29.1073492,-111.0028223,"Alvaro Obregon, Hermosillo, Son., Mexico",APPROXIMATE,ChIJWQElM1KBzoYR6y9NWPBveQc,"political, sublocality, sublocality_level_1",2025-11-05T17:44:27.582745
+20 DE NOVIEMBRE,29.0925789,-110.9432504,"20 de Noviembre, 83010 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ9dnRO8mFzoYRJW2inKTV3bU,route,2025-11-10T22:17:32.370700
+20 DE NOVIEMBRE TRES,29.0925789,-110.9432504,"20 de Noviembre, 83010 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ9dnRO8mFzoYRJW2inKTV3bU,route,2025-11-10T22:17:32.801322
+4 OLIVOS,29.0189966,-110.9081029,"De Los Olivos 4, Parque Industrial, 83299 Hermosillo, Son., Mexico",ROOFTOP,ChIJjxh4JqmazoYRgA7VPwnmhok,"street_address, subpremise",2025-11-10T22:17:33.172787
+4 VIENTOS [RANCHO],29.0274504,-110.9732188,"Del Rancho, Hacienda Los Alcatraces, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwbERDMiEzoYR2r4akubm5iY,route,2025-11-10T22:17:33.556469
+5 HERMANOS (ROBERTO SESMA),29.1375857,-110.9640302,"C. Israel González 114A, Insurgentes, 83106 Hermosillo, Son., Mexico",ROOFTOP,ChIJy1UDyu-GzoYRmwyUCxYcqyw,"convenience_store, establishment, food, point_of_interest, store",2025-11-10T22:17:33.957918
+ACACIAS RESIDENCIAL,29.1233381,-111.0596098,"Acacia Colorada 19, Acacia Residencial, 83177 Hermosillo, Son., Mexico",ROOFTOP,ChIJMa7z9HqBzoYRoRc40Is6pqQ,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:17:34.313186
+ADOLFO LOPEZ MATEOS (LOS OLIVOS),29.0287101,-110.9710802,"Adolfo López Mateos, Adolfo Lopez Mateos, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJxXSdMcaEzoYR12QT0dPfg60,route,2025-11-10T22:17:34.681105
+ADOLFO LOPEZ MATEOS III ETAPA,29.0287101,-110.9710802,"Adolfo López Mateos, Adolfo Lopez Mateos, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJxXSdMcaEzoYR12QT0dPfg60,route,2025-11-10T22:17:35.061521
+ADOLFO LOPEZ MATEOS IV,29.0287101,-110.9710802,"Adolfo López Mateos, Adolfo Lopez Mateos, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJxXSdMcaEzoYR12QT0dPfg60,route,2025-11-10T22:17:35.452099
+AGUAYO PORCHAS,28.8427528,-111.4849735,"Aguayo Porchas, Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJf_IGLK1AzIYRB4CVZK_xD3Y,"political, sublocality, sublocality_level_1",2025-11-10T22:17:35.860178
+AGUAZARCA,29.1001996,-110.9822898,"Agua Zarca, Olivares, 83180 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJMQfvRRyEzoYRdG6qZ12b5EE,route,2025-11-10T22:17:36.199849
+ALAMO RESIDENCIAL,29.0885192,-110.9910709,"Pasamonte 69, Santa Fe, 83130 Hermosillo, Son., Mexico",ROOFTOP,ChIJXTHMKZCFzoYR7cNoaZBqKHM,"establishment, general_contractor, point_of_interest",2025-11-10T22:17:36.545736
+ALCALA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:17:36.885954
+ALCATRAZ,29.1254688,-110.9882909,"Av. Miguel Negrete 568, Benito Juárez, 83110 Hermosillo, Son., Mexico",ROOFTOP,ChIJeelzaoyHzoYRyx6AbcBlSos,"establishment, florist, point_of_interest, store",2025-11-10T22:17:37.239541
+ALEGRANZA,29.0565407,-111.0124,"Alegranza, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJY1wqBp2DzoYRXZDvoMnEFos,route,2025-11-10T22:17:37.660026
+ALEJANDRO CARRILLO MARCOR,28.9123361,-111.3329426,"83325 Alejandro Carrillo Marcor, Sonora, Mexico",APPROXIMATE,ChIJb3qru6o7zIYRJfV4W3vH5Lc,"locality, political",2025-11-10T22:17:38.043198
+ALEMANIA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:17:38.375620
+ALFONSO PERALTA,29.0656981,-110.9578876,"Angela Peralta & C. Alfonso Durazo A., Villa de Seris, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ElVBbmdlbGEgUGVyYWx0YSAmIEMuIEFsZm9uc28gRHVyYXpvIEEuLCBWaWxsYSBkZSBTZXJpcywgODMyODAgSGVybW9zaWxsbywgU29uLiwgTWV4aWNvImYiZAoUChIJh8XaZlaEzoYRyW_Q4ihjVFMSFAoSCYfF2mZWhM6GEclv0OIoY1RTGhQKEgkfpJhyVoTOhhHOZPhp2UW1jxoUChIJHZTDn_iEzoYRFaKJ8YtljTYiCg3VElMRFYQr3b0,intersection,2025-11-10T22:17:38.731840
+ALTA CALIFORNIA,29.0873094,-111.0002143,"Alta California, 83249 Hermosillo, Son., Mexico",APPROXIMATE,ChIJiXAFtfeDzoYRCL7TKEVKyBA,"neighborhood, political",2025-11-10T22:17:39.134596
+ALTA MONACO,29.06792219999999,-110.9777979,"C. Olivares, Jardines de Monaco, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJU7uLzdiFzoYRUuLQAUlqfMc,"establishment, point_of_interest",2025-11-10T22:17:39.482709
+ALTA RIVERA,29.0789519,-111.0328719,"Boulevard Colosio y Paseo de las Rivieras, 83243 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJDWs8IJODzoYRpS5K8K_iiOI,"establishment, point_of_interest",2025-11-10T22:17:39.907511
+ALTAFIRENZE RESIDENCIAL,29.1363856,-110.9588024,"Sta. Monica SN-S CFE, Valle Santa Monica, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJB7wX1vOGzoYRdazHqoS8mds,"establishment, point_of_interest",2025-11-10T22:17:40.234929
+ALTARES AMANECERES,29.0775005,-110.9788339,"Amanecer, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJzQJDwmuEzoYRupzxMwTT8u8,route,2025-11-10T22:17:40.588122
+ALTARES CUARTA ETAPA,29.0448289,-110.9719547,"Cuarta, Palo Verde, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJHSQPYuyEzoYRwS_chvs3gDY,route,2025-11-10T22:17:40.942338
+ALTOZANO,29.0660241,-111.0686278,"Lago Altozano, Blvd. Luis Donaldo Colosio Murrieta esq, Fraccionamiento Altozano, 83230 Hermosillo, Son., Mexico",ROOFTOP,ChIJCWScOPKDzoYR7ms45KTO9pE,"establishment, park, point_of_interest",2025-11-10T22:17:41.278477
+ALVARO OBREGON,29.1073492,-111.0028223,"Alvaro Obregon, Hermosillo, Son., Mexico",APPROXIMATE,ChIJWQElM1KBzoYR6y9NWPBveQc,"political, sublocality, sublocality_level_1",2025-11-10T22:17:41.642458
+AMPLIACION 4 DE MARZO,29.1512404,-110.9931356,"4 de Marzo, 83105 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ28z4-yuHzoYRIjmkEyTvmRM,"political, sublocality, sublocality_level_1",2025-11-10T22:17:42.000441
+AMPLIACION ALCATRACES,29.1266558,-111.0123097,"Alcatraces, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ7SZJJTqBzoYR0bY3gavaZDE,route,2025-11-10T22:17:42.379796
+AMPLIACION EL MIRADOR,29.1308698,-111.0210586,"Av. Tezal, El Chaparral, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ2VIDrSKBzoYRqKUiIF21NCc,route,2025-11-10T22:17:42.728240
+AMPLIACION LADRILLERAS,29.1502671,-110.9990966,"Las Ladrilleras, 83117 Hermosillo, Son., Mexico",APPROXIMATE,ChIJuyOVrdSAzoYR52zx6atKAHQ,"political, sublocality, sublocality_level_1",2025-11-10T22:17:43.081408
+AMPLIACION LOS OLIVOS,29.0329061,-110.972934,"Los Olivos, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJk3e6NceEzoYRh7tIsqcfDms,"political, sublocality, sublocality_level_1",2025-11-10T22:17:43.424654
+AMPLIACION SAHUARO,29.1142105,-111.0085971,"Ampliacion Sahuaro, 83178 Hermosillo, Son., Mexico",APPROXIMATE,ChIJFSC0E0-BzoYR3JnMW2L7Hjg,"political, sublocality, sublocality_level_1",2025-11-10T22:17:43.778884
+ANDALUCIA,29.065955,-110.9823614,"Andalucía, Asturias Residencial, Marsella Residencial, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ0-rvZmSEzoYRztNeBIG-JOk,route,2025-11-10T22:17:44.132645
+ANGELES,29.0758765,-110.9816172,"Los Ángeles, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJDbmDHWyEzoYRhx8Z_K0kfXM,route,2025-11-10T22:17:44.515756
+ANTONIO MENDEZ,28.8458839,-111.4890724,"Antonio Mendez, Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJucPtrU1HzIYRG3yVkHnGiT0,"political, sublocality, sublocality_level_1",2025-11-10T22:17:44.861806
+APOLO (LOCALIDAD RURAL),29.1170132,-110.9648208,"Apolo, Hermosillo, Son., Mexico",APPROXIMATE,ChIJp9BgoJqGzoYRDPSEP5ZVGjg,"political, sublocality, sublocality_level_1",2025-11-10T22:17:45.200198
+AQUA KINO,28.8380336,-111.3974838,"Carr. Hermosillo Bahía Kino km 54.5, 83334 Son., Mexico",ROOFTOP,ChIJDUpF-v8_zIYR6bAhQ6A1h-s,"establishment, point_of_interest",2025-11-10T22:17:45.548255
+AQUILES SERDAN (SANTA INES),29.122706,-111.0258857,"Sta. Inés, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJgZXJOhSBzoYRLU5tJ7T4aS8,route,2025-11-10T22:17:45.915442
+ARANDANOS,29.1455359,-111.0113343,"Arándanos, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ7bKwO9iAzoYRV6hNDxvG9bs,route,2025-11-10T22:17:46.252408
+ARANDANOS SECCION VILLA HERMOSA,29.03775,-110.9700366,"Villa Hermosa, 83280 Hermosillo, Son., Mexico",APPROXIMATE,ChIJM9gk0sOEzoYRdWZ1-hpirws,"political, sublocality, sublocality_level_1",2025-11-10T22:17:46.611557
+ARANJUEZ,29.0799192,-110.9886786,"P.º Aranjuez, Nueva Galicia, 83245 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJcWpT2nKEzoYRj4HreIAOxoA,route,2025-11-10T22:17:46.988844
+ARCADIA RESIDENCIAL,29.1300676,-110.9521993,"Arcadia, La Ventana, 83148 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJBW0TuIqGzoYR4nyJClo4fec,route,2025-11-10T22:17:47.346271
+ARGANGEL RESIDENCIAL,29.1561148,-111.0148354,"Del Arcángel Nte., Cerrada del Angel, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJTfPF8sSAzoYRn1W34LFH51o,route,2025-11-10T22:17:47.711897
+ARTESANOS,28.8274709,-111.9380897,"Artesanos, 83342 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJGW29szv3zIYR7J6Nyn4Dp9Y,"political, sublocality, sublocality_level_1",2025-11-10T22:17:48.042312
+AUREA RESIDENCIAL,29.0627292,-110.9883515,"Blvd. Camino del Seri, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJx5pHICiFzoYRim6m9i9ocOI,"establishment, point_of_interest",2025-11-10T22:17:48.388844
+BADALONA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:17:48.770468
+BASALTO,29.0576654,-111.062989,"Bvld G.M Gonzalez Hermosillo y Bvld. Basalto Norte 70, Basalto Residencial, 83230 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJdZqAgtWDzoYRff69MhPEJZc,"establishment, point_of_interest",2025-11-10T22:17:49.120329
+BASOPA (SAN ALFONSO),29.1647221,-108.9652777,"85604 Basopa, Son., Mexico",APPROXIMATE,ChIJx18_JMG3xYYR0cc1-S3QIgs,"locality, political",2025-11-10T22:17:49.489176
+BAZANO,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:17:49.832852
+BELLAVISTA,29.0855908,-110.9212319,"Bella Vista, 83050 Hermosillo, Son., Mexico",APPROXIMATE,ChIJIeF5sJaFzoYR4iHmvzQdQL0,"political, sublocality, sublocality_level_1",2025-11-10T22:17:50.196271
+BENEI,29.1190805,-111.025182,"Blvd. Paseo Benei, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ446x1RSBzoYRauaoRMMBc2I,route,2025-11-10T22:17:50.525901
+BENITO JUAREZ,29.1256134,-110.9886648,"Benito Juárez, Hermosillo, Son., Mexico",APPROXIMATE,ChIJURI08ceGzoYRMfxEz9Gcfoo,"political, sublocality, sublocality_level_1",2025-11-10T22:17:50.862539
+BENITO JUAREZ (LOCALIDAD RURAL),29.1256134,-110.9886648,"Benito Juárez, Hermosillo, Son., Mexico",APPROXIMATE,ChIJURI08ceGzoYRMfxEz9Gcfoo,"political, sublocality, sublocality_level_1",2025-11-10T22:17:51.197329
+BENITO JUAREZ (SECCION TRES),29.1244506,-110.9595562,"C. Tres, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJl9E00I2GzoYRic1gjkZ-O1s,route,2025-11-10T22:17:51.559133
+BILBAO,29.0740013,-110.9759708,"C. Bilbao, Las Granjas, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJT6Cio2mEzoYRVxMfKY-CPJE,route,2025-11-10T22:17:51.945008
+BONATERRA RESIDENCIAL,29.0724989,-111.0466744,"Juan Antonio Ruibal Corella S/N, La Manga, 83230 Hermosillo, Son., Mexico",ROOFTOP,ChIJ7a-nuUODzoYRXO1FuIeUMuI,"establishment, point_of_interest",2025-11-10T22:17:52.289604
+BUENA VISTA SECC BONITA,29.0825833,-111.0175353,"Buenavista, Residencial Salvatierra, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJK0U8QOmDzoYR0btenlEAeeE,route,2025-11-10T22:17:52.643861
+BUENAVISTA,29.24457,-110.6373777,"83308 Buena Vista, Son., Mexico",APPROXIMATE,ChIJufkLZfT1zoYRtHokHVpJ37Y,"locality, political",2025-11-10T22:17:52.994835
+BUENAVISTA (LOCALIDAD RURAL),29.24457,-110.6373777,"83308 Buena Vista, Son., Mexico",APPROXIMATE,ChIJufkLZfT1zoYRtHokHVpJ37Y,"locality, political",2025-11-10T22:17:53.342730
+BUGAMBILIAS,29.1156941,-110.9558794,"Bugambilia, 83140 Hermosillo, Son., Mexico",APPROXIMATE,ChIJM0egfoaGzoYRqUMg6i_xZCs,"political, sublocality, sublocality_level_1",2025-11-10T22:17:53.672365
+BUROCRATA MUNICIPAL,29.0893406,-110.9612985,"Hermosillo Municipality, Sonora, Mexico",APPROXIMATE,ChIJzbeFOK6GzoYR5fpeOgbWFm4,"administrative_area_level_2, political",2025-11-10T22:17:54.037282
+BURRO LINDO,28.8223453,-111.9377171,"Burro Lindo, 83342 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJKz1uKiX3zIYRXHsXB9lfP1Q,"political, sublocality, sublocality_level_1",2025-11-10T22:17:54.383018
+CALHIDRA DE SONORA [CALERA],29.020702,-110.873681,"83306 Calhidra de Sonora, Sonora, Mexico",APPROXIMATE,ChIJbxeQpTyQzoYR9hazwjchxiE,"locality, political",2025-11-10T22:17:54.742414
+CALIFORNIA,29.0678316,-110.948074,"California, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJj4-B46qFzoYRBFaboYSXoJk,route,2025-11-10T22:17:55.086785
+CALIFORNIA ETAPA V,29.1267148,-111.0307651,"Luis Donaldo Colosio 432, Metrocentro, 83200 Hermosillo, Son., Mexico",ROOFTOP,ChIJAQAA_BCBzoYRCYwvI0270p4,"establishment, food, point_of_interest, restaurant",2025-11-10T22:17:55.441757
+CALIFORNIA PRIVADA MONTEBELLO,29.1207363,-111.0601993,"California Residencial Privada Montebello, Azuaga, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJd5si-MGBzoYR4etFpG76fWU,"establishment, park, point_of_interest",2025-11-10T22:17:55.797554
+CALIFORNIA PRIVADA SANTA MONICA,29.1200468,-111.0603711,"4WCQ+2V6, 83177 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJK4a8ZgCBzoYRgT6CdCRoVfo,"establishment, point_of_interest",2025-11-10T22:17:56.161936
+CALIFORNIA RESIDENCIAL SECC. SANTA MARTHA,29.1262644,-111.0345618,"Sta. Martha, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ55LXyQ-BzoYR3RF-zn3vl2o,route,2025-11-10T22:17:56.530466
+CALIFORNIA SECC. SARATOGA,29.0678316,-110.948074,"California, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJj4-B46qFzoYRBFaboYSXoJk,route,2025-11-10T22:17:56.921262
+CALISTOGA,29.083851,-111.0069939,"Calistoga, Villa de Parras, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJC84md_GDzoYRPTMofrnA7G4,route,2025-11-10T22:17:57.268803
+CALLE TRECE,29.0841581,-110.9448213,"C. Trece, El Mariachi, 83040 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJrQRHJ7SFzoYRn7ob7wBfYpI,route,2025-11-10T22:17:57.607659
+CAMPESTRE,29.13456,-110.9527074,"Blvrd Morelos Nte 709, Cumbres Residencial, 83146 Hermosillo, Son., Mexico",ROOFTOP,ChIJkSBiOQCHzoYRNb7o-YVm6SI,"establishment, food, point_of_interest, restaurant",2025-11-10T22:17:57.964597
+CAMPESTRE CASA BLANCA,29.2600584,-110.8487691,"Unnamed Rd, 85365 Yuma, Son., Mexico",GEOMETRIC_CENTER,ChIJyc1_mKxjzoYRGibOqTJcYdw,"establishment, lodging, point_of_interest",2025-11-10T22:17:58.327987
+CAMPESTRE CETÁCEAS,29.2097134,-110.9067025,"83300 Campestre Cetáceas, Son., Mexico",APPROXIMATE,ChIJDdIq71R9zoYRZhz9XGSbqEU,"locality, political",2025-11-10T22:17:58.662331
+CAMPESTRE EJIDO LA YESCA,29.0091256,-111.052002,"83310 Campestre Ejido la Yesca, Son., Mexico",APPROXIMATE,ChIJVRfbVimdzoYRh9G7HxIYPeQ,"locality, political",2025-11-10T22:17:59.012762
+CAMPESTRE EL POTRILLO,29.1681174,-110.8381555,"83303 Campestre el Potrillo, Son., Mexico",APPROXIMATE,ChIJs-gjXwmJzoYR_VvX0PpuzCU,"locality, political",2025-11-10T22:17:59.370744
+CAMPESTRE LA HERRADURA,29.0802276,-110.9604715,"Av. Luis Donaldo Colosio Murrieta 122, El Centenario, 83260 Hermosillo, Son., Mexico",ROOFTOP,ChIJAQAAUEGEzoYRk4tPdLsbuLs,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:17:59.719710
+CAMPILLO (SANTA ROSALIA),29.1408442,-110.9808741,"Sta. Rosalía, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ4eAtj9uGzoYRthBHERwdetM,route,2025-11-10T22:18:00.080410
+CAMPO EL GRANDE,29.1178319,-111.0115912,"C. Carlos Balderrama, Dunas, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJR7CMOUaBzoYRRVLIldMeXaQ,"establishment, food, point_of_interest, restaurant",2025-11-10T22:18:00.442837
+CAMPO GRANDE,28.8718313,-111.2502147,"83324 Campo Grande, Sonora, Mexico",APPROXIMATE,ChIJC7pXXWUjzIYRaqUmaT5sY6M,"locality, political",2025-11-10T22:18:00.779826
+CAMPO GRANDE (VIÑEDOS ALTA),29.0828185,-111.0390849,"Campo Grande, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJTSJYW86DzoYRvegAJeUGMsA,route,2025-11-10T22:18:01.135617
+CAMPO GRANDE NUMERO DOS,29.0356086,-110.9819032,"And. Núm. 2, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ9fDcyb2EzoYRXmu6LseaGYQ,route,2025-11-10T22:18:01.486567
+CAMPO LAS LOMITAS,29.1024303,-111.005902,"Los Campos, Sonacer, 83174 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJx9JzXlaBzoYRwGJcXtLqRXg,route,2025-11-10T22:18:01.824770
+CAMPO NUEVO,29.0921783,-111.0372693,"Blvd. Jesús García Morales, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJX3AkpuGDzoYRrsxe89cLEAs,"establishment, point_of_interest",2025-11-10T22:18:02.186961
+CAMPO NUEVO (LOCALIDAD RURAL),29.0921783,-111.0372693,"Blvd. Jesús García Morales, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJX3AkpuGDzoYRrsxe89cLEAs,"establishment, point_of_interest",2025-11-10T22:18:02.537858
+CAMPO SAN LUIS,29.199043,-111.7058168,"Carr. Hermosillo Bahía Kino, Las Granjas, 83353 Miguel Alemán, Son., Mexico",GEOMETRIC_CENTER,ChIJ11REZFGuzYYRqDJ9zF0ZqWM,"establishment, point_of_interest",2025-11-10T22:18:02.907897
+CANADA DE LOS NEGROS,29.0873893,-110.9443301,"Cañada de los Negros, Hermosillo, Son., Mexico",APPROXIMATE,ChIJM76wCbaFzoYRzfPL9y1l49U,"political, sublocality, sublocality_level_1",2025-11-10T22:18:03.257714
+CANARIOS,29.1530249,-110.9704572,"Canarios, Rincon de Palmas, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJkdx4_h6HzoYRSiHgYF9KSt0,route,2025-11-10T22:18:03.600977
+CANTERAS RESIDENCIAL SECCION MONTALBAN,29.1771891,-110.9929708,"Montalban, 83107 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQSk6zE2HzoYRPnonPGUaxt8,route,2025-11-10T22:18:03.947530
+CAPERUSO,29.1502115,-110.9845666,"Caperuzo, 83105 Hermosillo, Son., Mexico",APPROXIMATE,ChIJCzRzsyeHzoYRfzrBU2WtOAU,"political, sublocality, sublocality_level_1",2025-11-10T22:18:04.289074
+CAPILLA,29.1491775,-110.9869743,"P.º de la Capilla, Hacienda, 83105 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJU2DddiiHzoYR3TBTS9B8njA,route,2025-11-10T22:18:04.630627
+CARDENO ETAPA CELESTE II,29.1573596,-110.9712538,"C. Reyes Nte., Cárdeno Residencial, 83114 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJrWJZwR2HzoYRUS2vn5zhifI,"establishment, general_contractor, point_of_interest",2025-11-10T22:18:04.989638
+CARDENO RESIDENCIAL,29.1573596,-110.9712538,"C. Reyes Nte., Cárdeno Residencial, 83114 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJrWJZwR2HzoYRUS2vn5zhifI,"establishment, general_contractor, point_of_interest",2025-11-10T22:18:05.315992
+CARMEN SERDAN,29.1374409,-110.984194,"Carmen Serdán, Hermosillo, Son., Mexico",APPROXIMATE,ChIJjU5S0NqGzoYRyjEoNQvItAU,"political, sublocality, sublocality_level_1",2025-11-10T22:18:05.655548
+CARNAVALITO,28.8252106,-111.9351088,"Carnavalito, 83342 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJuVaCezv3zIYRgx0Hd_KrHic,"political, sublocality, sublocality_level_1",2025-11-10T22:18:05.984567
+CARRETERA 26,29.0255928,-111.0145843,"Carr. 26, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EiJDYXJyLiAyNiwgSGVybW9zaWxsbywgU29uLiwgTWV4aWNvIi4qLAoUChIJOUhovF2DzoYRNWM4neS1-VYSFAoSCeWu33pohM6GEfl_iOmVUz2z,route,2025-11-10T22:18:06.340936
+CARRETERA BAHÍA DE KINO,29.0900161,-111.0458873,"Carr. Hermosillo Bahía Kino, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EjZDYXJyLiBIZXJtb3NpbGxvIEJhaMOtYSBLaW5vLCBIZXJtb3NpbGxvLCBTb24uLCBNZXhpY28iLiosChQKEglDMzzZ34POhhHGVAzWC2GGUBIUChIJ5a7femiEzoYR-X-I6ZVTPbM,route,2025-11-10T22:18:06.690690
+CARRETERA GUAYMAS,29.1025833,-110.9552599,"Guaymas, Modelo, 83190 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJn1uiDCyEzoYR2iF34Hz8KAk,route,2025-11-10T22:18:07.042452
+CARRETERA URES,29.1777053,-110.8508844,"Carr. a Ures, Sonora, Mexico",GEOMETRIC_CENTER,ChIJzxUqzVKIzoYRMsjrLPRztPY,route,2025-11-10T22:18:07.390170
+CARRETERA YECORA,29.0578307,-110.9664693,"Yecora, Fovissste, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJUbD3wvaEzoYRueNDFJUrBUU,route,2025-11-10T22:18:07.738388
+CARRILLO MARCOR,28.9123361,-111.3329426,"83325 Alejandro Carrillo Marcor, Sonora, Mexico",APPROXIMATE,ChIJb3qru6o7zIYRJfV4W3vH5Lc,"locality, political",2025-11-10T22:18:08.076860
+CASERIO SAHUARO,29.1086645,-111.011764,"Sahuaro, Hermosillo, Son., Mexico",APPROXIMATE,ChIJOxQ-OkWBzoYRMUNbh8d4j7A,"political, sublocality, sublocality_level_1",2025-11-10T22:18:08.414915
+CASERIO SOLAR,29.1059495,-110.9456252,"Priv. Caserío Solar, Periodista, 83156 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJGVHsPNSFzoYRaAlh13hp2Ks,route,2025-11-10T22:18:08.759461
+CASIA RESIDENCIAL,29.0783848,-111.0325645,"Cassia, 83243 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJeeIWD8aDzoYRsToGkgALa8g,route,2025-11-10T22:18:09.118615
+CASTELINA,29.0022316,-110.9327299,"Castelina, 83296 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJiw6HIcKazoYRU87dp39Bd9g,route,2025-11-10T22:18:09.459977
+CENTENARIO LUX,29.075294,-110.9610952,"El Centenario, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ3VDpdUWEzoYRupyapkbnVic,"political, sublocality, sublocality_level_1",2025-11-10T22:18:09.814581
+CENTRO BAHIA DE KINO,28.8233777,-111.9418159,"Centro, 83340 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJX-_pYzD3zIYRJNqds4f6Wus,"political, sublocality, sublocality_level_1",2025-11-10T22:18:10.182030
+CENTRO ECOLOGICO DE SONORA,29.0168128,-110.953644,"Centro Ecológico de Sonora, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ3cEoBSubzoYR_IzRD8gwd_I,"premise, street_address",2025-11-10T22:18:10.540754
+CERRADA CORONADO,29.1497156,-110.9728517,"Cda. Coronado, San Luis Rey, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJq0vL4x-HzoYR5W9Txyz0Q9I,route,2025-11-10T22:18:10.881152
+CERRADA DE LA CAPILLA,29.1496661,-110.9873369,"P.º de La Misa, Hacienda, 83105 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJo4rzPgCHzoYRUNw5IMdz8mE,"establishment, point_of_interest",2025-11-10T22:18:11.243998
+CERRADA DIAMANTES,29.1604899,-111.0096799,"Obsidiana 47, Col Diamante, 83117 Hermosillo, Son., Mexico",ROOFTOP,ChIJpbDsJL-BzoYRohFh7KcjPSk,"establishment, point_of_interest",2025-11-10T22:18:11.618892
+CERRADA EL ENCANTO,29.1451876,-110.9997209,"Encanto, Encanto II, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJvTkvoCqBzoYRUuuQlciPiHE,route,2025-11-10T22:18:11.967091
+CERRADA LA CAPILLA,29.1488906,-110.9872029,"Cerrada de la Capilla Park, P.º de la Capilla 9, Hacienda, 83105 Hermosillo, Son., Mexico",ROOFTOP,ChIJW9pyKgCHzoYRTFAQiKd24LY,"establishment, park, point_of_interest",2025-11-10T22:18:12.313876
+CERRADA LA CARIDAD,29.0483,-110.9968822,"Caridad, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJi2Xz9oKEzoYRyoJIrgBsiUM,route,2025-11-10T22:18:12.667645
+CERRADA MINAS,29.0784143,-110.9856584,"Cerrada de Minas, 83240 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE0lInW2EzoYR6sYXoYJ3s1c,route,2025-11-10T22:18:13.017896
+CERRADA SAN IGNACIO,29.0466949,-110.984449,"San Ignacio, Palo Verde, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlSscOZCEzoYR49kmzA4XTiY,route,2025-11-10T22:18:13.384071
+CERRADA SAN RAFAEL,29.1380269,-110.9804672,"San Rafael, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ9Rn6YcSGzoYRK-vOc4RzRyQ,route,2025-11-10T22:18:13.738636
+CERRADA SUAQUI GRANDE,29.1400862,-110.9794069,"Suaqui Grande, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJXy0ufdyGzoYRmv_MBsCDSyU,route,2025-11-10T22:18:14.088119
+CERRADA VISTA AZUL,29.1410774,-110.9628149,"Banus, Vista Azul Residencial, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJSRfh9VKHzoYR1genwYUdUV8,"establishment, point_of_interest",2025-11-10T22:18:14.452973
+CERRO 1,29.0368712,-110.9651701,"Cjon. del Cerro 1, Villa Hermosa, 83280 Hermosillo, Son., Mexico",ROOFTOP,ChIJ2RNfAcOEzoYRoEZTkPlNSMw,"premise, street_address",2025-11-10T22:18:14.809642
+CERRO 2,29.0767831,-110.9501981,"Del Cerro 2, Centro, 83000 Hermosillo, Son., Mexico",RANGE_INTERPOLATED,EjNEZWwgQ2Vycm8gMiwgQ2VudHJvLCA4MzAwMCBIZXJtb3NpbGxvLCBTb24uLCBNZXhpY28iMBIuChQKEglXR7e2soXOhhGzeZcvfTiMBxACKhQKEgkxK-2usoXOhhEpyL4Z2BfNKQ,street_address,2025-11-10T22:18:15.153744
+CERRO DE LA CAMPANA,29.071527,-110.9543891,"Cerro la Campana, Hermosillo, Son., Mexico",APPROXIMATE,ChIJQ44KFVOEzoYRAJOAzy_R6bg,"political, sublocality, sublocality_level_1",2025-11-10T22:18:15.503486
+CERRO DE LA VIRGEN,29.1016524,-111.0037004,"Cerro de La Virgen, 83170 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJVR3e51WBzoYRIPnI8JV4MAw,route,2025-11-10T22:18:15.852840
+CHULAVISTA,29.0173779,-110.9309182,"Chulavista, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ6b62ZsmazoYRrBZgRoERYM4,"political, sublocality, sublocality_level_1",2025-11-10T22:18:16.197180
+CLUB CAMPESTRE RÍO AZUL,29.2059442,-110.8530567,"83300 Club Campestre Río Azul, Son., Mexico",APPROXIMATE,ChIJZyM8JdOJzoYRIMBNneC9jG4,"locality, political",2025-11-10T22:18:16.539211
+CLUB DE GOLF LOS LAGOS,29.0721003,-111.0024382,"B Pte. 222, Los Lagos, 83245 Hermosillo, Son., Mexico",ROOFTOP,ChIJ9U8jAcmDzoYR-C-Gp4BEK8k,"establishment, point_of_interest",2025-11-10T22:18:16.902276
+COLINAS DEL MAR,29.1233976,-110.9188062,"Del Mar, 83166 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJS1RxTg6GzoYR4dtx4ESm9_c,route,2025-11-10T22:18:17.254038
+COLINAS RESIDENCIAL,29.1212444,-110.9558794,"Las Colinas, Hermosillo, Son., Mexico",APPROXIMATE,ChIJj-Je64iGzoYRcZCLwhcJTHQ,"political, sublocality, sublocality_level_1",2025-11-10T22:18:17.609279
+COLINAS RESIDENCIALES DEL BACHOCO,29.1284899,-110.9545737,"Av. el Bachoco 32, Bachoco, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJp50yEIuGzoYRnR4feR31Sts,"establishment, health, point_of_interest",2025-11-10T22:18:17.975734
+COLONA BLANCA,29.1319323,-110.9530852,"Colina Blanca II, 83148 Hermosillo, Son., Mexico",APPROXIMATE,ChIJcYCGIvWGzoYR2bicwSlxmJ8,"political, sublocality, sublocality_level_1",2025-11-10T22:18:18.403092
+COLONIA RURAL HERMOSILLO,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:18:18.776048
+COLOSO,29.0824315,-110.9342712,"Coloso, Hermosillo, Son., Mexico",APPROXIMATE,ChIJlbj5vbuFzoYRJQcxs9J-nvk,"political, sublocality, sublocality_level_1",2025-11-10T22:18:19.111615
+COLOSO ALTO,29.086511,-110.9372676,"Circunvalación, Sin Asignación En Nombre de Asentamiento, 83040 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJMTgW0FOFzoYRaQjV8Nf-IKQ,"establishment, point_of_interest, tourist_attraction",2025-11-10T22:18:19.470463
+COLOSO BAJO,29.081229,-110.9347076,"C. Nueva Circunvalación 968, Coloso, 83040 Hermosillo, Son., Mexico",ROOFTOP,ChIJpSP4DoiFzoYRn8-4ONlIvCA,"establishment, point_of_interest",2025-11-10T22:18:19.835696
+COMBATE,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:18:20.165710
+CONCORDIA RESIDNCIAL,29.0771515,-111.0126501,"Bulevar Luis Donaldo Colosio, 83244 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJp-nYYaGBzoYRNm2irbfX0X0,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:18:20.514182
+CONDOMINIO HACIENDA REAL,28.9994407,-110.9638186,"Hacienda Real, 83283 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,Ei1IYWNpZW5kYSBSZWFsLCA4MzI4MyBIZXJtb3NpbGxvLCBTb24uLCBNZXhpY28iLiosChQKEgld2MLtPJvOhhHwGJPWCXGJLxIUChIJ5a7femiEzoYR-X-I6ZVTPbM,route,2025-11-10T22:18:20.867564
+CONDOMINIO VILLAS DEL MAR,29.0614458,-110.9639135,"Av Villa del Mar, Las Villas, 83289 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJb5vh6PeEzoYR4IdoZqHzG4E,route,2025-11-10T22:18:21.221415
+CONDOMINIOS INN,29.0864928,-111.0191791,"Priv. San Lucio 14, Residencial Los Santos, 83224 Hermosillo, Son., Mexico",ROOFTOP,ChIJncKMRrCDzoYRNZxgWjaGnFo,"establishment, point_of_interest",2025-11-10T22:18:21.574963
+CONDOMINIOS JACQUELYNN,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:18:21.913643
+CONDOMINIOS LOS PORTALES RESIDENCIAL,29.0777533,-110.9940617,"Av Provincia Albacete, Los Portales, 83247 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJcy-ADTSFzoYR0q4xJvWPRRM,"establishment, point_of_interest",2025-11-10T22:18:22.313989
+CONJUNTO ALBORADA,29.0795768,-110.9801425,"Av. de Alborada, Palmar del Sol, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ5zCsfmuEzoYRQPhR6aREnUY,route,2025-11-10T22:18:22.664889
+CORCELES,29.0757086,-111.0266668,"Hermosillo Municipality, 83243 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJq6qq6sCDzoYR7eDN80Sx1YE,"establishment, point_of_interest",2025-11-10T22:18:23.007803
+CORCELES RESIDENCIAL,29.074652,-111.0255706,"Área Común Corceles Residencial, Blvd. Villa de los Corceles, 83243 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ7f0rgsCDzoYR1RhUS0mOG3E,"establishment, park, point_of_interest",2025-11-10T22:18:23.348213
+CORCELES SECC ARDENES,29.0757086,-111.0266668,"Hermosillo Municipality, 83243 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJq6qq6sCDzoYR7eDN80Sx1YE,"establishment, point_of_interest",2025-11-10T22:18:23.689010
+CORDOBA RDCIAL,29.1509013,-111.0189244,"C. Pedro Salazar Felix, Villa del Real, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJM8SCKcGBzoYR9SJUczvlfB4,"establishment, point_of_interest",2025-11-10T22:18:24.045892
+CORONADO RESIDENCIAL,29.0920443,-111.0009595,"Coronado, Capistrano, Hermosillo, Son., Mexico",APPROXIMATE,ChIJV3tpUfiDzoYR6hrgqePV-kw,"neighborhood, political",2025-11-10T22:18:24.396770
+CORRALES SAN JUANERO,29.0369303,-111.1343433,"83323 Corrales San Juanero, Son., Mexico",APPROXIMATE,ChIJgQvKY6wpzIYRTt-jO3TyDfA,"locality, political",2025-11-10T22:18:24.744081
+CORSELES,29.0757086,-111.0266668,"Hermosillo Municipality, 83243 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJq6qq6sCDzoYR7eDN80Sx1YE,"establishment, point_of_interest",2025-11-10T22:18:25.082485
+CORTIJO PERIODISTAS,29.1430689,-110.9888555,"C. Carlos Caturegli 963-969, Villas del Cortijo, 83106 Hermosillo, Son., Mexico",ROOFTOP,ChIJ36CEcQCHzoYRg4Jvk1kKpb8,"establishment, point_of_interest, store",2025-11-10T22:18:25.441889
+CORTIJO PIONEROS,29.1498106,-110.9912727,"El Cortijo Secc Pioneros, Hermosillo, Son., Mexico",APPROXIMATE,ChIJZx8PfimHzoYRJVFQPj1eo6w,"political, sublocality, sublocality_level_1",2025-11-10T22:18:25.781502
+CORTIJO UNISON,29.1429897,-110.984194,"El Cortijo Unison, Hermosillo, Son., Mexico",APPROXIMATE,ChIJMZHGd9mGzoYR9hUWptnnXv0,"political, sublocality, sublocality_level_1",2025-11-10T22:18:26.129966
+COSTA RICA,29.0819142,-110.941567,"Costa Rica, El Mariachi, 83040 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJKZYm2LCFzoYRhvhJJFu9PUo,route,2025-11-10T22:18:26.477019
+COUNTRY CLUB II,29.0919936,-110.9394869,"Country Club, Hermosillo, Son., Mexico",APPROXIMATE,ChIJpecPQcaFzoYRnCzvSxhObao,"political, sublocality, sublocality_level_1",2025-11-10T22:18:26.834474
+COUNTRY CLUB RESIDENCIAL,29.0919936,-110.9394869,"Country Club, Hermosillo, Son., Mexico",APPROXIMATE,ChIJpecPQcaFzoYRnCzvSxhObao,"political, sublocality, sublocality_level_1",2025-11-10T22:18:27.194034
+CRISTOBAL COLON,29.0883583,-110.940817,"Cristóbal Colón, 5 de Mayo, 83010 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ4WtvJ8iFzoYRabL-hcJFexU,route,2025-11-10T22:18:27.536763
+CRUCERO (CUATRO Y VEINTISEIS),29.034202,-110.9678855,"Av Veintiseis, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJEVADCMSEzoYR5UA4VJJnuw8,route,2025-11-10T22:18:27.892038
+CRUCERO DOCE Y VEINTISEIS,28.5686614,-111.4728967,"83334 Crucero Doce y Veintiséis, Son., Mexico",APPROXIMATE,ChIJz82bj1INzIYRhzhpIM7mmgw,"locality, political",2025-11-10T22:18:28.245903
+CRUZ GALVEZ (EL CAPORAL),28.8375713,-111.0438053,"83310 Cruz Gálvez, Son., Mexico",APPROXIMATE,ChIJH-A6OHifzoYRLZiBrkaPYlI,"locality, political",2025-11-10T22:18:28.596026
+CUADRA LOS LOCOS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:18:28.998945
+CUADRA MARQUEZ,29.015584,-111.0051977,"Calle X, Seccion 562, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJEXwxyDqDzoYRUwOxNP51V7w,"establishment, point_of_interest",2025-11-10T22:18:29.361126
+CUARTEL XX CAFE COMBATE,29.08289139999999,-110.9539449,"Av. Oaxaca 56, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJJ98-_sSFzoYR95scCfwzm74,"establishment, point_of_interest",2025-11-10T22:18:29.713264
+CUAUHTEMOC,29.1278726,-111.0052295,"Cuauhtémoc García, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRSVgKjGBzoYRBdgMNnrfdzo,route,2025-11-10T22:18:30.068972
+DALI,29.0871186,-111.0166618,"Priv. Dalí, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ8zdCqOiDzoYRw1K5FWE5cSE,route,2025-11-10T22:18:30.419344
+DE LA CRUZ,29.0863032,-110.9307319,"Rinconada de la Cruz, Hermosillo, Son., Mexico",APPROXIMATE,ChIJParU8b6FzoYR5PcEjfJLOqI,"political, sublocality, sublocality_level_1",2025-11-10T22:18:30.754636
+DE LA UNION 17 DE JULIO,29.0757815,-110.9314303,"Unión 17, Revolucion II, 83068 Hermosillo, Son., Mexico",ROOFTOP,ChIJrwGon6OFzoYRcSFytwTSYdA,"street_address, subpremise",2025-11-10T22:18:31.124510
+DEL CARMEN (LAS ISLAS),29.1505409,-110.9831724,"Del Carmen, 83105 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJSRIzAieHzoYRAUZAw9Z2ZCY,route,2025-11-10T22:18:31.531884
+DESARROLLO (PERICOS DOS),29.0624584,-110.999961,"Lille 1, Montecarlo, 83288 Hermosillo, Son., Mexico",ROOFTOP,ChIJKcwANoeDzoYRhUgg-gihEJ4,"establishment, general_contractor, point_of_interest",2025-11-10T22:18:31.894308
+DIAMANTE,29.159701,-111.0113914,"Col Diamante, 83117 Hermosillo, Son., Mexico",APPROXIMATE,ChIJfZ49CcaAzoYRMWhW5bsBL_I,"political, sublocality, sublocality_level_1",2025-11-10T22:18:32.220376
+DOS TRIANGULOS,28.6991846,-111.3909698,"83334 Dos Triángulos, Sonora, Mexico",APPROXIMATE,ChIJe2cg5hkUzIYRZ7QiTGchKMg,"locality, political",2025-11-10T22:18:32.575385
+DUNAS II,29.1285733,-111.0206473,"Av. Juan Pablo II, El Chaparral, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRclODj2BzoYR2k00rXLvdQI,route,2025-11-10T22:18:32.910994
+EJIDO NUEVO SAN MIGUEL,28.9136205,-111.1988027,"83324 Ejido Nuevo San Miguel, Son., Mexico",APPROXIMATE,ChIJWdr-hiIkzIYRCJTwrHSoIvI,"locality, political",2025-11-10T22:18:33.260688
+EJIDO SAN JUAN,29.1679561,-110.7691303,"568J+MV Plaza Pública, 83303 San Juan, Son., Mexico",ROOFTOP,ChIJKQbWTwCLzoYRLe_C2OxLy8I,"establishment, point_of_interest, tourist_attraction",2025-11-10T22:18:33.623190
+EJODO EL BUEY,29.0404435,-110.9980762,"Ejido el Buey, 83285 Hermosillo, Son., Mexico",APPROXIMATE,ChIJW8_J_p2EzoYRogODPSspkh8,"political, sublocality, sublocality_level_1",2025-11-10T22:18:33.968385
+EL ALAMITO (CAMPO EL CHALE),29.0950172,-110.9713097,"Av. Tlaxcala 284, San Benito, 83190 Hermosillo, Son., Mexico",ROOFTOP,ChIJu1P0TACFzoYRoaoH9dZNouA,"car_repair, establishment, point_of_interest",2025-11-10T22:18:34.346632
+EL ALAMITO BUENAVISTA (EL TRONCONAL),29.176155,-110.8516235,"83303 El Alamito Buenavista, Sonora, Mexico",GEOMETRIC_CENTER,ChIJgRaOfSGJzoYRGYsmmZmOR6g,"establishment, lodging, point_of_interest",2025-11-10T22:18:34.710112
+EL CACULLA,29.0489779,-110.9445748,"Provincia Montealegre, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJOW3NNQCFzoYRo-55BdKKVI0,"establishment, point_of_interest",2025-11-10T22:18:35.062804
+EL CARMEN,29.4555555,-111.3641667,"83357 El Carmen, Son., Mexico",APPROXIMATE,ChIJZScVnD7CzYYRnQ9nqt8ysBQ,"locality, political",2025-11-10T22:18:35.412011
+EL CARMEN (LOCALIDAD RURAL),29.3231313,-110.8232544,"83300 El Carmen, Son., Mexico",APPROXIMATE,ChIJnXadEBFkzoYRjBl3ERmu5Yk,"locality, political",2025-11-10T22:18:35.757128
+EL CEBOLLON [CAMPESTRE],29.2137447,-110.7870017,"Unnamed Road, 83300 Campestre El Cebollón, Son., Mexico",GEOMETRIC_CENTER,ChIJpSTpoiaLzoYRrxfea3-GxyI,"establishment, lodging, point_of_interest",2025-11-10T22:18:36.110783
+EL CHALATE,29.1456502,-111.7253851,"Km 35.5, C. 36 Nte., 83330 Son., Mexico",GEOMETRIC_CENTER,ChIJhV3HCDCszYYRc5ljaHthwqU,"establishment, food, grocery_or_supermarket, point_of_interest, store",2025-11-10T22:18:36.462054
+EL CHAPARRAL [FRACCIONAMIENTO],29.1303731,-111.0147445,"El Chaparral, Hermosillo, Son., Mexico",APPROXIMATE,ChIJPxEtxjyBzoYR4Yf_jo6g_Fc,"political, sublocality, sublocality_level_1",2025-11-10T22:18:36.814623
+EL CHICOTAZO,28.8536312,-111.3251176,"83324 NCPE Ignacio Zaragoza, Son., Mexico",APPROXIMATE,ChIJXyeIu448zIYRGLUrR1Zt1vE,"locality, political",2025-11-10T22:18:37.173160
+EL CHIPILON,29.0742568,-110.9594602,"Melchor Ocampo 17, El Centenario, 83260 Hermosillo, Son., Mexico",ROOFTOP,ChIJa4UZieKFzoYR55OsE_8D5vQ,"establishment, food, point_of_interest, restaurant",2025-11-10T22:18:37.531785
+EL CHOYUDO (LOS JAPONESES),28.322222,-111.4527777,"83316 El Choyudo, Sonora, Mexico",APPROXIMATE,ChIJxVJB76H0y4YRTNS8xmh6yYc,"locality, political",2025-11-10T22:18:37.875974
+EL CIMARRON,29.2333332,-112.0224999,"83337 El Cimarrón, Son., Mexico",APPROXIMATE,ChIJt8dPDMoPzYYR-b7WdNUbAGw,"locality, political",2025-11-10T22:18:38.220509
+EL COLORADO,28.2888644,-111.4168426,"83316 El Colorado, Son., Mexico",APPROXIMATE,ChIJlZubQ6Xzy4YRk3CvYnzrzI8,"locality, political",2025-11-10T22:18:38.561262
+EL CONSEJO,28.5258332,-111.3847221,"83315 El Consejo, Son., Mexico",APPROXIMATE,ChIJkzlpylYJzIYRgSba45gR1mI,"locality, political",2025-11-10T22:18:38.909553
+EL CRUCERO (CERO NORTE),28.91305879999999,-111.4790114,"83333 El Crucero, Son., Mexico",APPROXIMATE,ChIJSUth7vRHzIYRQg-IAeVE6RY,"locality, political",2025-11-10T22:18:39.269642
+EL CRUCERO (LA TREINTA Y SEIS SUR),30.77305549999999,-110.8722222,"84136 El Crucero, Sonora, Mexico",APPROXIMATE,ChIJW46kCkFw0YYRfGq1i08znPo,"locality, political",2025-11-10T22:18:39.626254
+EL DORADO,29.1274788,-110.9495459,"El Dorado, Hermosillo, Son., Mexico",APPROXIMATE,ChIJl2SXtmGGzoYRXVPJzZ_AYKI,"political, sublocality, sublocality_level_1",2025-11-10T22:18:39.962078
+EL ENCANTO RESIDENCIAL,29.0926544,-110.9380898,"El Encanto Residencial, Calle Luis Encinas, Country Club, 83010 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ4YbaIsaFzoYR6HaLUcygmZY,"premise, street_address",2025-11-10T22:18:40.303664
+EL ESPLENDOR II,29.1069668,-111.0285297,"El Esplendor, 83175 Hermosillo, Son., Mexico",APPROXIMATE,ChIJef7r-GWBzoYR9M9_sC2onVY,"neighborhood, political",2025-11-10T22:18:40.653438
+EL ESPLENDOR III,29.1069668,-111.0285297,"El Esplendor, 83175 Hermosillo, Son., Mexico",APPROXIMATE,ChIJef7r-GWBzoYR9M9_sC2onVY,"neighborhood, political",2025-11-10T22:18:40.999254
+EL FUNDADOR,28.79784039999999,-111.3772845,"83324 El Fundador, Son., Mexico",APPROXIMATE,ChIJVYmuAd89zIYRNklUna48mf4,"locality, political",2025-11-10T22:18:41.339722
+EL GAVILAN,28.9643215,-111.0730261,"El Gavilán, Haciendas Real del Catorce, 83310 El Real del Catorce, Son., Mexico",GEOMETRIC_CENTER,ChIJg1juVnKdzoYRh0LxYZRVL8Q,route,2025-11-10T22:18:41.694395
+EL GUAYACAN,29.0353021,-110.9856234,"Nueva Rosales & Bulevar Libertad, Arco Iris, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJIX7tXwCFzoYRKlW0hVgLp2E,"establishment, food, point_of_interest, restaurant",2025-11-10T22:18:42.054607
+EL GUAYPARIN (SAN CARLOS),28.8892466,-111.3970335,"83333 El Guayparín, Son., Mexico",APPROXIMATE,ChIJfYDTQm45zIYRaQByqnLRNt0,"locality, political",2025-11-10T22:18:42.405211
+EL JABALI,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:18:42.755196
+EL MEZQUITAL DEL ORO (EL AGUILA),29.0724112,-111.0129366,"Prol. Carlos Quintero Arce, 83245 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJacEq0-2DzoYR1woKgg2rSeA,"establishment, point_of_interest",2025-11-10T22:18:43.118325
+EL MODELO,29.1035352,-110.9581147,"Modelo, 83190 Hermosillo, Son., Mexico",APPROXIMATE,ChIJtXA1SSmEzoYRrfIvQ7g0k_w,"political, sublocality, sublocality_level_1",2025-11-10T22:18:43.471247
+EL MOLINO (LOCALIDAD RURAL),28.6952664,-111.4465407,"83334 El Molino, Sonora, Mexico",APPROXIMATE,ChIJQULFResUzIYRmX90WtHbLtQ,"locality, political",2025-11-10T22:18:43.827334
+EL MOLINO DE CAMOU,29.1876518,-110.8016993,"83303 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJvcY5syiKzoYRFyg4pBa2YvA,"establishment, point_of_interest",2025-11-10T22:18:44.169729
+EL OCOTILLO [FRACCIONAMIENTO],29.2006546,-110.8988506,"Unnamed Road, 83300 Villa Dorada, Son., Mexico",GEOMETRIC_CENTER,ChIJZf2A2SKJzoYR1GD597IqP2s,"establishment, point_of_interest",2025-11-10T22:18:44.518991
+EL OREGANO,29.104353,-110.946911,"Primo de Verdad 51, Pitic, 83150 Hermosillo, Son., Mexico",ROOFTOP,ChIJ6RmicNSFzoYRRdmMNmcBJSE,"establishment, food, point_of_interest",2025-11-10T22:18:44.864300
+EL PALOMAR,28.6680408,-111.5655985,"83334 El Palomar, Sonora, Mexico",APPROXIMATE,ChIJ9-3F7eNrzIYRkCjF3GYA72s,"locality, political",2025-11-10T22:18:45.198386
+EL PAPALOTE,29.3151179,-110.8128237,"83300 El Papalote, Son., Mexico",APPROXIMATE,ChIJcQj3YQFkzoYRDhcClBy2L7k,"locality, political",2025-11-10T22:18:45.557193
+EL PAÑUELITO,29.2086953,-111.7938179,"83330 El Pañuelito, Son., Mexico",APPROXIMATE,ChIJnxAaTuyozYYRMTAdkV4Wtx0,"locality, political",2025-11-10T22:18:45.905447
+EL PEDERNAL TRES,28.396288,-111.383644,"83316 El Pedernal, Son., Mexico",APPROXIMATE,ChIJPVyx4uD1y4YRv-UChA1_SjQ,"locality, political",2025-11-10T22:18:46.266708
+EL PEPACHE (FRANCISCO QUIROGA),29.0509977,-110.9548919,"Francisco Javier Mina, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJc03l3OOEzoYRVgsIljSHwCI,route,2025-11-10T22:18:46.661360
+EL PINACATE II,29.1462902,-111.0236721,"Marino oriente 18, Privadas del Real, 83118 Hermosillo, Son., Mexico",ROOFTOP,ChIJ00r4fwCBzoYRCZXIkYDuFDc,"establishment, food, point_of_interest, restaurant",2025-11-10T22:18:47.021667
+EL PORVENIR,29.0825846,-110.9515383,"C. Benito Juárez 10, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJKWzmOUuEzoYRxJhAkKdS3HA,"clothing_store, establishment, point_of_interest, store",2025-11-10T22:18:47.371941
+EL PUEBLITO,29.2399999,-111.4494443,"83326 El Pueblito, Son., Mexico",APPROXIMATE,ChIJn8KtyLfJzYYRaWacHkJlbAY,"locality, political",2025-11-10T22:18:47.725868
+EL QUEMADO,29.0489779,-110.9445748,"Provincia Montealegre, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJOW3NNQCFzoYRo-55BdKKVI0,"establishment, point_of_interest",2025-11-10T22:18:48.065995
+EL RANCHITO (LOCALIDAD RURAL),29.0828271,-110.9275652,"El Ranchito, Hermosillo, Son., Mexico",APPROXIMATE,ChIJyzMO9peFzoYR-54uLMdZSQA,"political, sublocality, sublocality_level_1",2025-11-10T22:18:48.421929
+EL RANCHO (FRANCISCO SALIDO ROCHI),29.0509977,-110.9548919,"Francisco Javier Mina, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJc03l3OOEzoYRVgsIljSHwCI,route,2025-11-10T22:18:48.799672
+EL REAL DEL CATORCE,28.9578339,-111.0430601,"83310 El Real del Catorce, Son., Mexico",APPROXIMATE,ChIJuavAWAedzoYRA2uudvJri-s,"locality, political",2025-11-10T22:18:49.139530
+EL REALITO,29.0880737,-110.8631152,"83303 El Realito, Son., Mexico",APPROXIMATE,ChIJ4UXN8gSPzoYRw1Yuw1I2Mt4,"locality, political",2025-11-10T22:18:49.470879
+EL REPRESITO DEL PADRE,28.9416666,-110.896111,"83306 El Represito, Son., Mexico",APPROXIMATE,ChIJMyKQl6yQzoYRpxeZo6Gh9F4,"locality, political",2025-11-10T22:18:49.824150
+EL REPRESO,29.3539294,-111.1561126,"83327 El Represo, Son., Mexico",APPROXIMATE,ChIJ_2mcCMXZzYYRZYqHDYqaBXc,"locality, political",2025-11-10T22:18:50.168983
+EL RETIRO,29.3043543,-110.8150589,"83300 El Retiro, Son., Mexico",APPROXIMATE,ChIJ61SAJvljzoYR_AFHHb7oerk,"locality, political",2025-11-10T22:18:50.515941
+EL ROSARIO,28.498611,-111.4763888,"83316 El Rosario, Son., Mexico",APPROXIMATE,ChIJyaYyUq4MzIYRB0re1p8xkao,"locality, political",2025-11-10T22:18:50.857323
+EL SAHUARITO,29.1156842,-111.0141256,"Av. de los Yaquis 1364B, Sahuaro, 83178 Hermosillo, Son., Mexico",ROOFTOP,ChIJmfAQm0aBzoYRWkSzr9mHXIE,"establishment, food, grocery_or_supermarket, point_of_interest, store",2025-11-10T22:18:51.211391
+EL SAHUARO,29.1075566,-111.0112516,"Angel Garcia Aburto 1316-Int. A, Sahuaro, 83178 Hermosillo, Son., Mexico",ROOFTOP,ChIJgf8FiVqBzoYRdWYKefwzpn8,"establishment, point_of_interest",2025-11-10T22:18:51.559744
+EL SAPO,28.633611,-111.3166667,"83314 El Sapo, Son., Mexico",APPROXIMATE,ChIJm6j9WhoQzIYRdGIOsgQWq3I,"locality, political",2025-11-10T22:18:51.910608
+EL SAUCITO,29.2174999,-110.8827777,"83300 El Saucito, Sonora, Mexico",APPROXIMATE,ChIJTYwMdqNizoYRMA4Kpbon7SE,"locality, political",2025-11-10T22:18:52.245620
+EL SAUCITO 2,29.2241365,-110.894781,"83300 El Saucito 2, Son., Mexico",APPROXIMATE,ChIJZUGyLbFizoYRFHEZD_uwlhk,"locality, political",2025-11-10T22:18:52.598598
+EL SAUCITO DE ENMEDIO,29.2174999,-110.8827777,"83300 El Saucito, Sonora, Mexico",APPROXIMATE,ChIJTYwMdqNizoYRMA4Kpbon7SE,"locality, political",2025-11-10T22:18:52.941538
+EL SECRETO,29.0763679,-111.0347229,"P.º de las Rivieras, 83243 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJqVg9acyDzoYR50Hf3rjR39o,"establishment, point_of_interest",2025-11-10T22:18:53.295752
+EL SOCORRO,29.0013097,-110.9189202,"El Socorro, Residencial Gala, 83297 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ02sJa5aazoYRQ2FZ-bt217g,route,2025-11-10T22:18:53.647392
+EL SOCORRO (LOCALIDAD RURAL),29.0013097,-110.9189202,"El Socorro, Residencial Gala, 83297 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ02sJa5aazoYRQ2FZ-bt217g,route,2025-11-10T22:18:53.995854
+EL SOLITO (EL RELAX),29.0489779,-110.9445748,"Provincia Montealegre, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJOW3NNQCFzoYRo-55BdKKVI0,"establishment, point_of_interest",2025-11-10T22:18:54.340688
+EL SONOT,29.0951973,-111.0318108,"Blvd. Jesús García Morales 785-A, El Llano, Quinta Emilia, 83210 Hermosillo, Son., Mexico",ROOFTOP,ChIJ6XR7etiDzoYREPltnjCs9JE,"establishment, point_of_interest",2025-11-10T22:18:54.688039
+EL TALAYOTE,28.954527,-111.0356629,"El Talayote, Haciendas Real del Catorce, 83310 El Real del Catorce, Son., Mexico",GEOMETRIC_CENTER,ChIJ28LDklCczoYRboGfxvQhqGA,route,2025-11-10T22:18:55.044584
+EL TERRENO,29.0853431,-111.0806767,"3WP9+5P, 83320 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ3wNQbQCDzoYRX0OUW0Qnmow,"establishment, point_of_interest",2025-11-10T22:18:55.401725
+EL TIJERITO,29.1634159,-110.9114631,"537Q+9C El tijerito, 83304 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJD5LQYwCHzoYRChh8ViAPk5M,"establishment, park, point_of_interest",2025-11-10T22:18:55.758333
+EL TIJERITO (LOCALIDAD RURAL,29.1634159,-110.9114631,"537Q+9C El tijerito, 83304 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJD5LQYwCHzoYRChh8ViAPk5M,"establishment, park, point_of_interest",2025-11-10T22:18:56.093797
+EL TOJUNGO SUR,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:18:56.460994
+EL TOPE,29.0933418,-110.9751917,"C. Simon Bley, Olivares, 83180 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJC3Bv-heEzoYRvw6jW46Ku_8,"establishment, point_of_interest",2025-11-10T22:18:56.810895
+EL TRIUNFO,29.0976828,-110.932158,"Blvd Francisco, Blvd. Fco. Eusebio Kino 1114, Pitic, 83150 Hermosillo, Son., Mexico",ROOFTOP,ChIJCytgW8OFzoYRiVFIwHaxXMk,"establishment, furniture_store, home_goods_store, point_of_interest, store",2025-11-10T22:18:57.165616
+EL TRIUNFO (LOCALIDAD RURAL),28.8446044,-111.4300549,"83333 El Triunfo, Son., Mexico",APPROXIMATE,ChIJmfEQrSk_zIYRos0bN0zoHtE,"locality, political",2025-11-10T22:18:57.523193
+EL VEINTE (LA PEAÑA),29.1950492,-110.9013329,"83300 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJAaNSr3yJzoYRAEzPfUHadk0,"establishment, point_of_interest, store",2025-11-10T22:18:57.883573
+EL ZACATON,29.2746412,-110.8485863,"83300 El Zacatón, Sonora, Mexico",APPROXIMATE,ChIJB9JTqqZjzoYRQ8iJ-mtM9zA,"locality, political",2025-11-10T22:18:58.221003
+EMILIANO ZAPATA (LOCALIDAD RURAL),29.0471234,-110.968363,"Emiliano Zapata, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJfzHHK-yEzoYRd7xN_X-ykYk,route,2025-11-10T22:18:58.575427
+ENCINAS (JOEL ENCINAS) [RANCHO],29.0274504,-110.9732188,"Del Rancho, Hacienda Los Alcatraces, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwbERDMiEzoYR2r4akubm5iY,route,2025-11-10T22:18:58.930675
+ENGORDA CAMPO NUEVO,29.246464,-110.8912322,"83300 Engorda Campo Nuevo, Sonora, Mexico",APPROXIMATE,ChIJGw-1VddizoYRCqmePkwEbXk,"locality, political",2025-11-10T22:18:59.277695
+ESPLENDOR,29.1069668,-111.0285297,"El Esplendor, 83175 Hermosillo, Son., Mexico",APPROXIMATE,ChIJef7r-GWBzoYR9M9_sC2onVY,"neighborhood, political",2025-11-10T22:18:59.603844
+ESTANSA RESIDENCIAL,29.1093256,-111.0257624,"Blvd. Perimetral, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQzBl8WiBzoYRi7dEK8p5Z0U,"establishment, point_of_interest",2025-11-10T22:18:59.973858
+FLORES MAGON,28.84469859999999,-111.4993197,"Flores Magon, 83347 Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJ9Y10FDRHzIYRN0lSYNvbfxQ,"political, sublocality, sublocality_level_1",2025-11-10T22:19:00.307807
+FLORESTA SECC. VILLA SAUCES,29.1245712,-111.013684,"Floresta, Villa Sauces, 83179 Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJNVm4DjmBzoYRyEWJbj2Z8gw,"neighborhood, political",2025-11-10T22:19:00.669247
+FLORESTA VILLA CIPRECES,29.1482009,-111.0174633,"Villa del Ciprés, Villa del Real, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJIWBbHNyAzoYRpWCTVngBS1s,route,2025-11-10T22:19:01.038378
+FLORESTA VILLA CIRUELOS,29.1245712,-111.013684,"Floresta, Villa Sauces, 83179 Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJNVm4DjmBzoYRyEWJbj2Z8gw,"neighborhood, political",2025-11-10T22:19:01.377713
+FRACCIONAMIENTO BELLA VISTA,29.116188,-110.9890374,"Bella Vista, Hermosillo, Son., Mexico",APPROXIMATE,ChIJffWqSLCGzoYRV_T9KB4zeNw,"political, sublocality, sublocality_level_1",2025-11-10T22:19:01.723177
+FRACCIONAMIENTO CAMPESTRE LA COLMENA,29.1809097,-110.8277247,"83303 Fraccionamiento Campestre la Colmena, Son., Mexico",APPROXIMATE,ChIJj43BTpiJzoYRSBFfH5Bbz9M,"locality, political",2025-11-10T22:19:02.059638
+FRACCIONAMIENTO CAMPESTRE LAS GRANJAS,29.1917709,-110.8690785,"83300 Fraccionamiento Campestre las Granjas, Son., Mexico",APPROXIMATE,ChIJwenKzDmIzoYR0r3t4FXD5Ds,"locality, political",2025-11-10T22:19:02.401911
+FRACCIONAMIENTO CASTELLINA,29.0034277,-110.9347352,"Av. Horizonte 371, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJNXsCFYybzoYRAFRXOHAFsls,"establishment, point_of_interest",2025-11-10T22:19:02.741753
+FRACCIONAMIENTO CHULA VISTA,29.1860974,-110.8470962,"83300 Fraccionamiento Chula Vista, Son., Mexico",APPROXIMATE,ChIJ74KUA7GJzoYRDOOf1l03o5E,"locality, political",2025-11-10T22:19:03.070222
+FRACCIONAMIENTO COSTA DEL SOL,29.0198562,-110.9648208,"Costa del Sol, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJzb8v_MyEzoYRjk1qvfFGBOA,"political, sublocality, sublocality_level_1",2025-11-10T22:19:03.439240
+FRACCIONAMIENTO CUAUHTEMOC,29.1278726,-111.0052295,"Cuauhtémoc García, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRSVgKjGBzoYRBdgMNnrfdzo,route,2025-11-10T22:19:03.780044
+FRACCIONAMIENTO EL CHAPARRAL,29.1688576,-110.8940134,"83305 Fraccionamiento El Chaparral, Son., Mexico",APPROXIMATE,ChIJL7NJhHyIzoYRYdWcx0AThRU,"locality, political",2025-11-10T22:19:04.155458
+FRACCIONAMIENTO EL DORADO,29.1274788,-110.9495459,"El Dorado, Hermosillo, Son., Mexico",APPROXIMATE,ChIJl2SXtmGGzoYRXVPJzZ_AYKI,"political, sublocality, sublocality_level_1",2025-11-10T22:19:04.506993
+FRACCIONAMIENTO EL PORVENIR,29.0825846,-110.9515383,"C. Benito Juárez 10, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJKWzmOUuEzoYRxJhAkKdS3HA,"clothing_store, establishment, point_of_interest, store",2025-11-10T22:19:04.855822
+FRACCIONAMIENTO FLORESTA,29.1245712,-111.013684,"Floresta, Villa Sauces, 83179 Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJNVm4DjmBzoYRyEWJbj2Z8gw,"neighborhood, political",2025-11-10T22:19:05.184951
+FRACCIONAMIENTO GIRASOLES,29.0258144,-110.9628648,"Los Girasoles, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJf7ioKM6EzoYRhgokrK9p7J0,"political, sublocality, sublocality_level_1",2025-11-10T22:19:05.546177
+FRACCIONAMIENTO LA CARIDAD,29.1224882,-111.0000596,"83120 La Caridad, Son., Mexico",APPROXIMATE,ChIJp6WxmUqBzoYRMXxKqQennok,"locality, political",2025-11-10T22:19:05.902652
+FRACCIONAMIENTO LA JOYA,29.1077657,-110.9362581,"La Joya, 83159 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJc8XVCdmFzoYRRyfiEjKOrXo,route,2025-11-10T22:19:06.258629
+FRACCIONAMIENTO LAS CARRETAS,29.0034277,-110.9347352,"Av. Horizonte 371, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJNXsCFYybzoYRAFRXOHAFsls,"establishment, point_of_interest",2025-11-10T22:19:06.613715
+FRACCIONAMIENTO LAS LOMAS,29.0481521,-110.9440661,"Priv. Tíbet 2, Las Lomas, 83293 Hermosillo, Son., Mexico",ROOFTOP,ChIJHRC0zBiFzoYRg8xMfQEgkYA,"establishment, point_of_interest",2025-11-10T22:19:06.968514
+FRACCIONAMIENTO LAS PRADERAS,29.0597229,-110.9699458,"De Las Praderas, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRRqn6vWEzoYRWhk3et4MDFw,route,2025-11-10T22:19:07.324856
+FRACCIONAMIENTO LAS RIBERAS SECCION VILLA ALICANTO,29.1042351,-110.9067992,"Blvd. Alicanto, 83304 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJgyT6SgCFzoYR9i6_8em5rpw,"establishment, point_of_interest",2025-11-10T22:19:07.697607
+FRACCIONAMIENTO MONTECARLO,29.0647339,-110.9961161,"Montecarlo, 83288 Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJIaluhXiEzoYRhDzTIICL2HY,"political, sublocality, sublocality_level_1",2025-11-10T22:19:08.050875
+FRACCIONAMIENTO NATURA RUBA,29.1774757,-111.0137179,"Circuito, Cto. Latania 88, 83318 Hermosillo, Son., Mexico",ROOFTOP,ChIJA9yIHf2BzoYRZA7vi8RFjeI,"establishment, point_of_interest",2025-11-10T22:19:08.402924
+FRACCIONAMIENTO OASIS SANTA FE,29.0494114,-111.0052066,"Oasis Santa Fe Park, Sendero del Sol, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJNdxBX9KDzoYR4ChLRxEhcxQ,"establishment, park, point_of_interest",2025-11-10T22:19:08.771834
+FRACCIONAMIENTO OASIS SOLERA,29.0478881,-111.0077792,"Oasis Solera Park, De la Arena 3, 83285 Hermosillo, Son., Mexico",ROOFTOP,ChIJ_0XJTnqDzoYRMBPvFYS1X5c,"establishment, park, point_of_interest",2025-11-10T22:19:09.138907
+FRACCIONAMIENTO PARQUE INDUSTRIAL,29.0034277,-110.9347352,"Av. Horizonte 371, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJNXsCFYybzoYRAFRXOHAFsls,"establishment, point_of_interest",2025-11-10T22:19:09.496913
+FRACCIONAMIENTO PILARES,29.0034277,-110.9347352,"Av. Horizonte 371, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJNXsCFYybzoYRAFRXOHAFsls,"establishment, point_of_interest",2025-11-10T22:19:09.858445
+FRACCIONAMIENTO POTRERO DE BUSHARD,29.0266149,-110.9700072,"Cda. Del Potrero, Hacienda Los Alcatraces, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJkzP4lMiEzoYRrzihdMzwh2s,route,2025-11-10T22:19:10.213147
+FRACCIONAMIENTO PRIMAVERA,28.8254821,-111.943679,"Primavera, 83343 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJYcqCGzH3zIYR9Br1kvTam3w,"political, sublocality, sublocality_level_1",2025-11-10T22:19:10.558991
+FRACCIONAMIENTO RANCHO GRANDE,29.0034277,-110.9347352,"Av. Horizonte 371, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJNXsCFYybzoYRAFRXOHAFsls,"establishment, point_of_interest",2025-11-10T22:19:10.897989
+FRACCIONAMIENTO RÍO BONITO,29.2093819,-110.864691,"83300 Río Bonito, Son., Mexico",APPROXIMATE,ChIJw5NsKSmIzoYRqvwmrS7t7wo,"locality, political",2025-11-10T22:19:11.236122
+FRACCIONAMIENTO SAN DIEGO,29.0903969,-111.001768,"San Diego, Capistrano, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJP06-NviDzoYRVgP1jtlRtfI,route,2025-11-10T22:19:11.593846
+FRACCIONAMIENTO SAN FRANCISCO,29.0907569,-111.0003231,"San Francisco, Capistrano, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJXxMiFviDzoYRr6MVzJgfwH8,route,2025-11-10T22:19:11.970287
+FRACCIONAMIENTO SAN GERMAN,29.1632458,-111.0154268,"San Germán, San German, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJef1hN8eAzoYRyPv5wArCS-o,route,2025-11-10T22:19:12.317901
+FRACCIONAMIENTO SAN ISIDRO,29.0970364,-111.0128817,"San Isidro, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ2SgX8-KDzoYREE145ZsE_Ec,"political, sublocality, sublocality_level_1",2025-11-10T22:19:12.684481
+FRACCIONAMIENTO SAN JAVIER,29.0580824,-110.9665803,"San Javier, Fovissste, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ51MT7PaEzoYRrjLm5C_U4wk,route,2025-11-10T22:19:13.042558
+FRACCIONAMIENTO SAN LORENZO,29.1338792,-110.9598581,"Calz. Sta. Cecilia, Valle Santa Monica, 83104 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQe1bNPKGzoYRA19HEjAQnZs,"establishment, point_of_interest",2025-11-10T22:19:13.378533
+FRACCIONAMIENTO SAN MARCOS,29.12220929999999,-111.033932,"Residencial San Marcos, Puerta Real, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJz3arCBKBzoYRMhPQh0fDWRE,"neighborhood, political",2025-11-10T22:19:13.723184
+FRACCIONAMIENTO SAN PABLO,29.06086329999999,-110.9612815,"San Pablo, Hermosillo, Son., Mexico",APPROXIMATE,ChIJrQTiR_iEzoYR4k3pia0dsGo,"political, sublocality, sublocality_level_1",2025-11-10T22:19:14.082796
+FRACCIONAMIENTO SAN RAFAEL,29.1380269,-110.9804672,"San Rafael, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ9Rn6YcSGzoYRK-vOc4RzRyQ,route,2025-11-10T22:19:14.422412
+FRACCIONAMIENTO STAUS,29.0915074,-110.9957435,"Staus, Hermosillo, Son., Mexico",APPROXIMATE,ChIJh1xstQeEzoYRw_2IjQFkhiI,"political, sublocality, sublocality_level_1",2025-11-10T22:19:14.771360
+FRACCIONAMIENTO TERRANOVA,29.0034277,-110.9347352,"Av. Horizonte 371, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJNXsCFYybzoYRAFRXOHAFsls,"establishment, point_of_interest",2025-11-10T22:19:15.114041
+FRACCIONAMIENTO TIERRA NUEVA,29.1702661,-111.0125091,"Fraccionamiento Tierra Nueva, 83318 Hermosillo, Son., Mexico",APPROXIMATE,ChIJB6VYt7mAzoYRAwYGS6AV1h8,"neighborhood, political",2025-11-10T22:19:15.452236
+FRACCIONAMIENTO VILLA DORADA,29.1526067,-110.9741348,"Villa Dorada, Hermosillo, Son., Mexico",APPROXIMATE,ChIJpfhFeB-HzoYRzIUkbo51qXE,"political, sublocality, sublocality_level_1",2025-11-10T22:19:15.817432
+FRACCIONAMIENTO VILLAS DEL SUR,29.0160448,-110.9797232,"Villas del Sur, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJmxFC40qbzoYRe1uYuL_FogA,"political, sublocality, sublocality_level_1",2025-11-10T22:19:16.169693
+FRACCIONAMIENTOBUENA VISTA,29.1092344,-111.0190485,"Eduardo W. Villa 1470, El Llanito, 83178 Hermosillo, Son., Mexico",ROOFTOP,ChIJfYAjzVyBzoYRaEeQxw_84_k,"establishment, point_of_interest",2025-11-10T22:19:16.530361
+FRACCIONAMIENTOLOS ANGELES,29.1486804,-110.966311,"Los Angeles, 83106 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ7yQ1-uKGzoYR_LG_MbbHVw4,"political, sublocality, sublocality_level_1",2025-11-10T22:19:16.897825
+FRACIONAMIENTO LAS VILLAS DEL NOGAL,28.9970575,-110.9190536,"Cto. Aguablanda 36, Valle de Agualurca, 83297 Hermosillo, Son., Mexico",ROOFTOP,ChIJEceyfCqbzoYRRfNe3RA1kAA,"establishment, point_of_interest",2025-11-10T22:19:17.287034
+FRANCISCO EUSEBIO KINO,29.0977766,-110.9509543,"Francisco Eusebio Kino, Centro, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJVauJUc6FzoYRcs7womqv22Q,route,2025-11-10T22:19:17.634584
+FRANSICO ROMERO,29.039348,-110.9889223,"José María Romero & Francisco Badilla González, San JOSE DE LAS MINITAS, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EmpKb3PDqSBNYXLDrWEgUm9tZXJvICYgRnJhbmNpc2NvIEJhZGlsbGEgR29uesOhbGV6LCBTYW4gSk9TRSBERSBMQVMgTUlOSVRBUywgODMyODUgSGVybW9zaWxsbywgU29uLiwgTWV4aWNvImYiZAoUChIJF5DgrpmEzoYRz5EhhMmG0F8SFAoSCReQ4K6ZhM6GEc-RIYTJhtBfGhQKEgklgI3rmYTOhhHjMD3XizmeTRoUChIJSbxwZJmEzoYR4mJ9XUWliUQiCg2IDU8RFTlv2L0,intersection,2025-11-10T22:19:17.988821
+FRUCTUOSO MENDEZ,29.1939142,-110.7472614,"83303 Fructuoso Méndez, Son., Mexico",APPROXIMATE,ChIJ3apFxeSKzoYRhZQv7JT9iBo,"locality, political",2025-11-10T22:19:18.325914
+FUENTE  DE PIEDRA,29.1531307,-111.0290135,"Fuente de Piedra, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ6cCnNe-AzoYRID5GtHOcWW8,route,2025-11-10T22:19:18.671038
+FUENTES DEL MEZQUITAL,29.0729556,-110.9797232,"Fuentes del Mezquital, 83240 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ96x24WiEzoYRaMb8VF4PYcc,"political, sublocality, sublocality_level_1",2025-11-10T22:19:19.001997
+GABY PEREDA I,29.1009496,-110.9574108,"Av. Michoacan 98, Modelo, 83190 Hermosillo, Son., Mexico",ROOFTOP,ChIJw4T1NgCFzoYR1bw35AqQrtk,"establishment, point_of_interest, storage",2025-11-10T22:19:19.358428
+GABY PEREDA II,29.1285733,-111.0206473,"Av. Juan Pablo II, El Chaparral, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRclODj2BzoYR2k00rXLvdQI,route,2025-11-10T22:19:19.705077
+GALA 2,29.0040354,-110.9189966,"Gala, 83297 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ1VWYjL2azoYR6ppO6fi6lik,"political, sublocality, sublocality_level_1",2025-11-10T22:19:20.039826
+GALA III,28.9940137,-110.9216095,"Igualamo 23, 83297 Hermosillo, Son., Mexico",ROOFTOP,ChIJV-hTRgCbzoYR91e_aaKmVDs,"establishment, point_of_interest",2025-11-10T22:19:20.392315
+GANADERA CONTRERAS,28.9519332,-111.0761664,"83310 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJo3MmKZydzoYRncQ3VmcR1pA,"establishment, food, point_of_interest",2025-11-10T22:19:20.744042
+GANADERA GAPA,29.1155089,-111.0017046,"San Bernardino, 83170 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ3R0GLgCBzoYRI9hH1n6KFiI,"establishment, point_of_interest",2025-11-10T22:19:21.101318
+GRANJA GUADALUPE,29.0409552,-110.9637382,"Guadalupe, Palo Verde, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJBX9BEeiEzoYRzXFokWADxGM,route,2025-11-10T22:19:21.457235
+GRANJA PECUARIA #7,29.13204199999999,-110.979573,"C. Arizona 406, Lomas de Madrid, 83113 Hermosillo, Son., Mexico",ROOFTOP,ChIJbdny4sOGzoYRRW9fpLo-IcQ,"establishment, point_of_interest",2025-11-10T22:19:21.820328
+GRANJA SANTA RAQUEL,28.9899922,-111.1574791,"83323 Granja Santa Raquel, Sonora, Mexico",APPROXIMATE,ChIJAR6FRpwozIYRu-kKcYbmaME,"locality, political",2025-11-10T22:19:22.165301
+GRANJAS,29.0750715,-110.9752525,"Las Granjas, Hermosillo, Son., Mexico",APPROXIMATE,ChIJEVI0zGmEzoYRAPy5AHikGy8,"political, sublocality, sublocality_level_1",2025-11-10T22:19:22.497569
+GUADALUPE VICTORIA,28.8429362,-111.4942892,"Guadalupe Victoria, 83347 Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJ1yWaREtHzIYRoMTQmJUhGII,"political, sublocality, sublocality_level_1",2025-11-10T22:19:22.841328
+GUERRERO,29.0859303,-110.9541281,"Guerrero, Centro, 83000 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE8uYd0qEzoYRZ4nCuHH79Mo,route,2025-11-10T22:19:23.191412
+HACIENDA EL CERRITO,29.1361,-111.034,"Cto. de las Aceñas Pte. 28, Los girasoles, 83116 Hermosillo, Son., Mexico",ROOFTOP,ChIJRapPKgCBzoYR4fLrO0aJrOQ,"establishment, point_of_interest",2025-11-10T22:19:23.549252
+HACIENDA LOS TESOROS [FRACCIONAMIENTO],29.12335599999999,-111.016625,"Km 28 Carretera a Bahia de Kino, Hermosillo, Sonora, Dunas, 83000 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJp-OT1j6BzoYR6-BIlZ8_1Io,"establishment, point_of_interest",2025-11-10T22:19:23.897688
+HECTOR FRANCISCO ROMERO ETAPA II,29.1285733,-111.0206473,"Av. Juan Pablo II, El Chaparral, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRclODj2BzoYR2k00rXLvdQI,route,2025-11-10T22:19:24.272804
+HEMA-NOVINA,29.0411693,-110.9626917,"Novena, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQQ_cyemEzoYRtwaQR8J--mE,route,2025-11-10T22:19:24.622493
+HERMOSILLO CENTRO,29.083816,-110.9528873,"Centro, Hermosillo, Son., Mexico",APPROXIMATE,ChIJcRemT0qEzoYRGKv6ZEMJUPg,"political, sublocality, sublocality_level_1",2025-11-10T22:19:24.978195
+HIPICO,29.0770606,-111.0279608,"Blvd. Hípico, 83243 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJaVpwKMGDzoYRxRckOQZV3_Q,route,2025-11-10T22:19:25.309844
+HOPE LAS BRISAS [CLINICA],29.1779646,-110.8611584,"Carretera a Ures KM 5 camino a, Rancho El Querreque, San Pedro El Saucito, 83305 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJYde_A1GIzoYRme4bPkCEfKY,"establishment, health, point_of_interest",2025-11-10T22:19:25.672180
+HUMBERTO GUTIERREZ CORONA,29.1365031,-111.0493769,"83173 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ095WMgCBzoYReMqHePDEuQk,"establishment, point_of_interest, school, secondary_school",2025-11-10T22:19:26.029395
+INFONAVIT,29.0675019,-110.9583138,"Av Cultura Centro, Proyecto Rio Sonora Hermosillo XXI, 83280 Hermosillo, Son., Mexico",ROOFTOP,ChIJ4wEkRbWFzoYRTzDEhnVYUy8,"establishment, local_government_office, point_of_interest",2025-11-10T22:19:26.383924
+INSURGENTES (MIGUEL ALEMAN),28.847803,-111.4879545,"Insurgentes, Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJQbvOTFJHzIYRydIkLlVuhwQ,"political, sublocality, sublocality_level_1",2025-11-10T22:19:26.737689
+INVASION EL MIRADOR,29.1308698,-111.0210586,"Av. Tezal, El Chaparral, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ2VIDrSKBzoYRqKUiIF21NCc,route,2025-11-10T22:19:27.074007
+IRRIGACION,29.0834767,-110.9257025,"Irrigacion, 83050 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ1T3pF5aFzoYRFyxX9ky0V0E,"political, sublocality, sublocality_level_1",2025-11-10T22:19:27.412198
+ISDAMAR,29.0947038,-110.9290536,"De La Rosa 14, Zona Industrial Ferrocarril, 83013 Hermosillo, Son., Mexico",ROOFTOP,ChIJ5_H1ENqAzoYRYc3VxUMnnKg,"establishment, general_contractor, point_of_interest",2025-11-10T22:19:27.770873
+ISSSTESON CENTENARIO LUX,29.0746541,-110.9692915,"Isssteson Centenario, Hermosillo, Son., Mexico",APPROXIMATE,ChIJKcE_dEOEzoYR4kudaiJpOw8,"political, sublocality, sublocality_level_1",2025-11-10T22:19:28.123560
+IXPALIA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:19:28.454672
+JACARANDAS,29.0719652,-110.9799045,"Jacarandas, Fuentes del Mezquital, 83240 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJHXROsWiEzoYR_ME2LC7MJ74,route,2025-11-10T22:19:28.806951
+JACINTO LOPEZ (LA GALERA),29.1389852,-110.9789781,"Jacinto Lopez, Hermosillo, Son., Mexico",APPROXIMATE,ChIJj7fpvNyGzoYRRlcLjaOjkuI,"political, sublocality, sublocality_level_1",2025-11-10T22:19:29.175218
+JARDINES DE MÓNACO,29.0677245,-110.9756251,"Jardines de Monaco, Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJuZegbWeEzoYRrBNSQZgB7Eg,"political, sublocality, sublocality_level_1",2025-11-10T22:19:29.523468
+JARDINES DEL PARAISO,29.0842191,-111.0262018,"Paraíso, La Encantada, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlyxRFsODzoYRts37CujHCr4,route,2025-11-10T22:19:29.882443
+JESUS GARCIA,29.11546969999999,-110.9700366,"Jesus Garcia, Hermosillo, Son., Mexico",APPROXIMATE,ChIJfwg4yoSGzoYR2VR1oBiNEro,"political, sublocality, sublocality_level_1",2025-11-10T22:19:30.230764
+JESUS GARCIA (FRACCIONAMIENTO),29.11546969999999,-110.9700366,"Jesus Garcia, Hermosillo, Son., Mexico",APPROXIMATE,ChIJfwg4yoSGzoYR2VR1oBiNEro,"political, sublocality, sublocality_level_1",2025-11-10T22:19:30.585939
+JESUS GARCIA II,29.11546969999999,-110.9700366,"Jesus Garcia, Hermosillo, Son., Mexico",APPROXIMATE,ChIJfwg4yoSGzoYR2VR1oBiNEro,"political, sublocality, sublocality_level_1",2025-11-10T22:19:30.935495
+JESUS VEGA,29.0852544,-110.9518827,"C. Benito Juárez 99, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJC0gFX4qGzoYRhrM1JF8K5nY,"dentist, establishment, health, point_of_interest",2025-11-10T22:19:31.291002
+JESUS VEGA AGUILAR,29.1253796,-111.0271095,"Av. Arquitecto Gustavo F. Aguilar, Luis Donaldo Colosio, Colosio, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJNXIEuRaBzoYRXR3XebDDtdQ,route,2025-11-10T22:19:31.648770
+JOB GAXIOLA,29.0659069,-110.9584372,"Gaxiola, Villa de Seris, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJV-g5X1aEzoYRlJ2S_oR8JBQ,route,2025-11-10T22:19:32.001524
+JOSEFINA DOS,29.1900103,-110.9049689,"83300 Josefina Dos, Son., Mexico",APPROXIMATE,ChIJlX4QR-KHzoYRA_h9ONQUWvo,"locality, political",2025-11-10T22:19:32.342489
+KILOMETRO 223,29.0241939,-110.9505737,"ABARROTES LOS FLACOS, Av. Xólotl 113-C, Cuauhtemoc Indeur, 83294 Hermosillo, Son., Mexico",ROOFTOP,ChIJsdmweACFzoYRkIzSaD0aCzU,"establishment, point_of_interest",2025-11-10T22:19:32.693873
+KILOMETRO CUARENTA Y CUATRO,29.06047289999999,-110.9662415,"Blvd. Solidaridad 15336, Las Villas, 83289 Hermosillo, Son., Mexico",ROOFTOP,ChIJFQpsSPaEzoYRsYqKtTYS6iI,"establishment, point_of_interest",2025-11-10T22:19:33.039352
+KINO BAY ESTATES,28.8694915,-112.0282616,"Kino Bay Estates, 83343 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJ2Tcxx8P6zIYRaQDqRe5vSxg,"political, sublocality, sublocality_level_1",2025-11-10T22:19:33.383124
+KOWI (SANTA ISABEL),29.081509,-110.9742627,"Av. Dr. Ignacio Pesqueira 267-B, Los Arcos, 83250 Hermosillo, Son., Mexico",ROOFTOP,ChIJT_tQhUiiXRQR4OeKPBKuwi0,"establishment, food, point_of_interest, store",2025-11-10T22:19:33.754210
+LA ANTORCHA,29.1261024,-111.0429032,"José María Leyva, 83173 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJqTyzXMqBzoYRV4Ht7rjcSac,"establishment, point_of_interest",2025-11-10T22:19:34.116817
+LA ANTORCHA CAMPESINA,29.1269906,-111.0432871,"Primero de Mayo 55, 83173 Hermosillo, Son., Mexico",ROOFTOP,ChIJq4jRXwCBzoYRYLVhfoTbTl4,"establishment, point_of_interest",2025-11-10T22:19:34.477188
+LA ATLANTIDA,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:34.833003
+LA AURORA,29.078002,-110.9790939,"Aurora, Palmar del Sol, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJTRJ67GuEzoYRqx3KN2-PoLE,route,2025-11-10T22:19:35.179730
+LA BASE (LOS HOYOS),30.1291126,-109.7820282,"Los Hoyos, Sonora, Mexico",APPROXIMATE,ChIJDwSp1l4D0IYR94PHE9HrxZg,"locality, political",2025-11-10T22:19:35.541031
+LA BURA,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:35.886032
+LA CABAÑA DEL MOCHOMO,29.0041809,-110.919678,"La Cabaña, Gala, 83297 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJY7JY3b2azoYRx8xzgipsHpM,route,2025-11-10T22:19:36.257689
+"LA CAMPINA II, III, IV, V",29.1338091,-111.0255491,"La Campiña, 83116 Hermosillo, Son., Mexico",APPROXIMATE,ChIJUWGRFhmBzoYRKZxHMX_4Z8Q,"political, sublocality, sublocality_level_1",2025-11-10T22:19:36.631076
+LA CAMPINA III IV Y V ETAPAS,29.1338091,-111.0255491,"La Campiña, 83116 Hermosillo, Son., Mexico",APPROXIMATE,ChIJUWGRFhmBzoYRKZxHMX_4Z8Q,"political, sublocality, sublocality_level_1",2025-11-10T22:19:36.982963
+LA CASCABEL,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:37.343358
+LA CHIRA,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:37.691296
+LA CHOYA,29.0729673,-110.9559192,"Yuste28A/penalarayperao, Centro, 83079 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJKzuAZACFzoYRe218PxljZwU,"establishment, point_of_interest",2025-11-10T22:19:38.030870
+LA CIMA II,29.1451565,-110.9900333,"Blvd. Progreso S/N, Almacen, 83105 Hermosillo, Son., Mexico",ROOFTOP,ChIJ_5bhJ9aGzoYRR4U7UpWvMvY,"establishment, point_of_interest",2025-11-10T22:19:38.392547
+LA COLMENA (POZO CUATRO) [HUERTA],29.0893257,-110.9535576,"Mariano Matamoros 31-Norte, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJk1oyBQCFzoYRE2nwAT02afs,"cafe, establishment, food, point_of_interest, store",2025-11-10T22:19:38.767734
+LA COLORADA,28.8026584,-110.5794014,"85540 La Colorada, Sonora, Mexico",APPROXIMATE,ChIJ76j49HzEzoYR86x_64UDri8,"locality, political",2025-11-10T22:19:39.107429
+LA CORUBA,29.4269443,-111.1736111,"83327 La Coruba, Son., Mexico",APPROXIMATE,ChIJ1clU00zZzYYRb_MAZCwuM54,"locality, political",2025-11-10T22:19:39.462201
+LA CORUÑA SECCION PRIVADA ORZAN,29.07912129999999,-111.0580649,"Orzán, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJcyKiyQGDzoYRJae854rL_Jk,"establishment, point_of_interest",2025-11-10T22:19:39.826460
+LA COSECHA NORTE,29.1299729,-111.0308669,"Cosecha Nte., Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJFV-xehqBzoYRXWinymhvYLM,route,2025-11-10T22:19:40.191688
+LA COYOTA (LA COYOTITA),29.2221617,-110.9298791,"Carret.Hermosillo_Nogales km.15.3 Caseta De Cobro Salida A Nogales San Pedro El Saucito, 83305 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJUdFbJ2t9zoYRZ-UWMEO06LI,"convenience_store, establishment, food, point_of_interest, store",2025-11-10T22:19:40.553731
+LA CRUZ,28.819422,-111.9365993,"La Cruz, 83342 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJU1IUByX3zIYRcPmpur84Rtg,"political, sublocality, sublocality_level_1",2025-11-10T22:19:40.902207
+LA CUESTA (POZO DOS) [VIÑEDO],29.1014487,-110.9306382,"La Cuesta, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJcZYPVd2FzoYRDzllR9UO25A,route,2025-11-10T22:19:41.265567
+LA CURVA,29.0544565,-110.9904216,"Cda. La Republica 83, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJNfMaEQCFzoYR4P__R8BRsYY,"establishment, place_of_worship, point_of_interest",2025-11-10T22:19:41.615722
+LA ENCANTADA PRIVADA ALEBRIJES,29.0845319,-111.0253395,"Privada Alebrijes, La Encantada Blvrd, La Encantada, 83224 Hermosillo, Son., Mexico",ROOFTOP,ChIJ75QxJ8ODzoYR4Hn4RnOk2_M,"premise, street_address",2025-11-10T22:19:41.972607
+LA ENCANTADA PRIVADA AZULEJOS,29.1070979,-110.9987228,"Priv. los Azulejos, Delos Azulejos, 83170 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJjwtBU1OBzoYR-bmNISkdAlE,route,2025-11-10T22:19:42.334885
+LA ENCANTADA PRIVADA LEYENDAS,29.0848587,-111.0252544,"La Encantada Blvrd & Priv. Leyendas, La Encantada, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ElFMYSBFbmNhbnRhZGEgQmx2cmQgJiBQcml2LiBMZXllbmRhcywgTGEgRW5jYW50YWRhLCA4MzIyNCBIZXJtb3NpbGxvLCBTb24uLCBNZXhpY28iZiJkChQKEgnBQzMmw4POhhF_3Gss5xAeGhIUChIJwUMzJsODzoYRf9xrLOcQHhoaFAoSCWuBnUvCg86GEZevjvYecyOZGhQKEgnnuJAnw4POhhFWXaHLnBFquiIKDUv_VREVAOTSvQ,intersection,2025-11-10T22:19:42.691847
+LA ENCANTADA RESIDENCIAL,29.0848488,-111.0259217,"La Encantada, Hermosillo, Son., Mexico",APPROXIMATE,ChIJD3JKOMODzoYR3hW5bdjUtfs,"neighborhood, political",2025-11-10T22:19:43.033638
+LA ESCONDIDA (LOCALIDAD RURAL),29.0862979,-110.9947129,"La Escondida, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJeUE6DQmEzoYR6GAWz60PitY,route,2025-11-10T22:19:43.396151
+LA FINCA,29.1031755,-110.9132453,"Internacional A Nogales 448, Cafe Combate II, 83304 Hermosillo, Son., Mexico",ROOFTOP,ChIJ31yyUgCFzoYRAirHBvtNSac,"establishment, lodging, point_of_interest",2025-11-10T22:19:43.747940
+LA FLORESTA,29.1245712,-111.013684,"Floresta, Villa Sauces, 83179 Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJNVm4DjmBzoYRyEWJbj2Z8gw,"neighborhood, political",2025-11-10T22:19:44.090426
+LA FLORESTA SECC CIRUELOS,29.0847844,-110.9733315,"Av. Paseo de la Floresta 19, Valle Grande, 83205 Hermosillo, Son., Mexico",ROOFTOP,ChIJ02ZdcACFzoYRJ6zJh3bgSIM,"establishment, point_of_interest",2025-11-10T22:19:44.450196
+LA FLORIDA [VIÑEDO],29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:19:44.800035
+LA FRANJA,29.0255037,-111.1257737,"83323 La Franja, Son., Mexico",APPROXIMATE,ChIJf3NYcU8ozIYRAhSw3So1dKc,"locality, political",2025-11-10T22:19:45.130662
+LA FUENTE DE LA JUVENTUD,29.25341719999999,-110.8426259,"83300 La Fuente de la Juventud, Son., Mexico",APPROXIMATE,ChIJfSM1R1JizoYRrPz-3n5v-So,"locality, political",2025-11-10T22:19:45.473559
+LA GALERA,29.1030244,-110.8472065,"83303 La Galera, Son., Mexico",APPROXIMATE,ChIJk-DoZOeOzoYRDb1otBeqvWM,"locality, political",2025-11-10T22:19:45.802283
+LA GLORIA,29.0392235,-110.9391999,"La Gloria, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlYU3WSOFzoYRTQjwtziHN1I,route,2025-11-10T22:19:46.158083
+LA HABANA NUMERO DOS,28.866897,-111.2813117,"83324 La Habana Núm. Dos, Son., Mexico",APPROXIMATE,ChIJP43_YlIjzIYRtnvFO7LWjWI,"locality, political",2025-11-10T22:19:46.509694
+LA HABANA NUMERO UNO,29.0386221,-110.9588372,"Blvd. Agustín de Vildósola 351, Pedregal de la Villa, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJvVBYd9yEzoYRxGtnP3GLFDI,"bar, establishment, point_of_interest",2025-11-10T22:19:46.875754
+LA HABANA TRES,28.9394798,-111.2651267,"83324 La Habana Tres, Son., Mexico",APPROXIMATE,ChIJyUMbaD4lzIYRUCZRDorbZQ4,"locality, political",2025-11-10T22:19:47.204573
+LA HABANA [ESTABLO],29.0386221,-110.9588372,"Blvd. Agustín de Vildósola 351, Pedregal de la Villa, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJvVBYd9yEzoYRxGtnP3GLFDI,"bar, establishment, point_of_interest",2025-11-10T22:19:47.558165
+LA HABANA [PORCICOLA Y AVICOLA],29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:19:47.909737
+LA HERRADURA [CAMPESTRE],29.0802276,-110.9604715,"Av. Luis Donaldo Colosio Murrieta 122, El Centenario, 83260 Hermosillo, Son., Mexico",ROOFTOP,ChIJAQAAUEGEzoYRk4tPdLsbuLs,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:19:48.235753
+LA INES,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:48.581335
+LA JOLLA,29.1095063,-110.9373135,"La Jolla Ote., 83159 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE_RCNtiFzoYRHdbWqsu9tMw,route,2025-11-10T22:19:48.930603
+LA JOLLA SECCION VILLA DE LOS DIAMANTES,29.1095063,-110.9373135,"La Jolla Ote., 83159 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE_RCNtiFzoYRHdbWqsu9tMw,route,2025-11-10T22:19:49.287097
+LA JOLLA SECCION VILLA TURQUESA,29.1095063,-110.9373135,"La Jolla Ote., 83159 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE_RCNtiFzoYRHdbWqsu9tMw,route,2025-11-10T22:19:49.652422
+LA LABOR,29.3483332,-110.8091667,"83300 La Labor, Son., Mexico",APPROXIMATE,ChIJd2UqDSZkzoYRwyUssztXupM,"locality, political",2025-11-10T22:19:50.024356
+LA LOMA,29.22824499999999,-110.8879412,"83300 La Loma, Sonora, Mexico",APPROXIMATE,ChIJD0BF9rhizoYRMsIpQa6Rq04,"locality, political",2025-11-10T22:19:50.350921
+LA MANGA (LOCALIDAD RURAL),29.0864916,-111.0370989,"La Manga, Hermosillo, Son., Mexico",APPROXIMATE,ChIJcW1PayyCzoYRvfFUCmVnHZ0,"political, sublocality, sublocality_level_1",2025-11-10T22:19:50.703196
+LA MISION,29.1657877,-110.8946778,"Venado y cactus, 83305 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJF_yX936JzoYRf2pHP8F8qWw,"establishment, point_of_interest",2025-11-10T22:19:51.075947
+LA MORENA DOS,29.0655804,-110.9656212,"Proyecto Rio Sonora Hermosillo XXI, 83270 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJHSYQCFmEzoYR561z4kA3bOw,"establishment, food, point_of_interest, restaurant",2025-11-10T22:19:51.432058
+LA MOSQUITA [FRANCISCO MOLINA],29.0509977,-110.9548919,"Francisco Javier Mina, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJc03l3OOEzoYRVgsIljSHwCI,route,2025-11-10T22:19:51.801160
+LA NAVIDAD,29.0758765,-110.9816172,"Los Ángeles, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJDbmDHWyEzoYRhx8Z_K0kfXM,route,2025-11-10T22:19:52.136171
+LA NORIA,29.1355651,-111.0042782,"La Noria Park, C. La Noria 165A, Valle del Portal, 83116 Hermosillo, Son., Mexico",ROOFTOP,ChIJLzDybgCBzoYR3gZSyocgQq4,"establishment, park, point_of_interest",2025-11-10T22:19:52.496864
+LA NUEVA VICTORIA,29.1209786,-110.8977614,"La Victoria, 83304 Hermosillo, Son., Mexico",APPROXIMATE,ChIJGckYhauIzoYRoHEADXYg47s,"political, sublocality, sublocality_level_1",2025-11-10T22:19:52.852995
+LA OREJANA,29.1889549,-111.7257266,"83330 La Orejana, Sonora, Mexico",APPROXIMATE,ChIJl6Nd3--uzYYRihq8_esFgpk,"locality, political",2025-11-10T22:19:53.192227
+LA PALAPA,29.0819875,-111.0137489,"Blvrd Luis Donaldo Colosio, Centro, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJx-33HuSDzoYRxKtejZ-Xhcc,"establishment, food, point_of_interest",2025-11-10T22:19:53.546659
+LA PALMA,29.1290087,-110.9959416,"Av Pedro Baranda 691-699, Primero Hermosillo, 83116 Hermosillo, Son., Mexico",ROOFTOP,ChIJeaehZMuGzoYRMDk26v7NtV0,"establishment, food, grocery_or_supermarket, point_of_interest, store",2025-11-10T22:19:53.897278
+LA PALMA (LOCALIDAD RURAL),28.6569443,-111.0016667,"83313 La Palma, Son., Mexico",APPROXIMATE,ChIJ_3mRMaGozoYRkUHpyVRW0Eo,"locality, political",2025-11-10T22:19:54.257501
+LA PALOMA,29.1303752,-110.9488008,"La Paloma, 83146 Hermosillo, Son., Mexico",APPROXIMATE,ChIJiz3RcmCGzoYR_pyvxVvmLl0,"political, sublocality, sublocality_level_1",2025-11-10T22:19:54.605474
+LA PALOMA (RANCHO),29.1303752,-110.9488008,"La Paloma, 83146 Hermosillo, Son., Mexico",APPROXIMATE,ChIJiz3RcmCGzoYR_pyvxVvmLl0,"political, sublocality, sublocality_level_1",2025-11-10T22:19:54.949359
+LA PEAÃ‘A,29.0798018,-110.9532482,"A, C. Guerrero 95, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJz9LIjkyEzoYRnrfIRgzBq1A,"premise, street_address",2025-11-10T22:19:55.286719
+LA PEAÑA,29.0283332,-111.0633332,"83310 Severo Moreno, Son., Mexico",APPROXIMATE,ChIJNSBuueOCzoYR85KWQ8dK4gU,"locality, political",2025-11-10T22:19:55.623262
+LA PEAÑA NUEVA,28.689213,-111.3478474,"83324 La Peaña Nueva, Son., Mexico",APPROXIMATE,ChIJ_UsemMwWzIYRXj2GAbh2g_4,"locality, political",2025-11-10T22:19:55.951982
+LA PERSEVERANCIA (LOS FUMICOS),29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:19:56.289343
+LA PEÑA,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:56.636562
+LA PINTADA [RESTAURANTE],29.0996505,-111.0111874,"La Pintada, Sonacer, 83174 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJL7NTEFiBzoYRO8z18xB9Nhc,route,2025-11-10T22:19:56.992957
+LA POMONA,29.1510733,-110.9657349,"Pomona, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ6xbQgB2HzoYRNGjgH4b3w5Q,route,2025-11-10T22:19:57.349910
+LA POZA (BLOQUERA),28.8530555,-110.9830556,"83313 La Poza, Son., Mexico",APPROXIMATE,ChIJaQTxT7qYzoYRc6pcdf6GGTI,"locality, political",2025-11-10T22:19:57.706331
+LA PRADERA,28.9999999,-111.8333331,"83336 La Pradera, Son., Mexico",APPROXIMATE,ChIJ-eSPpphVzIYRb58ajtjbWko,"locality, political",2025-11-10T22:19:58.040504
+LA PRIMAVERA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:19:58.400195
+LA PROVIDENCIA,29.1053487,-110.9817123,"Calle T. López del Castillo 162, Olivares, 83180 Hermosillo, Son., Mexico",ROOFTOP,ChIJQ0sc8B2EzoYRKWFo1JNxyBU,"establishment, point_of_interest",2025-11-10T22:19:58.755687
+LA REFORMA,28.8333329,-111.5333331,"83334 La Reforma, Son., Mexico",APPROXIMATE,ChIJL4OhEi1BzIYR08fv1Vxukgc,"locality, political",2025-11-10T22:19:59.094035
+LA REFORMA (RANCHERIA),29.0583725,-110.96215,"La Reforma, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJsdwECfqEzoYR324PrQRLk4s,route,2025-11-10T22:19:59.445156
+LA RESOLANA,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:19:59.785358
+LA REYNA,29.0574517,-111.1048308,"83325 La Reyna, Sonora, Mexico",APPROXIMATE,ChIJ1U3qx9wpzIYR9HZj4Eo_Cv0,"locality, political",2025-11-10T22:20:00.124205
+LA RIOJA RESIDENCIAL,29.0842632,-111.0125091,"Residencial La Rioja, 83224 Hermosillo, Son., Mexico",APPROXIMATE,ChIJf8rYF-6DzoYRr8B-rDTqEu4,"political, sublocality, sublocality_level_1",2025-11-10T22:20:00.464921
+LA ROSILLA [RANCHO],29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:20:00.815654
+LA ROSILLITA DEL CHINO,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:20:01.177764
+LA TRACALA,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:20:01.505716
+LA TRINIDAD,29.1677652,-111.0105585,"Av. Llanuras 14-A, Fraccionamiento Tierra Nueva, 83104 Hermosillo, Son., Mexico",ROOFTOP,ChIJu6H1AfqBzoYR0ZvICWpL-rQ,"establishment, point_of_interest",2025-11-10T22:20:01.849025
+LA VALENCIANA (LA PEAÑA),29.0281123,-111.0490423,"83310 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ4ymgaXCDzoYRQqqae9W6tB8,"establishment, point_of_interest",2025-11-10T22:20:02.213750
+LA VENTANITA,28.9629235,-111.5889376,"83333 La Ventanita, Son., Mexico",APPROXIMATE,ChIJewMezd5OzIYR1--fRlRLpaU,"locality, political",2025-11-10T22:20:02.555877
+LA VERBENA SECCION ASTURIAS I ETAPA,29.0650706,-110.9824967,"Asturias, Asturias Residencial, Marsella Residencial, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ0-P7c2SEzoYR7JNnbAme0qg,route,2025-11-10T22:20:02.927388
+LA VICTORIA (FRANCISCO QUIROGA) [ESTABLO],29.125295,-110.8925458,"83304 La Victoria, Son., Mexico",APPROXIMATE,ChIJ2UPT4q2IzoYReDOoGFAPICs,"locality, political",2025-11-10T22:20:03.295365
+LA VICTORIA (LA CRINOLINA) [CORRALES],29.1209786,-110.8977614,"La Victoria, 83304 Hermosillo, Son., Mexico",APPROXIMATE,ChIJGckYhauIzoYRoHEADXYg47s,"political, sublocality, sublocality_level_1",2025-11-10T22:20:03.650741
+LA VICTORIA (NUEVACREACION),29.1209786,-110.8977614,"La Victoria, 83304 Hermosillo, Son., Mexico",APPROXIMATE,ChIJGckYhauIzoYRoHEADXYg47s,"political, sublocality, sublocality_level_1",2025-11-10T22:20:04.019596
+LA YUTA,29.0908332,-111.7325,"83353 La Yuta, Sonora, Mexico",APPROXIMATE,ChIJkXPsoeiszYYRL8VYrvuglOk,"locality, political",2025-11-10T22:20:04.394307
+LADRILLERAS,29.1502671,-110.9990966,"Las Ladrilleras, 83117 Hermosillo, Son., Mexico",APPROXIMATE,ChIJuyOVrdSAzoYR52zx6atKAHQ,"political, sublocality, sublocality_level_1",2025-11-10T22:20:04.725810
+LARVAS GENESIS,29.141846,-110.9755042,"C. de la Reforma 12, Heberto Castillo, 83106 Hermosillo, Son., Mexico",ROOFTOP,ChIJE60FVBSHzoYRebYaHfsFr3M,"beauty_salon, establishment, point_of_interest, spa",2025-11-10T22:20:05.080107
+LAS ACACIAS,29.1222026,-111.0571731,"Acacia Ote., 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJgbA9x6SBzoYRu878bpQs6Bo,route,2025-11-10T22:20:05.435987
+LAS ALAMEDAS,29.092306,-110.9823312,"Alameda, Hermosillo, Son., Mexico",APPROXIMATE,ChIJo5t-7BCEzoYRsEp97dwN7BA,"political, sublocality, sublocality_level_1",2025-11-10T22:20:05.772047
+LAS ALBERCAS [CAMPESTRE],29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:06.144381
+LAS ARBOLEDAS,29.0032044,-110.9305456,"Arboledas, 83296 Hermosillo, Son., Mexico",APPROXIMATE,ChIJZb-qV8CazoYRIwApsW-kNAs,"political, sublocality, sublocality_level_1",2025-11-10T22:20:06.499488
+LAS CUEVAS,29.1404409,-111.0676503,"Las Cuevas, 83173 Hermosillo, Son., Mexico",APPROXIMATE,ChIJBX97jUmAzoYR-cXkypDPzMM,"political, sublocality, sublocality_level_1",2025-11-10T22:20:06.841923
+LAS DOS MARÍAS,29.1788643,-110.9044672,"83300 Las Dos Marías, Son., Mexico",APPROXIMATE,ChIJzdbtKN-HzoYRLyV-T0GwP1E,"locality, political",2025-11-10T22:20:07.192595
+LAS FUENTES,28.8259129,-111.9269112,"Las Fuentes, Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJUQa-xhf3zIYR7mgg-fx4Qu4,"political, sublocality, sublocality_level_1",2025-11-10T22:20:07.522125
+LAS HUERTITAS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:07.855825
+LAS LOMAS REAL DEL PARQUE,29.0373282,-110.9435476,"Real del Parque, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EjpSZWFsIGRlbCBQYXJxdWUsIExhcyBMb21hcywgODMyOTMgSGVybW9zaWxsbywgU29uLiwgTWV4aWNvIi4qLAoUChIJvZQWDCSFzoYRXuAbJ-peLvUSFAoSCRG7W_gjhc6GEXD9n_pFVFCq,route,2025-11-10T22:20:08.231033
+LAS LOMAS SECC ALMENDROS,29.0486032,-110.9442427,"Rtno. Provincia Pontevedra 3, Las Lomas, 83293 Hermosillo, Son., Mexico",ROOFTOP,ChIJz3C9VhmFzoYRL1biXoTyRZc,"establishment, food, grocery_or_supermarket, point_of_interest, store",2025-11-10T22:20:08.586414
+LAS LOMAS SECC. BONITA,29.0426831,-110.9439576,"Bonita, 83293 Hermosillo, Son., Mexico",APPROXIMATE,ChIJAZ72ohiFzoYR2g5GEc79IBg,"political, sublocality, sublocality_level_1",2025-11-10T22:20:08.956594
+LAS LOMAS SECCION LOS MANZANOS,29.0742727,-110.9804117,"Los Manzanos, Fuentes del Mezquital, 83240 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJLSWfLWmEzoYRlarJMvTh_F0,route,2025-11-10T22:20:09.322021
+LAS LOMAS SECCION PARAISO,29.0842191,-111.0262018,"Paraíso, La Encantada, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlyxRFsODzoYRts37CujHCr4,route,2025-11-10T22:20:09.661752
+LAS LOMAS SECCIÓN CASTAÑOS,29.0722626,-110.9787692,"Castaños, Fuentes del Mezquital, 83240 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJyzvjlGiEzoYRScBfNqtYGqY,route,2025-11-10T22:20:10.013005
+LAS MERCEDITAS (AGRONUTS),29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:10.365067
+LAS MILPAS (LOCALIDAD RURAL),29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:10.710512
+LAS PALMAS (MIGUEL ALEMAN),28.8472779,-111.5036049,"Las Palmas, Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJO166IDFHzIYRFJ6Kgjrx9KA,"political, sublocality, sublocality_level_1",2025-11-10T22:20:11.078077
+LAS PALMAS (VILLA),29.0617445,-110.9633305,"Las Villas, Hermosillo, Son., Mexico",APPROXIMATE,ChIJQwtn8PeEzoYRGMVVDtyW-aE,"political, sublocality, sublocality_level_1",2025-11-10T22:20:11.428424
+LAS PALOMAS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:11.773797
+LAS PEREDAS (GABY PEREDA I),29.1009496,-110.9574108,"Av. Michoacan 98, Modelo, 83190 Hermosillo, Son., Mexico",ROOFTOP,ChIJw4T1NgCFzoYR1bw35AqQrtk,"establishment, point_of_interest, storage",2025-11-10T22:20:12.132771
+LAS PLASITAS PRIMERAS,29.058148,-111.0070474,"Las Placitas, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJJ-0KeoCDzoYRb09r-NTi0KU,route,2025-11-10T22:20:12.482612
+LAS PRADERAS DEL VALLE,29.0597229,-110.9699458,"De Las Praderas, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRRqn6vWEzoYRWhk3et4MDFw,route,2025-11-10T22:20:12.839638
+LAS RIBERAS DEL PITIC,29.1104851,-110.9050474,"Salamanca s/n, Las Riberas, 83304 Hermosillo, Son., Mexico",ROOFTOP,ChIJq6v1zfiFzoYReZ5lC7CAh6c,"establishment, point_of_interest",2025-11-10T22:20:13.189108
+LAS TOMASAS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:13.534732
+LAS TRANCAS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:13.878070
+LAS VIBORAS,28.709742,-111.847647,"83335 Las Víboras, Son., Mexico",APPROXIMATE,ChIJ337znPFfzIYRpqp_0KdapQk,"locality, political",2025-11-10T22:20:14.212554
+LAS VILLAS DEL NOGAL,29.0617445,-110.9633305,"Las Villas, Hermosillo, Son., Mexico",APPROXIMATE,ChIJQwtn8PeEzoYRGMVVDtyW-aE,"political, sublocality, sublocality_level_1",2025-11-10T22:20:14.573273
+LAURA ALICIA FRIAS DE LOPEZ NOGALES,29.1477805,-111.0276816,"Constelación Centauro, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ1Q1BTeGAzoYR_f1KIOKHXtU,route,2025-11-10T22:20:14.948574
+LAURA FRIAS DE LOPEZ NOGALES,29.1470272,-111.027412,"Laura Frias de Lopez Nogales, 83318 Hermosillo, Son., Mexico",APPROXIMATE,ChIJBbVwA-SAzoYR2Up-ezpplAY,"political, sublocality, sublocality_level_1",2025-11-10T22:20:15.319175
+LAZARO CARDENAS,28.8484455,-111.492426,"Lazaro Cardenas, 83348 Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJTaKToU5HzIYR2NOX6PX8aDI,"political, sublocality, sublocality_level_1",2025-11-10T22:20:15.660527
+LAZARO CARDENAS (BAHIA DE KINO),29.1082822,-110.9524072,"Lázaro Cárdenas, Issste Federal, 83157 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJjzrOniqEzoYR4iOe06ZMFIA,route,2025-11-10T22:20:16.049937
+LB,29.0396851,-110.9408535,"Loma Bonita, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJo8KvcyOFzoYRiIBCScM3sOc,route,2025-11-10T22:20:16.390710
+LIC. IGNACIO RAMIREZ Y SU ANEXO SAN PEDRO [NCPE],28.3045413,-111.3698282,"83316 NCPE Lic. Ignacio Ramírez y su anexo San Pedro, Son., Mexico",APPROXIMATE,ChIJg1QirGfxy4YRIl9sQ5W_Bqw,"locality, political",2025-11-10T22:20:16.761046
+LOMA LINDA (BAHIA DE KINO),28.8173172,-111.9347362,"Loma Linda, 83342 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJl-K0qyb3zIYRHNVv7Sfmr0w,"political, sublocality, sublocality_level_1",2025-11-10T22:20:17.133041
+LOMAS DEL BACHOCO,29.1289971,-110.9551343,"Bachoco, Hermosillo, Son., Mexico",APPROXIMATE,ChIJwxFCPYuGzoYRF9zK2nJ0VAg,"political, sublocality, sublocality_level_1",2025-11-10T22:20:17.483179
+LOMAS DEL BARROCAN RESIDENCIAL,29.1046417,-110.9349685,"Bv. Ignacio Soto 1, Lomas Altas, 83159 Hermosillo, Son., Mexico",ROOFTOP,ChIJNTNeyNuFzoYRJonGV9i6Q2U,"establishment, point_of_interest",2025-11-10T22:20:17.863061
+LOMAS DEL MARQUEZ,29.0392888,-110.9413497,"Las Lomas, 83293 Hermosillo, Son., Mexico",APPROXIMATE,ChIJeQVUeyOFzoYRfWR2bY76toc,"political, sublocality, sublocality_level_1",2025-11-10T22:20:18.202790
+LOMAS DEL MIRADOR,29.1016452,-110.9354851,"Del Mirador, Pitic, 83150 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ3duzGNuFzoYRObxeMEzU5jw,route,2025-11-10T22:20:18.557360
+LOMAS DEL NORTE,29.1526997,-110.984194,"Lomas del Nte., 83105 Hermosillo, Son., Mexico",APPROXIMATE,ChIJo5aaDCaHzoYRpSjkagpmraY,"political, sublocality, sublocality_level_1",2025-11-10T22:20:18.897903
+LOMAS DEL PARAISO,29.0842191,-111.0262018,"Paraíso, La Encantada, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlyxRFsODzoYRts37CujHCr4,route,2025-11-10T22:20:19.245431
+LOMAS DEL RUR,29.0402466,-110.9387438,"Blvd. Las Palmas Y Cerezo 499, Periférico Ote., Lomas Del Sur, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJX6bdNCOFzoYR1F-zuiuk-CM,"convenience_store, establishment, food, point_of_interest, store",2025-11-10T22:20:19.599344
+LOMAS PITIC,29.0959806,-110.9320358,"Lomas Pitic, Hermosillo, Son., Mexico",APPROXIMATE,ChIJZ0ih_cOFzoYRJRJVwpeZySs,"political, sublocality, sublocality_level_1",2025-11-10T22:20:19.943291
+LOMAS PLUS,29.0392888,-110.9413497,"Las Lomas, 83293 Hermosillo, Son., Mexico",APPROXIMATE,ChIJeQVUeyOFzoYRfWR2bY76toc,"political, sublocality, sublocality_level_1",2025-11-10T22:20:20.273462
+LOPEZ PORTILLO,29.1293443,-110.9700366,"Lopez Portillo, Hermosillo, Son., Mexico",APPROXIMATE,ChIJo2VLXOuGzoYRClMCExm_N6s,"political, sublocality, sublocality_level_1",2025-11-10T22:20:20.615525
+LORENZO RESIDENCIAL,29.1034428,-110.9302006,"San Lorenzo, San Luis, 83160 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ_7GM_NyFzoYRs_A9d9NhOuI,route,2025-11-10T22:20:20.954709
+LOS ABRIL (RUBEN ABRIL),29.1575033,-110.874935,"545G+23, 83305 San Pedro el Saucito, Sonora, Mexico",GEOMETRIC_CENTER,ChIJV8ZNSACJzoYRxXoamvXM1iY,"establishment, point_of_interest",2025-11-10T22:20:21.304535
+LOS ALAMITOS,30.4147663,-111.0929043,"84615 Los Alamitos, Sonora, Mexico",APPROXIMATE,ChIJJdYYcP-H0YYR00cdnHxdb9I,"locality, political",2025-11-10T22:20:21.650235
+LOS ALAMOS,29.0298817,-110.9543891,"Los Alamos, 83294 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ0-ovbNeEzoYR26EDeTP2OPM,"political, sublocality, sublocality_level_1",2025-11-10T22:20:21.978975
+LOS ARBOLITOS,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:22.323402
+LOS ARROYOS (AEROPUERTO,29.1041517,-111.0454694,"Arroyo los Batochis, Fraccionamiento Los Arroyos Secc Los Manantiales, 83175 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJP71iQZOBzoYR4M-LnO2GNN4,"establishment, home_goods_store, point_of_interest, store",2025-11-10T22:20:22.675642
+LOS ARROYOS (LOCALIDAD RURAL),29.0893281,-111.0242066,"Bugambilia 18, Real de Quiroga, Colonia Ferrocarrilera, 83013 Hermosillo, Son., Mexico",ROOFTOP,ChIJr48yiwuFzoYRkuH6gIOqJVk,"establishment, food, point_of_interest",2025-11-10T22:20:23.037177
+LOS BAGOTES (LA NOPALERA),29.0923118,-111.1028685,"3VRW+WV Rancho La Nopalera, 83325 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJIzI_A9wrzIYRVnOqqXi1MNk,"establishment, park, point_of_interest",2025-11-10T22:20:23.396219
+LOS BAGOTES 2 (MANUEL RAMON MADA ARVAYO),29.1159593,-111.0661144,"av. cayucos, Av Gaspar Luken Escalante, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ_3Js7r6BzoYRrIkCYwos6kQ,"establishment, point_of_interest",2025-11-10T22:20:23.774010
+LOS BENAVIDES,29.20393889999999,-110.8512038,"83300 Los Benavides, Sonora, Mexico",APPROXIMATE,ChIJxeRiadKJzoYR7advtUZHowQ,"locality, political",2025-11-10T22:20:24.109810
+LOS CANARIOS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:24.466437
+LOS CANARIOS\MIGUEL ALEMAN (LA DOCE),28.8421307,-111.4792111,"Miguel Alemán, Sonora, Mexico",APPROXIMATE,ChIJqzwSxX0_zIYRCZ4zUQOwrX8,"locality, political",2025-11-10T22:20:24.852881
+LOS CHINOS,29.1019604,-110.9883242,"Los Chinos, 83136 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJm16flwKEzoYRfQgWa7CfCQw,route,2025-11-10T22:20:25.208335
+LOS COCHITOS (LOS COCHITOS UNISON),29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:25.572011
+LOS COPALES,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:25.925545
+LOS COYOTES,29.0926627,-110.9713399,"C. 12 de Octubre 69, San Benito, 83190 Hermosillo, Son., Mexico",ROOFTOP,ChIJf03N4zyEzoYRWRDB4BeEBrU,"establishment, point_of_interest",2025-11-10T22:20:26.284684
+LOS CUATRO (PALERMO),29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:26.640165
+LOS FRAILES,29.113667,-110.9880128,"Los Frailes, Hermosillo, Son., Mexico",APPROXIMATE,ChIJt_c356-GzoYRXC2OnLz4KeA,"political, sublocality, sublocality_level_1",2025-11-10T22:20:26.977331
+LOS GIRASOLES,29.0251231,-110.9644482,"Los Girasoles, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ_YGYFc6EzoYRSP0wxeHJrYs,"political, sublocality, sublocality_level_1",2025-11-10T22:20:27.320516
+LOS GUAJOLOTES,28.7123442,-111.4727136,"83334 Los Guajolotes, Sonora, Mexico",APPROXIMATE,ChIJpckFgioVzIYRnTRl9hBaS1A,"locality, political",2025-11-10T22:20:27.666453
+LOS HOYOS,30.1291126,-109.7820282,"Los Hoyos, Sonora, Mexico",APPROXIMATE,ChIJDwSp1l4D0IYR94PHE9HrxZg,"locality, political",2025-11-10T22:20:28.011610
+LOS MEXICANOS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:28.340429
+LOS MEZQUITES,29.1955119,-110.9044672,"83300 Los Mezquites, Son., Mexico",APPROXIMATE,ChIJh9UHL_2HzoYRUoQ5m44r6uQ,"locality, political",2025-11-10T22:20:28.677393
+LOS MORALES,29.1826182,-110.8505834,"83304 El Tronconal, 83304 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ4UmDTQeJzoYROY_I6Qp2p_g,"bakery, establishment, food, point_of_interest, store",2025-11-10T22:20:29.032668
+LOS PAÑUELOS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:29.369509
+LOS PINOS,28.95413199999999,-110.9804684,"83307 Los Pinos, Son., Mexico",APPROXIMATE,ChIJTWBV_5SbzoYRn6Gjr1VrfIQ,"locality, political",2025-11-10T22:20:29.708216
+LOS PINOS (COLONIA ADOLFO LOPEZ MATEOS),29.0292006,-110.975651,"Pino, Adolfo Lopez Mateos, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJZVa3aLiEzoYR4LHfy7dhUP4,route,2025-11-10T22:20:30.088024
+LOS PINOS RDCIAL,29.164649,-111.0038001,"Av Paseo Pino Real, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ____L8qAzoYRhwPzjyk3S-I,"establishment, point_of_interest",2025-11-10T22:20:30.449311
+LOS PINOS SEGUNDA ETAPA,29.099035,-111.0131924,"Los Pinos, Valle Dorado I Etapa, 83175 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ5aKZgFiBzoYRNFA0RPcP740,route,2025-11-10T22:20:30.799392
+LOS POCITOS,28.8956558,-111.3646153,"Los Pocitos, 83325 Sonora, Mexico",APPROXIMATE,ChIJ21KUdsU7zIYRKm5Wyq5UVVM,"political, sublocality, sublocality_level_1",2025-11-10T22:20:31.135612
+LOS POCITOS (LOCALIDAD RURAL),29.0875553,-110.9942869,"Los Pocitos, Santa Fe, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwY-ZEAmEzoYRKYATrxS_Y-A,route,2025-11-10T22:20:31.486075
+LOS POETAS,29.1240384,-110.9481721,"Los Tapiros 25, Los Sabinos, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJ1arZpyiHzoYRMXqA7JtxrQA,"establishment, lodging, point_of_interest",2025-11-10T22:20:31.847976
+LOS SANTOS,29.0846648,-111.0215633,"Los Santos, Residencial Los Santos, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJNWkZI-iDzoYRDsQwRbnw7zI,route,2025-11-10T22:20:32.200376
+LOS SANTOS RESIDENCIAL,29.0851314,-111.0200543,"San Alejo 16, Residencial Los Santos, 83224 Hermosillo, Son., Mexico",ROOFTOP,ChIJRygMp8KDzoYRgfZ3ecx2jRk,"establishment, point_of_interest",2025-11-10T22:20:32.548263
+LOS VINEDOS II,29.1177044,-110.9946258,"Los Viñedos, Hermosillo, Son., Mexico",APPROXIMATE,ChIJVwf_4bOGzoYRNmO8ZV6wWrU,"political, sublocality, sublocality_level_1",2025-11-10T22:20:32.900652
+LUIS DONALDO COLOSIO (BAHIA KINO),28.8227474,-111.9363016,"Bahía Kino, Sonora, Mexico",APPROXIMATE,ChIJp-oQl1H6zIYR0MBeGz6z1cU,"locality, political",2025-11-10T22:20:33.307685
+LUIS DONALDO COLOSIO (MIGUEL ALEMAN),28.84343969999999,-111.5058407,"Luis Donaldo Colosio, 83347 Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJhUXSCzNHzIYRxrp2akFJUsY,"political, sublocality, sublocality_level_1",2025-11-10T22:20:33.674463
+LUIS DONALDO COLOSIO 3RA.ETAPA,29.1152646,-111.0324786,"puerta real 3ra etapa Park, P.º Reyes Católicos Nte., Puerta Real Residencial Secc III, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJseturh2BzoYRdUfqSsp9RbM,"establishment, park, point_of_interest",2025-11-10T22:20:34.054717
+LUIS DONALDO COLOSIO 4TA. ETAPA,29.112239,-111.0336621,"Puerta Real 4ta Etapa Park, Sarasate 3, Puertas Real Residencial Secc IV, 83177 Hermosillo, Son., Mexico",ROOFTOP,ChIJl8C3agCBzoYRin49pBMZ7dY,"establishment, park, point_of_interest",2025-11-10T22:20:34.413738
+MACLASA (CAMSA),29.0417279,-111.0086325,"83285 Maclasa, Son., Mexico",APPROXIMATE,ChIJtYkEDWWDzoYRww-KW-UfzMk,"locality, political",2025-11-10T22:20:34.774087
+MANANTIAL DE CAMOU [CAMPESTRE],29.2009555,-110.7902208,"83300 Campestre Manantial de Camoú, Son., Mexico",APPROXIMATE,ChIJsVDv4BWKzoYR2OKC-9B7oy0,"locality, political",2025-11-10T22:20:35.131318
+MANLIO FABIO BELTRONES,29.1470018,-111.0291927,"Av Constelación Sagitario, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ5fg4EeSAzoYRa36PILiYpUI,route,2025-11-10T22:20:35.484207
+MANUEL AVILA CAMACHO,29.1078924,-110.9518715,"Manuel Ávila Camacho, Issste Federal, 83157 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJw6VfoyqEzoYRWJsbctfSYC0,route,2025-11-10T22:20:35.826943
+MANUEL GOMEZ MORIN,29.1350795,-111.0107248,"Gral. Manuel Gastelum, Solidaridad IV, 83116 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJFRRGeyWBzoYRq4icGhya-GU,route,2025-11-10T22:20:36.202155
+MANUEL J CLOUTHIER,29.0231811,-110.9609459,"Bulevar Manuel J. Clouthier, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EjVCdWxldmFyIE1hbnVlbCBKLiBDbG91dGhpZXIsIEhlcm1vc2lsbG8sIFNvbi4sIE1leGljbyIuKiwKFAoSCcFnMV_ahM6GEZfHVnemdderEhQKEgnlrt96aITOhhH5f4jplVM9sw,route,2025-11-10T22:20:36.557776
+MARIACHI,29.08293909999999,-110.9439576,"El Mariachi, Hermosillo, Son., Mexico",APPROXIMATE,ChIJPQEfl7aFzoYRCYI01aNzUQ0,"political, sublocality, sublocality_level_1",2025-11-10T22:20:36.904505
+MARLEN,29.0695217,-110.8273429,"83303 Marlén, Sonora, Mexico",APPROXIMATE,ChIJLbcHFGmOzoYRRYjyGiWmbwg,"locality, political",2025-11-10T22:20:37.248920
+MARSELLA RESIDENCIAL,29.0663463,-110.9819586,"Marsella Residencial, 83288 Hermosillo, Son., Mexico",APPROXIMATE,ChIJW_ehDWSEzoYRgPP3oCSaT18,"political, sublocality, sublocality_level_1",2025-11-10T22:20:37.575716
+MARTIN VALENCIA,29.1220234,-110.9958802,"Av. Martín de Valencia, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJR5Fpp7WGzoYRhOpCjkdihmc,route,2025-11-10T22:20:37.931545
+MARTIRES DE CANANEA,29.1262714,-110.9931356,"Martires de Cananea, Hermosillo, Son., Mexico",APPROXIMATE,ChIJAU5sJ8qGzoYRa5qRQSsuWXI,"political, sublocality, sublocality_level_1",2025-11-10T22:20:38.277253
+MAYA,29.12814,-111.03302,"Sta. Martha 172, Residencial San Marcos Secc II, 83177 Hermosillo, Son., Mexico",ROOFTOP,ChIJ0SkZHaGBzoYRZLin_Fou0Xo,"clothing_store, establishment, point_of_interest, store",2025-11-10T22:20:38.626869
+MEGA CENTRO,29.0830585,-110.9812626,"83250 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJF326QhOEzoYRZJvV-41UWiM,"establishment, point_of_interest",2025-11-10T22:20:38.982081
+MESAVERDE,29.046005,-111.0029893,"C. Quintero Arce, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJGVCH6XyDzoYRy4lDBwc8Ibk,"establishment, point_of_interest",2025-11-10T22:20:39.337522
+METROCENTRO,29.0842829,-110.9827435,"C. Real del Arco, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJsbxgDxOEzoYRSshHA_s22-g,"establishment, point_of_interest, shopping_mall",2025-11-10T22:20:39.675680
+MEZORO,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:40.000081
+MICROPARQUE INDUSTRIAL NORTE,29.1864778,-111.0075199,"83318 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJg2rODjyBzoYR4bg2E2Agw6A,"establishment, point_of_interest",2025-11-10T22:20:40.371065
+MIGUEL HIDALGO (BAHIA DE KINO),28.8227474,-111.9363016,"Bahía Kino, Sonora, Mexico",APPROXIMATE,ChIJp-oQl1H6zIYR0MBeGz6z1cU,"locality, political",2025-11-10T22:20:40.728822
+MILAGRO DE FATIMA,28.7390104,-111.4745441,"83334 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJTSVzo0wVzIYRjK4kVOzzWfo,"establishment, food, grocery_or_supermarket, point_of_interest, store",2025-11-10T22:20:41.095978
+MILAN RESIDENCIAL,29.15552409999999,-110.9743211,"Milan, 83114 Hermosillo, Son., Mexico",APPROXIMATE,ChIJWyncqBiHzoYRAnDnGrFDShU,"political, sublocality, sublocality_level_1",2025-11-10T22:20:41.455289
+MILPA BAJA,29.113195,-110.992991,"Central de Abastos Francisco I. Madero, Blvd. Solidaridad, Libertad, 83130 Hermosillo, Son., Mexico",ROOFTOP,ChIJQSBsfhWjXRQR16G4xVZn-6E,"convenience_store, establishment, food, point_of_interest, store",2025-11-10T22:20:41.813674
+MINEROS DE PILARES,29.097478,-111.0126103,"Mineros de Pilares, 83174 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJd1Wm8uKDzoYRAc6tIehSS-M,route,2025-11-10T22:20:42.171822
+MIRADOR DEL PARAISO,29.0842191,-111.0262018,"Paraíso, La Encantada, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlyxRFsODzoYRts37CujHCr4,route,2025-11-10T22:20:42.547641
+MISION DE ANDALUCIA RES,29.1466993,-110.9646345,"Misión de Andalucía, 83106 Hermosillo, Son., Mexico",APPROXIMATE,ChIJM6SUbOOGzoYRgXXr50mPIX8,"neighborhood, political",2025-11-10T22:20:42.899104
+MISION DE SAN IGNACIO,29.1226878,-110.9523401,"Mision San Ignacio, Hermosillo, Son., Mexico",APPROXIMATE,ChIJq5p3yomGzoYRc5OT45EFH-8,"political, sublocality, sublocality_level_1",2025-11-10T22:20:43.254383
+MISION DEL SOL,29.1237768,-110.9573696,"Mision del Sol, Hermosillo, Son., Mexico",APPROXIMATE,ChIJWwx-oo6GzoYROiIJcN0hJzo,"political, sublocality, sublocality_level_1",2025-11-10T22:20:43.613433
+MISION LOS LIRIOS,29.1227973,-111.0292748,"Fraccionamiento Misión los Lirios, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJDUGu6ROBzoYRKN1_c7KJmII,"neighborhood, political",2025-11-10T22:20:43.970365
+MISION SAN CRISTOBAL,29.1336249,-110.9607562,"San Cristóbal, Valle Santa Monica, 83104 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJIZy4R_KGzoYR_DccR2Ox6Gc,route,2025-11-10T22:20:44.326066
+MIXCOATL,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:44.656900
+MOCTEZUMA,28.6768394,-111.6556348,"83335 Moctezuma, Sonora, Mexico",APPROXIMATE,ChIJC1vVDIZozIYRuNLww660p2Y,"locality, political",2025-11-10T22:20:44.988120
+MOLINO DE CAMOU (SAN ISIDRO),29.1374856,-110.9805065,"Molino de Camou 416, Jacinto Lopez, 83105 Hermosillo, Son., Mexico",ROOFTOP,ChIJDXW8zsaHzoYRZcbB31hqjjM,"establishment, point_of_interest",2025-11-10T22:20:45.362618
+MONACO PRIVADA RESIDENCIAL,29.0679711,-110.9826806,"Mónaco Privada Residencial, Marsella Residencial, 83288 Hermosillo, Son., Mexico",APPROXIMATE,ChIJzwL5q2WEzoYRa8KEatO9Y4k,"neighborhood, political",2025-11-10T22:20:45.706804
+MONARCA RESIDENCIAL,29.1651286,-111.008288,"Pino Nuevo Nte. 64, 83117 Hermosillo, Son., Mexico",ROOFTOP,ChIJPRH_6zGBzoYRXUZy36r76i8,"establishment, point_of_interest",2025-11-10T22:20:46.050954
+MONTANA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:46.383084
+MONTEALBAN,29.1771891,-110.9929708,"Montalban, 83107 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQSk6zE2HzoYRPnonPGUaxt8,route,2025-11-10T22:20:46.751591
+MONTEBELLO,29.0898768,-110.9972338,"Montebello, Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJnYcNCwiEzoYRtgHNAcx_XfI,"political, sublocality, sublocality_level_1",2025-11-10T22:20:47.083559
+MONTECRISTO,29.1445996,-111.0012245,"Blvd. Progreso, Solidaridad, 83116 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJBygLN1KBzoYRRO69PSId9gc,"establishment, point_of_interest",2025-11-10T22:20:47.451138
+MONTEREAL,29.090571,-110.989246,"Montreal, Raquet Club, 83200 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJsW3IkA-EzoYRpI4iqLCQrRs,route,2025-11-10T22:20:47.818023
+MONTERO,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:48.148741
+MONTEROSA RESIDENCIAL,29.153322,-110.953343,"Avenida Del Tibet, Monterosa, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJaZs-LACHzoYRYSR-UP-v3sc,"establishment, general_contractor, point_of_interest",2025-11-10T22:20:48.499647
+MONTERREY (LOCALIDAD RURAL),28.8859737,-111.3490784,"83325 Monterrey, Sonora, Mexico",APPROXIMATE,ChIJ7dUEZZY7zIYRP3QAsVA4_tk,"locality, political",2025-11-10T22:20:48.845255
+NIÑOS HEROES,29.0836791,-110.9504802,"Niños Héroes, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ0XYEK0uEzoYRrif9fQJ5eYw,route,2025-11-10T22:20:49.207887
+NOCHITONGO,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:20:49.552603
+NUEVA ESPERANZA (LOCALIDAD RURAL),28.8394368,-111.4715588,"Nueva Esperanza, 83349 Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJowE0mVY_zIYRFV5yEYSEv5M,"political, sublocality, sublocality_level_1",2025-11-10T22:20:49.902617
+NUEVA EUROPA,29.0060898,-111.1637783,"83323 Nueva Europa, Son., Mexico",APPROXIMATE,ChIJw1bjP5UozIYRDdeRTBUcTEA,"locality, political",2025-11-10T22:20:50.247833
+NUEVA ILUSION [CAMPESTRE],29.0850172,-110.9526964,"Mariano Matamoros, Centro, 83000 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJI1yYUKWFzoYRt-a__qlwr34,"establishment, point_of_interest",2025-11-10T22:20:50.606509
+NUEVO KINO,28.8544204,-112.0001298,"Kino Nuevo, Son., Mexico",APPROXIMATE,ChIJHcHow7_6zIYRnYEhLDC8HJY,"locality, political",2025-11-10T22:20:50.942914
+NUEVO SONORA,29.0733708,-110.9713046,"Av. Dr. Paliza 188, Las Granjas, 83250 Hermosillo, Son., Mexico",ROOFTOP,ChIJR-4q6EKEzoYRHafksxqfZng,"establishment, point_of_interest",2025-11-10T22:20:51.308693
+NUEVO TRIUNFO,28.8433489,-111.4730493,"Nuevo Triunfo, 83349 Miguel Alemán, Son., Mexico",APPROXIMATE,ChIJ-UZdJFU_zIYRUJjw4Na7AlQ,"political, sublocality, sublocality_level_1",2025-11-10T22:20:51.642360
+OASIS DE KINO,28.8550605,-111.9507587,"83336 Oasis de Kino, Son., Mexico",APPROXIMATE,ChIJwyeiPgD6zIYR3jksn5d5-dk,"locality, political",2025-11-10T22:20:52.008246
+OASIS DEL SOL / HERMOSILLO,29.0490439,-111.0019746,"Oasis del Sol, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlVkZSXyDzoYR0lyGwH0ghcE,route,2025-11-10T22:20:52.367997
+OBISPO RESIDENCIAL,29.0887079,-111.008478,"Obispos Residencial, M. López de la Mora 27-83223, H, Montebello, 83210 Hermosillo, Son., Mexico",ROOFTOP,ChIJbzexnvqDzoYRpndSe_IEbx8,"establishment, point_of_interest",2025-11-10T22:20:52.753635
+OBISPOS,29.0894743,-111.0010724,"San Luis Obispo, Capistrano, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJn7t-1fmDzoYRCCEKnPsOOhQ,route,2025-11-10T22:20:53.091003
+OLIVARES NORTE,29.1024268,-110.9819586,"Olivares, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ6acV5x2EzoYRs-ePQdRtVWg,"political, sublocality, sublocality_level_1",2025-11-10T22:20:53.443465
+OLIVOS,29.0329061,-110.972934,"Los Olivos, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJk3e6NceEzoYRh7tIsqcfDms,"political, sublocality, sublocality_level_1",2025-11-10T22:20:53.792180
+OLOS OLIVOS,29.0329061,-110.972934,"Los Olivos, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJk3e6NceEzoYRh7tIsqcfDms,"political, sublocality, sublocality_level_1",2025-11-10T22:20:54.141356
+OREBALMA,28.8332422,-111.6117763,"R9MQ+77, 83333 Semillas del Pacífico, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ6fA4fwNFzIYRFrs_Q3CItHA,"establishment, point_of_interest",2025-11-10T22:20:54.488218
+PALERMO SECCION PARTANNA,29.1369869,-110.9555663,"Partana, 83104 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJUeiuvvaGzoYRVInrdvMtwbk,route,2025-11-10T22:20:54.863392
+PALERMO SECCION VENETO,29.0626181,-111.0020658,"Trapani, Villa Bonita Residencial, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ92vTxIaDzoYRBhbxH5HjMuw,route,2025-11-10T22:20:55.215168
+PALO VERDE INDEUR,29.0385866,-110.9819586,"Palo Verde Indeur, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJg5r8kpWEzoYRe06FcZW-478,"political, sublocality, sublocality_level_1",2025-11-10T22:20:55.570605
+PALOVERDE INDEUR LOS OLIVOS,29.0385866,-110.9819586,"Palo Verde Indeur, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJg5r8kpWEzoYRe06FcZW-478,"political, sublocality, sublocality_level_1",2025-11-10T22:20:55.938714
+PANTEON,29.016657,-112.161131,"83337 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwSCOlxwfzYYRrGw7baY_rbU,"establishment, place_of_worship, point_of_interest",2025-11-10T22:20:56.293953
+PARADA CANO,29.0464505,-110.9988591,"Rafael Sesma Verdugo 107, Real de Minas, 83285 Hermosillo, Son., Mexico",ROOFTOP,ChIJwQVMWn2DzoYR7uxW4p_s-AI,"establishment, health, pharmacy, point_of_interest, store",2025-11-10T22:20:56.646351
+PARAISO PITIC,29.0842191,-111.0262018,"Paraíso, La Encantada, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJlyxRFsODzoYRts37CujHCr4,route,2025-11-10T22:20:56.974405
+PARQUE INDUSTRIAL (ZONA INDUSTRIAL),29.1481401,-111.0045733,"Bulevar Luz Valencia, Zona Industrial, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ-Q30nNaAzoYR67c8g7JugKg,"establishment, point_of_interest, store",2025-11-10T22:20:57.339066
+PARQUE INDUSTRIAL DINATECH,29.0033258,-110.9126632,"Parque Industrial Dinatech, 83297 Hermosillo, Son., Mexico",APPROXIMATE,ChIJQfrGNaKazoYR3tvKMWzFM-w,"political, sublocality, sublocality_level_1",2025-11-10T22:20:57.695867
+PARQUE INDUSTRIAL HERMOSILLO NORTE,29.1885468,-111.0061126,"Blvd. Parque Industrial Hermosillo Nte., 83318 Son., Mexico",GEOMETRIC_CENTER,ChIJUygvhKqAzoYRM6G3yrGU73s,route,2025-11-10T22:20:58.024860
+PARQUE INDUSTRIAL LANIX,29.1576561,-110.911173,"83304 Parque Industrial Lanix, Son., Mexico",APPROXIMATE,ChIJpQAf-iyGzoYRuKUVOBegb18,"locality, political",2025-11-10T22:20:58.370418
+PARQUE VERSALLES,29.0816924,-111.0208941,"Versalles, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJAX7k8umDzoYRUm7XmhDH4Y8,route,2025-11-10T22:20:58.721375
+PASEO DE LA COLINA,29.0883355,-110.9748283,"P.º de La Colina, Valle Verde, 83200 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE26H_hWEzoYRHMV_pMUjXhU,route,2025-11-10T22:20:59.069918
+PASEO DE LA COLINA II,29.0883355,-110.9748283,"P.º de La Colina, Valle Verde, 83200 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJE26H_hWEzoYRHMV_pMUjXhU,route,2025-11-10T22:20:59.411657
+PASEO DE LAS PALMAS,29.0400187,-110.9417273,"Blvd. Paseo de las Palmas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJI2QwdSOFzoYRyhMgnzJ4y3s,route,2025-11-10T22:20:59.749508
+PASEO SAN ANGEL II SECC LAS PLACITAS I,29.058454,-111.0005869,"Secc las Placitas, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJHyuqWoCDzoYRn4spS0WLZGQ,"political, sublocality, sublocality_level_1",2025-11-10T22:21:00.143049
+PASEO SAN ANGEL II SECC LAS PLACITAS II,29.058454,-111.0005869,"Secc las Placitas, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJHyuqWoCDzoYRn4spS0WLZGQ,"political, sublocality, sublocality_level_1",2025-11-10T22:21:00.531446
+PASEO SAN ANGEL II SECC LAS PLACITAS V,29.058454,-111.0005869,"Secc las Placitas, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJHyuqWoCDzoYRn4spS0WLZGQ,"political, sublocality, sublocality_level_1",2025-11-10T22:21:00.880029
+PASEO SAN ANGEL II SECC. LAS PLACITAS V / HERMOSILLO,29.058454,-111.0005869,"Secc las Placitas, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJHyuqWoCDzoYRn4spS0WLZGQ,"political, sublocality, sublocality_level_1",2025-11-10T22:21:01.239512
+PASEO SAN ANGEL III SECC,29.0603276,-110.9976064,"Paseo San Angel, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJaUdtc3-EzoYRRpwfildkElM,"political, sublocality, sublocality_level_1",2025-11-10T22:21:01.597951
+"PASEO SAN ANGEL SECCION LAS PLACITAS  I,II,III, IV",29.058454,-111.0005869,"Secc las Placitas, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJHyuqWoCDzoYRn4spS0WLZGQ,"political, sublocality, sublocality_level_1",2025-11-10T22:21:01.962805
+PASEO SAN NGEL SECC LAS PLACITAS,29.058454,-111.0005869,"Secc las Placitas, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJHyuqWoCDzoYRn4spS0WLZGQ,"political, sublocality, sublocality_level_1",2025-11-10T22:21:02.333160
+PASEO SAN NGEL SECC LOS ALAMOS,29.0575606,-111.00394,"Secc los Alamos, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJFaxhkoGDzoYR_c_ojxp2FWI,"political, sublocality, sublocality_level_1",2025-11-10T22:21:02.712724
+PASEOS DEL PEDREGAL II,29.174187,-111.0203331,"Fraccionamiento Paseos del Pedregal, 83318 Hermosillo, Son., Mexico",APPROXIMATE,ChIJDzBEPr2AzoYRA3sS2--nlDs,"political, sublocality, sublocality_level_1",2025-11-10T22:21:03.064534
+PEREDAS,29.02809019999999,-110.9794638,"Avenida planeta tierra 98, Las Peredas, 83284 Hermosillo, Son., Mexico",ROOFTOP,ChIJf0IIWwCFzoYRa6a4GIKA7JM,"establishment, point_of_interest",2025-11-10T22:21:03.399513
+PEÑASCO RESIDENCIAL,29.0670031,-110.9711848,"Peñasco, 83288 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRxWfeV6EzoYRrW4E-yQtaqA,route,2025-11-10T22:21:03.745017
+PIEDRA BOLA (PEDREGAL DE LA VILLA,29.0485202,-110.9534563,"De La Piedra Bola, Pedregal de la Villa, 83290 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ22wgy-OEzoYRBGFEFU2usVo,route,2025-11-10T22:21:04.110253
+PILARES PORTAL,29.1467964,-110.9959298,"Pilares, 83117 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ10schiqHzoYRrYrccBBJu7Y,"political, sublocality, sublocality_level_1",2025-11-10T22:21:04.449206
+PILFORITO,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:21:04.799306
+PIMA,29.0597658,-110.9765565,"Pima, 83287 Hermosillo, Son., Mexico",APPROXIMATE,ChIJm7ZnmoqEzoYR1n3qwIKCzow,"political, sublocality, sublocality_level_1",2025-11-10T22:21:05.141953
+PLAN DE AYALA,28.5691073,-111.55573,"83317 Plan de Ayala, Son., Mexico",APPROXIMATE,ChIJn79c7fBtzIYRI_AbRKBG810,"locality, political",2025-11-10T22:21:05.495965
+PLAN DE AYALA (RANCHO),29.1238449,-110.9759068,"Av. Plan de Ayala, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWbGHLr6GzoYRYj6-5WHdw5M,route,2025-11-10T22:21:05.849555
+PORTAL DE LAGOS,29.0749274,-110.9910338,"Cda. del Lago 21, Valle Bonito, 83240 Hermosillo, Son., Mexico",ROOFTOP,ChIJ3w233XOEzoYRMp5-XSSTry8,"establishment, point_of_interest",2025-11-10T22:21:06.194251
+POZA RICA,28.852054,-110.983498,"83313 Poza, Son., Mexico",APPROXIMATE,ChIJ8xrYSrqYzoYRyNgE76r3iOk,"locality, political",2025-11-10T22:21:06.542981
+POZO LOCO,28.4902177,-111.3911621,"83315 Pozo Loco, Son., Mexico",APPROXIMATE,ChIJ69eMeuULzIYR_wl9S63D2-Q,"locality, political",2025-11-10T22:21:06.892522
+PRADOS DE BUGAMBILIAS II,29.1174551,-110.9599775,"Prados de Bugambilias, 83100 Hermosillo, Son., Mexico",APPROXIMATE,ChIJK9KudoWGzoYRg_PQXGJyCAc,"political, sublocality, sublocality_level_1",2025-11-10T22:21:07.239636
+PRIV REAL DEL PARQUE,29.0373282,-110.9435476,"Real del Parque, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJvZQWDCSFzoYRXuAbJ-peLvU,route,2025-11-10T22:21:07.614165
+PRIV RESIDENCIAL MONACO,29.0679711,-110.9826806,"Mónaco Privada Residencial, Marsella Residencial, 83288 Hermosillo, Son., Mexico",APPROXIMATE,ChIJzwL5q2WEzoYRa8KEatO9Y4k,"neighborhood, political",2025-11-10T22:21:07.974601
+PRIVADA BURTON,29.10239079999999,-111.0226278,"Blvd. Antonio Quiroga 90, Internacional, 83174 Hermosillo, Son., Mexico",ROOFTOP,ChIJ9QBYHF6BzoYRNzoo6JzpgrY,"establishment, night_club, point_of_interest",2025-11-10T22:21:08.330068
+PRIVADA CASA BLANCA,29.0766566,-110.9393614,"Priv, 83070 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJSVF38q-FzoYRAGZfH0K3B70,route,2025-11-10T22:21:08.671057
+PRIVADA DEL NOGAL,29.0947466,-110.916997,"Del Nogal, 83020 Son., Mexico",GEOMETRIC_CENTER,ChIJH0vpqu2FzoYRUHEb1tLu1Zg,route,2025-11-10T22:21:09.023747
+PRIVADA DEL ROSARIO,29.1482086,-110.9823378,"Del Rosario Nte., Caridad, 83105 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJPW2zYSeHzoYRup_a5Fza1Ns,route,2025-11-10T22:21:09.379495
+PRIVADA DOS LAS LOMAS,29.1399455,-110.9632454,"Priv. 2, Insurgentes, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJUYFz-u-GzoYRTGs-77CXvM4,route,2025-11-10T22:21:09.748255
+PRIVADA LOMA ALTA,29.0387301,-110.941051,"Loma Alta, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJPxHteiOFzoYRHMJx6dsE2eI,route,2025-11-10T22:21:10.106204
+PRIVADA LOS SAUCES,29.0766566,-110.9393614,"Priv, 83070 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJSVF38q-FzoYRAGZfH0K3B70,route,2025-11-10T22:21:10.460782
+PRIVADA MIXCOAC,29.1486844,-110.9572447,"Lucrecia Ruiz final, Mixcoac, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJt9Bfb0-HzoYRpReZZXJjYb0,"establishment, point_of_interest",2025-11-10T22:21:10.817299
+PRIVADA PARQUE ALAMEDA,29.0401145,-110.9454118,"Priv. Parque Alameda, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJXylLpyGFzoYRP74Ewioz9Us,route,2025-11-10T22:21:11.152301
+PRIVADA RESIDENCIAL LA CAÑADA,29.1396901,-110.9469326,"83143 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJvZgiz0-HzoYRajY0OlQWNCg,"establishment, point_of_interest",2025-11-10T22:21:11.513663
+PRIVADA SACRAMENTO,29.1202557,-111.0505259,"Av Gaspar Luken Escalante, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJKZHXOaGBzoYRtnHSLaeWH64,"establishment, point_of_interest",2025-11-10T22:21:11.865196
+PRIVADA SAHUARO,29.1126726,-111.0079521,"Sahuaro, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJCbEio0-BzoYRLE-HsOsWEcc,route,2025-11-10T22:21:12.218162
+PRIVADA SAN GERMAN,29.1632458,-111.0154268,"San Germán, San German, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJef1hN8eAzoYRyPv5wArCS-o,route,2025-11-10T22:21:12.584013
+PRIVADAS DE BUGAMBILIAS,29.0766566,-110.9393614,"Priv, 83070 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJSVF38q-FzoYRAGZfH0K3B70,route,2025-11-10T22:21:12.932883
+PRIVADAS DE SAN LORENZO,29.1333007,-110.9597187,"San Lorenzo, Valle Santa Monica, 83104 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJP43nTvKGzoYRIdrau3c51OU,route,2025-11-10T22:21:13.281164
+PRIVADAS RESIDENCIALES,29.0328388,-110.9537742,"De Los Mecánicos 66B, Y Griega, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJ-fXZPQCFzoYRHq18K5w2Y6o,"establishment, point_of_interest",2025-11-10T22:21:13.611544
+PRIVADAS SANTA CLARA,29.1713867,-111.0209905,"83318 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJew_Qf6uBzoYRp8q5SLra8WQ,"establishment, lodging, point_of_interest",2025-11-10T22:21:13.956676
+PROGRESO,28.8229501,-111.9321279,"Progreso, 83342 Bahía de Kino, Son., Mexico",APPROXIMATE,ChIJLY0BLyP3zIYR7toNW3YoVrE,"political, sublocality, sublocality_level_1",2025-11-10T22:21:14.300942
+PROGRESO (BAHIA DE KINO),28.8236442,-111.9313449,"Progreso, 83342 Bahía de Kino, Son., Mexico",GEOMETRIC_CENTER,ChIJKaEnJSP3zIYR99n8NhRBH9Y,route,2025-11-10T22:21:14.663875
+PROVEEDORA DE INSUMOS MINEROS SA,29.1505591,-110.9721204,"Ricardo Corazón de León 73, San Luis Rey, 83114 Hermosillo, Son., Mexico",ROOFTOP,ChIJm-4zf_iHzoYRi-Ank1e7w3s,"establishment, point_of_interest",2025-11-10T22:21:15.037598
+PROYECTO COLONIA ALTARES,29.0110802,-110.9461929,"Altares, 83296 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ71VDHNSazoYRVyorg5g5TAs,"political, sublocality, sublocality_level_1",2025-11-10T22:21:15.393307
+PROYECTO VILLAS DEL COLORADO,29.14971809999999,-111.0336658,"Blvd. Parque Central, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJUxo8ddiBzoYR_KepOn0V56Y,"establishment, point_of_interest",2025-11-10T22:21:15.763072
+PUEBLITOS CDA. GUARIJIOS,29.1583262,-111.0097317,"Guarijios, Pueblitos, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJaWZ2cs-AzoYR4QcPYpRP_es,route,2025-11-10T22:21:16.132794
+PUEBLITOS CDA. KIKAPU,29.158817,-111.0061856,"Cda. Kikapu, Pueblitos, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJpQ8w4s6AzoYRn-nOUq4FaZk,route,2025-11-10T22:21:16.510951
+PUEBLITOS CDA. PAPAGOS,29.1566846,-111.007612,"Calz. Pueblitos, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJSac4pc-AzoYRhKnh642qMeI,route,2025-11-10T22:21:16.877596
+PUEBLITOS SECC GUARIJIOS,29.1583262,-111.0097317,"Guarijios, Pueblitos, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJaWZ2cs-AzoYR4QcPYpRP_es,route,2025-11-10T22:21:17.221728
+PUEBLITOS SECC KIKAPU,29.1579613,-111.0076689,"Kikapu Park, Cda. Kikapu 11, Pueblitos, 83117 Hermosillo, Son., Mexico",ROOFTOP,ChIJMz6qFwCBzoYRyTc8YjFhe_M,"establishment, park, point_of_interest",2025-11-10T22:21:17.577553
+PUEBLITOS SECC KUKAPA,29.1572271,-111.0080982,"Calle Cda. Kukapa, Pueblitos, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJieIJn8-AzoYRvZSsyAZ5ank,route,2025-11-10T22:21:17.937790
+PUEBLITOS SECC LOS ALAMOS,29.1533854,-111.0203331,"Pueblitos Secc los Alamos, 83318 Hermosillo, Son., Mexico",APPROXIMATE,ChIJo0ZB0sKAzoYRZzFyfhgtozg,"political, sublocality, sublocality_level_1",2025-11-10T22:21:18.289024
+PUEBLITOS SECC PIMAS,29.156311,-111.0075439,"Calz. Pueblitos, Pimas, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EjBDYWx6LiBQdWVibGl0b3MsIFBpbWFzLCBIZXJtb3NpbGxvLCBTb24uLCBNZXhpY28iLiosChQKEglJpzilz4DOhhGEqeHrjaox4hIUChIJq3oQ1tGAzoYRwa3H5SxZV2s,route,2025-11-10T22:21:18.636676
+PUEBLO DORADO,29.011311,-111.1868794,"83325 Pueblo Dorado, Son., Mexico",APPROXIMATE,ChIJaRLWxcsozIYRYhdqQc7GtCs,"locality, political",2025-11-10T22:21:18.978367
+PUERAT REAL,29.1178256,-111.0363537,"Puerta Real, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJZZLJcA2BzoYRjnbxyyZTBa0,"political, sublocality, sublocality_level_1",2025-11-10T22:21:19.317384
+PUERTA DEL REY ETAPA II,29.1708184,-111.0189705,"Prta del Rey, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWytWOryAzoYRHj1LjNkg7Ug,route,2025-11-10T22:21:19.687219
+PUERTA DEL REY ETAPA III,29.1708184,-111.0189705,"Prta del Rey, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWytWOryAzoYRHj1LjNkg7Ug,route,2025-11-10T22:21:20.056307
+PUERTA DEL REY ETAPA IV,29.1708184,-111.0189705,"Prta del Rey, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWytWOryAzoYRHj1LjNkg7Ug,route,2025-11-10T22:21:20.401962
+PUERTA DEL REY ETAPA V,29.1236208,-111.0140348,"Calle Prof. Ángel Arreola 560, Dunas, 83179 Hermosillo, Son., Mexico",ROOFTOP,ChIJc_WyYwCBzoYRNfRqrAAM-AE,"establishment, hair_care, health, point_of_interest",2025-11-10T22:21:20.758200
+PUERTA DEL REY SECCION CASTILLO,29.1708184,-111.0189705,"Prta del Rey, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWytWOryAzoYRHj1LjNkg7Ug,route,2025-11-10T22:21:21.102694
+PUERTA DEL REY VI,29.1708184,-111.0189705,"Prta del Rey, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWytWOryAzoYRHj1LjNkg7Ug,route,2025-11-10T22:21:21.438260
+PUERTA DEL SOL,29.0945415,-111.0142022,"Blvd. Jesús García Morales 352, Quinta Emilia, 83210 Hermosillo, Son., Mexico",ROOFTOP,ChIJ7WipveODzoYRfUmEiUMnqNI,"establishment, point_of_interest",2025-11-10T22:21:21.797565
+PUERTA GRANDE RESIDENCIAL,29.0789485,-111.0046852,"Puerta Grande, Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ0fAJXPODzoYR5JxKtBBZNsk,"political, sublocality, sublocality_level_1",2025-11-10T22:21:22.159507
+PUERTA REAL 8A ETAPA,29.0920163,-110.9786422,"C. Real 08, Villa Satelite, 83200 Hermosillo, Son., Mexico",ROOFTOP,ChIJly56axeEzoYRfWOPtK3MfR0,street_address,2025-11-10T22:21:22.515153
+PUERTA REAL QUINTA ETAPA,29.112487,-111.0405391,"Puerta Real Quinta Etapa, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJoeqYc3SBzoYRRHk7XDDeXNk,"political, sublocality, sublocality_level_1",2025-11-10T22:21:22.849230
+PUERTA REAL RESIDENCIAL,29.1178256,-111.0363537,"Puerta Real, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJZZLJcA2BzoYRjnbxyyZTBa0,"political, sublocality, sublocality_level_1",2025-11-10T22:21:23.199704
+PUERTA REAL RESIDENCIAL III,29.1244506,-110.9595562,"C. Tres, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJl9E00I2GzoYRic1gjkZ-O1s,route,2025-11-10T22:21:23.538413
+PUERTA REAL RESIDENCIAL IX,29.1171378,-110.9645097,"Av Nueve, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJV2MdmpqGzoYR3B0ZyUyMp2k,route,2025-11-10T22:21:23.902033
+PUERTA REAL RESIDENCIAL VII ETAPA,29.1141515,-111.0333731,"Puerta Real Residencial Secc III, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJO3mrn22BzoYRlAsEqErrp7U,"political, sublocality, sublocality_level_1",2025-11-10T22:21:24.250002
+PUERTA REAL RESIDENCIAL VII SEGUNDA SECCION,29.1141515,-111.0333731,"Puerta Real Residencial Secc III, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJO3mrn22BzoYRlAsEqErrp7U,"political, sublocality, sublocality_level_1",2025-11-10T22:21:24.614377
+PUERTA REAL VI 2DA SECCION,29.1178256,-111.0363537,"Puerta Real, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJZZLJcA2BzoYRjnbxyyZTBa0,"political, sublocality, sublocality_level_1",2025-11-10T22:21:24.954542
+PUERTA REAL VI ETAPA,29.1178256,-111.0363537,"Puerta Real, 83177 Hermosillo, Son., Mexico",APPROXIMATE,ChIJZZLJcA2BzoYRjnbxyyZTBa0,"political, sublocality, sublocality_level_1",2025-11-10T22:21:25.300259
+PUNTA CHUECA,29.01428689999999,-112.1606314,"83337 Punta Chueca, Sonora, Mexico",APPROXIMATE,ChIJ-ZOIlxQezYYRzGv4AUFms5g,"locality, political",2025-11-10T22:21:25.643500
+PUNTA DE LAGO RESIDENCIAL,29.0780303,-110.9890374,"Punta de Lago, Valle Bonito, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ8eNG_nKEzoYR0ftOlsPT8wQ,"neighborhood, political",2025-11-10T22:21:26.006902
+QUINTA DE LOS MEZQUITES,29.0607114,-110.9612503,"Los Mezquites, San Pablo, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJn36gOPiEzoYRsMrFdW5WMu8,route,2025-11-10T22:21:26.352034
+QUINTA ESMELRALDA,29.010428,-110.9769599,"Blvd. Musaro, Pitahaya Madura &, 83284 Hermosillo, Son., Mexico",ROOFTOP,ChIJYTn0SUqbzoYRWD5FOSaV3jc,"establishment, point_of_interest",2025-11-10T22:21:26.723404
+QUINTA LA PALOMAS,29.134009,-110.9485764,"Quinta la Paloma, La Paloma III, 83146 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWWQ3u1-GzoYROnWA5xaqLlw,route,2025-11-10T22:21:27.076668
+QUINTAS DEL SOL  RESIDENCIAL,29.0130179,-110.9759773,"Quintas del Sol, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJJ3w_9UqbzoYRNTGTgODnHwc,"political, sublocality, sublocality_level_1",2025-11-10T22:21:27.439256
+QUINTAS DEL SOL ETAPA 10,29.0130179,-110.9759773,"Quintas del Sol, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJJ3w_9UqbzoYRNTGTgODnHwc,"political, sublocality, sublocality_level_1",2025-11-10T22:21:27.800998
+QUINTAS DEL SOL ETAPAS II V VII  X,29.0130179,-110.9759773,"Quintas del Sol, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJJ3w_9UqbzoYRNTGTgODnHwc,"political, sublocality, sublocality_level_1",2025-11-10T22:21:28.162166
+QUINTAS DEL SOL XI Y XII,29.118206,-110.9674848,"Av. 12, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJx3G8lpCGzoYRdApTenNE5cc,route,2025-11-10T22:21:28.525261
+QUINTAS GALICIA,29.0792128,-110.9968838,"Galicia, Casa Grande, 83246 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJB6U4tQqEzoYRe5DxzmvpP_c,route,2025-11-10T22:21:28.910609
+QUINTASA DEL SOL,29.0130179,-110.9759773,"Quintas del Sol, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJJ3w_9UqbzoYRNTGTgODnHwc,"political, sublocality, sublocality_level_1",2025-11-10T22:21:29.255352
+RACQUET CLUB II SECC NORTE,29.08978219999999,-110.9871745,"Raquet Club, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ17LvyQ-EzoYRimB-YsO7Cdo,"political, sublocality, sublocality_level_1",2025-11-10T22:21:29.634842
+RANCHERIA LA VICTORIA,29.1209786,-110.8977614,"La Victoria, 83304 Hermosillo, Son., Mexico",APPROXIMATE,ChIJGckYhauIzoYRoHEADXYg47s,"political, sublocality, sublocality_level_1",2025-11-10T22:21:30.099309
+RANCHERIA SAN BARTOLO,29.1472221,-110.7933333,"83303 San Bartolo, Son., Mexico",APPROXIMATE,ChIJp-pDxu-LzoYROGiwQQ1Id5w,"locality, political",2025-11-10T22:21:30.614366
+RANCHERIA SAN FRANCISCO (LOCALIDAD RURAL),11.49754,-72.82665999999999,"Rancheria, Riohacha, La Guajira, Colombia",APPROXIMATE,ChIJl0oe-kh8i44Rn13sn9tOUco,"locality, political",2025-11-10T22:21:30.992672
+RANCHERIA SAN JOSE (SAN PEDRO EL SAUCITO,29.1762205,-110.8865851,"83305 San Pedro el Saucito, Sonora, Mexico",APPROXIMATE,ChIJjT7BFm6IzoYRecfyvra67jo,"locality, political",2025-11-10T22:21:31.394424
+RANCHO DIANA,29.0274504,-110.9732188,"Del Rancho, Hacienda Los Alcatraces, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwbERDMiEzoYR2r4akubm5iY,route,2025-11-10T22:21:31.747591
+RANCHO MI SUEÑO,29.0274504,-110.9732188,"Del Rancho, Hacienda Los Alcatraces, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwbERDMiEzoYR2r4akubm5iY,route,2025-11-10T22:21:32.132036
+RANCHO SANTO NIÑO,29.1764554,-111.7119961,"83353 Santo Niño, Son., Mexico",APPROXIMATE,ChIJZ9CkgWWuzYYR-nEjwTT5iiU,"locality, political",2025-11-10T22:21:32.471160
+RAQUET CLUB I SECCION SUR,29.08978219999999,-110.9871745,"Raquet Club, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ17LvyQ-EzoYRimB-YsO7Cdo,"political, sublocality, sublocality_level_1",2025-11-10T22:21:32.821835
+REAL DE PITIC,29.0909421,-110.9819023,"C. Real, Villa Satelite, 83200 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJdZh4LBeEzoYRGyBWS_Q5zpI,route,2025-11-10T22:21:33.167697
+REAL DE QUIROGA SECCION MADRIGAL,29.0895424,-111.0223592,"Blvd. Garcia Morales, Blvd. Juan Navarrete &, Real de Quiroga, 83224 Hermosillo, Son., Mexico",ROOFTOP,ChIJ_97Yh92DzoYRmTD_Ij_jeeA,"establishment, point_of_interest",2025-11-10T22:21:33.513590
+REAL DE SEVILLA II ETAPA,29.0824221,-111.0462868,"Real de Sevilla, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ00QzNc2DzoYRDIPIwUWmfbA,route,2025-11-10T22:21:33.879577
+REAL DEL ALAMITO PRIMERA SECCION,29.2339079,-110.8484976,"83300 Fraccionamiento Campestre Real del Alamito, Son., Mexico",APPROXIMATE,ChIJM9B1GWdizoYR4p3tXI6-OrA,"locality, political",2025-11-10T22:21:34.231562
+REAL DEL ALAMITO SECCION 2,29.2339079,-110.8484976,"83300 Fraccionamiento Campestre Real del Alamito, Son., Mexico",APPROXIMATE,ChIJM9B1GWdizoYR4p3tXI6-OrA,"locality, political",2025-11-10T22:21:34.580220
+REAL DEL ALAMITO SECCION RIO BONITO,29.2093819,-110.864691,"83300 Río Bonito, Son., Mexico",APPROXIMATE,ChIJw5NsKSmIzoYRqvwmrS7t7wo,"locality, political",2025-11-10T22:21:34.930886
+REAL DEL ALAMITO SECCION Z,29.2339079,-110.8484976,"83300 Fraccionamiento Campestre Real del Alamito, Son., Mexico",APPROXIMATE,ChIJM9B1GWdizoYR4p3tXI6-OrA,"locality, political",2025-11-10T22:21:35.279894
+REAL DEL ALAMITO [FRACCIONAMIENTO CAMPESTRE],29.2296943,-110.8501109,"Campestre SB, Finca San Nicolas, C. Rancho de las Carretas, 83300 Fraccionamiento Campestre Real del Alamito, Son., Mexico",GEOMETRIC_CENTER,ChIJ5YM4OctjzoYRjhUEIEWzNkY,"establishment, park, point_of_interest",2025-11-10T22:21:35.659683
+REAL DEL CARMEN II,29.0500695,-111.0081453,"C. Santillana 49, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJVyT3HQCDzoYR7P0RnoZic2U,"establishment, point_of_interest",2025-11-10T22:21:36.015843
+REAL DEL CARMEN III,29.0500695,-111.0081453,"C. Santillana 49, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJVyT3HQCDzoYR7P0RnoZic2U,"establishment, point_of_interest",2025-11-10T22:21:36.490333
+REAL DEL CARMEN IV,29.0500695,-111.0081453,"C. Santillana 49, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJVyT3HQCDzoYR7P0RnoZic2U,"establishment, point_of_interest",2025-11-10T22:21:36.846549
+REAL DEL CARMEN V SECCION,29.0500695,-111.0081453,"C. Santillana 49, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJVyT3HQCDzoYR7P0RnoZic2U,"establishment, point_of_interest",2025-11-10T22:21:37.209099
+REAL DEL CENTENARIO,29.0781375,-110.9714412,"Real del Centenario, Los Arcos, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJkaRieEGEzoYRGa4aA-1BN2o,route,2025-11-10T22:21:37.565873
+REAL DEL MOLINITO [CAMPESTRE],29.086968,-110.9234659,"Del Molino, 83050 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ2Z8hSpSFzoYRmHJiYLd7CA8,route,2025-11-10T22:21:37.931432
+REAL DEL SEBILLA,29.0824221,-111.0462868,"Real de Sevilla, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ00QzNc2DzoYRDIPIwUWmfbA,route,2025-11-10T22:21:38.273023
+REAL DEL VALLE,29.0912492,-111.0288836,"Real del Valle, La Manga, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJJzq-UtmDzoYRNHkOdFdGPCk,route,2025-11-10T22:21:38.617099
+REFORMA NORTE,29.0583725,-110.96215,"La Reforma, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJsdwECfqEzoYR324PrQRLk4s,route,2025-11-10T22:21:38.951065
+RENACERES RESIDENCIAL,29.0449149,-111.0285223,"Blvd. Antonio Quiroga SN, Renaceres Residencial, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJdV-55qODzoYR5MH6omHuC0Y,"establishment, general_contractor, point_of_interest",2025-11-10T22:21:39.290278
+RESIDENCIAL ALAMOS,29.0885192,-110.9910709,"Pasamonte 69, Santa Fe, 83130 Hermosillo, Son., Mexico",ROOFTOP,ChIJXTHMKZCFzoYR7cNoaZBqKHM,"establishment, general_contractor, point_of_interest",2025-11-10T22:21:39.616895
+RESIDENCIAL ARIZONA,29.1291984,-110.9894618,"Alejandro García 580, Benito Juárez, 83110 Hermosillo, Son., Mexico",ROOFTOP,ChIJd9VtJ8mGzoYRwLkGmhiKYOU,"establishment, point_of_interest",2025-11-10T22:21:39.970801
+RESIDENCIAL BRITANIA,29.1250666,-110.9464036,"Los Arrayanes 25, Bretaña, 83148 Hermosillo, Son., Mexico",ROOFTOP,ChIJiyZb6V2HzoYRLp5wwbHlhe0,"establishment, point_of_interest",2025-11-10T22:21:40.306761
+RESIDENCIAL COUNTRY CLUB,29.0328388,-110.9537742,"De Los Mecánicos 66B, Y Griega, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJ-fXZPQCFzoYRHq18K5w2Y6o,"establishment, point_of_interest",2025-11-10T22:21:40.665945
+RESIDENCIAL DE ALCALA,29.0897161,-110.9522482,"C y Fray Hermenegildo Rangel Lugo, C. Benito Juárez 44A, Centro, 83000 Hermosillo, Son., Mexico",ROOFTOP,ChIJnbfK6r-FzoYRRm3CjPx_ZGg,"establishment, health, hospital, point_of_interest",2025-11-10T22:21:41.001372
+RESIDENCIAL DE TOLEDO,29.0328388,-110.9537742,"De Los Mecánicos 66B, Y Griega, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJ-fXZPQCFzoYRHq18K5w2Y6o,"establishment, point_of_interest",2025-11-10T22:21:41.348120
+RESIDENCIAL EL ENCANTO,29.181849,-110.8938134,"83300 El Encanto, Sonora, Mexico",APPROXIMATE,ChIJ21j1eHKIzoYRNgpeHvtAnWc,"locality, political",2025-11-10T22:21:41.694398
+RESIDENCIAL FLAMINGOS,29.0056306,-110.9299101,"Flamencos 37, Nuevo Hermosillo, 83296 Hermosillo, Son., Mexico",ROOFTOP,ChIJAVQGZACbzoYR0U-w6NigTbY,"establishment, point_of_interest",2025-11-10T22:21:42.063317
+RESIDENCIAL LA CIMA,29.1472306,-110.9891217,"Hacienda, Almacen, 83105 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ_6V-FSiHzoYR-33jOkdZmbE,"establishment, point_of_interest",2025-11-10T22:21:42.392742
+RESIDENCIAL LA HACIENDA,29.0997839,-111.0106556,"La Hacienda, Sonacer, 83174 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJXRbBAliBzoYR07Y1ZyPYrlM,route,2025-11-10T22:21:42.759626
+RESIDENCIAL LA RIOJA NORTE,29.1309288,-110.9468996,"Burgos, 83146 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJy_x8omCGzoYRtXPePomUpTc,"establishment, point_of_interest",2025-11-10T22:21:43.124751
+RESIDENCIAL LA VENDIMIA,29.0328388,-110.9537742,"De Los Mecánicos 66B, Y Griega, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJ-fXZPQCFzoYRHq18K5w2Y6o,"establishment, point_of_interest",2025-11-10T22:21:43.468414
+RESIDENCIAL MEDITERRANEO,29.0328388,-110.9537742,"De Los Mecánicos 66B, Y Griega, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJ-fXZPQCFzoYRHq18K5w2Y6o,"establishment, point_of_interest",2025-11-10T22:21:43.829190
+RESIDENCIAL REAL DE CASTILLA,29.0870602,-111.0274608,"Boulevard Antonio Quiroga, Blvd. Juan Navarrete &, La Manga, 83224 Hermosillo, Son., Mexico",ROOFTOP,ChIJuwcNltyDzoYRfDF0J7WTldw,"establishment, point_of_interest",2025-11-10T22:21:44.186913
+RESIDENCIAL RIO SECO,29.1511644,-110.9125073,"Avenida Río Seco, Blvd. Enrique Mazón López SN, Río Seco, 83165 Hermosillo, Son., Mexico",ROOFTOP,ChIJzd5V0ZuHzoYRzmawHfeIN-s,"establishment, point_of_interest",2025-11-10T22:21:44.531133
+RESIDENCIAL SAN ANTONIO,29.0328388,-110.9537742,"De Los Mecánicos 66B, Y Griega, 83290 Hermosillo, Son., Mexico",ROOFTOP,ChIJ-fXZPQCFzoYRHq18K5w2Y6o,"establishment, point_of_interest",2025-11-10T22:21:44.884281
+RESIDENCIAL SANTA FE,29.0865211,-110.990155,"Santa Fe, 83249 Hermosillo, Son., Mexico",APPROXIMATE,ChIJa5QGyw6EzoYRffBZv0518Hw,"political, sublocality, sublocality_level_1",2025-11-10T22:21:45.240857
+RESIDENCIAL VALLE DEL LAGO,29.07682999999999,-110.9871743,"Valle Del Lago, Valle Bonito, 83240 Hermosillo, Son., Mexico",APPROXIMATE,ChIJUZu0dnKEzoYRJnIzLNBCMN8,"neighborhood, political",2025-11-10T22:21:45.597394
+RETORNO ARCO IRIS,29.0771253,-110.9764854,"Arco Iris, 83250 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJzbvrJWqEzoYRSAVSrShvMrY,route,2025-11-10T22:21:45.954846
+RETORNO DE LA MISION,29.1498128,-110.9681931,"Rtno. de la Misión, 83114 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJqbBF-OGGzoYREnXbIjjqscQ,route,2025-11-10T22:21:46.307905
+RETORNO JALAPA,29.1149477,-111.0090987,"Jalapa, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJPy8B90WBzoYRd0aL4WSqVDU,route,2025-11-10T22:21:46.673846
+RETORNO LA MISION,29.1969778,-110.9236134,"Retorno, México 15, 83300 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ_fDtYfCHzoYRrkCSnp8qx2M,"establishment, park, point_of_interest",2025-11-10T22:21:47.001379
+RETORNO LA REJA,29.1276434,-110.9518985,"Las Rejas, 83148 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJK7HiZYqGzoYR3N4yBhmTUW0,route,2025-11-10T22:21:47.346832
+REVOLUCION,29.074434,-110.9365065,"Revolucion, Hermosillo, Son., Mexico",APPROXIMATE,ChIJDXt3AKWFzoYRghEkOjTw0Bk,"political, sublocality, sublocality_level_1",2025-11-10T22:21:47.686094
+RINCON DE GUADALUPE LAS AVISPAS,28.509031,-111.0303,"83313 Las Avispas, Son., Mexico",APPROXIMATE,ChIJrx8WWg6rzoYR0h_YeaJq2U0,"locality, political",2025-11-10T22:21:48.048887
+RINCON DE LAS FLORES,29.0729826,-110.9557946,"Centro, 83079 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ9Qwpx-iFzoYRAjw4fUe2lrk,"establishment, point_of_interest",2025-11-10T22:21:48.410154
+RINCON DEL MARQUEZ,29.02657349999999,-110.9437713,"Rincon del Marquez, 83294 Hermosillo, Son., Mexico",APPROXIMATE,ChIJycC7py6FzoYRuJ6QwJqyxPU,"political, sublocality, sublocality_level_1",2025-11-10T22:21:48.766379
+RINCON DEL RAQUET RESIDENCIAL,29.0867188,-110.9839139,"Rincón del Raquet, 83200 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ7WyxKRKEzoYR7rlTJO3RAWk,route,2025-11-10T22:21:49.132620
+RINCONADA DE NUEVO LEON,29.0871799,-110.9413497,"Nuevo Leon, Hermosillo, Son., Mexico",APPROXIMATE,ChIJPzL1y7eFzoYR6diWMW2Uu5U,"political, sublocality, sublocality_level_1",2025-11-10T22:21:49.489161
+RIO AZUL ESMERALDA [CAMPESTRE],28.9705949,-111.069937,"83310 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ0xXrwoedzoYRgW2U2U9QWQg,"establishment, point_of_interest",2025-11-10T22:21:49.861852
+RIO AZUL SECCION TURQUESA,29.2588002,-110.8415083,"83300 Río Azul Secc. Turquesa, Son., Mexico",APPROXIMATE,ChIJs3d1O01izoYRfTCGpJU7UUw,"locality, political",2025-11-10T22:21:50.227342
+RIO DE LA PLATA RESIDENCIAL,29.0190802,-110.9105108,"De La Plata, Parque Industrial, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQyQoUK6azoYRrTnd6fK--Ac,route,2025-11-10T22:21:50.580969
+ROSELLA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:21:50.910796
+SACRAMENTO,29.12058459999999,-110.9514087,"Sacramento, Hermosillo, Son., Mexico",APPROXIMATE,ChIJfSt-QoiGzoYRv2FmVeNWQKE,"political, sublocality, sublocality_level_1",2025-11-10T22:21:51.250543
+SAHUARIPA UNO,29.1197476,-110.9558078,"C. Uno, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ2_e0r4iGzoYRmWkN8ABpzeQ,route,2025-11-10T22:21:51.627362
+SAHUARO 1,29.1006492,-111.0075179,"Sahuaro 1, Sonacer, 83174 Hermosillo, Son., Mexico",ROOFTOP,ChIJmx57zFeBzoYRZ1aMz1nVpLY,"premise, street_address",2025-11-10T22:21:51.954342
+SALAMANCA RESIDENCIAL,29.1153253,-111.0562099,"Av Gaspar Luken Escalante Ave. Peñaflor y, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJyVpsHHiBzoYRHxK9OeR_gLk,"establishment, point_of_interest",2025-11-10T22:21:52.287244
+SALAMANCA RESIDENCIAL SEGUNDA ETAPA,29.1153253,-111.0562099,"Av Gaspar Luken Escalante Ave. Peñaflor y, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJyVpsHHiBzoYRHxK9OeR_gLk,"establishment, point_of_interest",2025-11-10T22:21:52.626730
+SALVADOR ALVARADO,28.7554438,-111.2725587,"83324 Salvador Alvarado, Son., Mexico",APPROXIMATE,ChIJMeP5HTAYzIYRypVbFnbXcws,"locality, political",2025-11-10T22:21:52.963327
+SALVADOR ALVARADO (LOCALIDAD RURAL),28.7554438,-111.2725587,"83324 Salvador Alvarado, Son., Mexico",APPROXIMATE,ChIJMeP5HTAYzIYRypVbFnbXcws,"locality, political",2025-11-10T22:21:53.323688
+SAN AGUSTIN,29.381111,-111.6375,"83355 San Agustín, Son., Mexico",APPROXIMATE,ChIJub9az-i8zYYRLGHCHlmgmek,"locality, political",2025-11-10T22:21:53.663880
+SAN ALBERTO (POBLADO),29.056368,-110.9748675,"San Alberto, San Angel, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJH6tvSouEzoYRZ1c6QrlHUcw,route,2025-11-10T22:21:54.018133
+SAN ALFREDO,29.0045109,-110.9297805,"Alfredo Graff Leyva, Arboledas, 83296 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJByEMA8GazoYR1s7F-itmP-s,route,2025-11-10T22:21:54.376243
+SAN ANTONIO (UNIVERSIDAD SONORA),29.0765708,-110.9681738,"San Antonio, 83260 Hermosillo, Son., Mexico",APPROXIMATE,ChIJRY3BjEOEzoYRC3wgKukTWmU,"political, sublocality, sublocality_level_1",2025-11-10T22:21:54.743783
+SAN ARTURO,28.9622438,-111.6753883,"83333 San Arturo, Son., Mexico",APPROXIMATE,ChIJV_jv8dxRzIYRXd8mQHokcM4,"locality, political",2025-11-10T22:21:55.091954
+SAN BARTOLO,29.1472221,-110.7933333,"83303 San Bartolo, Son., Mexico",APPROXIMATE,ChIJp-pDxu-LzoYROGiwQQ1Id5w,"locality, political",2025-11-10T22:21:55.418047
+SAN BERNARDINO ETAPA 1,29.0552973,-110.9373447,"Encinos 2 Etapa 1 Park, Blvd. Salvador Novo, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJH-WtGBCFzoYRF9qxjqPwOZc,"establishment, park, point_of_interest",2025-11-10T22:21:55.774454
+SAN BERNARDINO ETAPA 2,29.1155089,-111.0017046,"San Bernardino, Hermosillo, Son., Mexico",APPROXIMATE,ChIJB4uaXkyBzoYRIl71VbhTmn0,"political, sublocality, sublocality_level_1",2025-11-10T22:21:56.126219
+SAN BERNARDINO ETAPA 3,29.1244506,-110.9595562,"C. Tres, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJl9E00I2GzoYRic1gjkZ-O1s,route,2025-11-10T22:21:56.474119
+SAN BERNARDINO ETAPA 4,29.1155089,-111.0017046,"San Bernardino, Hermosillo, Son., Mexico",APPROXIMATE,ChIJB4uaXkyBzoYRIl71VbhTmn0,"political, sublocality, sublocality_level_1",2025-11-10T22:21:56.810998
+SAN CARLOS RESIDENCIAL,29.1239018,-111.0157947,"San Carlos, Dunas, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ33O6JDmBzoYRqzEXAI_b6LQ,route,2025-11-10T22:21:57.173669
+SAN ENRIQUE (EL SUSPIRO),29.0853728,-111.021351,"San Enrique, Residencial Los Santos, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJh78aauiDzoYRcOsEkDZQpGo,route,2025-11-10T22:21:57.527497
+SAN FELIPE,29.0895046,-111.0021487,"San Felipe, Capistrano, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ0-yK1fmDzoYRDCvahJQCdHE,route,2025-11-10T22:21:57.887177
+SAN FERMIN,29.0137191,-110.9849431,"Eucalipto 411, entre Musaro y Astrain, San Fermín, 83284 Hermosillo, Son., Mexico",ROOFTOP,ChIJCSoKeimbzoYRQ86EUY3qihk,"establishment, point_of_interest",2025-11-10T22:21:58.237960
+SAN FERNANDO (PRESA ABELARDO LUJAN),29.0731885,-110.9661578,"Abelardo Luján Rodríguez, El Centenario, 83260 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJLVPd0kSEzoYRNgPs2o5r0Gk,route,2025-11-10T22:21:58.611043
+SAN FRANCISCO (EL SAHUARAL),29.1209179,-111.0259217,"San Francisco, Hermosillo, Son., Mexico",APPROXIMATE,ChIJw3PI_BSBzoYRspm5H6TSsgA,"political, sublocality, sublocality_level_1",2025-11-10T22:21:58.955140
+SAN FRANCISCO (RANCHO),29.1209179,-111.0259217,"San Francisco, Hermosillo, Son., Mexico",APPROXIMATE,ChIJw3PI_BSBzoYRspm5H6TSsgA,"political, sublocality, sublocality_level_1",2025-11-10T22:21:59.292890
+SAN FRANCISCO DE BATUC,29.1845905,-110.8307049,"83303 San Francisco de Batuc, Son., Mexico",APPROXIMATE,ChIJi3pT_ZeJzoYRbAsltqP1qgw,"locality, political",2025-11-10T22:21:59.630763
+SAN FRANCISCO VALLE RESIDENCIAL,29.0509487,-111.0168276,"Boulevard Antonio Quiroga y San Francisco, Valle Residencial, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ9VVrIWSDzoYRQeGdGJ2YuJw,"establishment, general_contractor, point_of_interest",2025-11-10T22:21:59.982623
+SAN GERONIMO,29.0853111,-111.01945,"San Alejo, Residencial Los Santos, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJd1ZYYOiDzoYRjfpBUHSIoX0,route,2025-11-10T22:22:00.339489
+SAN GUSTAVO,29.1023617,-110.9821314,"Gustavo F. Muñoz, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQ801vh2EzoYRM6Y_6435zDE,route,2025-11-10T22:22:00.696955
+SAN HERMINIO (LOS ANGELES),29.1486804,-110.966311,"Los Angeles, 83106 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ7yQ1-uKGzoYR_LG_MbbHVw4,"political, sublocality, sublocality_level_1",2025-11-10T22:22:01.049226
+SAN IGNACIO,29.1582461,-111.7849047,"83330 San Ignacio, Sonora, Mexico",APPROXIMATE,ChIJZ3yDU12pzYYR8CYO46703JI,"locality, political",2025-11-10T22:22:01.384274
+SAN ISIDRO DOS,29.0970364,-111.0128817,"San Isidro, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ2SgX8-KDzoYREE145ZsE_Ec,"political, sublocality, sublocality_level_1",2025-11-10T22:22:01.746284
+SAN JAVIER (LOCALIDAD RURAL),28.9520949,-111.3472702,"83325 San Javier, Sonora, Mexico",APPROXIMATE,ChIJf2yr_3Y6zIYR-yhv2OFuCts,"locality, political",2025-11-10T22:22:02.083946
+SAN JOAQUIN (SANTA MARIA),29.1146631,-110.9771153,"Sta Maria, 83139 Hermosillo, Son., Mexico",APPROXIMATE,ChIJnSB-z6KGzoYREDpv5VM7mOY,"political, sublocality, sublocality_level_1",2025-11-10T22:22:02.454759
+SAN JORGE (HERCULES),29.0572836,-110.9737795,"San Jorge, San Angel, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ7bHwz_SEzoYR1XB_eZ8exew,route,2025-11-10T22:22:02.804340
+SAN JOSE (RANCHO),29.052173,-110.9790585,"San José, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJWxKBl4yEzoYRfSM6UBw0UOI,route,2025-11-10T22:22:03.178059
+SAN JOSE DE GRACIA,29.2879158,-110.6116776,"83308 San José de Gracia, Son., Mexico",APPROXIMATE,ChIJpU6Ny9NYzoYR5EzErCX4SGs,"locality, political",2025-11-10T22:22:03.524945
+SAN JUAN BOSCO,29.1016613,-110.9807292,"Av. Othon Almada 9001, Olivares, 83180 Hermosillo, Son., Mexico",ROOFTOP,ChIJAWMb0x2EzoYRBzwYrISSumM,"church, establishment, place_of_worship, point_of_interest",2025-11-10T22:22:03.880385
+SAN JUAN DE LOS PINOS,29.1157103,-110.9971079,"C. de los Pimas, Fraccionamiento Mision San Jeronimo, 83125 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ023MILOGzoYR6On8bRU17DA,route,2025-11-10T22:22:04.245869
+SAN JUANICO,28.3947221,-111.31,"83315 San Juanico, Son., Mexico",APPROXIMATE,ChIJud2CX573y4YRUo5WwT-Ot50,"locality, political",2025-11-10T22:22:04.593681
+SAN LEONARDO,29.0410156,-110.9438878,"Av Da Vinci, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJp2TlKCKFzoYR31XpiHDPkKw,route,2025-11-10T22:22:04.931695
+SAN LUIS (RANCHO),29.1000559,-110.9283103,"San Luis, Hermosillo, Son., Mexico",APPROXIMATE,ChIJP6pZ8ueFzoYRA_Qnlnr2i8s,"political, sublocality, sublocality_level_1",2025-11-10T22:22:05.266797
+SAN LUIS (SANTA TERESA),29.0833872,-110.924962,"Sta. Teresa, 83050 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJNZQDR5aFzoYRXiJTHBg0TPU,route,2025-11-10T22:22:05.639531
+SAN MARCOS (LOCALIDAD RURAL),29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:05.997711
+SAN MARTIN (RANCHERIA),29.153377,-110.9991217,"San Martín, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJDyvc0yyHzoYRpAa5qiGhfGY,route,2025-11-10T22:22:06.369963
+SAN NICOLAS,28.7372221,-111.9305555,"83335 San Nicolás, Son., Mexico",APPROXIMATE,ChIJKZiV4EL0zIYR-OP2wyel_ug,"locality, political",2025-11-10T22:22:06.712481
+SAN NICOLAS (SAN NICOLAS DE KINO),28.7372221,-111.9305555,"83335 San Nicolás, Son., Mexico",APPROXIMATE,ChIJKZiV4EL0zIYR-OP2wyel_ug,"locality, political",2025-11-10T22:22:07.083259
+SAN PEDRITO,29.1811325,-110.894781,"83300 San Pedrito, Son., Mexico",APPROXIMATE,ChIJmVEWl3OIzoYRD1LQ6g0IOIw,"locality, political",2025-11-10T22:22:07.431539
+SAN PEDRO SAUCITO (HERMOSILLO),29.1762205,-110.8865851,"83305 San Pedro el Saucito, Sonora, Mexico",APPROXIMATE,ChIJjT7BFm6IzoYRecfyvra67jo,"locality, political",2025-11-10T22:22:07.782446
+SAN RAFAEL,28.5570369,-111.7468191,"83317 San Rafael, Son., Mexico",APPROXIMATE,ChIJxeR1ypdkzIYRpPCsH5DvJD4,"locality, political",2025-11-10T22:22:08.122526
+SAN RAFAEL [CAMPESTRE],29.1828562,-110.8384755,"Hermosillo - Moctezuma & México 17, 83303 Son., Mexico",GEOMETRIC_CENTER,ChIJo0H9HJiJzoYRrhSraXTVXCA,"establishment, point_of_interest",2025-11-10T22:22:08.473883
+SAN RAMON (LOCALIDAD RURAL),29.0602117,-110.9969399,"San Ramón, Paseo San Angel, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ3Scpc3-EzoYRybGPBoL33dE,route,2025-11-10T22:22:08.831949
+SAN RAMON (RANCHO),29.0602117,-110.9969399,"San Ramón, Paseo San Angel, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ3Scpc3-EzoYRybGPBoL33dE,route,2025-11-10T22:22:09.165750
+SAN SEBASTIAN (RANCHO),29.1504187,-110.9875471,"San Sebastian, 83105 Hermosillo, Son., Mexico",APPROXIMATE,ChIJOyAMhiiHzoYRNcDKExp2DkQ,"political, sublocality, sublocality_level_1",2025-11-10T22:22:09.518188
+SANTA ANITA RESIDENCIAL,29.0090394,-110.9711969,"Blvd. Musaro S/N, Santa anita, 83284 Hermosillo, Son., Mexico",ROOFTOP,ChIJVSfqoTabzoYREm7s4kwOrkc,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:22:09.865433
+SANTA AURELIA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:10.210039
+SANTA BARBARA,29.15448,-110.9711543,"Santa Barbara, 83114 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ730I3h6HzoYRSLNVtStB3ug,"political, sublocality, sublocality_level_1",2025-11-10T22:22:10.554333
+SANTA CARMEN,29.0553887,-110.9710517,"Carmen Serdán, Palo Verde, 83280 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJPzeNhPOEzoYRhuR6u9Jp-a4,route,2025-11-10T22:22:10.902148
+SANTA CECILIA (LA ESCONDIDA),29.0862979,-110.9947129,"La Escondida, 83249 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJeUE6DQmEzoYR6GAWz60PitY,route,2025-11-10T22:22:11.259119
+SANTA CECILIA (LICONA),29.1084202,-110.9843256,"Av. Ángel García Aburto 472, Olivares, 83180 Hermosillo, Son., Mexico",ROOFTOP,ChIJhcJacKaGzoYR1E-uCZb2GtI,"church, establishment, place_of_worship, point_of_interest",2025-11-10T22:22:11.604969
+SANTA CRUZ,29.0843833,-110.9301026,"De la Sta. Cruz, El Ranchito, 83050 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJYxQVKryFzoYRXUmFTD8tKMg,route,2025-11-10T22:22:11.955545
+SANTA CRUZ (PRIVADA),29.0843833,-110.9301026,"De la Sta. Cruz, El Ranchito, 83050 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJYxQVKryFzoYRXUmFTD8tKMg,route,2025-11-10T22:22:12.296387
+SANTA EDUWIGES (RANCHO),29.0556777,-110.9805606,"Sta. Eduwiges, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJA4K1ZomEzoYR_9BWPSguUYo,route,2025-11-10T22:22:12.650534
+SANTA ELENA (RANCHO),29.1687626,-111.0213544,"Sta. Elena, 83318 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJK5MQCL6AzoYRNuRkLT5F_lk,route,2025-11-10T22:22:13.017315
+SANTA ENGRACIA PRIVADA RESIDENCIAL,29.0846648,-111.0215633,"Sta. Engracia, Residencial Los Santos, 83224 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ0QjsPOiDzoYRLC_BFH2ggf4,route,2025-11-10T22:22:13.380813
+SANTA INES,29.122706,-111.0258857,"Sta. Inés, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJgZXJOhSBzoYRLU5tJ7T4aS8,route,2025-11-10T22:22:13.715322
+SANTA INES DOS (POZO NUEVO),29.122706,-111.0258857,"Sta. Inés, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJgZXJOhSBzoYRLU5tJ7T4aS8,route,2025-11-10T22:22:14.082892
+SANTA INÉS UNO (EL CAPITÁN),29.0764187,-111.5106849,"83350 Santa Inés Uno, Son., Mexico",APPROXIMATE,ChIJl6VBXO9KzIYRkbHaL6Qtkgw,"locality, political",2025-11-10T22:22:14.429680
+SANTA LUCINA [CAMPESTRE],29.13456,-110.9527074,"Blvrd Morelos Nte 709, Cumbres Residencial, 83146 Hermosillo, Son., Mexico",ROOFTOP,ChIJkSBiOQCHzoYRNb7o-YVm6SI,"establishment, food, point_of_interest, restaurant",2025-11-10T22:22:14.782075
+SANTA MARGARITA (LOCALIDAD RURAL),29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:15.140332
+SANTA MARTHA (FRACCIONAMIENTO),29.1262644,-111.0345618,"Sta. Martha, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ55LXyQ-BzoYR3RF-zn3vl2o,route,2025-11-10T22:22:15.481647
+SANTA MARTHA UNO (EL MOLINO),29.1197476,-110.9558078,"C. Uno, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ2_e0r4iGzoYRmWkN8ABpzeQ,route,2025-11-10T22:22:15.838885
+SANTA MONICA (RANCHERIA),29.1482928,-110.9585262,"Sta. Monica, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EiVTdGEuIE1vbmljYSwgSGVybW9zaWxsbywgU29uLiwgTWV4aWNvIi4qLAoUChIJFRr5EAKHzoYRbUJ9EFCrrTsSFAoSCeWu33pohM6GEfl_iOmVUz2z,route,2025-11-10T22:22:16.217229
+SANTA PAULINA [AGRICOLA],29.1277541,-111.0275884,"Paulina Cazarez, Luis Donaldo Colosio, Colosio, 83177 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJibBdMBeBzoYRC0ergVXjXGI,route,2025-11-10T22:22:16.607060
+SANTA REGINA,29.1075802,-110.9737448,"C. 12 de Octubre, Balderrama, 83180 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQfy3GxGjXRQRbW16KDh-bx0,"establishment, point_of_interest",2025-11-10T22:22:16.951129
+SANTA RITA (RANCHO),29.0517365,-110.9800999,"Sta. Rita, 83286 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJBQTbK4yEzoYRcDb1uwDM7uU,route,2025-11-10T22:22:17.314508
+SANTA ROSA,29.2711938,-110.8702125,"83300 Santa Rosa, Son., Mexico",APPROXIMATE,ChIJg4u_nhFjzoYRIcrCcDOV3tU,"locality, political",2025-11-10T22:22:17.653721
+SANTA ROSALIA,28.7125569,-111.6068239,"83334 Santa Rosalía, Son., Mexico",APPROXIMATE,ChIJqQxJAshpzIYRKT3Jgs789hw,"locality, political",2025-11-10T22:22:17.996536
+SANTA ROSARIO,29.1485315,-110.9808949,"Rosario Sur, Caridad, 83105 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJdwAfVSeHzoYRMjtkMUVOplk,route,2025-11-10T22:22:18.347186
+SANTA TERESA LA CONCORDIA (EL COPECHI),29.0833872,-110.924962,"Sta. Teresa, 83050 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJNZQDR5aFzoYRXiJTHBg0TPU,route,2025-11-10T22:22:18.727878
+SANTA TERESITA,29.0833872,-110.924962,"Sta. Teresa, 83050 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJNZQDR5aFzoYRXiJTHBg0TPU,route,2025-11-10T22:22:19.067429
+SANTA VALERIA [ARENA DE RODEO ],29.0148428,-111.1365534,"Arena de rodeo, 83323 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ8-pL-FgpzIYR8jNTGwwXtao,"establishment, park, point_of_interest",2025-11-10T22:22:19.433005
+SANTERRA RESIDENCIAL,29.1206341,-110.9151107,"Belén s/n esq, Dr. Ignacio Mendivil Gutierrez, Santerra Residencial, 83166 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJs4s_UwyGzoYRadggx5KQO8I,"establishment, general_contractor, point_of_interest",2025-11-10T22:22:19.770746
+SIENA RESIDENCIAL,29.0902396,-111.0129146,"Blvd. Juan Navarrete, 83210 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJn2sTQOaDzoYR7vQoBc3TPsw,"establishment, point_of_interest",2025-11-10T22:22:20.113506
+SIERRA BLANCA,29.1273409,-110.9608026,"Sierra Blanca, Los Cuatro Olivos, 83147 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJozu5eo2GzoYR1VBVX7JeZ24,route,2025-11-10T22:22:20.474278
+SIETE CERROS,29.0631039,-111.0825536,"83323 Siete Cerros, Son., Mexico",APPROXIMATE,ChIJ7duyP22CzoYR6LCJU8NbbWE,"locality, political",2025-11-10T22:22:20.815859
+SIETE CERROS (CERO NORTE),28.91305879999999,-111.4790114,"83333 El Crucero, Son., Mexico",APPROXIMATE,ChIJSUth7vRHzIYRQg-IAeVE6RY,"locality, political",2025-11-10T22:22:21.177773
+SIN COLONIA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:21.513180
+SOLEI ETAPA IV Y V,29.0553405,-110.9953214,"Cda. Monet 43, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJi7qWkoCEzoYRg59H1GTfBmY,"establishment, point_of_interest",2025-11-10T22:22:21.866382
+SOLIDARIDAD V-FRANCISCO ROMERO,29.1074041,-110.9889453,"Francisco L. Carreón & Avenida Roberto Romero, Choyal, 83136 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ElZGcmFuY2lzY28gTC4gQ2FycmXDs24gJiBBdmVuaWRhIFJvYmVydG8gUm9tZXJvLCBDaG95YWwsIDgzMTM2IEhlcm1vc2lsbG8sIFNvbi4sIE1leGljbyJmImQKFAoSCfcTPdqohs6GEfCuE6Tf-JyREhQKEgn3Ez3aqIbOhhHwrhOk3_ickRoUChIJe9FLWKiGzoYRqfWY9INo2lAaFAoSCQUpk-yehs6GEU-0NkUr4orrIgoN-W9ZERVTbti9,intersection,2025-11-10T22:22:22.246818
+SOLIDARIDAD-VILDOSOLA (ZONA SUR),29.1236517,-110.9590694,"Avenida Ferrocarril 89, Mision del Sol, 84200 Agua Prieta, Son., Mexico",ROOFTOP,ChIJZ-ehhY6GzoYRNg9xR_jxVEM,"establishment, point_of_interest",2025-11-10T22:22:22.603456
+SONORA HORTALIZAS Y FRUTALES,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:22.947665
+STANZA CASTELLO,29.1489867,-110.9669361,"Av. Lucrecia Ruiz de Ayón 154, Villa del Palmar, 83105 Hermosillo, Son., Mexico",ROOFTOP,ChIJd-ieIxaHzoYRSTjdDOIhWSg,"establishment, point_of_interest",2025-11-10T22:22:23.301375
+STANZA FLORENZA RESIDENCIAL,29.0510214,-110.9910081,"C. Minas Prietas, 83285 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJVUA93_-FzoYRhmYmOwym870,"establishment, point_of_interest",2025-11-10T22:22:23.638379
+TABACHINES,29.0743612,-110.9814587,"Tabachines, Fuentes del Mezquital, 83240 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJLbNJwW6EzoYRoEXyZIZDWbY,route,2025-11-10T22:22:23.996344
+TASTIOTA,29.121796,-111.0175907,"Tastiota, Dunas, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJp1GnPT-BzoYRZ7-GU5MWFgo,route,2025-11-10T22:22:24.345260
+TEC MILENIO,29.144994,-110.9583563,"Tec Milenio, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJTfU6vvuGzoYR7bIOtNJaFPw,route,2025-11-10T22:22:24.693395
+TERRAZAS DEL MIRADOR,29.125376,-110.9534027,"El Mirador, Terrazas del Mirador, 83145 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJP6Xg1JSHzoYRxGdhqKfasV0,"establishment, point_of_interest",2025-11-10T22:22:25.054389
+TIERRA BLANCA,29.0854649,-110.9978434,"Tierra Blanca, Montebello, 83249 Hermosillo, Son., Mexico",APPROXIMATE,ChIJcT33-gmEzoYRZFilyrsINWA,"neighborhood, political",2025-11-10T22:22:25.390021
+TIERRA BONITA,29.0426831,-110.9439576,"Bonita, 83293 Hermosillo, Son., Mexico",APPROXIMATE,ChIJAZ72ohiFzoYR2g5GEc79IBg,"political, sublocality, sublocality_level_1",2025-11-10T22:22:25.736461
+TIERRA BONITA [CAMPESTRE],29.13456,-110.9527074,"Blvrd Morelos Nte 709, Cumbres Residencial, 83146 Hermosillo, Son., Mexico",ROOFTOP,ChIJkSBiOQCHzoYRNb7o-YVm6SI,"establishment, food, point_of_interest, restaurant",2025-11-10T22:22:26.081582
+TORRALBA RESIDENCIAL,29.1495905,-111.0073451,"Blvrd Agustín F. Zamora 50, Residencial Torralba, Zona Industrial, 83118 Hermosillo, Son., Mexico",ROOFTOP,ChIJgRsuhCaBzoYRSW_EFwlFsEo,"establishment, point_of_interest",2025-11-10T22:22:26.411216
+TORRE DE PIEDRA,29.1550818,-111.034331,"83318 Hermosillo, Sonora, Mexico",GEOMETRIC_CENTER,ChIJ_bxXy0-BzoYRNPHUBhUmmG0,"establishment, point_of_interest",2025-11-10T22:22:26.749718
+TORRE DE PLATA,29.0190802,-110.9105108,"De La Plata, Parque Industrial, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJQyQoUK6azoYRrTnd6fK--Ac,route,2025-11-10T22:22:27.103384
+TORREON,29.0762213,-110.9799095,"El Torreon, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ8XfuWWmEzoYRMRPbxHW34h8,"political, sublocality, sublocality_level_1",2025-11-10T22:22:27.458954
+TULIPANES RESIDENCIAL,29.05655119999999,-110.9954467,"San Timoteo, Seccion 562, 83287 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ_-dIfYCEzoYRPIG9NH9CGIo,"establishment, laundry, point_of_interest",2025-11-10T22:22:27.817342
+TURIN,29.0907219,-111.0117182,"Torino, 83210 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJySvb3-SDzoYR8RUNFKdqS6Y,route,2025-11-10T22:22:28.162159
+UNIDAD HABITACIONAL ZONA MILITAR,29.1409921,-111.0005968,"Unidad, 83116 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJx8Z8bSuBzoYRwmtiGywk2Js,route,2025-11-10T22:22:28.522958
+UNION DE LADRILLEROS,29.1268567,-111.006548,"Unión de Ladrilleros, 83179 Hermosillo, Son., Mexico",APPROXIMATE,ChIJuarNMRSBzoYROLX9iHvNYc0,"political, sublocality, sublocality_level_1",2025-11-10T22:22:28.865700
+UNION DE LADRILLEROS II,29.1285733,-111.0206473,"Av. Juan Pablo II, El Chaparral, 83179 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJRclODj2BzoYR2k00rXLvdQI,route,2025-11-10T22:22:29.222738
+UNION DE PRODUCTORES DE LADRILLO CERRO COLORADO PO,29.0288455,-110.9366862,"De Productores, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJFzZw1jGFzoYRclgjZML7xjQ,route,2025-11-10T22:22:29.604845
+UNION DE PRODUCTORES DE LADRILLO CERRO COLORADO PONIENTE A.C,29.0288455,-110.9366862,"De Productores, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJFzZw1jGFzoYRclgjZML7xjQ,route,2025-11-10T22:22:29.983503
+UNIVERSIDAD,29.0749532,-110.9335149,"Universidad, 83067 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJ20gpe6SFzoYRfXWaXmLU4Ik,route,2025-11-10T22:22:30.317213
+URBI ALAMEDA ENCINOS I,29.04983709999999,-110.9397495,"Acceso Isabel II, Las Lomas, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJA1ii0BCFzoYRjQL2W8dZh-U,"establishment, point_of_interest",2025-11-10T22:22:30.693093
+URBI ALAMEDA ENCINOS II,29.0564831,-110.9321266,"Los Encinos II, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJd9yeAQ6FzoYRb617Y1RjBnA,route,2025-11-10T22:22:31.050857
+URBI ALAMEDA LOS ENCINOS,29.0564831,-110.9321266,"Los Encinos II, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJd9yeAQ6FzoYRb617Y1RjBnA,route,2025-11-10T22:22:31.408056
+URBI ALAMEDA LOS ENCINOS II,29.0564831,-110.9321266,"Los Encinos II, 83293 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJd9yeAQ6FzoYRb617Y1RjBnA,route,2025-11-10T22:22:31.751960
+URBI ALAMEDA LOS FRESNOS,28.9984473,-110.9180346,"Los Fresnos, 83297 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJqzN_2ZaazoYR1EWytwLkwlA,route,2025-11-10T22:22:32.107921
+URBI ALAMEDA LOS FRESNOS RDCIAL,29.160383,-110.9810874,"Rtno. Arbol de Abetuna 8, 83107 Hermosillo, Son., Mexico",ROOFTOP,ChIJy7u7DaOHzoYRdLhrpl2fFnY,"establishment, point_of_interest",2025-11-10T22:22:32.469524
+URBIVILLA DEL PRADO,29.0559114,-111.0247429,"Urbi Villa del Prado Park, Av Alcantara, Blvd Haciendas del Sur &, 83287 Hermosillo, Son., Mexico",ROOFTOP,ChIJhRd8TOeDzoYRBAh6JzYQdyw,"establishment, park, point_of_interest",2025-11-10T22:22:32.816422
+VALLE DE SANTA MONICA,29.1340615,-110.9581147,"Valle Santa Monica, Hermosillo, Son., Mexico",APPROXIMATE,ChIJMU0f7POGzoYRsjf8iqaMk1k,"political, sublocality, sublocality_level_1",2025-11-10T22:22:33.172067
+VALLE DEL CONEJO,29.1543126,-110.9710024,"Del Valle, Santa Barbara, 83114 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJH5XJ3B6HzoYRF6kQse-AOOs,route,2025-11-10T22:22:33.515006
+VALLE DEL LAGO,29.07682999999999,-110.9871743,"Valle Del Lago, Valle Bonito, 83240 Hermosillo, Son., Mexico",APPROXIMATE,ChIJUZu0dnKEzoYRJnIzLNBCMN8,"neighborhood, political",2025-11-10T22:22:33.854492
+VALLE VERDE (LOCALIDAD RURAL),29.0891919,-110.9737622,"Valle Verde, Hermosillo, Son., Mexico",APPROXIMATE,ChIJ70n99z2EzoYRX6tx9g5QBgc,"political, sublocality, sublocality_level_1",2025-11-10T22:22:34.207422
+VELAS,29.1237214,-110.9723062,"Av. 6 de Abril, Ley 57, 83100 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJqU9rLrmGzoYRwU6oL26Yo5E,"establishment, point_of_interest, store",2025-11-10T22:22:34.562804
+VENTURA CLUB RESIDENCIAL,29.118416,-110.912912,"Blvd Ignacio Mendivil Tirado Esquina con, Blvd. Enrique Mazón López, 83165 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJZ_rpxg6GzoYRf0Cbfj8OSoY,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:22:34.904521
+VENTURA CLUB RESIDENCIAL SEGUNDA ETAPA,29.118416,-110.912912,"Blvd Ignacio Mendivil Tirado Esquina con, Blvd. Enrique Mazón López, 83165 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJZ_rpxg6GzoYRf0Cbfj8OSoY,"establishment, point_of_interest, real_estate_agency",2025-11-10T22:22:35.255777
+VICENTE GUERRERO,29.0865648,-110.9542259,"C. Guerrero, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJndCZhTWEzoYR8dPWIF0d5oI,route,2025-11-10T22:22:35.607199
+VILLA COLONIAL ETAPA III,29.1477161,-110.9786056,"Villa Colonial Etapa III, Hermosillo, Son., Mexico",APPROXIMATE,ChIJK_kXQt-GzoYR5lFtLrEBx9g,"political, sublocality, sublocality_level_1",2025-11-10T22:22:35.953469
+VILLA DEL SERI,29.0441838,-110.9603501,"Villa del Seri, 83280 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ3ZAypueEzoYRMb8OOFLG1Z8,"political, sublocality, sublocality_level_1",2025-11-10T22:22:36.300263
+VILLA ESMERALDA,29.0352343,-110.9847828,"Esmeralda, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJmfz4Fb2EzoYRblyt2zwAtOE,route,2025-11-10T22:22:36.662688
+VILLA GUADALUPE DOS,29.1427748,-110.9748799,"Villa Guadalupe, Hermosillo, Son., Mexico",APPROXIMATE,ChIJI7meX-eGzoYR83twUxhoc7I,"political, sublocality, sublocality_level_1",2025-11-10T22:22:37.025003
+VILLA LUZ (EL POCITO),28.7183332,-111.508611,"83334 Villa Luz, Son., Mexico",APPROXIMATE,ChIJS2FQMNFqzIYRh6eVaDg5DbU,"locality, political",2025-11-10T22:22:37.378914
+VILLA MANANTIAL [CAMPESTRE],29.13456,-110.9527074,"Blvrd Morelos Nte 709, Cumbres Residencial, 83146 Hermosillo, Son., Mexico",ROOFTOP,ChIJkSBiOQCHzoYRNb7o-YVm6SI,"establishment, food, point_of_interest, restaurant",2025-11-10T22:22:37.752316
+VILLA RESIDENCIAL BONITA IX X XI Y XII,29.118206,-110.9674848,"Av. 12, Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJx3G8lpCGzoYRdApTenNE5cc,route,2025-11-10T22:22:38.109468
+VILLA SAN LORENZO,29.1516749,-111.0066098,"C. Villa de San Lorenzo, Privadas del Bosque, 83117 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJu_A8HdGAzoYRtlM3FU15lWQ,route,2025-11-10T22:22:38.455003
+VILLA SAUCES RESIDENCIAL,29.126625,-111.0207057,"Villa Sauces, 83179 Hermosillo, Son., Mexico",APPROXIMATE,ChIJbbt9xz6BzoYRhPQhwW1a9tQ,"political, sublocality, sublocality_level_1",2025-11-10T22:22:38.815357
+VILLA SURENA,29.0457644,-110.9773016,"Villa Sureña, 83280 Hermosillo, Son., Mexico",APPROXIMATE,ChIJdWcRB5OEzoYRKZJ3sJHCC4Y,"political, sublocality, sublocality_level_1",2025-11-10T22:22:39.158097
+VILLA TOSCANA RESIDENCIAL,29.083365,-111.0340969,"Av Villa Toscana, Villas del Mediterraneo, La Manga, 83320 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJvy0D-M-DzoYRhUp3hutquo0,route,2025-11-10T22:22:39.552613
+VILLA VENTURA,29.1527188,-110.9602745,"Ventura, Colinas del Sol, 83106 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJVWaPkQKHzoYR4RLEf8CvGbI,route,2025-11-10T22:22:39.908202
+VILLA VERDE 4 ETAPA,29.0778357,-110.9829368,"Villa Verde 4, Villas del Sol, 83240 Hermosillo, Son., Mexico",RANGE_INTERPOLATED,Ej1WaWxsYSBWZXJkZSA0LCBWaWxsYXMgZGVsIFNvbCwgODMyNDAgSGVybW9zaWxsbywgU29uLiwgTWV4aWNvIjASLgoUChIJw5VATmyEzoYRe_1p30JAjMYQBCoUChIJCYXSrW2EzoYRY_H2CXaPEEA,street_address,2025-11-10T22:22:40.263757
+VILLA VERDE IV ETAPA,29.1667617,-111.01698,"Villa Verde, 83318 Hermosillo, Son., Mexico",APPROXIMATE,ChIJrS1DGL-AzoYRQ-m9kYaqoAg,"political, sublocality, sublocality_level_1",2025-11-10T22:22:40.623259
+VILLAS DE CORTES,29.1460783,-110.9737622,"Villa del Cortes, 83106 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ5xdrKt6GzoYRz51S4aCNIgs,"political, sublocality, sublocality_level_1",2025-11-10T22:22:40.958592
+VILLAS DE ROMANZA,29.1554076,-110.9994692,"Fraccionamiento Villas de Romanza, 83117 Hermosillo, Son., Mexico",APPROXIMATE,ChIJWUeVvtKAzoYRLBB7MaTdCdo,"political, sublocality, sublocality_level_1",2025-11-10T22:22:41.310308
+VILLAS DEL CORTEZ,29.1460783,-110.9737622,"Villa del Cortes, 83106 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ5xdrKt6GzoYRz51S4aCNIgs,"political, sublocality, sublocality_level_1",2025-11-10T22:22:41.642175
+VILLAS DEL MEDITERRANEO,29.0833884,-111.0348634,"Villas del Mediterraneo, La Manga, 83320 Hermosillo, Son., Mexico",APPROXIMATE,ChIJx-sS-8-DzoYRsVtrVxD4i7o,"neighborhood, political",2025-11-10T22:22:41.988979
+VILLAS DEL MEDITERRANEO II,29.0833884,-111.0348634,"Villas del Mediterraneo, La Manga, 83320 Hermosillo, Son., Mexico",APPROXIMATE,ChIJx-sS-8-DzoYRsVtrVxD4i7o,"neighborhood, political",2025-11-10T22:22:42.352381
+VILLAS DEL MEDITERRANEO III,29.0833884,-111.0348634,"Villas del Mediterraneo, La Manga, 83320 Hermosillo, Son., Mexico",APPROXIMATE,ChIJx-sS-8-DzoYRsVtrVxD4i7o,"neighborhood, political",2025-11-10T22:22:42.702790
+VILLAS DEL NOGAL,29.0947466,-110.916997,"Del Nogal, 83020 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,EilEZWwgTm9nYWwsIDgzMDIwIEhlcm1vc2lsbG8sIFNvbi4sIE1leGljbyIuKiwKFAoSCR9L6arthc6GEVBxG9bS7tWYEhQKEgnlrt96aITOhhH5f4jplVM9sw,route,2025-11-10T22:22:43.072951
+VILLAS DEL REAL,29.1465304,-111.0177251,"Villa del Real, 83318 Hermosillo, Son., Mexico",APPROXIMATE,ChIJ5bydSdmAzoYRdBITB-r9qcQ,"political, sublocality, sublocality_level_1",2025-11-10T22:22:43.406793
+VILLAS DEL SUR,29.0160448,-110.9797232,"Villas del Sur, 83284 Hermosillo, Son., Mexico",APPROXIMATE,ChIJmxFC40qbzoYRe1uYuL_FogA,"political, sublocality, sublocality_level_1",2025-11-10T22:22:43.734096
+VILLAS MONTECARLO,29.0762623,-110.9828194,"Villa María, Villas del Sol, 83240 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJgd4wJ2yEzoYR7AQkplZo7h8,route,2025-11-10T22:22:44.095360
+VILLAS RESIDENCIAL,29.1541584,-110.9752525,"Villas Residencial, Hermosillo, Son., Mexico",APPROXIMATE,ChIJcYsh8SGHzoYReqs6yuLJLrs,"political, sublocality, sublocality_level_1",2025-11-10T22:22:44.423576
+VISTA DEL SOL RESIDENCIAL,29.1230372,-110.953955,"Vista del Sol, Sacramento, 83145 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJhzUV7yiHzoYRJocJ9SaWZDg,"establishment, point_of_interest",2025-11-10T22:22:44.765760
+VIVA SONORA,29.0946227,-110.9627592,"Cuernavaca 74, San Benito, 83190 Hermosillo, Son., Mexico",ROOFTOP,ChIJoUbdyTyEzoYRVfKUO9Wld4c,"establishment, point_of_interest",2025-11-10T22:22:45.124822
+VIÑAS DE LA COSTA (EL CHAMIZAL),28.91195859999999,-111.3096591,"Carr. Hermosillo Bahía Kino Km 41, 83325 Bahía de Kino, Son., Mexico",ROOFTOP,ChIJ9SA0Ah87zIYR4q47V85zh6k,"establishment, point_of_interest",2025-11-10T22:22:45.488086
+VIÑEDO LA COSTA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:45.821923
+VIÑEDO LA ESPERANZA,29.0729673,-110.9559192,"Hermosillo, Sonora, Mexico",APPROXIMATE,ChIJ5a7femiEzoYR-X-I6ZVTPbM,"locality, political",2025-11-10T22:22:46.181974
+ZACATON,29.2746412,-110.8485863,"83300 El Zacatón, Sonora, Mexico",APPROXIMATE,ChIJB9JTqqZjzoYRQ8iJ-mtM9zA,"locality, political",2025-11-10T22:22:46.572798
+ZAMORA,29.26165039999999,-110.88584,"83300 Zamora, Son., Mexico",APPROXIMATE,ChIJRwEjYSRjzoYRksNI6lfSWP4,"locality, political",2025-11-10T22:22:46.910482
+ZAMORA (RANCHO),29.0274504,-110.9732188,"Del Rancho, Hacienda Los Alcatraces, 83284 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJwbERDMiEzoYR2r4akubm5iY,route,2025-11-10T22:22:47.258786
+ZONA INDUSTRIAL (PRESA ABELARDO LUJAN),29.0731885,-110.9661578,"Abelardo Luján Rodríguez, El Centenario, 83260 Hermosillo, Son., Mexico",GEOMETRIC_CENTER,ChIJLVPd0kSEzoYRNgPs2o5r0Gk,route,2025-11-10T22:22:47.625034
