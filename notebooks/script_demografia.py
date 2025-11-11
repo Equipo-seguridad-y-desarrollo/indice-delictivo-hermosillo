@@ -26,7 +26,7 @@ def main():
 
 
     output_dir = project_root / "data" / "raw"
-    output_file = output_dir / "hermosillo_colonias_poblacion.csv"
+    output_file = output_dir / "demografia_hermosillo.csv"
 
     print(f"Creando directorio si no existe: {output_dir}")
     output_dir.mkdir(parents=True, exist_ok=True)
