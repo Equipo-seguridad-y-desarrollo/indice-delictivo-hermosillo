@@ -7,6 +7,7 @@ import geopandas as gpd
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
+import numpy as np
 
 # =============================================
 # CONFIGURACIÓN Y CARGA DE DATOS
@@ -18,6 +19,25 @@ data_dir = project_root / 'data' / 'processed' / 'unificado'
 
 # Polígonos con datos agregados
 gdf_poligonos = gpd.read_file(data_dir / 'poligonos_unificados_completo.geojson')
+
+# >> CARGA E INTEGRACIÓN DE DATOS PCA <<
+try:
+    df_pca = pd.read_csv(data_dir / 'colonias_pca_puntuaciones.csv')
+    gdf_poligonos = gdf_poligonos.merge(df_pca, on='COLONIA', how='left')
+    
+    # Rellenar NaN en las columnas CPx con 0
+    for i in range(1, 9):
+        col_name = f'CP{i}'
+        if col_name in gdf_poligonos.columns:
+            gdf_poligonos[col_name] = gdf_poligonos[col_name].fillna(0)
+    print(f"✓ PCA scores (CP1-CP8) merged.")
+
+except FileNotFoundError:
+    print("❌ ADVERTENCIA: No se encontró el archivo colonias_pca_puntuaciones.csv. Los índices PCA no estarán disponibles.")
+    for i in range(1, 9):
+        gdf_poligonos[f'CP{i}'] = 0 
+# >> FIN DE CARGA PCA <<
+
 
 # Incidentes individuales con timestamp
 df_incidentes = pd.read_csv(data_dir / 'incidentes_con_poligono_temporal.csv')
@@ -45,6 +65,18 @@ app.title = "Índice Delictivo Hermosillo"
 # LAYOUT DEL DASHBOARD
 # =============================================
 
+# Definiciones de los CPs para el Dropdown (usando los nombres interpretados)
+pca_options_list = [
+    {'label': 'CP1: Demanda Emergencia General', 'value': 'CP1'},
+    {'label': 'CP2: Desorden Público / Extorsión', 'value': 'CP2'},
+    {'label': 'CP3: Riesgo Social / Menores', 'value': 'CP3'},
+    {'label': 'CP4: Delitos Sexuales / Riesgo', 'value': 'CP4'},
+    {'label': 'CP5: Riesgo Físico / Infraestructura', 'value': 'CP5'},
+    {'label': 'CP6: Riesgo Ambiental / Hallazgos', 'value': 'CP6'},
+    {'label': 'CP7: Explotación / Regulatorio', 'value': 'CP7'},
+    {'label': 'CP8: Violencia Organizada / Fuego', 'value': 'CP8'},
+]
+
 app.layout = html.Div([
     html.Div([
         html.H1("🚨 Índice Delictivo Hermosillo 2018-2025", 
@@ -64,7 +96,11 @@ app.layout = html.Div([
                 options=[
                     {'label': ' Calor: Total de incidentes por polígono', 'value': 'total'},
                     {'label': ' Calor: Tasa per 1k habitantes', 'value': 'tasa'},
-                    {'label': ' Calor: Índice de riesgo', 'value': 'riesgo'},
+                    {'label': ' Calor: Índice de riesgo (Previo)', 'value': 'riesgo'},
+                    
+                    # ÚNICA OPCIÓN PARA SELECCIÓN PCA
+                    {'label': ' PCA: Perfil Delictivo (Seleccionar Abajo)', 'value': 'pca_selector'}, 
+                    
                     {'label': ' Severidad: Alta/Media/Baja', 'value': 'severidad'},
                     {'label': ' Puntos: Incidentes individuales', 'value': 'puntos'},
                 ],
@@ -72,6 +108,17 @@ app.layout = html.Div([
                 style={'marginBottom': 15}
             ),
         ], style={'width': '100%', 'marginBottom': 20}),
+        
+        # --- DROPDOWN PARA SELECCIONAR EL CP (Aparece solo en modo PCA_Selector) ---
+        html.Div(id='pca-dropdown-container', children=[
+            html.Label("Seleccionar Componente Principal (CP1-CP8):", style={'fontWeight': 'bold'}),
+            dcc.Dropdown(
+                id='filtro-pca-cp',
+                options=pca_options_list,
+                value='CP1', # Valor predeterminado
+                clearable=False,
+            ),
+        ], style={'width': '48%', 'marginBottom': 20, 'display': 'none'}), # Inicialmente oculto
         
         html.Div([
             # Año
@@ -212,9 +259,21 @@ app.layout = html.Div([
 ], style={'padding': '20px', 'backgroundColor': '#f5f5f5'})
 
 # =============================================
-# CALLBACKS
+# CALLBACKS DE CONTROL
 # =============================================
 
+# CALLBACK para mostrar/ocultar el Dropdown de PCA
+@app.callback(
+    Output('pca-dropdown-container', 'style'),
+    [Input('modo-visualizacion', 'value')]
+)
+def toggle_pca_dropdown(modo):
+    if modo == 'pca_selector':
+        return {'width': '48%', 'marginBottom': 20, 'display': 'block'}
+    return {'display': 'none'}
+
+
+# CALLBACK PRINCIPAL
 @app.callback(
     [Output('mapa-principal', 'figure'),
      Output('estadisticas-panel', 'children'),
@@ -227,9 +286,10 @@ app.layout = html.Div([
      Input('filtro-hora', 'value'),
      Input('filtro-categoria', 'value'),
      Input('filtro-severidad', 'value'),
-     Input('slider-fechas', 'value')]
+     Input('slider-fechas', 'value'),
+     Input('filtro-pca-cp', 'value')]
 )
-def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, rango_fechas):
+def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, rango_fechas, cp_seleccionado):
     """Actualizar mapa y gráficas según filtros"""
     
     # FILTRAR INCIDENTES
@@ -324,7 +384,7 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
         # Elegir métrica según modo
         if modo == 'total':
             gdf_temp['valor'] = gdf_temp['total_filtrado']
-            colorbar_title = "Incidentes"
+            colorbar_title = "Incidentes (Filtrados)"
             colorscale = "Reds"
         elif modo == 'tasa':
             gdf_temp['valor'] = gdf_temp['tasa_incidentes_per_1k']
@@ -334,7 +394,23 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
             gdf_temp['valor'] = gdf_temp['indice_riesgo']
             colorbar_title = "Índice Riesgo"
             colorscale = "Plasma"
+            
+        elif modo == 'pca_selector':
+            # Lógica para CP1 a CP8 usando el selector
+            gdf_temp['valor'] = gdf_temp[cp_seleccionado]
+            
+            # Buscar el nombre descriptivo usando la lista de opciones
+            description_map = {opt['value']: opt['label'].split(':')[-1].strip() for opt in pca_options_list}
+            description = description_map.get(cp_seleccionado, "Perfil Delictivo")
+            
+            colorbar_title = f"{cp_seleccionado} ({description})"
+            
+            # === MODIFICACIÓN CLAVE: ESCALA DE COLOR ROJO-VERDE ===
+            # RdYlGn (Rojo-Amarillo-Verde). _r para invertir, haciendo ROJO = ALTO RIESGO.
+            colorscale = "RdYlGn_r"
+            
         elif modo == 'severidad':
+        
             # Calcular score de severidad para filtrados
             gdf_temp['valor'] = (
                 (gdf_temp['alta'].fillna(0) * 3 + 
@@ -344,22 +420,20 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
             )
             colorbar_title = "Score Severidad"
             colorscale = "Inferno"
+        
+        # Lógica de Choropleth para modos que no son puntos
         # Convertir a GeoJSON
-        # Hacemos una copia para no modificar el gdf_temp original
         gdf_for_json = gdf_temp.copy()
         
-        # Normalizar columnas datetime/obj a strings para serializar a GeoJSON
+        # Normalizar columnas
         for col in gdf_for_json.columns:
-            # columnas datetime
             if pd.api.types.is_datetime64_any_dtype(gdf_for_json[col]):
                 gdf_for_json[col] = gdf_for_json[col].astype(str)
-            # columnas object que pueden contener datetimes u objetos con isoformat()
             elif pd.api.types.is_object_dtype(gdf_for_json[col]):
                 gdf_for_json[col] = gdf_for_json[col].apply(
                     lambda x: x.isoformat() if (hasattr(x, 'isoformat') and not isinstance(x, str)) else x
                 )
         
-        # Convertir GeoDataFrame a GeoJSON (string -> dict)
         geojson = json.loads(gdf_for_json.to_json())
         
         # Agregar choropleth
@@ -391,7 +465,7 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
         showlegend=False
     )
     
-    # GRÁFICA TEMPORAL
+    # GRÁFICAS AUXILIARES (NO MODIFICADAS)
     if len(df_filtrado) > 0:
         temporal = df_filtrado.groupby(df_filtrado['Timestamp'].dt.to_period('D')).size().reset_index()
         temporal.columns = ['Periodo', 'Incidentes']
@@ -411,7 +485,6 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
     
     fig_temporal.update_layout(height=300, margin=dict(l=40, r=40, t=40, b=40))
     
-    # GRÁFICA CATEGORÍAS
     if len(df_filtrado) > 0:
         categorias = df_filtrado['Categoria_Incidente'].value_counts().head(10).reset_index()
         categorias.columns = ['Categoria', 'Cantidad']
@@ -440,7 +513,7 @@ def actualizar_visualizacion(modo, año, mes, dia, hora, categoria, severidad, r
 
 if __name__ == '__main__':
     print("\n" + "="*70)
-    print("🚀 INICIANDO DASHBOARD")
+    print("🚀 INICIANDO DASHBOARD CON OPCIONES PCA SELECTIVAS (Rojo=Máximo Riesgo)")
     print("="*70)
     print("\nAbriendo en: http://127.0.0.1:8050/")
     print("Presiona Ctrl+C para detener\n")
