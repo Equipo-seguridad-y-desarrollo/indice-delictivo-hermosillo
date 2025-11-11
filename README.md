@@ -218,7 +218,28 @@ Ver [`SECURITY.md`](SECURITY.md) para más detalles de seguridad.
 
 ---
 
-## 📈 Métricas de Calidad
+## � Análisis Exploratorio de Datos
+
+El análisis exploratorio de datos (EDA) del proyecto se realiza a través de múltiples enfoques:
+
+### 📁 Análisis Automatizados
+Los análisis automatizados se encuentran en los siguientes notebooks:
+
+- **`notebooks/01_auto_eda_SweetViz.ipynb`**: Análisis automático interactivo usando **SweetViz**, que genera reportes HTML con perfiles de datos, distribuciones, correlaciones y relaciones bivariadas
+- **`notebooks/01_auto_eda_ydata.ipynb`**: Análisis automático usando **YData Profiling**, que proporciona un análisis profundo de calidad de datos, variables, interacciones y alertas
+
+### 🔬 Análisis Exploratorio Manual
+- **`notebooks/02_analisis_exploratorio.ipynb`**: Análisis exploratorio completo realizado manualmente que incluye:
+  - ✅ Análisis detallado de datos faltantes
+  - ✅ Detección de anomalías mediante múltiples técnicas (Z-Score, IQR, Isolation Forest)
+  - ✅ Visualización de relaciones entre variables (pair plots, distribuciones, scatter plots)
+  - ✅ Análisis de correlación y multicolinealidad
+  - ✅ Reducción dimensional mediante PCA
+  - ✅ Conclusiones estadísticas y recomendaciones accionables
+
+---
+
+## �📈 Métricas de Calidad
 
 | Dataset | Registros | Colonias Únicas | Variantes Detectadas | Calidad |
 |---------|-----------|-----------------|----------------------|---------|
