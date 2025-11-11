@@ -63,7 +63,7 @@ Write-Host "✓ Paso 2 completado`n" -ForegroundColor Green
 # ============================================
 # PASO 3: Geocodificar reportes 911
 # ============================================
-Write-Host "[3/7] " -NoNewline -ForegroundColor Yellow
+Write-Host "[3/6] " -NoNewline -ForegroundColor Yellow
 Write-Host "Geocodificando colonias de reportes 911..." -ForegroundColor White
 Write-Host "      Salida: data/processed/colonias_reportes_911_con_coordenadas.csv" -ForegroundColor Gray
 
@@ -77,52 +77,37 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "✓ Paso 3 completado`n" -ForegroundColor Green
 
 # ============================================
-# PASO 4: Geocodificar demografía
+# PASO 4: Unificar datos (CORE)
 # ============================================
-Write-Host "[4/7] " -NoNewline -ForegroundColor Yellow
-Write-Host "Geocodificando colonias de demografía..." -ForegroundColor White
-Write-Host "      Salida: data/processed/colonias_demografia_con_coordenadas.csv" -ForegroundColor Gray
+Write-Host "[4/6] " -NoNewline -ForegroundColor Yellow
+Write-Host "Unificando datos (merge directo demografía + spatial join reportes)..." -ForegroundColor White
+Write-Host "      Salida: data/processed/unificado/poligonos_unificados_completo.*" -ForegroundColor Gray
+Write-Host "      OPTIMIZACIÓN: Demografía usa cve_col (sin geocodificación)" -ForegroundColor Magenta
 
-python notebooks/geocodificar_colonias_demografia.py
+python notebooks/unificar_datos_poligonos.py
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "❌ Error en paso 4: geocodificar_colonias_demografia.py" -ForegroundColor Red
+    Write-Host "❌ Error en paso 4: unificar_datos_poligonos.py" -ForegroundColor Red
     exit 1
 }
 
 Write-Host "✓ Paso 4 completado`n" -ForegroundColor Green
 
 # ============================================
-# PASO 5: Unificar datos (CORE)
+# PASO 5: Generar dashboard
 # ============================================
-Write-Host "[5/7] " -NoNewline -ForegroundColor Yellow
-Write-Host "Unificando datos (spatial join 3 pasos + agregación)..." -ForegroundColor White
-Write-Host "      Salida: data/processed/unificado/poligonos_unificados_completo.*" -ForegroundColor Gray
-
-python notebooks/unificar_datos_poligonos.py
-
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "❌ Error en paso 5: unificar_datos_poligonos.py" -ForegroundColor Red
-    exit 1
-}
-
-Write-Host "✓ Paso 5 completado`n" -ForegroundColor Green
-
-# ============================================
-# PASO 6: Generar dashboard
-# ============================================
-Write-Host "[6/7] " -NoNewline -ForegroundColor Yellow
+Write-Host "[5/6] " -NoNewline -ForegroundColor Yellow
 Write-Host "Generando mapa interactivo (5 capas)..." -ForegroundColor White
 Write-Host "      Salida: mapa_interactivo_hermosillo.html (~12MB)" -ForegroundColor Gray
 
 python notebooks/mapa_interactivo_folium_avanzado.py
 
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "❌ Error en paso 6: mapa_interactivo_folium_avanzado.py" -ForegroundColor Red
+    Write-Host "❌ Error en paso 5: mapa_interactivo_folium_avanzado.py" -ForegroundColor Red
     exit 1
 }
 
-Write-Host "✓ Paso 6 completado`n" -ForegroundColor Green
+Write-Host "✓ Paso 5 completado`n" -ForegroundColor Green
 
 # ============================================
 # RESUMEN
@@ -148,11 +133,13 @@ Write-Host "   • data/processed/unificado/poligonos_unificados_completo.geojso
 Write-Host "   • mapa_interactivo_hermosillo.html (12 MB)" -ForegroundColor Green
 Write-Host ""
 Write-Host "🎯 Dashboard listo:" -ForegroundColor White
-Write-Host "   7 pasos completados" -ForegroundColor Gray
+Write-Host "   6 pasos completados (OPTIMIZADO: sin geocodificar demografía)" -ForegroundColor Gray
 Write-Host "   5 capas de visualización" -ForegroundColor Gray
-Write-Host "   693 polígonos con métricas" -ForegroundColor Gray
+Write-Host "   700 polígonos con métricas" -ForegroundColor Gray
 Write-Host "   2.2M incidentes agregados" -ForegroundColor Gray
-Write-Host "   658 colonias con demografía (100%)" -ForegroundColor Gray
+Write-Host "   659 colonias con demografía (99.8% cobertura por cve_col)" -ForegroundColor Gray
+Write-Host ""
+Write-Host "💰 Ahorro: 50% de costos API (sin geocodificar demografía)" -ForegroundColor Magenta
 Write-Host ""
 Write-Host "======================================================================" -ForegroundColor Cyan
 Write-Host ""

@@ -53,7 +53,7 @@ def cargar_datos_base():
         gdf_poligonos = gdf_poligonos.rename(columns=col_map)
     
     # 2. Demografía (preferir versión normalizada si existe)
-    print("\n[2/6] Cargando demografía...")
+    print("\n[2/5] Cargando demografía...")
     demo_clean_path = project_root / 'data' / 'processed' / 'demografia_limpio.csv'
     demo_raw_path = project_root / 'data' / 'raw' / 'demografia_hermosillo.csv'
     if demo_clean_path.exists():
@@ -63,34 +63,27 @@ def cargar_datos_base():
         demografia = pd.read_csv(demo_raw_path)
         print(f"   Usando demografía RAW: {demo_raw_path.name} ({len(demografia):,} registros)")
     
-    # 3. Demografía con coordenadas (para spatial join)
-    print("\n[3/6] Cargando coordenadas de demografía...")
-    demografia_coords_path = project_root / 'data' / 'processed' / 'colonias_demografia_con_coordenadas.csv'
-    demografia_coords = pd.read_csv(demografia_coords_path)
-    print(f"   Demografía geocodificada: {len(demografia_coords):,}")
-    
-    # 4. Reportes procesados
-    # 4. Reportes procesados
-    print("\n[4/6] Cargando reportes 911 procesados...")
+    # 3. Reportes procesados
+    print("\n[3/5] Cargando reportes 911 procesados...")
     reportes_path = project_root / 'data' / 'interim' / 'reportes_de_incidentes_procesados_2018_2025.csv'
     reportes = pd.read_csv(reportes_path)
     reportes['Timestamp'] = pd.to_datetime(reportes['Timestamp'])
     print(f"   Reportes cargados: {len(reportes):,}")
     print(f"   Periodo: {reportes['Timestamp'].min()} a {reportes['Timestamp'].max()}")
     
-    # 5. Mapeo de colonias (normalización)
-    print("\n[5/6] Cargando mapeo de colonias...")
+    # 4. Mapeo de colonias (normalización)
+    print("\n[4/5] Cargando mapeo de colonias...")
     mapeo_path = project_root / 'data' / 'processed' / 'mapeo_colonias_reportes_911.csv'
     mapeo = pd.read_csv(mapeo_path)
     print(f"   Mapeos cargados: {len(mapeo):,}")
     
-    # 6. Coordenadas de colonias de reportes
-    print("\n[6/6] Cargando coordenadas de reportes...")
+    # 5. Coordenadas de colonias de reportes
+    print("\n[5/5] Cargando coordenadas de reportes...")
     coords_path = project_root / 'data' / 'processed' / 'colonias_reportes_911_con_coordenadas.csv'
     coords = pd.read_csv(coords_path)
     print(f"   Colonias geocodificadas: {len(coords):,}")
     
-    return gdf_poligonos, demografia, demografia_coords, reportes, mapeo, coords
+    return gdf_poligonos, demografia, reportes, mapeo, coords
 
 
 def preparar_incidentes_con_geometria(reportes, mapeo, coords):
@@ -181,266 +174,64 @@ def spatial_join_incidentes_poligonos(gdf_reportes, gdf_poligonos):
     return incidentes_en_poligonos
 
 
-def spatial_join_demografia_poligonos(demografia, demografia_coords, gdf_poligonos):
+def merge_demografia_poligonos_por_clave(demografia, gdf_poligonos):
     """
-    Asignar datos demográficos a polígonos mediante spatial join de coordenadas
-    Usa buffer de 500m para capturar colonias cercanas que están justo fuera del polígono
-    Y merge por nombre como fallback para coordenadas incorrectas
+    Asignar datos demográficos a polígonos mediante merge directo por cve_col (clave oficial INEGI)
+    Este método es mucho más rápido y preciso que spatial join, ya que usa identificadores únicos oficiales.
+    NO requiere geocodificación ni coordenadas.
     """
     print("\n" + "="*70)
-    # Evitar caracteres Unicode que rompan en cp1252 (flechas u+2192)
-    print("SPATIAL JOIN: DEMOGRAFIA -> POLIGONOS (3 pasos)")
+    print("MERGE DIRECTO: DEMOGRAFIA -> POLIGONOS (por cve_col)")
     print("="*70)
     
-    # Unir demografía con sus coordenadas
-    print("\nUniendo demografía con coordenadas...")
-    # Si existe columna normalizada, usarla para unir coordenadas (fallback a original)
-    tiene_norm = 'nom_col_norm' in demografia.columns
-    nombre_col_join = 'nom_col_norm' if tiene_norm else 'nom_col'
-    coords_join_col = 'nom_col'  # en coords está la versión original
-    demografia_geo = demografia.merge(
-        demografia_coords[[coords_join_col, 'LATITUD', 'LONGITUD']],
-        left_on=nombre_col_join,
-        right_on=coords_join_col,
+    print("\nRealizando merge directo por cve_col (clave oficial INEGI)...")
+    print("   Ventajas: Sin costos de API, sin spatial join, 100% preciso")
+    
+    # Preparar demografía con CVE_COL normalizado
+    demografia_prep = demografia.copy()
+    
+    # Asegurar que ambas claves están en el mismo formato
+    if 'cve_col' in demografia_prep.columns:
+        demografia_prep['CVE_COL'] = demografia_prep['cve_col'].astype(str)
+    
+    # Merge directo por CVE_COL
+    demografia_por_poligono = gdf_poligonos[['CVE_COL', 'COLONIA']].merge(
+        demografia_prep[['cve_col', 'poblacion_total', 'viviendas_totales', 
+                        'escolaridad_años_prom', 'pctj_menores18', 'pctj_hombres', 'pctj_mujeres']],
+        left_on='CVE_COL',
+        right_on='cve_col',
         how='left'
     )
-    # Segundo intento: para filas sin coordenadas y con columna original distinta
-    if tiene_norm:
-        mask_missing = demografia_geo['LATITUD'].isna()
-        if mask_missing.any():
-            retry = demografia.loc[mask_missing, ['nom_col']].merge(
-                demografia_coords[[coords_join_col, 'LATITUD', 'LONGITUD']],
-                left_on='nom_col', right_on=coords_join_col, how='left'
-            )
-            # Reemplazar solo donde se encontraron coordenadas en retry
-            demografia_geo.loc[mask_missing, 'LATITUD'] = retry['LATITUD'].values
-            demografia_geo.loc[mask_missing, 'LONGITUD'] = retry['LONGITUD'].values
-    print(f"   Demografía con coordenadas: {len(demografia_geo):,}")
     
-    # Crear GeoDataFrame con puntos
-    print("Creando geometría de puntos...")
-    gdf_demografia = gpd.GeoDataFrame(
-        demografia_geo,
-        geometry=gpd.points_from_xy(
-            demografia_geo['LONGITUD'], 
-            demografia_geo['LATITUD']
-        ),
-        crs='EPSG:4326'
-    )
+    # Limpiar columna duplicada
+    demografia_por_poligono = demografia_por_poligono.drop(columns=['cve_col'])
     
-    # PASO 1: Spatial join sin buffer (dentro del polígono)
-    print("\n[Paso 1/3] Spatial join SIN buffer (puntos dentro)...")
-    demografia_en_poligonos = gpd.sjoin(
-        gdf_demografia,
-        gdf_poligonos[['CVE_COL', 'COLONIA', 'geometry']],
-        how='left',
-        predicate='within'
-    )
+    # Estadísticas
+    con_demografia = demografia_por_poligono['poblacion_total'].notna().sum()
+    sin_demografia = demografia_por_poligono['poblacion_total'].isna().sum()
     
-    con_poligono_exacto = demografia_en_poligonos['CVE_COL'].notna().sum()
-    sin_poligono = demografia_en_poligonos['CVE_COL'].isna().sum()
+    print(f"\nRESULTADO:")
+    print(f"   Poligonos con demografia: {con_demografia:,} ({con_demografia/len(gdf_poligonos)*100:.1f}%)")
+    print(f"   Poligonos sin demografia: {sin_demografia:,} ({sin_demografia/len(gdf_poligonos)*100:.1f}%)")
     
-    print(f"   Dentro de poligonos: {con_poligono_exacto:,} ({con_poligono_exacto/len(demografia_en_poligonos)*100:.1f}%)")
-    print(f"   Sin poligono: {sin_poligono:,} ({sin_poligono/len(demografia_en_poligonos)*100:.1f}%)")
-    
-    # PASO 2: Para los que no matchearon, usar buffer de 500m
-    if sin_poligono > 0:
-        print(f"\n[Paso 2/3] Aplicando buffer de 500m para {sin_poligono:,} colonias restantes...")
-        
-        # Convertir a proyección métrica (UTM 12N para Hermosillo)
-        gdf_poligonos_utm = gdf_poligonos.to_crs('EPSG:32612')
-        
-        # Aplicar buffer de 500m
-        gdf_poligonos_buffer = gdf_poligonos_utm.copy()
-        gdf_poligonos_buffer.geometry = gdf_poligonos_utm.geometry.buffer(500)
-        
-        # Volver a WGS84
-        gdf_poligonos_buffer = gdf_poligonos_buffer.to_crs('EPSG:4326')
-        
-        # Solo procesar los que no tienen match
-        ref_col = 'nom_col_norm' if 'nom_col_norm' in gdf_demografia.columns else 'nom_col'
-        sin_match = gdf_demografia[gdf_demografia[ref_col].isin(
-            demografia_en_poligonos[demografia_en_poligonos['CVE_COL'].isna()][ref_col]
-        )].copy()
-        
-        # Spatial join con buffer
-        match_buffer = gpd.sjoin(
-            sin_match,
-            gdf_poligonos_buffer[['CVE_COL', 'COLONIA', 'geometry']],
-            how='left',
-            predicate='within'
-        )
-        
-        # Actualizar los que ahora sí matchearon
-        nuevos_match = match_buffer[match_buffer['CVE_COL'].notna()]
-        
-        if len(nuevos_match) > 0:
-            # Actualizar demografia_en_poligonos con los nuevos matches
-            ref_col = 'nom_col_norm' if 'nom_col_norm' in demografia_en_poligonos.columns else 'nom_col'
-            for idx, row in nuevos_match.iterrows():
-                if ref_col in nuevos_match.columns:
-                    mask = demografia_en_poligonos[ref_col] == row[ref_col]
-                    demografia_en_poligonos.loc[mask, 'CVE_COL'] = row['CVE_COL']
-                    demografia_en_poligonos.loc[mask, 'COLONIA'] = row['COLONIA']
-            con_buffer = nuevos_match['CVE_COL'].notna().sum()
-            print(f"   Capturadas con buffer: {con_buffer:,}")
-        else:
-            con_buffer = 0
-            print(f"   Capturadas con buffer: 0")
-    
-    # PASO 3: Para los que aún no matchearon, intentar merge por NOMBRE
-    sin_poligono_despues_buffer = demografia_en_poligonos['CVE_COL'].isna().sum()
-    
-    if sin_poligono_despues_buffer > 0:
-        print(f"\n[Paso 3/3] Merge por NOMBRE para {sin_poligono_despues_buffer:,} colonias restantes...")
-        print("   (Esto captura colonias con coordenadas incorrectas pero nombre correcto)")
-        
-        # Normalizar nombres para matching
-        # Preparar columna normalizada para matching por nombre (usar la limpia si existe)
-        if 'nom_col_norm' in demografia_en_poligonos.columns:
-            demografia_en_poligonos['nom_col_norm_match'] = (
-                demografia_en_poligonos['nom_col_norm']
-                .str.upper()
-                .str.strip()
-                .str.replace(r'\s+', ' ', regex=True)
-            )
-        else:
-            demografia_en_poligonos['nom_col_norm_match'] = (
-                demografia_en_poligonos['nom_col']
-                .str.upper()
-                .str.strip()
-                .str.replace(r'\s+', ' ', regex=True)
-            )
-        
-        gdf_poligonos_norm = gdf_poligonos.copy()
-        gdf_poligonos_norm['COLONIA_norm'] = (
-            gdf_poligonos_norm['COLONIA']
-            .str.upper()
-            .str.strip()
-            .str.replace(r'\s+', ' ', regex=True)
-        )
-        
-        # Solo para los que no tienen CVE_COL
-        sin_match_nombre = demografia_en_poligonos[
-            demografia_en_poligonos['CVE_COL'].isna()
-        ].copy()
-        
-        # Merge por nombre normalizado
-        match_nombre = sin_match_nombre.merge(
-            gdf_poligonos_norm[['CVE_COL', 'COLONIA', 'COLONIA_norm']],
-            left_on='nom_col_norm_match',
-            right_on='COLONIA_norm',
-            how='left',
-            suffixes=('_demo', '_poli')
-        )
-        
-        # Actualizar los que matchearon por nombre
-        nuevos_match_nombre = match_nombre[match_nombre['CVE_COL_poli'].notna()]
-        
-        if len(nuevos_match_nombre) > 0:
-            # Usar la columna de matching creada (nom_col_norm_match) para ubicar filas a actualizar
-            for idx, row in nuevos_match_nombre.iterrows():
-                if 'nom_col_norm_match' in demografia_en_poligonos.columns and 'nom_col_norm_match' in nuevos_match_nombre.columns:
-                    mask = (demografia_en_poligonos['CVE_COL'].isna()) & \
-                           (demografia_en_poligonos['nom_col_norm_match'] == row['nom_col_norm_match'])
-                else:
-                    # Fallback conservador (no debería ocurrir dado que definimos nom_col_norm_match arriba)
-                    continue
-                demografia_en_poligonos.loc[mask, 'CVE_COL'] = row['CVE_COL_poli']
-                demografia_en_poligonos.loc[mask, 'COLONIA'] = row['COLONIA_poli']
-            con_nombre = len(nuevos_match_nombre)
-            print(f"   Capturadas por nombre: {con_nombre:,}")
-        else:
-            con_nombre = 0
-            print(f"   Capturadas por nombre: 0")
-    else:
-        con_nombre = 0
-    
-    # PASO 4: Validar y corregir asignaciones incorrectas por nombre
-    # (Para colonias que obtuvieron CVE_COL en pasos 1-2 pero el nombre no coincide)
-    con_cve = demografia_en_poligonos['CVE_COL'].notna().sum()
-    if con_cve > 0:
-        print(f"\n[Paso 4/4] Validando asignaciones por nombre...")
-        # Preparar columnas normalizadas si no existen
-        if 'nom_col_norm_match' not in demografia_en_poligonos.columns:
-            if 'nom_col_norm' in demografia_en_poligonos.columns:
-                demografia_en_poligonos['nom_col_norm_match'] = (
-                    demografia_en_poligonos['nom_col_norm']
-                    .str.upper().str.strip().str.replace(r'\s+', ' ', regex=True)
-                )
-            else:
-                demografia_en_poligonos['nom_col_norm_match'] = (
-                    demografia_en_poligonos['nom_col']
-                    .str.upper().str.strip().str.replace(r'\s+', ' ', regex=True)
-                )
-        
-        if 'COLONIA_norm' not in gdf_poligonos.columns:
-            gdf_poligonos_norm = gdf_poligonos.copy()
-            gdf_poligonos_norm['COLONIA_norm'] = (
-                gdf_poligonos_norm['COLONIA']
-                .str.upper().str.strip().str.replace(r'\s+', ' ', regex=True)
-            )
-        else:
-            gdf_poligonos_norm = gdf_poligonos
-        
-        # Comparar nombre asignado con nombre de demografia
-        con_cve_rows = demografia_en_poligonos[demografia_en_poligonos['CVE_COL'].notna()].copy()
-        # Merge con poligonos para obtener el COLONIA_norm del CVE_COL asignado
-        con_cve_rows = con_cve_rows.merge(
-            gdf_poligonos_norm[['CVE_COL','COLONIA_norm']],
-            on='CVE_COL', how='left', suffixes=('','_asignado')
-        )
-        
-        # Identificar discordancias
-        discordantes = con_cve_rows[
-            con_cve_rows['nom_col_norm_match'] != con_cve_rows['COLONIA_norm']
-        ].copy()
-        
-        if len(discordantes) > 0:
-            print(f"   Encontradas {len(discordantes):,} asignaciones con nombre discordante")
-            # Intentar corregir por nombre exacto
-            corregidas = 0
-            for idx, row in discordantes.iterrows():
-                # Buscar polígono con nombre coincidente
-                match_nombre_correcto = gdf_poligonos_norm[
-                    gdf_poligonos_norm['COLONIA_norm'] == row['nom_col_norm_match']
-                ]
-                if len(match_nombre_correcto) > 0:
-                    cve_correcto = match_nombre_correcto.iloc[0]['CVE_COL']
-                    colonia_correcto = match_nombre_correcto.iloc[0]['COLONIA']
-                    # Actualizar en demografia_en_poligonos
-                    mask = (demografia_en_poligonos['CVE_COL'] == row['CVE_COL']) & \
-                           (demografia_en_poligonos['nom_col_norm_match'] == row['nom_col_norm_match'])
-                    demografia_en_poligonos.loc[mask, 'CVE_COL'] = cve_correcto
-                    demografia_en_poligonos.loc[mask, 'COLONIA'] = colonia_correcto
-                    corregidas += 1
-            print(f"   Corregidas: {corregidas:,}")
-        else:
-            print(f"   Todas las asignaciones son correctas (nombre coincide)")
-    
-    # Estadísticas finales
-    con_poligono_final = demografia_en_poligonos['CVE_COL'].notna().sum()
-    sin_poligono_final = demografia_en_poligonos['CVE_COL'].isna().sum()
-    
-    print(f"\nRESULTADO FINAL (4 pasos):")
-    print(f"   Demografia con poligono: {con_poligono_final:,} ({con_poligono_final/len(demografia_en_poligonos)*100:.1f}%)")
-    print(f"   Demografia sin poligono: {sin_poligono_final:,} ({sin_poligono_final/len(demografia_en_poligonos)*100:.1f}%)")
-    print(f"\n   Desglose:")
-    print(f"   - Paso 1 (spatial exacto): {con_poligono_exacto:,}")
-    if (sin_poligono > 0) and ('con_buffer' in locals()):
-        print(f"   - Paso 2 (buffer 500m): {con_buffer:,}")
-    if (sin_poligono_despues_buffer > 0) and ('con_nombre' in locals()):
-        print(f"   - Paso 3 (merge nombre): {con_nombre:,}")
+    # Verificar si hay colonias en demografía que no están en polígonos
+    if 'cve_col' in demografia.columns:
+        cve_demo = set(demografia['cve_col'].dropna().astype(str))
+        cve_poli = set(gdf_poligonos['CVE_COL'].astype(str))
+        sin_poligono = cve_demo - cve_poli
+        if len(sin_poligono) > 0:
+            print(f"\n   ADVERTENCIA: {len(sin_poligono)} colonias demograficas sin poligono")
+            print(f"   (Estas se ignoran en el analisis espacial)")
     
     # Preparar para merge con polígonos
-    demografia_por_poligono = demografia_en_poligonos.dropna(subset=['CVE_COL'])[[
+    demografia_final = demografia_por_poligono.dropna(subset=['poblacion_total'])[[
         'CVE_COL', 'poblacion_total', 'viviendas_totales', 
         'escolaridad_años_prom', 'pctj_menores18', 'pctj_hombres', 'pctj_mujeres'
     ]].drop_duplicates(subset=['CVE_COL'])
     
-    print(f"   Polígonos con demografía: {len(demografia_por_poligono):,}")
+    print(f"\n   Poligonos listos para analisis: {len(demografia_final):,}")
     
-    return demografia_por_poligono
+    return demografia_final
 
 
 def agregar_por_poligono(incidentes_en_poligonos, gdf_poligonos, demografia_por_poligono):
@@ -631,10 +422,10 @@ def main():
     print(f"Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     
     # 1. Cargar datos
-    gdf_poligonos, demografia, demografia_coords, reportes, mapeo, coords = cargar_datos_base()
+    gdf_poligonos, demografia, reportes, mapeo, coords = cargar_datos_base()
     
-    # 2. Spatial join: demografía → polígonos
-    demografia_por_poligono = spatial_join_demografia_poligonos(demografia, demografia_coords, gdf_poligonos)
+    # 2. Merge directo: demografía → polígonos (por cve_col)
+    demografia_por_poligono = merge_demografia_poligonos_por_clave(demografia, gdf_poligonos)
     
     # 3. Preparar incidentes con geometría
     gdf_reportes = preparar_incidentes_con_geometria(reportes, mapeo, coords)

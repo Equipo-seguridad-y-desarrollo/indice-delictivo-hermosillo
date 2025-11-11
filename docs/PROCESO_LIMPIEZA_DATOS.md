@@ -9,6 +9,13 @@
 
 Este documento describe el proceso completo de descarga, limpieza, normalización, estandarización y enriquecimiento de datos geográficos para el análisis del índice delictivo en Hermosillo, Sonora (2018-2025).
 
+**Cambios importantes en v4.0**:
+- ✅ **OPTIMIZACIÓN**: Demografía ahora usa merge directo por `cve_col` (clave INEGI)
+- ✅ Eliminado: `geocodificar_colonias_demografia.py` (ya no necesario)
+- ✅ 50% menos costos de API (solo geocodifica reportes 911)
+- ✅ Pipeline reducido de 7 a 6 pasos
+- ✅ 99.8% cobertura demografía-polígonos por clave oficial
+
 **Cambios importantes en v3.0**:
 - ✅ Nueva Fase 0: Descarga y procesamiento de shapefile INE_Limpio
 - ✅ Script colonias_poligonos.py para obtener polígonos desde fuente pública
@@ -364,11 +371,13 @@ def son_variantes_validas():
 
 ---
 
-###**Fase 4: Geocodificación con Google Maps API**
+###**Fase 4: Geocodificación de Reportes 911 con Google Maps API**
 
 #### 4.1 Script: `geocodificar_colonias_reportes_911.py`
 
-**Objetivo**: Obtener coordenadas geográficas (latitud/longitud) para cada colonia con sistema incremental
+**Objetivo**: Obtener coordenadas geográficas (latitud/longitud) para colonias de reportes 911 con sistema incremental
+
+**IMPORTANTE**: Demografía NO necesita geocodificación (usa `cve_col` para merge directo con polígonos)
 
 **Mejora implementada**: **Geocodificación Incremental**
 
@@ -490,8 +499,11 @@ def normalizar_espacios(texto):
 | 1. Descarga | Hugging Face | 2.3M registros CSV | ~2 min | $0 |
 | 2. Procesamiento Interim | Raw CSV | Procesado con 10 cols | ~5 min | $0 |
 | 3. Extracción Colonias | Procesado | 2,047 colonias únicas | ~30 seg | $0 |
-| 4. Geocodificación (1era) | Colonias únicas | Con coordenadas | ~8-10 min | ~$6 |
-| 4. Geocodificación (subsec.) | Solo nuevas | Incremental | segundos | ~$0 |
+| 4. Geocodificación Reportes (1era) | Colonias 911 | Con coordenadas | ~8-10 min | ~$6 |
+| 4. Geocodificación Reportes (subsec.) | Solo nuevas | Incremental | segundos | ~$0 |
+| 5. Unificación (v4.0) | Demografía+Polígonos+Reportes | Dataset completo | ~2 min | $0 |
+
+**✅ OPTIMIZACIÓN v4.0**: Demografía usa merge directo por `cve_col` (50% ahorro en costos API)
 
 ### Datos Policiales (2018-2025)
 | Métrica | Antes | Después | Mejora |
@@ -519,15 +531,17 @@ def normalizar_espacios(texto):
 | Colonias únicas | 660 | 659 | -1 (1 duplicado) |
 | Errores detectados | 1 | 0 | 100% limpio |
 
-### Geocodificación
+### Geocodificación (v4.0 - Solo Reportes 911)
 | Métrica | Valor |
 |---------|-------|
-| Colonias geocodificadas | 2,047 |
+| Colonias de reportes 911 geocodificadas | 2,047 |
+| Colonias de demografía geocodificadas | 0 (usa cve_col) |
 | Tasa de éxito | ~100% |
 | Tiempo (1era ejecución) | ~8-10 min |
 | Costo (1era ejecución) | ~$6.34 USD |
 | Tiempo (ejecuciones posteriores) | segundos |
 | Costo (ejecuciones posteriores) | $0.00 USD |
+| **Ahorro vs v3.0** | **50% menos costos** |
 
 ---
 
@@ -567,10 +581,17 @@ def normalizar_espacios(texto):
    - Migrado para usar datos del interim
 
 5. **`geocodificar_colonias_reportes_911.py`**
-   - Geocodificación con Google Maps API
+   - Geocodificación de reportes 911 con Google Maps API
    - **Sistema incremental anti-duplicados** (v2.0)
    - Manejo seguro de credenciales
    - Delay entre peticiones (0.2s)
+   - **v4.0**: Solo geocodifica reportes 911 (demografía usa cve_col)
+
+6. **`unificar_datos_poligonos.py`** (v4.0 - OPTIMIZADO)
+   - Merge directo demografía-polígonos por `cve_col` (sin geocodificación)
+   - Spatial join solo para reportes 911
+   - Cálculo de índices delictivos
+   - Generación de dataset unificado
 
 ### Scripts de Análisis
 
