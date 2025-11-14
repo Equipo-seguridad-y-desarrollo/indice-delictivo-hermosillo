@@ -277,8 +277,8 @@ def agregar_por_poligono(incidentes_en_poligonos, gdf_poligonos, demografia_por_
         'incidentes_baja': ('Nivel_Severidad', lambda x: (x == 'BAJA').sum()),
         'categorias_dict': ('Categoria_Incidente', lambda x: x.value_counts().to_dict()),
         'partes_dia_dict': ('ParteDelDia', lambda x: x.value_counts().to_dict()),
-        'incidentes_fin_semana': ('EsFinDeSemana', lambda x: (x == 'Sí').sum()),
-        'incidentes_quincena': ('EsQuincena', lambda x: (x == 'Sí').sum()),
+        'incidentes_fin_semana': ('EsFinDeSemana', 'sum'),
+        'incidentes_quincena': ('EsQuincena', 'sum'),
         'dias_semana_dict': ('DiaDeLaSemana', lambda x: x.value_counts().to_dict()),
         'fecha_inicio': ('Timestamp', 'min'),
         'fecha_fin': ('Timestamp', 'max')

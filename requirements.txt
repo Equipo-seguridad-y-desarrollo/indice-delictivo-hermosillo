@@ -3,3 +3,16 @@ pip
 python-dotenv
 ruff
 #-e .
+folium==0.20.0
+pandas==2.3.3
+googlemaps==4.10.0
+geopandas==1.1.1
+sweetviz==2.3.1
+numpy<2.2
+ydata-profiling==4.17.0
+ 
+ 
+ 
+ 
+ 
+ 
