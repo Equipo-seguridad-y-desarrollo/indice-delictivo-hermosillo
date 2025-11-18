@@ -2,6 +2,13 @@ mkdocs
 pip
 python-dotenv
 ruff
+geopandas
+openpyxl
+googlemaps
+folium
+seaborn
+missingno
+squarify
 #-e .
 folium==0.20.0
 pandas==2.3.3
