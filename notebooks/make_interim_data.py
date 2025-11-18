@@ -1007,6 +1007,14 @@ def process_raw_to_interim(input_dir: Path, output_dir: Path):
         # --- b. Estandarizar 'TIPO DE INCIDENTE' ---
         print("  b. Estandarizando 'TIPO DE INCIDENTE'...")
         original_uniques = df['TIPO DE INCIDENTE'].nunique()
+
+        # Eliminar registros con TIPO DE INCIDENTE nulo antes de mapear
+        filas_antes = len(df)
+        df = df.dropna(subset=['TIPO DE INCIDENTE'])
+        filas_eliminadas = filas_antes - len(df)
+        if filas_eliminadas > 0:
+            print(f"    Eliminados {filas_eliminadas} registros con TIPO DE INCIDENTE nulo")
+
         df['TIPO DE INCIDENTE'] = df['TIPO DE INCIDENTE'].astype(str).map(MAPA_DE_INCIDENTES)
         cleaned_uniques = df['TIPO DE INCIDENTE'].nunique()
         print(f"    Incidentes únicos: {original_uniques} -> {cleaned_uniques}")
@@ -1086,11 +1094,27 @@ def process_raw_to_interim(input_dir: Path, output_dir: Path):
 if __name__ == "__main__":
     """
     Este bloque solo se ejecuta cuando corres este archivo directamente
-    (ej. python src/data/make_interim_data.py)
+    (ej. python src/data/make_interim_data.py o python notebooks/make_interim_data.py)
     """
-    test_input_dir = Path.cwd() / "data" / "raw"
-    test_output_dir = Path.cwd() / "data" / "interim"
+    # Obtener la ruta del script actual y encontrar la raíz del proyecto
+    script_path = Path(__file__).resolve()
+    
+    # Si el script está en notebooks/, subir un nivel para llegar a la raíz
+    if script_path.parent.name == "notebooks":
+        project_root = script_path.parent.parent
+    # Si el script está en src/data/, subir dos niveles para llegar a la raíz
+    elif script_path.parent.parent.name == "src":
+        project_root = script_path.parent.parent.parent
+    else:
+        # Si no está en ninguna de las ubicaciones esperadas, usar el directorio actual
+        project_root = Path.cwd()
+    
+    test_input_dir = project_root / "data" / "raw"
+    test_output_dir = project_root / "data" / "interim"
 
+    print(f"Raíz del proyecto: {project_root}")
+    print(f"Buscando archivos en: {test_input_dir}")
+    
     process_raw_to_interim(
         input_dir=test_input_dir,
         output_dir=test_output_dir,

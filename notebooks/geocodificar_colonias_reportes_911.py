@@ -7,6 +7,7 @@ import pandas as pd
 import googlemaps
 import time
 import os
+import sys
 from datetime import datetime
 from dotenv import load_dotenv
 from pathlib import Path
@@ -15,15 +16,29 @@ from pathlib import Path
 # Cargar variables de entorno desde archivo .env
 load_dotenv()
 
+# --- DEFINICIÓN DE RUTAS GLOBALES (MOVIDA AQUÍ) ---
+project_root = Path(__file__).parent.parent
+archivo_colonias = project_root / 'data' / 'processed' / 'colonias_unicas_reportes_911.csv'
+archivo_salida = project_root / 'data' / 'processed' / 'colonias_reportes_911_con_coordenadas.csv'
+# ---------------------------------------------------
+
+
 # Configurar API key de Google Maps desde variable de entorno
 API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 
 if not API_KEY:
-    raise ValueError(
-        "❌ ERROR: No se encontró la variable de entorno GOOGLE_MAPS_API_KEY\n"
-        "Por favor, crea un archivo .env en la raíz del proyecto con:\n"
-        "GOOGLE_MAPS_API_KEY=tu_api_key_aqui"
-    )
+    # Lógica de omisión si la clave no está
+    if archivo_salida.exists():
+        print(f"⚠️  ADVERTENCIA: Clave API no encontrada. Saltando geocodificación.")
+        print(f"✅ Continuando porque el archivo de salida requerido ya existe: {archivo_salida}")
+        sys.exit(0) # Salir con código 0 (éxito)
+    else:
+        # Si la clave no está Y el archivo tampoco existe, lanzamos el error original
+        raise ValueError(
+            "❌ ERROR: No se encontró la variable de entorno GOOGLE_MAPS_API_KEY\n"
+            "Y el archivo de coordenadas no existe. ¡No se puede continuar!\n"
+            "Por favor, crea un archivo .env o asegura la existencia del archivo de salida."
+        )
 
 gmaps = googlemaps.Client(key=API_KEY)
 
@@ -222,7 +237,6 @@ def procesar_colonias(archivo_colonias, archivo_salida, limite=None, delay=0.1):
 
 def main():
     # Rutas de archivos usando Path para resolver rutas absolutas
-    project_root = Path(__file__).parent.parent
     archivo_colonias = project_root / 'data' / 'processed' / 'colonias_unicas_reportes_911.csv'
     archivo_salida = project_root / 'data' / 'processed' / 'colonias_reportes_911_con_coordenadas.csv'
     
