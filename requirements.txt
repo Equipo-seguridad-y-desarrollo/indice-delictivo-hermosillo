@@ -8,4 +8,5 @@ googlemaps
 folium
 seaborn
 missingno
+squarify
 #-e .
