@@ -1,0 +1,273 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte: Análisis Delictivo Hermosillo</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aplicamos la fuente Inter a todo el cuerpo */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Pequeño ajuste para los enlaces */
+        a {
+            @apply text-blue-600 hover:text-blue-800 hover:underline;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-4xl my-10 px-6">
+        
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-xl">
+
+            <header class="text-center border-b pb-6 mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+                    Análisis del Índice Delictivo en Hermosillo
+                </h1>
+                <p class="text-lg text-gray-600 mt-2">Un enfoque basado en datos para la prevención</p>
+            </header>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4">Equipo de Análisis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="text-lg font-semibold">Joel López</h3>
+                        <ul class="text-sm text-gray-600 mt-1">
+                            <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/joel-alfonso-perez-diaz-5ba733131</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="text-lg font-semibold">Marcel Herrera</h3>
+                        <ul class="text-sm text-gray-600 mt-1">
+                            
+                            <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/marcel-herrera-rendón</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="text-lg font-semibold">José Cazares</h3>
+                        <ul class="text-sm text-gray-600 mt-1">
+                            
+                            <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/cazaresminjares</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                        <h3 class="text-lg font-semibold">Esthefania Ortega</h3>
+                        <ul class="text-sm text-gray-600 mt-1">
+                            
+                            <li><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/esthefaniaortega</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4">Resumen de hallazgos relevantes (EDA)</h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                        Nuestro análisis exploratorio de los datos de incidencia delictiva en Hermosillo revela patrones claros y accionables, desmintiendo la correlación tradicional entre la densidad poblacional y el riesgo de incidentes graves.
+                    </p>
+                    <p>
+                        El hallazgo más significativo es que el <b>~50% de la demanda total de servicios</b> se concentra en las categorías de <b>convivencia y violencia</b>, y no en los delitos patrimoniales (robos), como se podría sospechar, esto podría sugerir que una buena estrategia para mejorar el servicio sería fortalecer las capacidades de <b>resolución de conflictos</b> (Justicia cívica) y la atención a la violencia interpersonal. En cuanto a temporalidad,
+                        los datos muestran que los <b>domingos y las noches</b> son los días y horario más críticos, por lo que se recomienda implementar un enfoque de vigilancia o patrullaje nocturna y de fin de semana. Además,
+                        contrario a lo que se podría creer, el riesgo de incidentes graves está más correlacionado con el <b>área</b> de las colonias que con su población o densidad, lo que implica que las estrategias de patrullaje deben priorizar la cobertura territorial sobre la concentración poblacional.
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4">Hallazgo Principal: La Carga Operativa Real</h2>
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <img src='figures/composicion_incidentes.png' 
+                        alt="Gráfica de barras apiladas mostrando la composición porcentual de los incidentes por categoría en las 10 colonias de mayor riesgo."
+                        class="w-full rounded-md shadow-lg"
+                        onerror="this.src='https://placehold.co/800x400?text=Error+al+cargar+gr%C3%A1fica';">
+                </div>
+                <p class="text-center text-gray-600 italic mt-3">
+                    Fig 1. Perfil de Incidentes (Composición %). Las categorías de convivencia y violencia absorben la mayor parte de la atención de las autoridades.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 border-t pt-6">Análisis detallado</h2>
+
+                <article class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">1. El mayor indicador es geográfico: Área vs. Peligro</h3>
+                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-300 mb-4">
+                        <p class="font-semibold text-yellow-800"><b>Hallazgo crítico:</b> La correlación más fuerte de la tasa de incidentes graves (r = 0.63) es con el área de la colonia (`area_km2`), no con su población o densidad.
+                        </p>
+                    </div>
+                <div class="bg-gray-50 p-4 rounded-lg border">
+                    <img src='figures/correlaciones.png' 
+                        alt="Gráfica de barras de correlación con la tasa de severidad de delitos por cada 1,000 habitantes."
+                        class="w-full rounded-md shadow-lg"
+                        onerror="this.src='https://placehold.co/800x400?text=Error+al+cargar+gr%C3%A1fica';">
+                </div>
+                <p class="text-center text-gray-600 italic mt-3">
+                    Fig 2. Gráfico de barras de correlación de Pearson. La variable de area_km2 muestra la correlación positiva más alta (r = 0.634).
+                </p>
+                    
+                    <p class="mb-4 text-gray-700">
+                        A partir de un análisis de correlación de Pearson, generamos una matriz para su
+                        visualización, en la cual se observó que existía multicolinealidad entre diversas características de nuestro dataframe,
+                        dado esto, se decidió seleccionar únicamente las características más representantivas, para llegar a una matriz de correlación 
+                        más pequeña y clara donde fue evidente
+                        que la correlación más fuerte de la tasa de incidentes graves (r = 0.634) es con el área de la 
+                        colonia (`area_km2`), no con su población, grado de educación media o densidad, como se había hipotetizado inicialmente. En la figura 2
+                        se muestra una gráfica de barras de los valores de correlación con la tasa de severidad por cada 1,000 habitantes obtenida 
+                        para cada característica.
+                        Estos datos sugieren que las colonias físicamente más grandes y dispersas son intrínsecamente más peligrosas, lo que se podría atribuir a:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                        <li>Mayores dificultades y costos de patrullaje.</li>
+                        <li>Tiempos de respuesta a emergencias más largos.</li>
+                        <li>Menor vigilancia social natural entre habitantes.</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Identificación de focos rojos</h4>
+                    <p class="mb-4 text-gray-700">
+                        Un análisis de cuadrantes de tasa de incidentes vs tasa de incidentes de alta severidad, identificó dos grupos de alta prioridad en base a su media: 32 focos rojos anómalos (ej. CENTRO, SOLIDARIDAD), colonias que requieren investigación individual,
+                        pues sufren de incidentes frecuentes y de alta severidad, pero también tienen pocos habitantes y 244 Focos Rojos Crónicos (ej. RESIDENCIAL REAL DE CASTILLA, CASTELINA), 
+                        que necesitan una estrategia de intervención generalizada pues tienen una alta tasa de incidentes y gravedad constantemente.
+                    </p>
+                </article>
+
+                <article class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">2. Temporalidad y anormalidades operacionales</h3>
+                    <p class="mb-4 text-gray-700">
+                        El análisis de temporalidad se realizó mediante el análisis de distribución de frecuencias de los incidentes a lo largo de las variables de tiempo (día de la semana y hora del día). 
+                        Esto implicó agrupar el volumen total de reportes por día y por rangos horarios para identificar picos de actividad.
+                        Los patrones temporales son concluyentes y definen la necesidad de reasignación de recursos: el <b>domingo es el día más crítico de la semana</b>, el fin de semana en general es consistentemente 3 a 4 veces más crítico que cualquier día laboral.
+                        Mientras que la <b>noche es consistentemente el momento más peligroso</b> (concentrando más de 700 mil incidentes), seguida por la tarde.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border">
+                    <img src='figures/crimenesdia.png' 
+                        alt="Gráfica de pastel mostrando el porcentaje de reportes por momento del día."
+                        class="w-1/2 mx-auto rounded-md shadow-lg"
+                        onerror="this.src='https://placehold.co/800x400?text=Error+al+cargar+gr%C3%A1fica';">
+                    </div>
+                    <p class="text-center text-gray-600 italic mt-3">
+                    Fig 3. Gráfica de pastel del porcentaje de reportes al 911 por momento del día.
+                    </p>
+                                        <div class="bg-gray-50 p-4 rounded-lg border">
+                    <img src='figures/diasemana.png' 
+                        alt="Gráfica de barras de reportes por día de la semana."
+                        class="w-full rounded-md shadow-lg"
+                        onerror="this.src='https://placehold.co/800x400?text=Error+al+cargar+gr%C3%A1fica';">
+                    </div>
+                    <p class="text-center text-gray-600 italic mt-3">
+                    Fig 4. Gráfica de barras de reportes al 911 por día de la semana.
+                    </p>
+
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-300">
+                        <h4 class="text-lg font-bold text-red-800 mb-2"> El riesgo de las zonas industriales</h4>
+                        <p class="text-sm text-red-700">
+                            Las zonas<b>Parque Industrial</b> y <b>Zona Industrial</b> muestran tasas de incidentes extremadamente altas (ej. 2.3M+ por 1,000 habitantes). Esto es una anomalía estadística causada por su baja población residente (&lt;100 hab) y su alto volumen de actividad comercial (robos a negocios, robo de vehículos).
+                            <br>
+                            <b>Recomendación estratégica:</b> El análisis de criminalidad debe excluir estas zonas industriales del análisis residencial y enfocarse en una estrategia de control comercial y seguridad en transporte.
+                        </p>
+                                            </p>
+                                        <div class="bg-gray-50 p-4 rounded-lg border">
+                        <img src='figures/toptasacriminalidad.png' 
+                        alt="Gráfica de barras de colonias con mayor tasa de criminalidad por 1000 habitantes."
+                        class="w-2/3 mx-auto rounded-md shadow-lg"
+                        onerror="this.src='https://placehold.co/800x400?text=Error+al+cargar+gr%C3%A1fica';">
+                        </div>
+                        <p class="text-center text-gray-600 italic mt-3">
+                        Fig 4. Gráfica de barras de colonias con mayor tasa de criminalidad por 1,000 habitantes.
+                        </p>
+                        </div>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3">3. Conclusiones y estrategia recomendada</h3>
+                    <p class="mb-4 text-gray-700 ">
+                        Las siguientes recomendaciones buscan alinear la asignación de recursos con el riesgo real identificado y la naturaleza operativa de la demanda:
+                    <div class="space-y-6">
+
+                        <article class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                            <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                                <span class="mr-2 text-2xl">🗺️</span> 1. Reorientación de recursos y estratificación geográfica
+                            </h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                            <li>
+                                <strong>Prioridad geográfica:</strong> La asignación de patrullaje debe basarse en la cobertura geográfica (`area_km2`), y no en la densidad poblacional. Las colonias de gran extensión requieren mayor inversión en patrullaje y tiempos de respuesta prioritarios.
+                            </li>
+                            <li>
+                                <strong>Intervención dual en colonias de focos rojo:</strong> Implementar estrategias diferenciadas para los hotspots: investigación específica para focos rojos anómalos (ej. Centro) y una estrategia generalizada y constante para focos rojos Crónicos (244 colonias).
+                            </li>
+                        </ul>
+                </article>
+
+                <article class="bg-green-50 p-6 rounded-lg border border-green-200">
+                    <h3 class="text-xl font-semibold text-green-800 mb-3 flex items-center">
+                        <span class="mr-2 text-2xl">⚖️</span> 2. Gestión de la demanda operativa (Justicia Cívica)
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li>
+                            <strong>Fortalecer mecanismos de convivencia:</strong> Invertir urgentemente en programas de Justicia Cívica y unidades de resolución de conflictos vecinales para manejar la alta incidencia de reportes por Convivencia y ruido, liberando recursos policiales.
+                        </li>
+                        <li>
+                            <strong>Unidades de violencia:</strong> Priorizar y robustecer las unidades especializadas en la atención de la violencia interpersonal (familiar y de género), dado su lugar predominante en el volumen de incidentes severos.
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="bg-red-50 p-6 rounded-lg border border-red-200">
+                    <h3 class="text-xl font-semibold text-red-800 mb-3 flex items-center">
+                        <span class="mr-2 text-2xl">⏰</span> 3. Optimización temporal y anomalías métricas
+                    </h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li>
+                            <strong>Refuerzo crítico:</strong> Ejecutar una reorganización de turnos para asegurar la máxima disponibilidad de recursos durante los domingos y el rango horario de la noche, los periodos de riesgo más elevado.
+                        </li>
+                        <li>
+                            <strong>Estrategia para zonas industriales:</strong> Aplicar una estrategia de seguridad comercial y logística enfocada en el robo de vehículos y negocios, ya que su alta tasa es un sesgo métrico causado por su baja población residente y no es comparable con la criminalidad residencial.
+                        </li>
+                    </ul>
+                </article>
+        
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-gray-700 mb-3 border-t pt-4">4. Bibliografía y Fuentes de Datos</h3>
+                    <p class="mb-4 text-gray-700">
+                        Este análisis se basó en las siguientes fuentes de información:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm ml-4">
+
+                         <li>
+
+                            Sonora en Datos. (2020). <i>ColoniasSonora: Mapa interactivo de las colonias de Sonora</i>. [Repositorio de GitHub y Mapa Web]. Recuperado de https://sonora-en-datos.github.io/ColoniasSonora/. De esta fuente se obtuvieron los polígonos geoespaciales y la información demográfica del Censo 2020 utilizada en este análisis.
+
+                        </li>
+
+                        <li>
+
+                            Plataforma Nacional de Transparencia. (2024). <i>Datos de reportes de llamadas de incidencias recibidas a través de llamadas telefónicas al número de emergencias 9-1-1 (2018-2025)</i>. [Solicitud de Transparencia Folio: 261156825000213]. Recuperado de https://www.plataformanacionaldetransparencia.org.mx.
+
+                        </li>
+                    </ul>
+                </article>
+
+            </section>
+
+        </div>
+        
+        <footer class="text-center p-6 text-gray-600 text-sm">
+            <p>&copy; 2025. Proyecto de Análisis de Datos. Todos los derechos reservados.</p>
+        </footer>
+
+    </div> 
+
+</body>
+</html>
