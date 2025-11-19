@@ -189,10 +189,10 @@ Ver [`SECURITY.md`](SECURITY.md) para más detalles de seguridad.
 │   └── RESUMEN_EJECUTIVO.md
 |
 ├── reports/                       # Reportes de análisis
-│   └── figures/                      # Primer reporte automatizado EDA
-│   └── 1.0-EDA_YDataProfiler.html    # Primer reporte automatizado EDA
-│   └── 2.0-EDA_YDataProfiler.html    # Segundo reporte automatizado EDA
-│   └── Presentacion_delitoHMO.pptx   # Presentación de hallazgos de análisis exploratorio, PowerPoint
+│   ├── figures/                      # Gráficas en PNG del análisis exploratorio manual
+│   ├──1.0-EDA_YDataProfiler.html     # Primer reporte automatizado EDA
+│   ├── 2.0-EDA_YDataProfiler.html    # Segundo reporte automatizado EDA
+│   ├── Presentacion_delitoHMO.pptx   # Presentación de hallazgos de análisis exploratorio, PowerPoint
 │   └── reporte_delitosHMO.html       # Reporte de hallazgos y análisis exploratorio
 │
 ├── .env                        # Variables de entorno (NO SUBIR)
