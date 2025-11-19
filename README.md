@@ -30,12 +30,12 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 - **Geocodificación incremental**: Coordenadas obtenidas vía Google Maps API con sistema anti-duplicados
 - **Limpieza de datos demográficos**: 659 colonias con información poblacional
 - **Documentación completa** del proceso de limpieza y normalización
-
-### 🔄 En Proceso
-
 - Validación cruzada entre datasets
 - Análisis geoespacial de incidentes
 - Visualización de datos en mapas interactivos
+
+### 🔄 En Proceso
+
 
 ---
 
@@ -43,18 +43,27 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 
 ### Datos Crudos (`data/raw/`)
 
-| Archivo | Registros | Descripción |
-|---------|-----------|-------------|
-| `213.xlsx` | 2,297,081 | Incidentes reportados a servicios de emergencia 911 (2018-2025) |
-| `demografia_hermosillo.csv` | 660 | Datos demográficos por colonia (INEGI 2020) |
-| `delitos.csv` | - | Catálogo de tipos de delitos |
-| `poligonos_hermosillo.csv` | - | Polígonos geográficos de colonias |
+| Archivo | Registros | Descripción | Estatus |
+|---------|-----------|-------------|-------------|
+| `213.xlsx` | 2,297,081 | Incidentes reportados a servicios de emergencia 911 (2018-2025) | Por confirmar |
+| `demografia_hermosillo.csv` | 660 | Datos demográficos por colonia (INEGI 2020) | Confirmado |
+| `delitos.csv` | - | Catálogo de tipos de delitos | Por confirmar |
+| `poligonos_hermosillo.csv` | - | Polígonos geográficos de colonias | Confirmado |
+| `INE_Limpio.shx` | - | Polígonos geográficos de colonias, formato shapefile | Confirmado |
+| `INE_Limpio.shp` | - | Polígonos geográficos de colonias, formato shapefile | Confirmado |
+| `INE_Limpio.prj` | - | Polígonos geográficos de colonias, formato shapefile | Confirmado |
+| `INE_Limpio.dbf` | - | Polígonos geográficos de colonias, formato shapefile | Confirmado |
 
 ### Datos Intermedios (`data/interim/`)
 
-| Archivo | Descripción |
-|---------|-------------|
-| `reportes_de_incidentes_procesados_2018_2025.csv` | Datos consolidados 2018-2025 con estandarización y feature engineering (~310MB, 2.3M registros) |
+| Archivo | Descripción | Estatus |
+|---------|-------------|-------------|
+| `reportes_de_incidentes_procesados_2018_2025.csv` | Datos consolidados 2018-2025 con estandarización y feature engineering (~310MB, 2.3M registros) | Por confirmar |
+| `colonias_sin_poblacion.csv` |  | Confirmado |
+| `colonias_con_incidentes_sin_poligono.csv` |  | Confirmado |
+
+
+
 
 ### Datos Procesados (`data/processed/`)
 
@@ -66,6 +75,7 @@ Este proyecto analiza datos de incidentes policiales y características demográ
 | `mapeo_colonias_reportes_911.csv` | Mapeo de colonias originales a normalizadas |
 | `demografia_limpio.csv` | Datos demográficos normalizados |
 | `colonias_unicas_demografia.csv` | Lista de colonias únicas de demografía |
+| `colonias_demografia_con_coordenadas.csv` | - |
 
 ---
 
@@ -155,17 +165,41 @@ Ver [`SECURITY.md`](SECURITY.md) para más detalles de seguridad.
 │   └── processed/              # Datos limpios y procesados
 │
 ├── notebooks/                  # Scripts de análisis y procesamiento
+│   ├── 01_auto_eda_SweetViz.ipynb            # Análisis exploratorio automático usando SweetViz
+│   ├── 01_auto_eda_ydata.ipynb               # Análisis exploratorio automático usando YDataProfiler
+│   ├── 02_analisis_exploratorio.ipynb        # Análisis exploratorio manual
+│   ├── 03_analisis_pca_y_generacion_indices.ipynb    # Análisis PCA
 │   ├── extraer_colonias_unicas_reportes_911.py
 │   ├── geocodificar_colonias_reportes_911.py
 │   ├── normalizar_espacios_demografia.py
+│   ├── mapa_interactivo_folium_avanzado.py    # Generador de mapa interactivo - mapa_interactivo_hermosillo.html
 │   └── analizar_calidad_datos_demografia.py
 │
+├── references/                       # Documentación del proyecto
+│   ├── Diccionario de Datos para Mapeo de Incidentes.md    # Diccionario de datos
+│   └──  Análisis y Justificación del Sistema de Clasificación de Severidad de Incidentes para Servicios de Emergencia.md
+|
 ├── docs/                       # Documentación del proyecto
-│   └── PROCESO_LIMPIEZA_DATOS.md
+│   ├── CAMBIO_FUENTE_POLIGONOS.md    # Diccionario de datos
+│   ├── DICCIONARIO_DE_DATOS.md
+│   ├── GIT_DATA_MANAGEMENT.md
+│   ├── METODOLOGIA_PCA.md
+│   ├── PROCESO_LIMPIEZA_DATOS.md
+│   ├── README.md
+│   └── RESUMEN_EJECUTIVO.md
+|
+├── reports/                       # Reportes de análisis
+│   └── figures/                      # Primer reporte automatizado EDA
+│   └── 1.0-EDA_YDataProfiler.html    # Primer reporte automatizado EDA
+│   └── 2.0-EDA_YDataProfiler.html    # Segundo reporte automatizado EDA
+│   └── Presentacion_delitoHMO.pptx   # Presentación de hallazgos de análisis exploratorio, PowerPoint
+│   └── reporte_delitosHMO.html       # Reporte de hallazgos y análisis exploratorio
 │
 ├── .env                        # Variables de entorno (NO SUBIR)
 ├── .gitignore                  # Archivos ignorados por Git
 ├── SECURITY.md                 # Guía de seguridad
+├── requirements.txt            # Requisitos para environment (librerías, interpretes, etc.)
+├── mapa_interactivo_hermosillo.html    #Mapa interactivo de Hermosillo con información demográfica y de delitos
 └── README.md                   # Este archivo
 ```
 
@@ -281,7 +315,7 @@ Para contribuir al proyecto:
 
 ---
 
-*Última actualización: 6 de noviembre de 2025*
+*Última actualización: 18 de noviembre de 2025*
 
 ## Project Organization
 
