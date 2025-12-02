@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo - Índice Delictivo Hermosillo</title>
+    
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    
+    <!-- Chart.js para gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        #map {
+            position: absolute;
+            top: 0;
+            left: 320px;
+            right: 0;
+            bottom: 0;
+        }
+        
+        /* Panel lateral */
+        #sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            background: #1a252f;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .sidebar-header h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-header p {
+            font-size: 12px;
+            color: #bdc3c7;
+        }
+        
+        .filter-section {
+            padding: 15px;
+            border-bottom: 1px solid #34495e;
+        }
+        
+        .filter-section h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        
+        .filter-group {
+            margin-bottom: 12px;
+        }
+        
+        .filter-group label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: #bdc3c7;
+        }
+        
+        .filter-group select {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            background: #34495e;
+            color: white;
+            font-size: 13px;
+        }
+        
+        .filter-group select:focus {
+            outline: 2px solid #3498db;
+        }
+        
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        
+        .btn-secondary {
+            width: 100%;
+            padding: 10px;
+            background: #7f8c8d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        
+        .btn-secondary:hover {
+            background: #95a5a6;
+        }
+        
+        /* Estadísticas */
+        .stats-section {
+            padding: 15px;
+        }
+        
+        .stats-section h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+        
+        .stat-card {
+            background: #34495e;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-card .stat-label {
+            font-size: 11px;
+            color: #bdc3c7;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-item .value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .stat-item .label {
+            font-size: 10px;
+            color: #bdc3c7;
+        }
+        
+        .alta { color: #e74c3c; }
+        .media { color: #f39c12; }
+        .baja { color: #27ae60; }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #bdc3c7;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #34495e;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Popup del mapa */
+        .leaflet-popup-content {
+            margin: 0;
+            min-width: 280px;
+        }
+        
+        .popup-header {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            margin: -1px;
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .popup-body {
+            padding: 15px;
+        }
+        
+        .popup-section {
+            margin-bottom: 12px;
+        }
+        
+        .popup-section h4 {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .popup-stats {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .popup-stat {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .popup-stat .value {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .popup-stat .label {
+            font-size: 10px;
+            color: #7f8c8d;
+        }
+        
+        /* Leyenda */
+        .legend {
+            position: fixed;
+            bottom: 30px;
+            right: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .legend h4 {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+        
+        /* Chart container */
+        #chart-container {
+            padding: 15px;
+            border-top: 1px solid #34495e;
+        }
+        
+        #chart-container canvas {
+            max-height: 150px;
+        }
+        
+        /* Estado de conexión */
+        .connection-status {
+            padding: 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .status-connected {
+            background: #27ae60;
+        }
+        
+        .status-disconnected {
+            background: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h1>🗺️ Índice Delictivo</h1>
+            <p>Hermosillo, Sonora</p>
+        </div>
+        
+        <div id="connection-status" class="connection-status status-disconnected">
+            ⏳ Conectando al servidor...
+        </div>
+        
+        <!-- Filtros -->
+        <div class="filter-section">
+            <h3>🔍 Filtros</h3>
+            
+            <div class="filter-group">
+                <label>📅 Año</label>
+                <select id="filtro-año">
+                    <option value="">Todos los años</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>📆 Trimestre</label>
+                <select id="filtro-trimestre">
+                    <option value="">Todos</option>
+                    <option value="1">Q1 (Ene-Mar)</option>
+                    <option value="2">Q2 (Abr-Jun)</option>
+                    <option value="3">Q3 (Jul-Sep)</option>
+                    <option value="4">Q4 (Oct-Dic)</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>🏷️ Categoría</label>
+                <select id="filtro-categoria">
+                    <option value="">Todas</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>⚠️ Severidad</label>
+                <select id="filtro-severidad">
+                    <option value="">Todas</option>
+                    <option value="ALTA">🔴 Alta</option>
+                    <option value="MEDIA">🟡 Media</option>
+                    <option value="BAJA">🟢 Baja</option>
+                </select>
+            </div>
+            
+            <button class="btn-primary" onclick="aplicarFiltros()">
+                🔄 Aplicar Filtros
+            </button>
+            
+            <button class="btn-secondary" onclick="limpiarFiltros()">
+                ✖ Limpiar Filtros
+            </button>
+        </div>
+        
+        <!-- Estadísticas -->
+        <div class="stats-section">
+            <h3>📊 Estadísticas</h3>
+            
+            <div class="stat-card">
+                <div class="stat-value" id="total-incidentes">--</div>
+                <div class="stat-label">Incidentes Filtrados</div>
+                
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <div class="value alta" id="total-alta">--</div>
+                        <div class="label">Alta</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value media" id="total-media">--</div>
+                        <div class="label">Media</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="value baja" id="total-baja">--</div>
+                        <div class="label">Baja</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-value" id="colonias-afectadas">--</div>
+                <div class="stat-label">Colonias Afectadas</div>
+            </div>
+        </div>
+        
+        <!-- Gráfica -->
+        <div id="chart-container">
+            <canvas id="chart-severidad"></canvas>
+        </div>
+    </div>
+    
+    <!-- Mapa -->
+    <div id="map"></div>
+    
+    <!-- Leyenda -->
+    <div class="legend">
+        <h4>Incidentes</h4>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #800026;"></div>
+            <span>Muy Alto (>500)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #e31a1c;"></div>
+            <span>Alto (200-500)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #fd8d3c;"></div>
+            <span>Medio (50-200)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #fed976;"></div>
+            <span>Bajo (10-50)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #ffffcc;"></div>
+            <span>Muy Bajo (<10)</span>
+        </div>
+    </div>
+    
+    <script>
+        // Configuración
+        const API_URL = 'http://localhost:5000';
+        
+        // Variables globales
+        let map;
+        let geojsonLayer;
+        let chart;
+        
+        // Inicializar mapa
+        function inicializarMapa() {
+            map = L.map('map').setView([29.0892, -110.9615], 11);
+            
+            // Capa base
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap &copy; CARTO',
+                maxZoom: 19
+            }).addTo(map);
+            
+            // Capa oscura (alternativa)
+            const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap &copy; CARTO',
+                maxZoom: 19
+            });
+            
+            // Control de capas
+            L.control.layers({
+                'Claro': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map),
+                'Oscuro': darkLayer,
+                'Satélite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
+            }).addTo(map);
+        }
+        
+        // Obtener color según cantidad de incidentes
+        function getColor(total) {
+            return total > 500 ? '#800026' :
+                   total > 200 ? '#bd0026' :
+                   total > 100 ? '#e31a1c' :
+                   total > 50  ? '#fc4e2a' :
+                   total > 20  ? '#fd8d3c' :
+                   total > 10  ? '#feb24c' :
+                   total > 5   ? '#fed976' :
+                   total > 0   ? '#ffffcc' :
+                                 '#cccccc';
+        }
+        
+        // Estilo de polígonos
+        function estilo(feature) {
+            const total = feature.properties.total_filtrado || 0;
+            return {
+                fillColor: getColor(total),
+                weight: 1,
+                opacity: 1,
+                color: '#666',
+                fillOpacity: 0.7
+            };
+        }
+        
+        // Crear popup HTML
+        function crearPopup(props) {
+            return `
+                <div class="popup-header">
+                    ${props.colonia || 'Sin nombre'}
+                </div>
+                <div class="popup-body">
+                    <div class="popup-section">
+                        <h4>🚨 Incidentes (Filtrados)</h4>
+                        <div class="popup-stats">
+                            <div class="popup-stat">
+                                <div class="value">${(props.total_filtrado || 0).toLocaleString()}</div>
+                                <div class="label">Total</div>
+                            </div>
+                            <div class="popup-stat">
+                                <div class="value alta">${props.alta_filtrado || 0}</div>
+                                <div class="label">Alta</div>
+                            </div>
+                            <div class="popup-stat">
+                                <div class="value media">${props.media_filtrado || 0}</div>
+                                <div class="label">Media</div>
+                            </div>
+                            <div class="popup-stat">
+                                <div class="value baja">${props.baja_filtrado || 0}</div>
+                                <div class="label">Baja</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="popup-section">
+                        <h4>📊 Métricas</h4>
+                        <div class="popup-stats">
+                            <div class="popup-stat">
+                                <div class="value">${props.tasa_filtrada_per_1k || 'N/A'}</div>
+                                <div class="label">Tasa per 1k</div>
+                            </div>
+                            <div class="popup-stat">
+                                <div class="value">${(props.poblacion || 0).toLocaleString()}</div>
+                                <div class="label">Población</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="popup-section">
+                        <h4>📈 Original (sin filtros)</h4>
+                        <p style="color: #7f8c8d; font-size: 12px;">
+                            Total histórico: <strong>${(props.total_original || 0).toLocaleString()}</strong>
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Cargar GeoJSON desde la API
+        async function cargarGeoJSON(filtros = {}) {
+            try {
+                // Construir query string
+                const params = new URLSearchParams();
+                if (filtros.año) params.append('año', filtros.año);
+                if (filtros.trimestre) params.append('trimestre', filtros.trimestre);
+                if (filtros.categoria) params.append('categoria', filtros.categoria);
+                if (filtros.severidad) params.append('severidad', filtros.severidad);
+                
+                const url = `${API_URL}/api/poligonos/geojson?${params.toString()}`;
+                console.log('Fetching:', url);
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                // Remover capa anterior
+                if (geojsonLayer) {
+                    map.removeLayer(geojsonLayer);
+                }
+                
+                // Agregar nueva capa
+                geojsonLayer = L.geoJSON(data, {
+                    style: estilo,
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(crearPopup(feature.properties));
+                        
+                        layer.on({
+                            mouseover: (e) => {
+                                e.target.setStyle({
+                                    weight: 3,
+                                    color: '#3498db',
+                                    fillOpacity: 0.9
+                                });
+                            },
+                            mouseout: (e) => {
+                                geojsonLayer.resetStyle(e.target);
+                            }
+                        });
+                    }
+                }).addTo(map);
+                
+                // Actualizar estadísticas
+                actualizarEstadisticas(data.features);
+                
+                return data;
+                
+            } catch (error) {
+                console.error('Error cargando GeoJSON:', error);
+                mostrarError('No se pudo conectar al servidor. Asegúrate de que el backend está corriendo.');
+            }
+        }
+        
+        // Actualizar estadísticas en el sidebar
+        function actualizarEstadisticas(features) {
+            let total = 0, alta = 0, media = 0, baja = 0;
+            let coloniasAfectadas = 0;
+            
+            features.forEach(f => {
+                const p = f.properties;
+                total += p.total_filtrado || 0;
+                alta += p.alta_filtrado || 0;
+                media += p.media_filtrado || 0;
+                baja += p.baja_filtrado || 0;
+                
+                if (p.total_filtrado > 0) coloniasAfectadas++;
+            });
+            
+            document.getElementById('total-incidentes').textContent = total.toLocaleString();
+            document.getElementById('total-alta').textContent = alta.toLocaleString();
+            document.getElementById('total-media').textContent = media.toLocaleString();
+            document.getElementById('total-baja').textContent = baja.toLocaleString();
+            document.getElementById('colonias-afectadas').textContent = coloniasAfectadas;
+            
+            // Actualizar gráfica
+            actualizarGrafica(alta, media, baja);
+        }
+        
+        // Actualizar gráfica de severidad
+        function actualizarGrafica(alta, media, baja) {
+            const ctx = document.getElementById('chart-severidad').getContext('2d');
+            
+            if (chart) {
+                chart.destroy();
+            }
+            
+            chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Alta', 'Media', 'Baja'],
+                    datasets: [{
+                        data: [alta, media, baja],
+                        backgroundColor: ['#e74c3c', '#f39c12', '#27ae60'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#bdc3c7',
+                                font: { size: 11 }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Cargar opciones de filtros desde la API
+        async function cargarOpcionesFiltros() {
+            try {
+                const response = await fetch(`${API_URL}/api/filtros/opciones`);
+                const data = await response.json();
+                
+                // Años
+                const selectAño = document.getElementById('filtro-año');
+                data.años.forEach(año => {
+                    const option = document.createElement('option');
+                    option.value = año;
+                    option.textContent = año;
+                    selectAño.appendChild(option);
+                });
+                
+                // Categorías
+                const selectCategoria = document.getElementById('filtro-categoria');
+                data.categorias.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat;
+                    option.textContent = cat;
+                    selectCategoria.appendChild(option);
+                });
+                
+                // Actualizar estado de conexión
+                document.getElementById('connection-status').className = 'connection-status status-connected';
+                document.getElementById('connection-status').textContent = '✅ Conectado al servidor';
+                
+            } catch (error) {
+                console.error('Error cargando opciones:', error);
+                document.getElementById('connection-status').className = 'connection-status status-disconnected';
+                document.getElementById('connection-status').textContent = '❌ Error de conexión';
+            }
+        }
+        
+        // Aplicar filtros
+        function aplicarFiltros() {
+            const filtros = {
+                año: document.getElementById('filtro-año').value,
+                trimestre: document.getElementById('filtro-trimestre').value,
+                categoria: document.getElementById('filtro-categoria').value,
+                severidad: document.getElementById('filtro-severidad').value
+            };
+            
+            console.log('Aplicando filtros:', filtros);
+            cargarGeoJSON(filtros);
+        }
+        
+        // Limpiar filtros
+        function limpiarFiltros() {
+            document.getElementById('filtro-año').value = '';
+            document.getElementById('filtro-trimestre').value = '';
+            document.getElementById('filtro-categoria').value = '';
+            document.getElementById('filtro-severidad').value = '';
+            
+            cargarGeoJSON({});
+        }
+        
+        // Mostrar error
+        function mostrarError(mensaje) {
+            alert(mensaje);
+        }
+        
+        // Inicializar aplicación
+        async function init() {
+            console.log('Iniciando aplicación...');
+            
+            inicializarMapa();
+            await cargarOpcionesFiltros();
+            await cargarGeoJSON({});
+            
+            console.log('Aplicación lista');
+        }
+        
+        // Ejecutar al cargar
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
