@@ -48,24 +48,38 @@ def obtener_opciones_filtros():
     cursor.execute("SELECT DISTINCT categoria FROM incidentes WHERE categoria IS NOT NULL ORDER BY categoria")
     categorias = [row[0] for row in cursor.fetchall()]
     
-    # Tipos de incidentes agrupados por categoría
+    # Tipos de incidentes agrupados por categoría CON desglose por severidad
     cursor.execute('''
-        SELECT categoria, tipo_incidente, COUNT(*) as total
+        SELECT categoria, tipo_incidente, severidad, COUNT(*) as total
         FROM incidentes
-        WHERE categoria IS NOT NULL AND tipo_incidente IS NOT NULL
-        GROUP BY categoria, tipo_incidente
-        ORDER BY categoria, total DESC
+        WHERE categoria IS NOT NULL AND tipo_incidente IS NOT NULL AND severidad IS NOT NULL
+        GROUP BY categoria, tipo_incidente, severidad
+        ORDER BY categoria, tipo_incidente, severidad
     ''')
     
-    tipos_por_categoria = {}
+    # Estructura: {categoria: {tipo: {total, alta, media, baja}}}
+    tipos_temp = {}
     for row in cursor.fetchall():
         cat = row['categoria']
-        if cat not in tipos_por_categoria:
-            tipos_por_categoria[cat] = []
-        tipos_por_categoria[cat].append({
-            'tipo': row['tipo_incidente'],
-            'total': row['total']
-        })
+        tipo = row['tipo_incidente']
+        sev = row['severidad']
+        count = row['total']
+        
+        if cat not in tipos_temp:
+            tipos_temp[cat] = {}
+        if tipo not in tipos_temp[cat]:
+            tipos_temp[cat][tipo] = {'total': 0, 'ALTA': 0, 'MEDIA': 0, 'BAJA': 0}
+        
+        tipos_temp[cat][tipo][sev] = count
+        tipos_temp[cat][tipo]['total'] += count
+    
+    # Convertir a lista ordenada por total
+    tipos_por_categoria = {}
+    for cat, tipos in tipos_temp.items():
+        tipos_por_categoria[cat] = sorted([
+            {'tipo': tipo, **counts} 
+            for tipo, counts in tipos.items()
+        ], key=lambda x: x['total'], reverse=True)
     
     # Severidades
     cursor.execute("SELECT DISTINCT severidad FROM incidentes WHERE severidad IS NOT NULL ORDER BY severidad")

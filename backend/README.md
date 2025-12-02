@@ -72,6 +72,47 @@ Abre `mapa_dinamico.html` en tu navegador. El mapa se conectará automáticament
 | `/api/estadisticas/resumen` | GET | Resumen general |
 | `/api/estadisticas/heatmap` | GET | Datos para heatmap día/hora |
 
+### Ranking de Colonias
+
+| Endpoint | Método | Descripción |
+|----------|--------|-------------|
+| `/api/colonias/ranking` | GET | Ranking personalizable de colonias |
+| `/api/colonias/buscar` | GET | Búsqueda de colonias por nombre |
+
+#### Parámetros de `/api/colonias/ranking`
+
+**Filtros de Universo:**
+| Parámetro | Tipo | Descripción |
+|-----------|------|-------------|
+| `año` | int | Filtrar por año específico |
+| `trimestre` | int (1-4) | Filtrar por trimestre |
+| `severidades` | string | Severidades a incluir: `ALTA,MEDIA,BAJA` |
+| `categorias_incluir` | string | Categorías a incluir separadas por coma |
+| `categorias_excluir` | string | Categorías a excluir separadas por coma |
+| `tipos_incluir` | string | Tipos de incidente específicos a incluir |
+| `tipos_excluir` | string | Tipos de incidente específicos a excluir |
+| `poblacion_min` | int | Población mínima de la colonia |
+
+**Métricas de Ordenamiento:**
+| Parámetro | Valores | Descripción |
+|-----------|---------|-------------|
+| `metrica` | `total` | Total de incidentes (default) |
+| | `alta` | Solo incidentes de severidad ALTA |
+| | `media` | Solo incidentes de severidad MEDIA |
+| | `baja` | Solo incidentes de severidad BAJA |
+| | `tasa_1k` | Incidentes por cada 1,000 habitantes |
+| | `tasa_km2` | Densidad: incidentes por km² |
+| | `tasa_alta_1k` | Incidentes ALTA por 1,000 hab |
+| | `indice_peligrosidad` | Índice ponderado (ALTA×3 + MEDIA×2 + BAJA×1) |
+| | `indice_peligrosidad_1k` | Índice ponderado per 1,000 hab |
+| `limit` | int | Número de resultados (default: 20) |
+| `ascendente` | bool | Ordenar de menor a mayor (default: false) |
+
+**Ejemplo:**
+```
+GET /api/colonias/ranking?año=2024&severidades=ALTA,MEDIA&metrica=tasa_1k&limit=10
+```
+
 ## 🔍 Ejemplos de Consultas
 
 ### Filtrar incidentes del 2023, categoría VIOLENCIA, severidad ALTA
@@ -199,3 +240,45 @@ GROUP BY dia_semana, parte_del_dia;
 - Los índices aceleran las consultas de filtrado
 - El GeoJSON con geometrías se genera dinámicamente
 - CORS está habilitado para desarrollo local
+
+## 🗺️ Interfaz del Mapa (mapa_dinamico.html)
+
+### Pestañas Principales
+
+1. **🔍 Filtros**: Filtros para el mapa coroplético
+2. **🏆 Ranking**: Sistema de ranking de colonias con filtros avanzados
+3. **📊 Stats**: Estadísticas y gráficas
+
+### Sistema de Ranking (Tab Ranking)
+
+El sistema de ranking tiene un flujo de 2 pasos intuitivo:
+
+#### Paso 1: Define tu Universo de Datos
+
+- **Período**: Selecciona año y/o trimestre
+- **Severidad**: 3 botones toggle (Alta/Media/Baja)
+  - Los conteos del árbol se actualizan dinámicamente según las severidades activas
+  - Tipos con 0 incidentes para las severidades seleccionadas se atenúan visualmente
+- **Árbol de Categorías → Tipos**: 
+  - Cada categoría es expandible (click en el header)
+  - Checkbox de categoría marca/desmarca todos los tipos de esa categoría
+  - Checkbox individual para cada tipo específico
+  - Conteos muestran solo incidentes de las severidades activas
+
+**Acciones Rápidas:**
+- ✓ Todo: Selecciona todos los tipos
+- ✗ Nada: Deselecciona todo  
+- ⇄ Invertir: Invierte la selección actual
+
+#### Paso 2: Elige tu Métrica
+
+- **Volumen (#)**: Ordena por cantidad total de incidentes
+- **x 1,000 Hab (👥)**: Normalizado por población
+- **Densidad (🗺️)**: Incidentes por kilómetro cuadrado
+
+### Características Técnicas
+
+- **Conteos Dinámicos**: Al cambiar severidades, los números del árbol se recalculan en tiempo real usando los campos `ALTA`, `MEDIA`, `BAJA` de cada tipo
+- **Filtro Jerárquico**: Severidad → Categoría → Tipo
+- **Búsqueda de Colonias**: Autocompletado con resultados del API
+- **Navegación al Mapa**: Click en cualquier resultado del ranking centra el mapa en esa colonia
