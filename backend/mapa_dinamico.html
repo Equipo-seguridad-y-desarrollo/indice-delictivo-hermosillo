@@ -13,309 +13,204 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        #map { position: absolute; top: 0; left: 360px; right: 0; bottom: 0; }
         
-        #map {
-            position: absolute;
-            top: 0;
-            left: 320px;
-            right: 0;
-            bottom: 0;
-        }
-        
-        /* Panel lateral */
         #sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 320px;
-            height: 100vh;
-            background: #2c3e50;
-            color: white;
-            overflow-y: auto;
-            z-index: 1000;
+            position: fixed; left: 0; top: 0; width: 360px; height: 100vh;
+            background: #2c3e50; color: white; overflow-y: auto; z-index: 1000;
         }
         
         .sidebar-header {
-            background: #1a252f;
-            padding: 15px;
-            text-align: center;
+            background: #1a252f; padding: 15px; text-align: center;
+            position: sticky; top: 0; z-index: 10;
         }
+        .sidebar-header h1 { font-size: 18px; margin-bottom: 5px; }
+        .sidebar-header p { font-size: 12px; color: #bdc3c7; }
         
-        .sidebar-header h1 {
-            font-size: 18px;
-            margin-bottom: 5px;
+        .tabs { display: flex; background: #1a252f; }
+        .tab {
+            flex: 1; padding: 10px; text-align: center; cursor: pointer;
+            border-bottom: 3px solid transparent; font-size: 12px; transition: all 0.3s;
         }
+        .tab:hover { background: #34495e; }
+        .tab.active { border-bottom-color: #3498db; background: #2c3e50; }
         
-        .sidebar-header p {
-            font-size: 12px;
-            color: #bdc3c7;
+        .tab-content { display: none; padding: 15px; }
+        .tab-content.active { display: block; }
+        
+        .search-box { position: relative; margin-bottom: 15px; }
+        .search-box input {
+            width: 100%; padding: 12px 15px; border: none; border-radius: 6px;
+            background: #34495e; color: white; font-size: 14px;
         }
+        .search-box input::placeholder { color: #95a5a6; }
+        .search-box input:focus { outline: 2px solid #3498db; }
         
-        .filter-section {
-            padding: 15px;
-            border-bottom: 1px solid #34495e;
+        .search-results {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: #34495e; border-radius: 0 0 6px 6px;
+            max-height: 300px; overflow-y: auto; z-index: 100; display: none;
         }
+        .search-results.show { display: block; }
         
-        .filter-section h3 {
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: #3498db;
+        .search-result-item {
+            padding: 10px 15px; cursor: pointer; border-bottom: 1px solid #2c3e50;
         }
+        .search-result-item:hover { background: #3498db; }
+        .search-result-item .colonia-name { font-weight: bold; font-size: 13px; }
+        .search-result-item .colonia-stats { font-size: 11px; color: #bdc3c7; margin-top: 3px; }
         
-        .filter-group {
-            margin-bottom: 12px;
-        }
-        
-        .filter-group label {
-            display: block;
-            font-size: 12px;
-            margin-bottom: 5px;
-            color: #bdc3c7;
-        }
-        
+        .filter-section { border-bottom: 1px solid #34495e; padding-bottom: 15px; margin-bottom: 15px; }
+        .filter-section h3 { font-size: 14px; margin-bottom: 10px; color: #3498db; }
+        .filter-group { margin-bottom: 12px; }
+        .filter-group label { display: block; font-size: 12px; margin-bottom: 5px; color: #bdc3c7; }
         .filter-group select {
-            width: 100%;
-            padding: 8px;
-            border: none;
-            border-radius: 4px;
-            background: #34495e;
-            color: white;
-            font-size: 13px;
+            width: 100%; padding: 8px; border: none; border-radius: 4px;
+            background: #34495e; color: white; font-size: 13px;
         }
+        .filter-group select:focus { outline: 2px solid #3498db; }
         
-        .filter-group select:focus {
-            outline: 2px solid #3498db;
+        .tipos-container {
+            max-height: 200px; overflow-y: auto; background: #34495e;
+            border-radius: 6px; padding: 10px;
         }
+        .tipo-item {
+            display: flex; align-items: center; padding: 5px 0;
+            font-size: 11px; cursor: pointer;
+        }
+        .tipo-item:hover { background: #3d566e; }
+        .tipo-item input[type="checkbox"] { margin-right: 8px; cursor: pointer; }
+        .tipo-item .tipo-count { margin-left: auto; color: #95a5a6; font-size: 10px; }
+        
+        .tipos-actions { display: flex; gap: 10px; margin-top: 8px; }
+        .tipos-actions button { flex: 1; padding: 6px; font-size: 11px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-select-all { background: #27ae60; color: white; }
+        .btn-deselect-all { background: #e74c3c; color: white; }
         
         .btn-primary {
-            width: 100%;
-            padding: 12px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
+            width: 100%; padding: 12px; background: #3498db; color: white;
+            border: none; border-radius: 4px; font-size: 14px; font-weight: bold;
+            cursor: pointer; transition: background 0.3s;
         }
-        
-        .btn-primary:hover {
-            background: #2980b9;
-        }
-        
+        .btn-primary:hover { background: #2980b9; }
         .btn-secondary {
-            width: 100%;
-            padding: 10px;
-            background: #7f8c8d;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 13px;
-            cursor: pointer;
-            margin-top: 8px;
+            width: 100%; padding: 10px; background: #7f8c8d; color: white;
+            border: none; border-radius: 4px; font-size: 13px; cursor: pointer; margin-top: 8px;
         }
+        .btn-secondary:hover { background: #95a5a6; }
         
-        .btn-secondary:hover {
-            background: #95a5a6;
-        }
-        
-        /* Estadísticas */
-        .stats-section {
-            padding: 15px;
-        }
-        
-        .stats-section h3 {
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: #e74c3c;
-        }
-        
-        .stat-card {
-            background: #34495e;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-        
-        .stat-card .stat-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #3498db;
-        }
-        
-        .stat-card .stat-label {
-            font-size: 11px;
-            color: #bdc3c7;
-        }
-        
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .stat-item .value {
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .stat-item .label {
-            font-size: 10px;
-            color: #bdc3c7;
-        }
+        .stats-section { padding: 15px; }
+        .stats-section h3 { font-size: 14px; margin-bottom: 10px; color: #e74c3c; }
+        .stat-card { background: #34495e; padding: 12px; border-radius: 6px; margin-bottom: 10px; }
+        .stat-card .stat-value { font-size: 24px; font-weight: bold; color: #3498db; }
+        .stat-card .stat-label { font-size: 11px; color: #bdc3c7; }
+        .stat-row { display: flex; justify-content: space-between; margin-top: 8px; }
+        .stat-item { text-align: center; flex: 1; }
+        .stat-item .value { font-size: 16px; font-weight: bold; }
+        .stat-item .label { font-size: 10px; color: #bdc3c7; }
         
         .alta { color: #e74c3c; }
         .media { color: #f39c12; }
         .baja { color: #27ae60; }
         
-        /* Loading */
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #bdc3c7;
+        .ranking-container { max-height: 350px; overflow-y: auto; }
+        .ranking-item {
+            display: flex; align-items: center; padding: 10px; background: #34495e;
+            border-radius: 6px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s;
+        }
+        .ranking-item:hover { background: #3d566e; transform: translateX(5px); }
+        .ranking-pos {
+            width: 30px; height: 30px; background: #e74c3c; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-size: 14px; margin-right: 10px; flex-shrink: 0;
+        }
+        .ranking-pos.top3 { background: linear-gradient(135deg, #f39c12, #e74c3c); }
+        .ranking-info { flex: 1; min-width: 0; }
+        .ranking-info .colonia { font-weight: bold; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ranking-info .stats { font-size: 10px; color: #bdc3c7; margin-top: 2px; }
+        .ranking-total { text-align: right; flex-shrink: 0; margin-left: 8px; }
+        .ranking-total .value { font-size: 16px; font-weight: bold; color: #e74c3c; }
+        .ranking-total .label { font-size: 9px; color: #bdc3c7; }
+        
+        .ranking-config { background: #1a252f; padding: 12px; border-radius: 6px; margin-bottom: 12px; }
+        .ranking-config h4 { font-size: 12px; color: #3498db; margin-bottom: 10px; }
+        .config-row { display: flex; gap: 8px; margin-bottom: 8px; }
+        .config-row .filter-group { flex: 1; margin: 0; }
+        .config-row .filter-group select { font-size: 11px; padding: 6px; }
+        .config-row .filter-group label { font-size: 10px; }
+        .config-row .filter-group input[type="number"] {
+            width: 100%; padding: 6px; border: none; border-radius: 4px;
+            background: #34495e; color: white; font-size: 11px;
         }
         
+        .categorias-chips { display: flex; flex-wrap: wrap; gap: 4px; max-height: 80px; overflow-y: auto; padding: 4px 0; }
+        .cat-chip {
+            padding: 3px 8px; border-radius: 12px; font-size: 10px; cursor: pointer;
+            background: #34495e; border: 1px solid #4a6278; transition: all 0.2s;
+        }
+        .cat-chip:hover { background: #4a6278; }
+        .cat-chip.included { background: #27ae60; border-color: #27ae60; }
+        .cat-chip.excluded { background: #e74c3c; border-color: #e74c3c; text-decoration: line-through; }
+        .chip-legend { font-size: 9px; color: #7f8c8d; margin-top: 4px; }
+        
+        .expand-section { cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+        .expand-section::after { content: '▼'; font-size: 10px; transition: transform 0.3s; }
+        .expand-section.collapsed::after { transform: rotate(-90deg); }
+        .collapsible { max-height: 500px; overflow: hidden; transition: max-height 0.3s; }
+        .collapsible.collapsed { max-height: 0; }
+        
+        .metrica-info { background: #27ae60; padding: 8px 12px; border-radius: 4px; margin-bottom: 10px; font-size: 11px; }
+        .metrica-info strong { color: #fff; }
+        
+        .loading { text-align: center; padding: 20px; color: #bdc3c7; }
         .loading-spinner {
-            border: 3px solid #34495e;
-            border-top: 3px solid #3498db;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 10px auto;
+            border: 3px solid #34495e; border-top: 3px solid #3498db;
+            border-radius: 50%; width: 30px; height: 30px;
+            animation: spin 1s linear infinite; margin: 10px auto;
         }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Popup del mapa */
-        .leaflet-popup-content {
-            margin: 0;
-            min-width: 280px;
-        }
-        
+        .leaflet-popup-content { margin: 0; min-width: 280px; }
         .popup-header {
-            background: #2c3e50;
-            color: white;
-            padding: 10px 15px;
-            font-weight: bold;
-            margin: -1px;
-            border-radius: 4px 4px 0 0;
+            background: #2c3e50; color: white; padding: 10px 15px;
+            font-weight: bold; margin: -1px; border-radius: 4px 4px 0 0;
         }
-        
-        .popup-body {
-            padding: 15px;
-        }
-        
-        .popup-section {
-            margin-bottom: 12px;
-        }
-        
-        .popup-section h4 {
-            font-size: 12px;
-            color: #7f8c8d;
-            margin-bottom: 5px;
-        }
-        
-        .popup-stats {
-            display: flex;
-            gap: 10px;
-        }
-        
+        .popup-body { padding: 15px; }
+        .popup-section { margin-bottom: 12px; }
+        .popup-section h4 { font-size: 12px; color: #7f8c8d; margin-bottom: 5px; }
+        .popup-stats { display: flex; gap: 10px; }
         .popup-stat {
-            background: #f8f9fa;
-            padding: 8px 12px;
-            border-radius: 4px;
-            text-align: center;
-            flex: 1;
+            background: #f8f9fa; padding: 8px 12px; border-radius: 4px;
+            text-align: center; flex: 1;
         }
+        .popup-stat .value { font-size: 18px; font-weight: bold; }
+        .popup-stat .label { font-size: 10px; color: #7f8c8d; }
         
-        .popup-stat .value {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        .popup-stat .label {
-            font-size: 10px;
-            color: #7f8c8d;
-        }
-        
-        /* Leyenda */
         .legend {
-            position: fixed;
-            bottom: 30px;
-            right: 10px;
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
+            position: fixed; bottom: 30px; right: 10px; background: white;
+            padding: 15px; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 1000;
         }
+        .legend h4 { margin-bottom: 10px; font-size: 13px; }
+        .legend-item { display: flex; align-items: center; margin-bottom: 5px; font-size: 12px; }
+        .legend-color { width: 20px; height: 20px; border-radius: 3px; margin-right: 8px; }
         
-        .legend h4 {
-            margin-bottom: 10px;
-            font-size: 13px;
-        }
+        #chart-container { padding: 15px; border-top: 1px solid #34495e; }
+        #chart-container canvas { max-height: 150px; }
         
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-            font-size: 12px;
-        }
+        .connection-status { padding: 8px; text-align: center; font-size: 11px; }
+        .status-connected { background: #27ae60; }
+        .status-disconnected { background: #e74c3c; }
         
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 3px;
-            margin-right: 8px;
-        }
-        
-        /* Chart container */
-        #chart-container {
-            padding: 15px;
-            border-top: 1px solid #34495e;
-        }
-        
-        #chart-container canvas {
-            max-height: 150px;
-        }
-        
-        /* Estado de conexión */
-        .connection-status {
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-        }
-        
-        .status-connected {
-            background: #27ae60;
-        }
-        
-        .status-disconnected {
-            background: #e74c3c;
+        .tipos-selected-badge {
+            background: #3498db; color: white; padding: 2px 8px;
+            border-radius: 10px; font-size: 11px; margin-left: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
     <div id="sidebar">
         <div class="sidebar-header">
             <h1>🗺️ Índice Delictivo</h1>
@@ -326,294 +221,307 @@
             ⏳ Conectando al servidor...
         </div>
         
-        <!-- Filtros -->
-        <div class="filter-section">
-            <h3>🔍 Filtros</h3>
-            
-            <div class="filter-group">
-                <label>📅 Año</label>
-                <select id="filtro-año">
-                    <option value="">Todos los años</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label>📆 Trimestre</label>
-                <select id="filtro-trimestre">
-                    <option value="">Todos</option>
-                    <option value="1">Q1 (Ene-Mar)</option>
-                    <option value="2">Q2 (Abr-Jun)</option>
-                    <option value="3">Q3 (Jul-Sep)</option>
-                    <option value="4">Q4 (Oct-Dic)</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label>🏷️ Categoría</label>
-                <select id="filtro-categoria">
-                    <option value="">Todas</option>
-                </select>
-            </div>
-            
-            <div class="filter-group">
-                <label>⚠️ Severidad</label>
-                <select id="filtro-severidad">
-                    <option value="">Todas</option>
-                    <option value="ALTA">🔴 Alta</option>
-                    <option value="MEDIA">🟡 Media</option>
-                    <option value="BAJA">🟢 Baja</option>
-                </select>
-            </div>
-            
-            <button class="btn-primary" onclick="aplicarFiltros()">
-                🔄 Aplicar Filtros
-            </button>
-            
-            <button class="btn-secondary" onclick="limpiarFiltros()">
-                ✖ Limpiar Filtros
-            </button>
+        <div class="tabs">
+            <div class="tab active" data-tab="filtros">🔍 Filtros</div>
+            <div class="tab" data-tab="ranking">🏆 Ranking</div>
+            <div class="tab" data-tab="stats">📊 Stats</div>
         </div>
         
-        <!-- Estadísticas -->
-        <div class="stats-section">
-            <h3>📊 Estadísticas</h3>
+        <div id="tab-filtros" class="tab-content active">
+            <div class="search-box">
+                <input type="text" id="buscar-colonia" placeholder="🔍 Buscar colonia...">
+                <div id="search-results" class="search-results"></div>
+            </div>
             
-            <div class="stat-card">
-                <div class="stat-value" id="total-incidentes">--</div>
-                <div class="stat-label">Incidentes Filtrados</div>
-                
-                <div class="stat-row">
-                    <div class="stat-item">
-                        <div class="value alta" id="total-alta">--</div>
-                        <div class="label">Alta</div>
+            <div class="filter-section">
+                <h3>📅 Filtros Temporales</h3>
+                <div class="filter-group">
+                    <label>Año</label>
+                    <select id="filtro-año"><option value="">Todos los años</option></select>
+                </div>
+                <div class="filter-group">
+                    <label>Trimestre</label>
+                    <select id="filtro-trimestre">
+                        <option value="">Todos</option>
+                        <option value="1">Q1 (Ene-Mar)</option>
+                        <option value="2">Q2 (Abr-Jun)</option>
+                        <option value="3">Q3 (Jul-Sep)</option>
+                        <option value="4">Q4 (Oct-Dic)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3>🏷️ Categoría e Incidentes</h3>
+                <div class="filter-group">
+                    <label>Categoría</label>
+                    <select id="filtro-categoria"><option value="">Todas las categorías</option></select>
+                </div>
+                <div class="filter-group">
+                    <label>Tipos de Incidente <span id="tipos-count" class="tipos-selected-badge">0</span></label>
+                    <div id="tipos-container" class="tipos-container">
+                        <p style="color: #95a5a6; font-size: 12px;">Selecciona una categoría primero</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="value media" id="total-media">--</div>
-                        <div class="label">Media</div>
+                    <div class="tipos-actions">
+                        <button class="btn-select-all" onclick="selectAllTipos()">✓ Todos</button>
+                        <button class="btn-deselect-all" onclick="deselectAllTipos()">✗ Ninguno</button>
                     </div>
-                    <div class="stat-item">
-                        <div class="value baja" id="total-baja">--</div>
-                        <div class="label">Baja</div>
+                </div>
+                <div class="filter-group">
+                    <label>Severidad</label>
+                    <select id="filtro-severidad">
+                        <option value="">Todas</option>
+                        <option value="ALTA">🔴 Alta</option>
+                        <option value="MEDIA">🟡 Media</option>
+                        <option value="BAJA">🟢 Baja</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn-primary" onclick="aplicarFiltros()">🔄 Aplicar Filtros</button>
+            <button class="btn-secondary" onclick="limpiarFiltros()">✖ Limpiar Filtros</button>
+            
+            <div class="stats-section">
+                <h3>📊 Resumen</h3>
+                <div class="stat-card">
+                    <div class="stat-value" id="total-incidentes">--</div>
+                    <div class="stat-label">Incidentes Filtrados</div>
+                    <div class="stat-row">
+                        <div class="stat-item"><div class="value alta" id="total-alta">--</div><div class="label">Alta</div></div>
+                        <div class="stat-item"><div class="value media" id="total-media">--</div><div class="label">Media</div></div>
+                        <div class="stat-item"><div class="value baja" id="total-baja">--</div><div class="label">Baja</div></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="colonias-afectadas">--</div>
+                    <div class="stat-label">Colonias Afectadas</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tab-ranking" class="tab-content">
+            <div class="ranking-config">
+                <h4 class="expand-section" onclick="toggleSection('config-metrica')">📊 Métrica de Ordenamiento</h4>
+                <div id="config-metrica" class="collapsible">
+                    <div class="filter-group">
+                        <select id="ranking-metrica">
+                            <optgroup label="Por Cantidad">
+                                <option value="total">Total de incidentes</option>
+                                <option value="alta">Solo severidad ALTA</option>
+                                <option value="media">Solo severidad MEDIA</option>
+                                <option value="baja">Solo severidad BAJA</option>
+                            </optgroup>
+                            <optgroup label="Por Población (per 1,000 hab)">
+                                <option value="tasa_1k">Tasa total per 1,000 hab</option>
+                                <option value="tasa_alta_1k">Tasa ALTA per 1,000 hab</option>
+                            </optgroup>
+                            <optgroup label="Por Superficie">
+                                <option value="tasa_km2">Densidad por km²</option>
+                            </optgroup>
+                            <optgroup label="Índices Compuestos">
+                                <option value="indice_peligrosidad">Índice Peligrosidad (ALTA×3 + MEDIA×2 + BAJA)</option>
+                                <option value="indice_peligrosidad_1k">Índice Peligrosidad per 1,000 hab</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="config-row">
+                        <div class="filter-group">
+                            <label>Orden</label>
+                            <select id="ranking-direccion">
+                                <option value="desc">Mayor a Menor</option>
+                                <option value="asc">Menor a Mayor</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Top N</label>
+                            <input type="number" id="ranking-limit" value="20" min="5" max="100">
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="stat-card">
-                <div class="stat-value" id="colonias-afectadas">--</div>
-                <div class="stat-label">Colonias Afectadas</div>
+            <div class="ranking-config">
+                <h4 class="expand-section" onclick="toggleSection('config-filtros')">🔍 Filtros del Ranking</h4>
+                <div id="config-filtros" class="collapsible">
+                    <div class="config-row">
+                        <div class="filter-group">
+                            <label>Año</label>
+                            <select id="ranking-año"><option value="">Todos</option></select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Trimestre</label>
+                            <select id="ranking-trimestre">
+                                <option value="">Todos</option>
+                                <option value="1">Q1</option>
+                                <option value="2">Q2</option>
+                                <option value="3">Q3</option>
+                                <option value="4">Q4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="config-row">
+                        <div class="filter-group">
+                            <label>Severidades a incluir</label>
+                            <select id="ranking-severidades" multiple style="height: 60px;">
+                                <option value="ALTA" selected>🔴 Alta</option>
+                                <option value="MEDIA" selected>🟡 Media</option>
+                                <option value="BAJA" selected>🟢 Baja</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Población mínima</label>
+                            <input type="number" id="ranking-pob-min" placeholder="Ej: 1000" min="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ranking-config">
+                <h4 class="expand-section collapsed" onclick="toggleSection('config-categorias')">🏷️ Incluir/Excluir Categorías</h4>
+                <div id="config-categorias" class="collapsible collapsed">
+                    <p class="chip-legend">Click = incluir (verde) | Doble click = excluir (rojo) | Sin color = todas</p>
+                    <div id="ranking-categorias-chips" class="categorias-chips"></div>
+                </div>
+            </div>
+            
+            <div class="ranking-config">
+                <h4 class="expand-section collapsed" onclick="toggleSection('config-tipos')">📋 Incluir/Excluir Tipos Específicos</h4>
+                <div id="config-tipos" class="collapsible collapsed">
+                    <div class="filter-group">
+                        <label>Filtrar tipos de categoría:</label>
+                        <select id="ranking-cat-tipos"><option value="">Selecciona categoría...</option></select>
+                    </div>
+                    <div id="ranking-tipos-chips" class="categorias-chips" style="max-height: 120px;"></div>
+                </div>
+            </div>
+            
+            <button class="btn-primary" onclick="cargarRankingAvanzado()">🔄 Generar Ranking</button>
+            <button class="btn-secondary" onclick="resetearRanking()">✖ Resetear Configuración</button>
+            
+            <div id="ranking-metrica-info" class="metrica-info" style="display: none;"></div>
+            
+            <div id="ranking-container" class="ranking-container">
+                <p style="color: #95a5a6; padding: 20px; text-align: center;">Configura y genera el ranking</p>
             </div>
         </div>
         
-        <!-- Gráfica -->
-        <div id="chart-container">
-            <canvas id="chart-severidad"></canvas>
+        <div id="tab-stats" class="tab-content">
+            <div id="chart-container">
+                <h3 style="color: #3498db; margin-bottom: 15px;">📈 Por Severidad</h3>
+                <canvas id="chart-severidad"></canvas>
+            </div>
         </div>
     </div>
     
-    <!-- Mapa -->
     <div id="map"></div>
     
-    <!-- Leyenda -->
     <div class="legend">
         <h4>Incidentes</h4>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #800026;"></div>
-            <span>Muy Alto (>500)</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #e31a1c;"></div>
-            <span>Alto (200-500)</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #fd8d3c;"></div>
-            <span>Medio (50-200)</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #fed976;"></div>
-            <span>Bajo (10-50)</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #ffffcc;"></div>
-            <span>Muy Bajo (<10)</span>
-        </div>
+        <div class="legend-item"><div class="legend-color" style="background: #800026;"></div><span>Muy Alto (>500)</span></div>
+        <div class="legend-item"><div class="legend-color" style="background: #e31a1c;"></div><span>Alto (200-500)</span></div>
+        <div class="legend-item"><div class="legend-color" style="background: #fd8d3c;"></div><span>Medio (50-200)</span></div>
+        <div class="legend-item"><div class="legend-color" style="background: #fed976;"></div><span>Bajo (10-50)</span></div>
+        <div class="legend-item"><div class="legend-color" style="background: #ffffcc;"></div><span>Muy Bajo (<10)</span></div>
     </div>
     
     <script>
-        // Configuración
         const API_URL = 'http://localhost:5000';
+        let map, geojsonLayer, chart;
+        let tiposPorCategoria = {};
+        let tiposSeleccionados = [];
         
-        // Variables globales
-        let map;
-        let geojsonLayer;
-        let chart;
-        
-        // Inicializar mapa
         function inicializarMapa() {
             map = L.map('map').setView([29.0892, -110.9615], 11);
-            
-            // Capa base
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO',
-                maxZoom: 19
+                attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
             }).addTo(map);
             
-            // Capa oscura (alternativa)
-            const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO',
-                maxZoom: 19
-            });
-            
-            // Control de capas
             L.control.layers({
                 'Claro': L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(map),
-                'Oscuro': darkLayer,
+                'Oscuro': L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'),
                 'Satélite': L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
             }).addTo(map);
         }
         
-        // Obtener color según cantidad de incidentes
         function getColor(total) {
-            return total > 500 ? '#800026' :
-                   total > 200 ? '#bd0026' :
-                   total > 100 ? '#e31a1c' :
-                   total > 50  ? '#fc4e2a' :
-                   total > 20  ? '#fd8d3c' :
-                   total > 10  ? '#feb24c' :
-                   total > 5   ? '#fed976' :
-                   total > 0   ? '#ffffcc' :
-                                 '#cccccc';
+            return total > 500 ? '#800026' : total > 200 ? '#bd0026' : total > 100 ? '#e31a1c' :
+                   total > 50 ? '#fc4e2a' : total > 20 ? '#fd8d3c' : total > 10 ? '#feb24c' :
+                   total > 5 ? '#fed976' : total > 0 ? '#ffffcc' : '#cccccc';
         }
         
-        // Estilo de polígonos
         function estilo(feature) {
-            const total = feature.properties.total_filtrado || 0;
             return {
-                fillColor: getColor(total),
-                weight: 1,
-                opacity: 1,
-                color: '#666',
-                fillOpacity: 0.7
+                fillColor: getColor(feature.properties.total_filtrado || 0),
+                weight: 1, opacity: 1, color: '#666', fillOpacity: 0.7
             };
         }
         
-        // Crear popup HTML
         function crearPopup(props) {
             return `
-                <div class="popup-header">
-                    ${props.colonia || 'Sin nombre'}
-                </div>
+                <div class="popup-header">${props.colonia || 'Sin nombre'}</div>
                 <div class="popup-body">
                     <div class="popup-section">
                         <h4>🚨 Incidentes (Filtrados)</h4>
                         <div class="popup-stats">
-                            <div class="popup-stat">
-                                <div class="value">${(props.total_filtrado || 0).toLocaleString()}</div>
-                                <div class="label">Total</div>
-                            </div>
-                            <div class="popup-stat">
-                                <div class="value alta">${props.alta_filtrado || 0}</div>
-                                <div class="label">Alta</div>
-                            </div>
-                            <div class="popup-stat">
-                                <div class="value media">${props.media_filtrado || 0}</div>
-                                <div class="label">Media</div>
-                            </div>
-                            <div class="popup-stat">
-                                <div class="value baja">${props.baja_filtrado || 0}</div>
-                                <div class="label">Baja</div>
-                            </div>
+                            <div class="popup-stat"><div class="value">${(props.total_filtrado || 0).toLocaleString()}</div><div class="label">Total</div></div>
+                            <div class="popup-stat"><div class="value alta">${props.alta_filtrado || 0}</div><div class="label">Alta</div></div>
+                            <div class="popup-stat"><div class="value media">${props.media_filtrado || 0}</div><div class="label">Media</div></div>
+                            <div class="popup-stat"><div class="value baja">${props.baja_filtrado || 0}</div><div class="label">Baja</div></div>
                         </div>
                     </div>
-                    
                     <div class="popup-section">
                         <h4>📊 Métricas</h4>
                         <div class="popup-stats">
-                            <div class="popup-stat">
-                                <div class="value">${props.tasa_filtrada_per_1k || 'N/A'}</div>
-                                <div class="label">Tasa per 1k</div>
-                            </div>
-                            <div class="popup-stat">
-                                <div class="value">${(props.poblacion || 0).toLocaleString()}</div>
-                                <div class="label">Población</div>
-                            </div>
+                            <div class="popup-stat"><div class="value">${props.tasa_filtrada_per_1k || 'N/A'}</div><div class="label">Tasa per 1k</div></div>
+                            <div class="popup-stat"><div class="value">${(props.poblacion || 0).toLocaleString()}</div><div class="label">Población</div></div>
                         </div>
                     </div>
-                    
                     <div class="popup-section">
                         <h4>📈 Original (sin filtros)</h4>
-                        <p style="color: #7f8c8d; font-size: 12px;">
-                            Total histórico: <strong>${(props.total_original || 0).toLocaleString()}</strong>
-                        </p>
+                        <p style="color: #7f8c8d; font-size: 12px;">Total histórico: <strong>${(props.total_original || 0).toLocaleString()}</strong></p>
                     </div>
-                </div>
-            `;
+                </div>`;
         }
         
-        // Cargar GeoJSON desde la API
         async function cargarGeoJSON(filtros = {}) {
             try {
-                // Construir query string
                 const params = new URLSearchParams();
                 if (filtros.año) params.append('año', filtros.año);
                 if (filtros.trimestre) params.append('trimestre', filtros.trimestre);
                 if (filtros.categoria) params.append('categoria', filtros.categoria);
                 if (filtros.severidad) params.append('severidad', filtros.severidad);
+                if (filtros.tipos && filtros.tipos.length > 0) params.append('tipos', filtros.tipos.join(','));
                 
-                const url = `${API_URL}/api/poligonos/geojson?${params.toString()}`;
-                console.log('Fetching:', url);
-                
-                const response = await fetch(url);
+                const response = await fetch(`${API_URL}/api/poligonos/geojson?${params.toString()}`);
                 const data = await response.json();
                 
-                // Remover capa anterior
-                if (geojsonLayer) {
-                    map.removeLayer(geojsonLayer);
-                }
+                if (geojsonLayer) map.removeLayer(geojsonLayer);
                 
-                // Agregar nueva capa
                 geojsonLayer = L.geoJSON(data, {
                     style: estilo,
                     onEachFeature: (feature, layer) => {
                         layer.bindPopup(crearPopup(feature.properties));
-                        
                         layer.on({
-                            mouseover: (e) => {
-                                e.target.setStyle({
-                                    weight: 3,
-                                    color: '#3498db',
-                                    fillOpacity: 0.9
-                                });
-                            },
-                            mouseout: (e) => {
-                                geojsonLayer.resetStyle(e.target);
-                            }
+                            mouseover: (e) => { e.target.setStyle({ weight: 3, color: '#3498db', fillOpacity: 0.9 }); },
+                            mouseout: (e) => { geojsonLayer.resetStyle(e.target); }
                         });
                     }
                 }).addTo(map);
                 
-                // Actualizar estadísticas
                 actualizarEstadisticas(data.features);
-                
-                return data;
-                
             } catch (error) {
-                console.error('Error cargando GeoJSON:', error);
-                mostrarError('No se pudo conectar al servidor. Asegúrate de que el backend está corriendo.');
+                console.error('Error:', error);
             }
         }
         
-        // Actualizar estadísticas en el sidebar
         function actualizarEstadisticas(features) {
-            let total = 0, alta = 0, media = 0, baja = 0;
-            let coloniasAfectadas = 0;
-            
+            let total = 0, alta = 0, media = 0, baja = 0, coloniasAfectadas = 0;
             features.forEach(f => {
                 const p = f.properties;
                 total += p.total_filtrado || 0;
                 alta += p.alta_filtrado || 0;
                 media += p.media_filtrado || 0;
                 baja += p.baja_filtrado || 0;
-                
                 if (p.total_filtrado > 0) coloniasAfectadas++;
             });
             
@@ -622,120 +530,378 @@
             document.getElementById('total-media').textContent = media.toLocaleString();
             document.getElementById('total-baja').textContent = baja.toLocaleString();
             document.getElementById('colonias-afectadas').textContent = coloniasAfectadas;
-            
-            // Actualizar gráfica
             actualizarGrafica(alta, media, baja);
         }
         
-        // Actualizar gráfica de severidad
         function actualizarGrafica(alta, media, baja) {
             const ctx = document.getElementById('chart-severidad').getContext('2d');
-            
-            if (chart) {
-                chart.destroy();
-            }
-            
+            if (chart) chart.destroy();
             chart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ['Alta', 'Media', 'Baja'],
-                    datasets: [{
-                        data: [alta, media, baja],
-                        backgroundColor: ['#e74c3c', '#f39c12', '#27ae60'],
-                        borderWidth: 0
-                    }]
+                    datasets: [{ data: [alta, media, baja], backgroundColor: ['#e74c3c', '#f39c12', '#27ae60'], borderWidth: 0 }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#bdc3c7',
-                                font: { size: 11 }
-                            }
-                        }
-                    }
-                }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#bdc3c7', font: { size: 11 } } } } }
             });
         }
         
-        // Cargar opciones de filtros desde la API
         async function cargarOpcionesFiltros() {
             try {
                 const response = await fetch(`${API_URL}/api/filtros/opciones`);
                 const data = await response.json();
                 
-                // Años
                 const selectAño = document.getElementById('filtro-año');
                 data.años.forEach(año => {
                     const option = document.createElement('option');
-                    option.value = año;
-                    option.textContent = año;
+                    option.value = año; option.textContent = año;
                     selectAño.appendChild(option);
                 });
                 
-                // Categorías
                 const selectCategoria = document.getElementById('filtro-categoria');
                 data.categorias.forEach(cat => {
                     const option = document.createElement('option');
-                    option.value = cat;
-                    option.textContent = cat;
+                    option.value = cat; option.textContent = cat;
                     selectCategoria.appendChild(option);
                 });
                 
-                // Actualizar estado de conexión
+                tiposPorCategoria = data.tipos_por_categoria || {};
+                
                 document.getElementById('connection-status').className = 'connection-status status-connected';
                 document.getElementById('connection-status').textContent = '✅ Conectado al servidor';
-                
             } catch (error) {
-                console.error('Error cargando opciones:', error);
+                console.error('Error:', error);
                 document.getElementById('connection-status').className = 'connection-status status-disconnected';
                 document.getElementById('connection-status').textContent = '❌ Error de conexión';
             }
         }
         
-        // Aplicar filtros
+        function actualizarTiposIncidente() {
+            const categoria = document.getElementById('filtro-categoria').value;
+            const container = document.getElementById('tipos-container');
+            
+            if (!categoria || !tiposPorCategoria[categoria]) {
+                container.innerHTML = '<p style="color: #95a5a6; font-size: 12px;">Selecciona una categoría para ver los tipos</p>';
+                tiposSeleccionados = [];
+                actualizarContadorTipos();
+                return;
+            }
+            
+            const tipos = tiposPorCategoria[categoria];
+            container.innerHTML = tipos.map(t => `
+                <label class="tipo-item">
+                    <input type="checkbox" value="${t.tipo}" checked onchange="actualizarTiposSeleccionados()">
+                    <span>${t.tipo}</span>
+                    <span class="tipo-count">${t.total.toLocaleString()}</span>
+                </label>
+            `).join('');
+            
+            tiposSeleccionados = tipos.map(t => t.tipo);
+            actualizarContadorTipos();
+        }
+        
+        function actualizarTiposSeleccionados() {
+            const checkboxes = document.querySelectorAll('#tipos-container input[type="checkbox"]');
+            tiposSeleccionados = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+            actualizarContadorTipos();
+        }
+        
+        function actualizarContadorTipos() {
+            document.getElementById('tipos-count').textContent = tiposSeleccionados.length;
+        }
+        
+        function selectAllTipos() {
+            document.querySelectorAll('#tipos-container input[type="checkbox"]').forEach(cb => cb.checked = true);
+            actualizarTiposSeleccionados();
+        }
+        
+        function deselectAllTipos() {
+            document.querySelectorAll('#tipos-container input[type="checkbox"]').forEach(cb => cb.checked = false);
+            actualizarTiposSeleccionados();
+        }
+        
+        async function buscarColonias(query) {
+            if (query.length < 2) { document.getElementById('search-results').classList.remove('show'); return; }
+            try {
+                const response = await fetch(`${API_URL}/api/colonias/buscar?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+                const resultsDiv = document.getElementById('search-results');
+                
+                resultsDiv.innerHTML = data.colonias.length === 0 
+                    ? '<div class="search-result-item">No se encontraron resultados</div>'
+                    : data.colonias.map(c => `
+                        <div class="search-result-item" onclick="irAColonia('${c.cve_col}', '${c.colonia}')">
+                            <div class="colonia-name">${c.colonia}</div>
+                            <div class="colonia-stats">${c.total_incidentes.toLocaleString()} incidentes | ${c.incidentes_alta} graves | Tasa: ${c.tasa_per_1k || 'N/A'}</div>
+                        </div>
+                    `).join('');
+                
+                resultsDiv.classList.add('show');
+            } catch (error) { console.error('Error:', error); }
+        }
+        
+        function irAColonia(cve_col, nombre) {
+            document.getElementById('search-results').classList.remove('show');
+            document.getElementById('buscar-colonia').value = nombre;
+            
+            if (geojsonLayer) {
+                geojsonLayer.eachLayer(layer => {
+                    if (layer.feature.properties.cve_col === cve_col) {
+                        map.fitBounds(layer.getBounds(), { padding: [50, 50] });
+                        layer.openPopup();
+                        layer.setStyle({ weight: 4, color: '#e74c3c', fillOpacity: 0.9 });
+                        setTimeout(() => geojsonLayer.resetStyle(layer), 3000);
+                    }
+                });
+            }
+        }
+        
+        async function cargarRankingAvanzado() {
+            const container = document.getElementById('ranking-container');
+            container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>Calculando ranking...</p></div>';
+            
+            try {
+                const params = new URLSearchParams();
+                
+                // Métrica y orden
+                params.append('metrica', document.getElementById('ranking-metrica').value);
+                params.append('limit', document.getElementById('ranking-limit').value || 20);
+                params.append('ascendente', document.getElementById('ranking-direccion').value === 'asc');
+                
+                // Filtros temporales
+                const año = document.getElementById('ranking-año').value;
+                const trimestre = document.getElementById('ranking-trimestre').value;
+                if (año) params.append('año', año);
+                if (trimestre) params.append('trimestre', trimestre);
+                
+                // Severidades
+                const severidades = Array.from(document.getElementById('ranking-severidades').selectedOptions).map(o => o.value);
+                if (severidades.length > 0 && severidades.length < 3) {
+                    params.append('severidades', severidades.join(','));
+                }
+                
+                // Población mínima
+                const pobMin = document.getElementById('ranking-pob-min').value;
+                if (pobMin) params.append('poblacion_min', pobMin);
+                
+                // Categorías incluidas/excluidas
+                const catIncluir = [], catExcluir = [];
+                document.querySelectorAll('#ranking-categorias-chips .cat-chip').forEach(chip => {
+                    if (chip.classList.contains('included')) catIncluir.push(chip.dataset.cat);
+                    else if (chip.classList.contains('excluded')) catExcluir.push(chip.dataset.cat);
+                });
+                if (catIncluir.length > 0) params.append('categorias_incluir', catIncluir.join(','));
+                if (catExcluir.length > 0) params.append('categorias_excluir', catExcluir.join(','));
+                
+                // Tipos incluidos/excluidos
+                const tiposIncluir = [], tiposExcluir = [];
+                document.querySelectorAll('#ranking-tipos-chips .cat-chip').forEach(chip => {
+                    if (chip.classList.contains('included')) tiposIncluir.push(chip.dataset.tipo);
+                    else if (chip.classList.contains('excluded')) tiposExcluir.push(chip.dataset.tipo);
+                });
+                if (tiposIncluir.length > 0) params.append('tipos_incluir', tiposIncluir.join(','));
+                if (tiposExcluir.length > 0) params.append('tipos_excluir', tiposExcluir.join(','));
+                
+                const response = await fetch(`${API_URL}/api/colonias/ranking?${params.toString()}`);
+                const data = await response.json();
+                
+                // Mostrar info de métrica
+                const metricaInfo = document.getElementById('ranking-metrica-info');
+                metricaInfo.style.display = 'block';
+                metricaInfo.innerHTML = `<strong>📊 ${data.configuracion.metrica_descripcion}</strong> (${data.configuracion.orden})`;
+                
+                // Determinar qué valor mostrar según la métrica
+                const metrica = data.configuracion.metrica;
+                const getMetricaLabel = () => {
+                    const labels = {
+                        'total': 'incidentes', 'alta': 'graves', 'media': 'media', 'baja': 'baja',
+                        'tasa_1k': 'per 1k', 'tasa_alta_1k': 'per 1k', 'tasa_km2': 'per km²',
+                        'indice_peligrosidad': 'puntos', 'indice_peligrosidad_1k': 'per 1k'
+                    };
+                    return labels[metrica] || '';
+                };
+                
+                const getMetricaValue = (r) => {
+                    const vals = {
+                        'total': r.total, 'alta': r.alta, 'media': r.media, 'baja': r.baja,
+                        'tasa_1k': r.tasa_1k, 'tasa_alta_1k': r.tasa_alta_1k, 'tasa_km2': r.tasa_km2,
+                        'indice_peligrosidad': r.indice_peligrosidad, 'indice_peligrosidad_1k': r.indice_peligrosidad_1k
+                    };
+                    const v = vals[metrica];
+                    return typeof v === 'number' ? (v % 1 === 0 ? v.toLocaleString() : v.toFixed(2)) : v;
+                };
+                
+                container.innerHTML = data.ranking.length === 0 
+                    ? '<p style="color: #95a5a6; padding: 20px;">No hay datos con estos filtros</p>'
+                    : data.ranking.map(r => `
+                        <div class="ranking-item" onclick="irAColonia('${r.cve_col}', '${r.colonia}')" title="Pob: ${(r.poblacion || 0).toLocaleString()} | Sup: ${r.superficie_km2 || 'N/A'} km²">
+                            <div class="ranking-pos ${r.posicion <= 3 ? 'top3' : ''}">${r.posicion}</div>
+                            <div class="ranking-info">
+                                <div class="colonia">${r.colonia}</div>
+                                <div class="stats">
+                                    <span class="alta">🔴${r.alta}</span> 
+                                    <span class="media">🟡${r.media}</span> 
+                                    <span class="baja">🟢${r.baja}</span> 
+                                    | T:${r.tasa_1k}/1k | D:${r.tasa_km2}/km²
+                                </div>
+                            </div>
+                            <div class="ranking-total">
+                                <div class="value">${getMetricaValue(r)}</div>
+                                <div class="label">${getMetricaLabel()}</div>
+                            </div>
+                        </div>
+                    `).join('');
+            } catch (error) {
+                console.error('Error:', error);
+                container.innerHTML = '<p style="color: #e74c3c; padding: 20px;">Error al cargar el ranking</p>';
+            }
+        }
+        
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            const header = section.previousElementSibling;
+            section.classList.toggle('collapsed');
+            header.classList.toggle('collapsed');
+        }
+        
+        function configurarCategoriasChips() {
+            const container = document.getElementById('ranking-categorias-chips');
+            const categorias = Object.keys(tiposPorCategoria);
+            
+            container.innerHTML = categorias.map(cat => 
+                `<span class="cat-chip" data-cat="${cat}" onclick="toggleCatChip(this)" ondblclick="toggleCatChipExclude(this)">${cat}</span>`
+            ).join('');
+        }
+        
+        function toggleCatChip(chip) {
+            if (chip.classList.contains('excluded')) {
+                chip.classList.remove('excluded');
+            } else if (chip.classList.contains('included')) {
+                chip.classList.remove('included');
+            } else {
+                chip.classList.add('included');
+            }
+        }
+        
+        function toggleCatChipExclude(chip) {
+            chip.classList.remove('included');
+            chip.classList.toggle('excluded');
+        }
+        
+        function configurarRankingTipos() {
+            const select = document.getElementById('ranking-cat-tipos');
+            select.innerHTML = '<option value="">Selecciona categoría...</option>' +
+                Object.keys(tiposPorCategoria).map(cat => `<option value="${cat}">${cat}</option>`).join('');
+            
+            select.addEventListener('change', () => {
+                const cat = select.value;
+                const container = document.getElementById('ranking-tipos-chips');
+                
+                if (!cat || !tiposPorCategoria[cat]) {
+                    container.innerHTML = '<p style="color: #95a5a6; font-size: 11px;">Selecciona una categoría</p>';
+                    return;
+                }
+                
+                container.innerHTML = tiposPorCategoria[cat].map(t => 
+                    `<span class="cat-chip" data-tipo="${t.tipo}" onclick="toggleCatChip(this)" ondblclick="toggleCatChipExclude(this)" title="${t.total.toLocaleString()} incidentes">${t.tipo.substring(0, 25)}${t.tipo.length > 25 ? '...' : ''}</span>`
+                ).join('');
+            });
+        }
+        
+        function resetearRanking() {
+            document.getElementById('ranking-metrica').value = 'total';
+            document.getElementById('ranking-direccion').value = 'desc';
+            document.getElementById('ranking-limit').value = 20;
+            document.getElementById('ranking-año').value = '';
+            document.getElementById('ranking-trimestre').value = '';
+            document.getElementById('ranking-pob-min').value = '';
+            
+            // Resetear severidades
+            Array.from(document.getElementById('ranking-severidades').options).forEach(o => o.selected = true);
+            
+            // Resetear chips
+            document.querySelectorAll('.cat-chip').forEach(chip => {
+                chip.classList.remove('included', 'excluded');
+            });
+            
+            document.getElementById('ranking-metrica-info').style.display = 'none';
+            document.getElementById('ranking-container').innerHTML = '<p style="color: #95a5a6; padding: 20px; text-align: center;">Configura y genera el ranking</p>';
+        }
+        
+        function configurarRankingAños() {
+            const select = document.getElementById('ranking-año');
+            const años = Array.from(document.getElementById('filtro-año').options)
+                .filter(o => o.value)
+                .map(o => o.value);
+            
+            años.forEach(año => {
+                const option = document.createElement('option');
+                option.value = año;
+                option.textContent = año;
+                select.appendChild(option);
+            });
+        }
+        
         function aplicarFiltros() {
+            const categoria = document.getElementById('filtro-categoria').value;
+            const tiposTotal = tiposPorCategoria[categoria]?.length || 0;
+            
             const filtros = {
                 año: document.getElementById('filtro-año').value,
                 trimestre: document.getElementById('filtro-trimestre').value,
-                categoria: document.getElementById('filtro-categoria').value,
-                severidad: document.getElementById('filtro-severidad').value
+                categoria: categoria,
+                severidad: document.getElementById('filtro-severidad').value,
+                tipos: (tiposSeleccionados.length > 0 && tiposSeleccionados.length < tiposTotal) ? tiposSeleccionados : []
             };
             
-            console.log('Aplicando filtros:', filtros);
             cargarGeoJSON(filtros);
         }
         
-        // Limpiar filtros
         function limpiarFiltros() {
             document.getElementById('filtro-año').value = '';
             document.getElementById('filtro-trimestre').value = '';
             document.getElementById('filtro-categoria').value = '';
             document.getElementById('filtro-severidad').value = '';
-            
+            document.getElementById('buscar-colonia').value = '';
+            tiposSeleccionados = [];
+            document.getElementById('tipos-container').innerHTML = '<p style="color: #95a5a6; font-size: 12px;">Selecciona una categoría</p>';
+            actualizarContadorTipos();
             cargarGeoJSON({});
         }
         
-        // Mostrar error
-        function mostrarError(mensaje) {
-            alert(mensaje);
+        function configurarTabs() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(`tab-${tab.dataset.tab}`).classList.add('active');
+                });
+            });
         }
         
-        // Inicializar aplicación
+        function configurarBusqueda() {
+            const input = document.getElementById('buscar-colonia');
+            let timeout;
+            input.addEventListener('input', (e) => { clearTimeout(timeout); timeout = setTimeout(() => buscarColonias(e.target.value), 300); });
+            input.addEventListener('focus', () => { if (input.value.length >= 2) document.getElementById('search-results').classList.add('show'); });
+            document.addEventListener('click', (e) => { if (!e.target.closest('.search-box')) document.getElementById('search-results').classList.remove('show'); });
+        }
+        
         async function init() {
-            console.log('Iniciando aplicación...');
-            
             inicializarMapa();
+            configurarTabs();
+            configurarBusqueda();
+            document.getElementById('filtro-categoria').addEventListener('change', actualizarTiposIncidente);
             await cargarOpcionesFiltros();
             await cargarGeoJSON({});
             
-            console.log('Aplicación lista');
+            // Configurar ranking avanzado
+            configurarCategoriasChips();
+            configurarRankingTipos();
+            configurarRankingAños();
         }
         
-        // Ejecutar al cargar
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>

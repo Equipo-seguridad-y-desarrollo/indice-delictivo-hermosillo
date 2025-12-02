@@ -33,7 +33,7 @@ def obtener_opciones_filtros():
     
     Retorna:
         - años: lista de años disponibles
-        - categorias: lista de categorías
+        - categorias: lista de categorías con sus tipos de incidentes
         - severidades: lista de niveles de severidad
         - partes_dia: partes del día
     """
@@ -48,6 +48,25 @@ def obtener_opciones_filtros():
     cursor.execute("SELECT DISTINCT categoria FROM incidentes WHERE categoria IS NOT NULL ORDER BY categoria")
     categorias = [row[0] for row in cursor.fetchall()]
     
+    # Tipos de incidentes agrupados por categoría
+    cursor.execute('''
+        SELECT categoria, tipo_incidente, COUNT(*) as total
+        FROM incidentes
+        WHERE categoria IS NOT NULL AND tipo_incidente IS NOT NULL
+        GROUP BY categoria, tipo_incidente
+        ORDER BY categoria, total DESC
+    ''')
+    
+    tipos_por_categoria = {}
+    for row in cursor.fetchall():
+        cat = row['categoria']
+        if cat not in tipos_por_categoria:
+            tipos_por_categoria[cat] = []
+        tipos_por_categoria[cat].append({
+            'tipo': row['tipo_incidente'],
+            'total': row['total']
+        })
+    
     # Severidades
     cursor.execute("SELECT DISTINCT severidad FROM incidentes WHERE severidad IS NOT NULL ORDER BY severidad")
     severidades = [row[0] for row in cursor.fetchall()]
@@ -61,9 +80,270 @@ def obtener_opciones_filtros():
     return jsonify({
         'años': años,
         'categorias': categorias,
+        'tipos_por_categoria': tipos_por_categoria,
         'severidades': severidades,
         'partes_dia': partes_dia,
         'trimestres': [1, 2, 3, 4]
+    })
+
+
+@app.route('/api/colonias/buscar', methods=['GET'])
+def buscar_colonias():
+    """
+    Buscar colonias por nombre
+    
+    Parámetros:
+        - q: texto de búsqueda
+        - limit: número máximo de resultados (default 20)
+    """
+    q = request.args.get('q', '')
+    limit = request.args.get('limit', 20, type=int)
+    
+    if len(q) < 2:
+        return jsonify({'colonias': [], 'mensaje': 'Ingresa al menos 2 caracteres'})
+    
+    conn = get_db()
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        SELECT cve_col, colonia, total_incidentes, incidentes_alta, 
+               poblacion_total, tasa_incidentes_per_1k
+        FROM poligonos
+        WHERE colonia LIKE ?
+        ORDER BY total_incidentes DESC
+        LIMIT ?
+    ''', (f'%{q.upper()}%', limit))
+    
+    colonias = []
+    for row in cursor.fetchall():
+        colonias.append({
+            'cve_col': row['cve_col'],
+            'colonia': row['colonia'],
+            'total_incidentes': row['total_incidentes'],
+            'incidentes_alta': row['incidentes_alta'],
+            'poblacion': row['poblacion_total'],
+            'tasa_per_1k': round(row['tasa_incidentes_per_1k'], 2) if row['tasa_incidentes_per_1k'] else None
+        })
+    
+    conn.close()
+    
+    return jsonify({'colonias': colonias, 'total': len(colonias)})
+
+
+@app.route('/api/colonias/ranking', methods=['GET'])
+def ranking_colonias():
+    """
+    Obtener ranking de colonias personalizable
+    
+    Parámetros de filtro:
+        - año: filtrar por año (opcional)
+        - trimestre: filtrar por trimestre 1-4 (opcional)
+        - categorias_incluir: categorías a incluir separadas por coma (opcional)
+        - categorias_excluir: categorías a excluir separadas por coma (opcional)
+        - tipos_incluir: tipos de incidentes a incluir (opcional)
+        - tipos_excluir: tipos de incidentes a excluir (opcional)
+        - severidades: severidades a incluir ALTA,MEDIA,BAJA (opcional)
+        - poblacion_min: población mínima de la colonia (opcional)
+        
+    Parámetros de métrica:
+        - metrica: tipo de métrica para ordenar
+            * 'total': total de incidentes (default)
+            * 'alta': solo incidentes de severidad alta
+            * 'media': solo incidentes de severidad media
+            * 'baja': solo incidentes de severidad baja
+            * 'tasa_1k': incidentes por cada 1,000 habitantes
+            * 'tasa_km2': incidentes por km² (densidad espacial)
+            * 'tasa_alta_1k': incidentes ALTA por cada 1,000 hab
+            * 'indice_peligrosidad': índice ponderado (alta*3 + media*2 + baja)
+            * 'indice_peligrosidad_1k': índice ponderado per 1,000 hab
+        
+        - limit: número de resultados (default: 20)
+        - ascendente: ordenar de menor a mayor (default: false)
+    """
+    # Parámetros de filtro
+    año = request.args.get('año', type=int)
+    trimestre = request.args.get('trimestre', type=int)
+    categorias_incluir = request.args.get('categorias_incluir')
+    categorias_excluir = request.args.get('categorias_excluir')
+    tipos_incluir = request.args.get('tipos_incluir')
+    tipos_excluir = request.args.get('tipos_excluir')
+    severidades = request.args.get('severidades')
+    poblacion_min = request.args.get('poblacion_min', type=int)
+    
+    # Parámetros de métrica
+    metrica = request.args.get('metrica', 'total')
+    limit = request.args.get('limit', 20, type=int)
+    ascendente = request.args.get('ascendente', 'false').lower() == 'true'
+    
+    conn = get_db()
+    cursor = conn.cursor()
+    
+    # Construir filtros
+    conditions = ["i.cve_col IS NOT NULL"]
+    params = []
+    
+    if año:
+        conditions.append("i.año = ?")
+        params.append(año)
+    
+    if trimestre:
+        conditions.append("i.trimestre = ?")
+        params.append(trimestre)
+    
+    if categorias_incluir:
+        cat_list = [c.strip() for c in categorias_incluir.split(',')]
+        placeholders = ','.join(['?' for _ in cat_list])
+        conditions.append(f"i.categoria IN ({placeholders})")
+        params.extend(cat_list)
+    
+    if categorias_excluir:
+        cat_list = [c.strip() for c in categorias_excluir.split(',')]
+        placeholders = ','.join(['?' for _ in cat_list])
+        conditions.append(f"i.categoria NOT IN ({placeholders})")
+        params.extend(cat_list)
+    
+    if tipos_incluir:
+        tipos_list = [t.strip() for t in tipos_incluir.split(',')]
+        placeholders = ','.join(['?' for _ in tipos_list])
+        conditions.append(f"i.tipo_incidente IN ({placeholders})")
+        params.extend(tipos_list)
+    
+    if tipos_excluir:
+        tipos_list = [t.strip() for t in tipos_excluir.split(',')]
+        placeholders = ','.join(['?' for _ in tipos_list])
+        conditions.append(f"i.tipo_incidente NOT IN ({placeholders})")
+        params.extend(tipos_list)
+    
+    if severidades:
+        sev_list = [s.strip().upper() for s in severidades.split(',')]
+        placeholders = ','.join(['?' for _ in sev_list])
+        conditions.append(f"i.severidad IN ({placeholders})")
+        params.extend(sev_list)
+    
+    where_clause = " AND ".join(conditions)
+    
+    # Condición de población mínima (se aplica en HAVING)
+    having_clause = ""
+    if poblacion_min:
+        having_clause = f"HAVING p.poblacion_total >= {poblacion_min}"
+    
+    # Mapeo de métricas a columnas SQL
+    metricas_sql = {
+        'total': 'total',
+        'alta': 'alta',
+        'media': 'media',
+        'baja': 'baja',
+        'tasa_1k': 'tasa_1k',
+        'tasa_km2': 'tasa_km2',
+        'tasa_alta_1k': 'tasa_alta_1k',
+        'indice_peligrosidad': 'indice_peligrosidad',
+        'indice_peligrosidad_1k': 'indice_peligrosidad_1k'
+    }
+    
+    order_col = metricas_sql.get(metrica, 'total')
+    order_dir = "ASC" if ascendente else "DESC"
+    
+    params.append(limit)
+    
+    cursor.execute(f'''
+        SELECT 
+            i.cve_col,
+            p.colonia,
+            p.poblacion_total,
+            p.area_km2,
+            COUNT(*) as total,
+            SUM(CASE WHEN i.severidad = 'ALTA' THEN 1 ELSE 0 END) as alta,
+            SUM(CASE WHEN i.severidad = 'MEDIA' THEN 1 ELSE 0 END) as media,
+            SUM(CASE WHEN i.severidad = 'BAJA' THEN 1 ELSE 0 END) as baja,
+            
+            -- Tasas por población
+            CASE WHEN p.poblacion_total > 0 
+                 THEN ROUND(CAST(COUNT(*) AS FLOAT) / p.poblacion_total * 1000, 2)
+                 ELSE 0 END as tasa_1k,
+            
+            CASE WHEN p.poblacion_total > 0 
+                 THEN ROUND(CAST(SUM(CASE WHEN i.severidad = 'ALTA' THEN 1 ELSE 0 END) AS FLOAT) / p.poblacion_total * 1000, 2)
+                 ELSE 0 END as tasa_alta_1k,
+            
+            -- Tasa por superficie
+            CASE WHEN p.area_km2 > 0 
+                 THEN ROUND(CAST(COUNT(*) AS FLOAT) / p.area_km2, 2)
+                 ELSE 0 END as tasa_km2,
+            
+            -- Índice de peligrosidad ponderado
+            (SUM(CASE WHEN i.severidad = 'ALTA' THEN 3 ELSE 0 END) +
+             SUM(CASE WHEN i.severidad = 'MEDIA' THEN 2 ELSE 0 END) +
+             SUM(CASE WHEN i.severidad = 'BAJA' THEN 1 ELSE 0 END)) as indice_peligrosidad,
+             
+            -- Índice de peligrosidad por 1k habitantes
+            CASE WHEN p.poblacion_total > 0 
+                 THEN ROUND(
+                     CAST(
+                         SUM(CASE WHEN i.severidad = 'ALTA' THEN 3 ELSE 0 END) +
+                         SUM(CASE WHEN i.severidad = 'MEDIA' THEN 2 ELSE 0 END) +
+                         SUM(CASE WHEN i.severidad = 'BAJA' THEN 1 ELSE 0 END)
+                     AS FLOAT) / p.poblacion_total * 1000, 2)
+                 ELSE 0 END as indice_peligrosidad_1k
+            
+        FROM incidentes i
+        JOIN poligonos p ON i.cve_col = p.cve_col
+        WHERE {where_clause}
+        GROUP BY i.cve_col, p.colonia, p.poblacion_total, p.area_km2
+        {having_clause}
+        ORDER BY {order_col} {order_dir}
+        LIMIT ?
+    ''', params)
+    
+    ranking = []
+    for i, row in enumerate(cursor.fetchall(), 1):
+        ranking.append({
+            'posicion': i,
+            'cve_col': row['cve_col'],
+            'colonia': row['colonia'],
+            'poblacion': row['poblacion_total'],
+            'superficie_km2': row['area_km2'],
+            'total': row['total'],
+            'alta': row['alta'],
+            'media': row['media'],
+            'baja': row['baja'],
+            'tasa_1k': row['tasa_1k'],
+            'tasa_alta_1k': row['tasa_alta_1k'],
+            'tasa_km2': row['tasa_km2'],
+            'indice_peligrosidad': row['indice_peligrosidad'],
+            'indice_peligrosidad_1k': row['indice_peligrosidad_1k'],
+            'metrica_valor': row[order_col]  # Valor de la métrica usada para ordenar
+        })
+    
+    conn.close()
+    
+    return jsonify({
+        'ranking': ranking,
+        'configuracion': {
+            'metrica': metrica,
+            'metrica_descripcion': {
+                'total': 'Total de incidentes',
+                'alta': 'Incidentes de severidad ALTA',
+                'media': 'Incidentes de severidad MEDIA',
+                'baja': 'Incidentes de severidad BAJA',
+                'tasa_1k': 'Incidentes por cada 1,000 habitantes',
+                'tasa_km2': 'Incidentes por km² (densidad)',
+                'tasa_alta_1k': 'Incidentes ALTA por cada 1,000 hab',
+                'indice_peligrosidad': 'Índice ponderado (ALTA×3 + MEDIA×2 + BAJA×1)',
+                'indice_peligrosidad_1k': 'Índice ponderado per 1,000 hab'
+            }.get(metrica, metrica),
+            'orden': 'ascendente' if ascendente else 'descendente',
+            'limit': limit
+        },
+        'filtros_aplicados': {
+            'año': año,
+            'trimestre': trimestre,
+            'categorias_incluir': categorias_incluir.split(',') if categorias_incluir else None,
+            'categorias_excluir': categorias_excluir.split(',') if categorias_excluir else None,
+            'tipos_incluir': tipos_incluir.split(',') if tipos_incluir else None,
+            'tipos_excluir': tipos_excluir.split(',') if tipos_excluir else None,
+            'severidades': severidades.split(',') if severidades else None,
+            'poblacion_min': poblacion_min
+        }
     })
 
 
@@ -331,12 +611,14 @@ def obtener_geojson():
     
     Parámetros de filtro:
         - año, trimestre, categoria, severidad
+        - tipos: lista de tipos de incidentes separados por coma
     """
     
     año = request.args.get('año', type=int)
     trimestre = request.args.get('trimestre', type=int)
     categoria = request.args.get('categoria')
     severidad = request.args.get('severidad')
+    tipos = request.args.get('tipos')  # "tipo1,tipo2,tipo3"
     
     conn = get_db()
     cursor = conn.cursor()
@@ -357,6 +639,11 @@ def obtener_geojson():
     if severidad and severidad != 'todas':
         conditions.append("severidad = ?")
         params.append(severidad)
+    if tipos:
+        tipos_list = [t.strip() for t in tipos.split(',')]
+        placeholders = ','.join(['?' for _ in tipos_list])
+        conditions.append(f"tipo_incidente IN ({placeholders})")
+        params.extend(tipos_list)
     
     where_clause = " AND ".join(conditions) if conditions else "1=1"
     
