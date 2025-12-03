@@ -20,6 +20,11 @@
 # Excluir archivos de caché de geocodificación
 *_geocache.json
 
+# Excluir bases de datos SQLite
+*.db
+*.sqlite
+*.sqlite3
+
 # Mac OS-specific storage files
 .DS_Store
 
